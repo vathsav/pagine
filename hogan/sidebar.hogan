@@ -1,0 +1,44 @@
+<div class="widget">
+    <div class="side_title"><span>About</span></div>
+    <div class="sidebar_hr"></div>
+    <p>Welcome to my blog! I am Vathsav - a programmer, designer, and a hardware and gaming enthusiast. I'm currently pursuing my Bachelor's Degree in Computer Science and Engineering at SASTRA University, India.</p>
+    <p style="text-align: center;"><a href="about">Learn more about me</a>.</p>
+    <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/0/108030537486921591756" data-rel="author"></div>
+</div>
+<div class="widget">
+    <div class="side_title"><span>Subscribe</span></div>
+    <div class="sidebar_hr"></div>
+    <p>Subscribe and receive updates for new posts!</p>
+    <form id="subscribe" action="#" method="post">
+        <div class="input">
+            <input type="text" id="subscribe_email" placeholder="Email Address">
+        </div>
+        <div class="button_subscribe">
+            <input type="button" id="subscribe_submit" onclick="subscribe()" value="Subscribe">
+        </div>
+    </form>
+</div>
+<div class="widget">
+    <div class="side_title"><span>Categories</span></div>
+    <div class="sidebar_hr"></div>
+    <div class="categories">
+        <ul>
+            <li><a href="../categories/android">Android</a></li>
+            <li><a href="../categories/arduino">Arduino</a></li>
+            <li><a href="../categories/particle_core">Particle Core</a></li>
+            <li><a href="../categories/processing">Processing</a></li>
+        </ul>
+    </div>
+</div>
+<div class="widget">
+    <div class="side_title"><span>Connect</span></div>
+    <div class="sidebar_hr" style="margin-bottom: 8px;"></div>
+    <p>
+        <a href="https://www.facebook.com/vathsavh" target="_blank"><img src="../svg/social/facebook.svg"></a>
+        <a href="https://plus.google.com/u/0/+VathsavHarikrishnan" target="_blank"><img src="../svg/social/google.svg"></a>
+        <a href="https://twitter.com/vathsav_h" target="_blank"><img src="../svg/social/twitter.svg"></a>
+        <a href="https://www.linkedin.com/in/vathsav" target="_blank"><img src="../svg/social/linkedin.svg"></a>
+        <a href="https://github.com/vathsav" target="_blank"><img src="../svg/social/github_light.svg"></a>
+        <a href="https://instagram.com/vathsavh/" target="_blank"><img src="../svg/social/instagram.svg"></a>
+    </p>
+</div>

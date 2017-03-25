@@ -1,0 +1,8 @@
+<div class="post_title"><a href="{{url}}">{{title}}</a></div>
+<div class="post_date">{{date}}</div>
+<a href="{{url}}"><img src="{{image}}"></a>
+<p>{{caption}}</p>
+<br>
+<div class="read_more">
+    <a href="{{url}}">Continue Reading</a>
+</div>

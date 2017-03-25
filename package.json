@@ -1,0 +1,27 @@
+{
+  "name": "vathsav.com",
+  "version": "0.1.0",
+  "description": "Personal Website of Vathsav Harikrishnan",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vathsav/yet-to-create.git"
+  },
+  "keywords": [
+    "vathsav",
+    "harikrishnan",
+    "website"
+  ],
+  "author": "Vathsav Harikrishnan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vathsav/yet-to-create/issues"
+  },
+  "homepage": "https://github.com/vathsav/yet-to-create#readme",
+  "dependencies": {
+    "hogan.js": "^3.0.2"
+  }
+}
