@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vathsav/yet-to-create.git"
+    "url": "git+https://github.com/vathsav/pagine.git"
   },
   "keywords": [
     "vathsav",
@@ -18,9 +18,9 @@
   "author": "Vathsav Harikrishnan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vathsav/yet-to-create/issues"
+    "url": "git+https://github.com/vathsav/pagine/issues"
   },
-  "homepage": "https://github.com/vathsav/yet-to-create#readme",
+  "homepage": "https://github.com/vathsav/pagine#readme",
   "dependencies": {
     "hogan.js": "^3.0.2"
   }
