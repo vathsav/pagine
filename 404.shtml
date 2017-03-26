@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vathsav | Page Not Found</title>
+		<meta name="author" content="Vathsav Harikrishnan" />
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+		<style>
+			body, html {
+				background: #212121;
+			}
+			
+			.container {
+				text-align: center;
+			}
+			
+			.content {
+				font-family: 'Raleway', sans-serif;
+				margin: 0 auto;
+				width: 75%;
+				margin-top: 35vh;
+				color: #E0E0E0;
+			}
+			
+			.content p {
+				font-size: 25px;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #e53935;
+			}
+			
+			.big_text {
+				font-size: 75px;
+			}
+
+			/* Selection Text  */
+
+			::-moz-selection {
+			    color: #FFFFFF;
+			    background: #ef5350;
+			}
+			
+			::selection {
+				color: #FFFFFF;
+			    background: #ef5350;
+			}		
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<div class="big_text"><a href="http://en.wikipedia.org/wiki/HTTP_404">404</a> <b>error!</b></div>
+				<p>Oops! The page you requested doesn't exist!</p>
+				<p>If you think it should be here, <a href="http://www.vathsav.com/index.html#contact">let me know</a>.</p>
+				<p>Would you like to go to the <a href="http://www.vathsav.com">homepage</a> instead?</p>
+			</div>
+		<div>
+	</body>
+</html>
