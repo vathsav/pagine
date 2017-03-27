@@ -145,32 +145,11 @@ a .nav_contact:hover {
 	width: 70%;
 }
 
-.footer .widget_title_home span {
-	font-size: 25px;
-	color: #FFF;
-	padding-bottom: 2px;
-	border-bottom: 2px solid #e53935;
-}
-
-.footer .widget_title_blog span {
-	font-size: 25px;
-	color: #FFF;
-	padding-bottom: 2px;
-	border-bottom: 2px solid #1565C0;
-}
-
 .footer .widget_title_portfolio span {
 	font-size: 25px;
 	color: #FFF;
 	padding-bottom: 2px;
 	border-bottom: 2px solid #00C853;
-}
-
-.footer .widget_title_about span {
-	font-size: 25px;
-	color: #FFF;
-	padding-bottom: 2px;
-	border-bottom: 2px solid #F9A825;
 }
 
 .footer p {
@@ -220,63 +199,12 @@ a .nav_contact:hover {
 	float: left;
 }
 
-.widget .button_home input {
-	margin-top: 15px;
-	font-family: 'Montserrat', sans-serif;
-	width: 30%;
-	height: 40px;
-	background-color: #e53935;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	font-weight: 800;
-	border: none;
-	border-radius: 0 3px 3px 0;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-	text-align: center;
-}
-
-.widget .button_blog input {
-	margin-top: 15px;
-	font-family: 'Montserrat', sans-serif;
-	width: 30%;
-	height: 40px;
-	background-color: #1565C0;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	font-weight: 800;
-	border: none;
-	border-radius: 0 3px 3px 0;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-	text-align: center;
-}
-
 .widget .button_portfolio input {
 	margin-top: 15px;
 	font-family: 'Montserrat', sans-serif;
 	width: 30%;
 	height: 40px;
 	background-color: #00C853;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	font-weight: 800;
-	border: none;
-	border-radius: 0 3px 3px 0;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-	text-align: center;
-}
-
-.widget .button_about input {
-	margin-top: 15px;
-	font-family: 'Montserrat', sans-serif;
-	width: 30%;
-	height: 40px;
-	background-color: #F9A825;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	font-weight: 800;

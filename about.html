@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vathsav | About</title>
+		<meta name="author" content="Vathsav Harikrishnan" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/about.css">
+	  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+		<script src="node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="inner">
+					<nav>
+						<!--form id="search" action="#" method="post">
+							<div id="label">
+								<label for="search-terms" id="search-label">search</label>
+							</div>
+							<div id="input">
+								<input type="text" name="search-terms" id="search-terms" placeholder="Enter search terms.">
+							</div>
+            			</form-->
+            			<a href="index"><span class="nav_home">Home</span></a>
+						<a href="blog"><span class="nav_blog">Blog</span></a>
+						<a href="portfolio"><span class="nav_portfolio">Portfolio</span></a>
+						<a href="about" style="color: #F9A825;"><span class="nav_about">{ About }</span></a>
+						<a href="index#contact"><span class="nav_contact">Contact</span></a>
+					</nav>
+				</div>
+			</div>
+
+			<div class="main">
+				<div class="large_text">Hello, you.</div>
+				<p>I'm Vathsav Harikrishnan - a 21 year old programmer, designer, and a hardware and gaming enthusiast. I'm currently an intern at <a href="http://www.densitydesign.org" target="_blank">DensityDesign</a> in Milan, Italy, and am pursuing my final year in Computer Science and Engineering at SASTRA University, India. I have also completed the <a href="https://www.udacity.com/course/android-developer-nanodegree--nd801" target="_blank">Android Developer Nanodegree</a> offered by <a href="https://www.udacity.com" target="_blank">Udacity</a>.<p>
+
+				<p>I discovered the joy of programming when I was 11, and it's been my passion ever since. I enjoy developing products and the process of building them fascinates me.</p>
+
+				<p>I also love photography, videography and I occasionally play the guitar. This website is essentially my hub where I write about the stuff I work on and it will occasionally be an expression of my take on life. Check out my <a href="portfolio">portfolio</a> and <a href="blog">blog</a> to see what I've been up to.</p>
+
+				<div class="get_in_touch">
+					<p>
+						<a href="https://www.facebook.com/vathsavh" target="_blank"><img src="../svg/social/facebook.svg"></a>
+						<a href="https://plus.google.com/u/0/+VathsavHarikrishnan" target="_blank"><img src="../svg/social/google.svg"></a>
+						<a href="https://twitter.com/vathsav_h" target="_blank"><img src="../svg/social/twitter.svg"></a>
+						<a href="https://www.linkedin.com/in/vathsav" target="_blank"><img src="../svg/social/linkedin.svg"></a>
+						<a href="https://github.com/vathsav" target="_blank"><img src="../svg/social/github_light.svg"></a>
+						<a href="https://instagram.com/vathsavh/" target="_blank"><img src="../svg/social/instagram.svg"></a>
+					</p>
+				</div>
+
+				<p>Want to say hi? Here are a few ways to get in touch with me, or fill out the <a href="index#contact">contact</a> form if you'd like to report any bugs.</p>
+
+				<div class="resume">
+					<!-- <p><a href="">Download my Resume</a></p> -->
+				</div>
+
+				<!-- Popover  -->
+				<div id="holder" class="holder">
+						<div class="popup">
+								<span class="close">&times;</span>
+								<p id="popup_content"></p>
+						</div>
+				</div>
+			</div>
+
+			<div class="footer" id="footer">
+
+		</div>
+		<div class="about_scroll">
+			<a class="scroll_to_top" href="#">Top</a>
+		</div>
+
+		<!-- Load Templates -->
+    <script src="templates/footer.js"></script>
+
+		<script>
+				document.getElementById('footer').innerHTML = templates['footer'].render();
+		</script>
+		<!-- JS Imports -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/analytics.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/effects.js"></script>
+		<script src="js/subscribe.js"></script>
+	</body>
+</html>

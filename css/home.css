@@ -335,6 +335,13 @@ p {
 	transform: rotate(0deg);
 }
 
+.footer .widget_title span {
+	font-size: 25px;
+	color: #FFF;
+	padding-bottom: 2px;
+	border-bottom: 2px solid #e53935;
+}
+
 .footer .copyright_info a {
 	text-decoration: none;
 	color: #d32f2f;
@@ -351,6 +358,23 @@ p {
 
 .footer a:hover {
 	color: #e53935;
+}
+
+.widget .button input {
+	margin-top: 15px;
+	font-family: 'Montserrat', sans-serif;
+	width: 30%;
+	height: 40px;
+	background-color: #e53935;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: 800;
+	border: none;
+	border-radius: 0 3px 3px 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	text-align: center;
 }
 
 p a {

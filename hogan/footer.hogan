@@ -1,6 +1,6 @@
 <div class="inner">
     <div class="widget">
-        <div class="widget_title_home"><span>Quick Links</span></div>
+        <div class="widget_title"><span>Quick Links</span></div>
         <div class="footer_hr"></div>
         <p>
             <a href="archive">Archive</a><br>
@@ -10,7 +10,7 @@
         </p>
     </div>
     <div class="widget">
-        <div class="widget_title_home"><span>Socialize</span></div>
+        <div class="widget_title"><span>Socialize</span></div>
         <div class="footer_hr"></div>
         <p>
             <a href="https://www.facebook.com/vathsavh" target="_blank"><img src="../svg/social/facebook.svg"></a>
@@ -22,13 +22,13 @@
         </p>
     </div>
     <div class="widget">
-        <div class="widget_title_home"><span>Subscribe</span></div>
+        <div class="widget_title"><span>Subscribe</span></div>
         <div class="footer_hr"></div>
         <form id="subscribe" onsubmit="return false">
             <div class="subscribe_field">
                 <input type="text" id="subscribe_email" placeholder="Email Address">
             </div>
-            <div class="button_home">
+            <div class="button">
                 <input type="button" onclick="subscribe()" value="Go">
             </div>
         </form>
@@ -36,5 +36,5 @@
 </div>
 
 <div class="copyright_info">
-    &copy; 2014-2017 <a class="a_home" href="http://www.vathsav.com">vathsav.com</a> | Vathsav Harikrishnan
+    &copy; 2014-2017 <a href="http://www.vathsav.com">vathsav.com</a> | Vathsav Harikrishnan
 </div>
