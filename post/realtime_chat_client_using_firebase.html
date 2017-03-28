@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Real-time chat client using Firebase | Vathsav</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
+    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="inner">
+                <nav class="nav_effect">
+                    <a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
+                    <a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
+                    <a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
+                    <a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
+                    <a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="content">
+                <div class="post">
+                    <div class="post_title">Real-time chat client using Firebase</div>
+                    <div class="post_info">
+                        <i>Thursday 8, September '16</i>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_content">
+                        <p>If you're new to Firebase, read the Firebase Realtime Database <a href="https://firebase.google.com/docs/database/android/start/" target="_blank">docs</a> to learn the basics.
+
+                            <p>Here's the GitHub repository for a chat app I'm currently working on.</p>
+
+                            <div class="download_button">
+                                <a href="https://github.com/vathsav/flick" target="_blank">GitHub Repository</a>
+                            </div>
+
+                            <p>What's cool about Firebase is that once you've got a <a href="https://firebase.google.com/docs/reference/android/com/google/firebase/database/ValueEventListener">ValueEventListener</a> set on a database reference, any change in data that happens on the reference can be seen directly on the Android UI.</p>
+
+                            <div class="centered_image">
+                                <a href="../img/realtime_chat_client_using_firebase/chat_emulators.gif" target="_blank"><img src="../img/realtime_chat_client_using_firebase/chat_emulators.gif" style="width: 100%; padding-bottom: 30px;"></a>
+                            </div>
+
+                            <p>In the GIF, both emulators have listeners set on the same database reference. So they're both intimated of any change that happens, which in our application is insertion of new data, in realtime. Likewise, the UIs of several clients can be updated at the same time, by making those clients set <b>ValueEventListeners</b> on a reference.</p>
+
+                            <p>Create a new Android project, and include the Firebase Database, and Design dependencies to your app-level <b>build.gradle</b> file.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+// Ensure that you have the latest dependencies included.
+// It's '9.4.0' at the time of writing of this blog post.
+compile 'com.google.firebase:firebase-database:9.4.0'
+compile 'com.android.support:design:24.2.0'
+</pre>
+                            </div>
+
+                            <p>Now, create a new activity with an XML layout that has a <b>RecyclerView</b>, an <b>EditText</b> for the user's text message, and a <b>Button</b> for sending the texts to the recipient.</p>
+
+                            <p>Here's the code for the XML layout.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.your_name.YourActivity"&gt;
+
+    &lt;android.support.design.widget.AppBarLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"&gt;
+
+        &lt;android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_conversation_thread"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="true" /&gt;
+    &lt;/android.support.design.widget.AppBarLayout&gt;
+
+    &lt;android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_conversation_thread"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_flick"
+        android:layout_below="@+id/view"
+        android:clipToPadding="false"
+        android:padding="@dimen/conversation_recycler_view_padding"
+        android:scrollbars="vertical" /&gt;
+
+    &lt;EditText
+        android:id="@+id/edit_text_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/recycler_view_conversation_thread"
+        android:layout_toStartOf="@+id/button_flick"
+        android:background="@color/colorBlackDirty"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/colorWhiteDirty" /&gt;
+
+    &lt;Button
+        android:id="@+id/button_flick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorFlickButton"
+        android:text="@string/button_flick"
+        android:textColor="@color/colorWhiteDirty" /&gt;
+&lt;/RelativeLayout&gt;</pre>
+                            </div>
+
+                            <p>Now, create layouts for the chat bubbles. We can control the visibility of the bubbles using Java. Bubbles for the messages you send will be on the right, and for the messages you receive will be on the left.</p>
+
+                            <p>Create an XML layout for the chat bubbles. We'll be using this layout in our <b>MessageAdapter</b>.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"&gt;
+
+    &lt;TextView
+        android:id="@+id/text_view_chat_bubble_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorSenderBubble"
+        android:gravity="start"
+        android:paddingBottom="5dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorWhiteDirty"
+        android:textSize="18sp"
+        android:visibility="gone" /&gt;
+
+    &lt;TextView
+        android:id="@+id/text_view_chat_bubble_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorReceiverBubble"
+        android:gravity="end"
+        android:paddingBottom="5dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:textAlignment="textEnd"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorWhiteDirty"
+        android:textSize="18sp"
+        android:visibility="gone" /&gt;
+&lt;/RelativeLayout&gt;</pre>
+                            </div>
+
+                            <p>Since we're using Firebase, we need to create POJOs for inserting an object into the database, and for getting values from the database. So create setter and getter classes.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+public class MessageItemGetter {
+    private final String message_id;
+    private final String sender_name;
+    private final String message_body;
+    private final String message_timestamp;
+
+    public MessageItemGetter(String message_id, String sender_name, String message_body, String message_timestamp) {
+        this.message_id = message_id;
+        this.sender_name = sender_name;
+        this.message_body = message_body;
+        this.message_timestamp = message_timestamp;
+    }
+
+    public String getMessageId() {
+        return message_id;
+    }
+
+    public String getSenderName() {
+        return sender_name;
+    }
+
+    public String getMessageBody() {
+        return message_body;
+    }
+
+    public String getMessageTimestamp() {
+        return message_timestamp;
+    }
+}</pre>
+                            </div>
+
+                            <p>The setter class is the same as the getter class, but for the getter functions.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+// Setter class - MessageItemSetter.java
+public class MessageItemSetter {
+    public final String message_id;
+    public final String sender_name;
+    public final String message_body;
+    public final String message_timestamp;
+
+    public MessageItemSetter(String message_id, String sender_name, String message_body, String message_timestamp) {
+        this.message_id = message_id;
+        this.sender_name = sender_name;
+        this.message_body = message_body;
+        this.message_timestamp = message_timestamp;
+    }
+}</pre>
+                            </div>
+
+                            <p>We now need to create an <b>Adapter</b> and a <b>ViewHolder</b> for our RecyclerView.</p>
+
+                            <p>Create a ViewHolder class - MessageHolder.java</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+public class MessageHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    final TextView chatBubbleLeft;
+    final TextView chatBubbleRight;
+    private final Context context;
+
+    public MessageHolder(View itemView, Context context) {
+        super(itemView);
+        this.context = context;
+        itemView.setOnClickListener(this);
+
+        // User's bubble is on the right, the other person's is on the right
+        chatBubbleLeft = (TextView) itemView.findViewById(R.id.text_view_chat_bubble_left);
+        chatBubbleRight = (TextView) itemView.findViewById(R.id.text_view_chat_bubble_right);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}</pre>
+                            </div>
+
+                            <p>Create an Adapter class - MessageAdapter.java</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+public class MessageAdapter extends RecyclerView.Adapter&lt;MessageHolder&gt; {
+    private final List&lt;MessageItemGetter&gt; conversationThread;
+    private final Context context;
+
+    public MessageAdapter(List&lt;MessageItemGetter&gt; conversationThread, Context context) {
+        this.conversationThread = conversationThread;
+        this.context = context;
+    }
+
+    @Override
+    public MessageHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.card_chat_bubble, null);
+        return new MessageHolder(view, context);
+    }
+
+    @Override
+    public void onBindViewHolder(MessageHolder holder, int position) {
+        if (conversationThread != null)
+            if (conversationThread.get(position).getSenderName().equals(Constants.userName)) {
+                // My own message
+                holder.chatBubbleLeft.setVisibility(View.INVISIBLE);
+                holder.chatBubbleRight.setVisibility(View.VISIBLE);
+                holder.chatBubbleRight.setText(conversationThread.get(position).getMessageBody());
+            } else {
+                // Friend's message
+                holder.chatBubbleRight.setVisibility(View.INVISIBLE);
+                holder.chatBubbleLeft.setVisibility(View.VISIBLE);
+                holder.chatBubbleLeft.setText(conversationThread.get(position).getMessageBody());
+            }
+    }
+
+    @Override
+    public int getItemCount() {
+        return conversationThread.size();
+    }
+}</pre>
+                            </div>
+
+                            <p>Now that we have everything set, let's put everything together in our main activity class.</p>
+
+                            <div class="code">
+                                <pre class="prettyprint" style="border: none;">
+public class ThreadActivity extends AppCompatActivity {
+
+    private DatabaseReference reference;
+    private RecyclerView recyclerView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_thread);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_conversation_thread);
+        toolbar.setTitle("Flick");
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        final EditText message = (EditText) findViewById(R.id.edit_text_message);
+        final Button buttonFlick = (Button) findViewById(R.id.button_flick);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        final MessageAdapter messageAdapter = new
+                MessageAdapter(createDummyConversationThread(), getApplicationContext());
+
+        // Set a temporary value for now. You can use Firebase's push() method when implement the app for multiple users.
+        final String conversationId = "0";
+
+        reference = Constants.firebaseReferenceConversations.child(conversationId);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_conversation_thread);
+
+        if (recyclerView != null) {
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setAdapter(messageAdapter);
+        }
+
+        // Code for automatically refreshing a recycler view when the data in the server changes
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List&lt;MessageItemGetter&gt; conversation = new ArrayList&lt;&gt;();
+                recyclerView.setAdapter(new MessageAdapter(conversation, getApplicationContext()));
+
+                recyclerView.setAdapter(new MessageAdapter(null, getApplicationContext()));
+
+                for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                    conversation.add(
+                            new MessageItemGetter(
+                                    messageSnapshot.child("message_id").getValue().toString(),
+                                    messageSnapshot.child("sender_name").getValue().toString(),
+                                    messageSnapshot.child("message_body").getValue().toString(),
+                                    messageSnapshot.child("message_timestamp").getValue().toString()
+                            ));
+                }
+
+                if (recyclerView != null) {
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    recyclerView.scrollToPosition(conversation.size() - 1);
+                    recyclerView.setAdapter(new MessageAdapter(conversation, getApplicationContext()));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.v(Constants.LOG_CATCH_EXCEPTION_VERBOSE, databaseError.getMessage());
+            }
+        });
+
+        // Push new messages to Firebase
+        if (buttonFlick != null && message != null) {
+            buttonFlick.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!message.getText().toString().equals(""))
+                        reference.push().setValue(
+                                new MessageItemSetter(String.valueOf(reference.push().hashCode()),
+                                        Constants.userName,
+                                        message.getText().toString(),
+                                        String.valueOf(System.currentTimeMillis())
+                                ));
+                    message.setText(null);
+                }
+            });
+        }
+    }
+
+    private List&lt;MessageItemGetter&gt; createDummyConversationThread() {
+        List&lt;MessageItemGetter&gt; conversation = new ArrayList&lt;&gt;();
+        conversation.add(
+                new MessageItemGetter("1",
+                        "Vathsav",
+                        "Loading Conversation",
+                        String.valueOf(System.currentTimeMillis())
+                ));
+        return conversation;
+    }
+}</pre>
+                            </div>
+
+                            <p>Change the userName in the onClick() function for different clients while testing the app, or use an authentication API to log a user in, and use the <b>uid</b> to uniquely identify each client.</p>
+
+                            <div class="download_button">
+                                <a href="https://github.com/vathsav/flick" target="_blank">GitHub Repository</a>
+                            </div>
+
+                            <p>Scaling the app with this logic will slow down performance. Read about <a href="https://firebase.google.com/docs/database/android/structure-data" target="_blank">stucturing data</a> to make your app efficient.</p>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_share">
+                        <div class="title"><span>Share</span></div>
+                        <div class="buttons">
+                            <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+                            <div class="fb-share-button" data-href="http://www.vathsav.com/post/realtime_chat_client_using_firebase" data-layout="button"></div>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_comment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_config = function() {
+                                this.page.url = 'http://vathsav.com/post/realtime_chat_client_using_firebase';
+                                this.page.identifier = 'realtime_chat_client_using_firebase';
+                                this.page.title = 'Real-time Chat Client Using Firebase';
+                            };
+
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                                var d = document,
+                                    s = d.createElement('script');
+                                s.src = '//vathsav.disqus.com/embed.js';
+                                s.setAttribute('data-timestamp', +new Date());
+                                (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar"></div>
+
+            <!-- Popover  -->
+            <div id="holder" class="holder">
+                <div class="popup">
+                    <span class="close">&times;</span>
+                    <p id="popup_content"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" id="footer"></div>
+    </div>
+
+    <div class="blog_scroll">
+        <a class="scroll_to_top" href="#">Top</a>
+    </div>
+
+    <!-- Load Templates -->
+    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
+    <script src="http://www.vathsav.com/templates/footer.js"></script>
+
+    <script type="text/javascript">
+        document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('footer').innerHTML = templates['footer'].render();
+    </script>
+
+    <!-- JS Imports -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://www.vathsav.com/js/analytics.js"></script>
+    <script src="http://www.vathsav.com/js/classie.js"></script>
+    <script src="http://www.vathsav.com/js/config.js"></script>
+    <script src="http://www.vathsav.com/js/effects.js"></script>
+    <script src="http://www.vathsav.com/js/subscribe.js"></script>
+
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+
+</html>

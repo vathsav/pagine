@@ -30,6 +30,7 @@
 }
 
 .content {
+	overflow: scroll;
 	background-color: #f1f4f9;
 	-webkit-box-ordinal-group: 2;
 	-webkit-order: 1;
@@ -261,7 +262,6 @@
 	width: 70%;
 }
 
-
 .download_button {
 	text-align: center;
 	padding: 30px;
@@ -420,7 +420,7 @@ p a {
 }
 
 pre {
-	 overflow-x: auto;
+	 overflow-x: scroll;
 }
 
 /* desert scheme ported from vim to google prettify */

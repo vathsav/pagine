@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Custom Tinker Implementation for Particle Devices | Vathsav</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
+    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="inner">
+                <nav class="nav_effect">
+                    <a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
+                    <a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
+                    <a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
+                    <a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
+                    <a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="content">
+                <div class="post">
+                    <div class="post_title">Custom Tinker Implementation for Particle Devices</div>
+                    <div class="post_info">
+                        <i>Wednesday 31, August '16</i>
+                        <div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+                            <a href="../categories/android">Android</a>, <a href="../categories/particle_core">Particle Core</a>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_content">
+
+                        <p><a href="https://docs.particle.io/guide/getting-started/tinker/core/" target="_blank">Tinker</a> is an app developed by Particle to control Particle (formerly Spark) devices' GPIOs using an Android or iOS device, but it has very minimal functionality. Ever thought of turning on a bunch of devices at the same time, or adding a bunch of fancy delays to your lights at random intervals at the click of a button? Here's how you can extend it's functionality and customize it all you want using Android.</p>
+
+                        <div class="centered_image">
+                            <a href="../img/custom_tinker_implementation_for_particle_devices/sketch_core.png" target="_blank"><img src="../img/custom_tinker_implementation_for_particle_devices/sketch_core.png" style="width: 40%;"></a>
+                        </div>
+
+                        <p>I've used a Particle Core for this article. Connect 2 LEDs to digital pins D0 and D2, and a 3rd LED to anolog pin A0, through 10k resistors, just so that you don't blow the LEDs.
+                        </p>
+
+                        <p>Here's the code you should flash onto the Core. Create necessary functions and register them inside <i>void setup()</i> using the <i>Particle.function()</i> function.</p>
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
+        /* Function prototype */
+        int lynkBlow(String code);
+
+        void setup() {
+        	// Register the function
+        	Particle.function("skadoosh", lynkBlow);
+        }
+
+        void loop() {}
+
+        int lynkBlow(String command) {
+        	if (command.startsWith("pandasareawesome")) {
+        		// Send a LOW to digital pins
+        		pinMode(0, OUTPUT);
+        		digitalWrite(0, LOW);
+        		pinMode(2, OUTPUT);
+        		digitalWrite(2, LOW);
+
+        		// Send a LOW to analog pins
+        		pinMode(10, OUTPUT); // Pin 10 is analog 0.
+        		analogWrite(10, 0);
+        	} else {
+        		return -1;
+        	}
+         }</pre>
+                        </div>
+
+                        <p>Here, <i>lynkBlow()</i> will pull all the pins down to 0. Let's call this function from an Android device through the Particle Cloud SDK.</p>
+
+                        <p>In your Android project, include the following dependency to your app level <b>build.gradle</b> file.</p>
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
+        compile 'io.particle:cloudsdk:0.3.4'</pre>
+                        </div>
+
+                        <p>Now, create an Activity with a custom layout, and include the following code. This will log your Core into your Particle Cloud and enable you to interact with the Core's pins!</p>
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
+        private Async.AsyncApiWorker&lt;ParticleCloud, Void&gt; loginTask = null;
+        ParticleCloud sparkCloud = ParticleCloudSDK.getCloud();
+        public ParticleDevice ruthlessDynamite = null;
+
+        loginTask = Async.executeAsync(Utils.sparkCloud, new Async.ApiWork&lt;ParticleCloud, Void&gt;() {
+            @Override
+            public Void callApi(ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                try {
+                    particleCloud.logIn("your_particle_cloud_username", "your_password");
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setVisibility(View.VISIBLE);
+                            textView.setVisibility(View.VISIBLE);
+                        }
+                    });
+
+                    if (particleCloud.getDevices()
+                    		.contains(particleCloud.getDevice("your_device"))) {
+                        ruthlessDynamite = particleCloud.getDevice("your_device");
+                    } else {
+                        Toaster.s(Activity.this, "Unable to find Core");
+                    }
+                } catch (ParticleCloudException ex) {
+                    ex.printStackTrace();
+                    Toaster.s(Activity.this, "Invalid login credentials!");
+                    finish();
+                }
+
+                return null;
+            }
+
+            @Override
+            public void onTaskFinished() {
+                loginTask = null;
+            }
+
+            @Override
+            public void onSuccess(Void aVoid) {
+                if (isFinishing()) {
+                    return;
+                }
+
+                // Do something.. open your main activity perhaps.
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });</pre>
+                        </div>
+
+                        <p>Now, inside the <i>OnClickListener()</i> of a button, include the following code to call the function on your Particle Core. Our function's name is <i>"skadoosh"</i>, and our trigger phrase is <i>"pandasareawesome".</i></p>
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
+        if (particleDevice.isConnected()) {
+            Async.executeAsync(particleDevice, new Async.ApiWork<ParticleDevice, Integer>() {
+                @Override
+                public Integer callApi(ParticleDevice particleDevice)
+                			throws ParticleCloudException, IOException {
+                    if (particleDevice.isConnected()) {
+                        try {
+                            return ruthlessDynamite.callFunction("skadoosh", Py.list("pandasareawesome"));
+                        } catch (ParticleDevice.FunctionDoesNotExistException e) {
+                            Toaster.s(activity, Constants.toastIncorrectFunction);
+                            e.printStackTrace();
+                        }
+                    } else {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                        		Toaster.s(Activity.this, "Unable to find Core");
+                            }
+                        });
+                    }
+                    return null;
+                }
+
+                @Override
+                public void onSuccess(Integer value) {
+                	// Show status on UI!
+                }
+
+                @Override
+                public void onFailure(ParticleCloudException exception) {}
+            });
+        }
+        </pre>
+                        </div>
+
+                        <p>Easy peasy Japanesey! Use <a href="https://github.com/vathsav/lynk">this</a> repository as a reference if you're looking for a working prototype.</p>
+                    </div>
+
+                    <div class="light_hr"></div>
+                    <div class="post_share">
+                        <div class="title"><span>Share</span></div>
+                        <div class="buttons">
+                            <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+                            <div class="fb-share-button" data-href="http://www.vathsav.com/post/custom_tinker_implementation_for_particle_devices" data-layout="button"></div>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_comment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_shortname = 'custom_tinker_implementation_for_particle_devices'; // Make sure you use the same shortname on both sites
+                            var disqus_identifier = 'custom_tinker_implementation_for_particle_devices';
+                            var disqus_title = 'Custom Tinker Implementation for Particle Devices';
+                            var disqus_url = 'http://vathsav.com/post/custom_tinker_implementation_for_particle_devices'; // Make sure this is the same, even on example.com
+
+                            /* * * DON'T EDIT BELOW THIS LINE * * */
+                            (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript';
+                                dsq.async = true;
+                                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar"></div>
+
+            <!-- Popover  -->
+            <div id="holder" class="holder">
+                <div class="popup">
+                    <span class="close">&times;</span>
+                    <p id="popup_content"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" id="footer"></div>
+    </div>
+
+    <div class="blog_scroll">
+        <a class="scroll_to_top" href="#">Top</a>
+    </div>
+
+    <!-- Load Templates -->
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/footer.js"></script>
+    <script type="text/javascript">
+        document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('footer').innerHTML = templates['footer'].render();
+    </script>
+
+    <!-- JS Imports -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/effects.js"></script>
+    <script src="../js/subscribe.js"></script>
+
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+
+</html>

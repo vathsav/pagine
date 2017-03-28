@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Arduino Calculator | Vathsav</title>
+		<meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
+    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+					<div class="inner">
+							<nav class="nav_effect">
+									<a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
+									<a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
+									<a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
+									<a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
+									<a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
+							</nav>
+					</div>
+			</div>
+
+			<div class="main">
+				<div class="content">
+					<div class="post">
+						<div class="post_title">Arduino Calculator</div>
+						<div class="post_info">
+							<i>Saturday 15, November '14</i>
+							<div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+								<a href="../categories/arduino">Arduino</a>
+							</div>
+						</div>
+						<div class="light_hr"></div>
+						<div class="post_content">
+							<p>This is a calculator that can perform basic arithmetic operations. This was done using an Arduino Uno, a 16x2 LCD display and a 4x4 dot matrix keypad.</p>
+							<p>The <i>keypad</i> library doesn't come with the Arduino IDE. You're gonna have to <a href="http://playground.arduino.cc/Code/Keypad" target="_blank">download</a> and import it for you to be able to use the matrix keypad. Place the downloaded file into the <i>/libraries</i> folder.</p>
+							<div class="download_button">
+								<a href="https://github.com/vathsav/Arduino/blob/master/calculator/calculator.ino" target="_blank">View on GitHub</a>
+								<a href="../download/arduino_calculator.zip">Download Source</a>
+							</div>
+
+							<div class="centered_image">
+								<a href="../img/arduino_calculator/sketch.png" target="_blank"><img src="../img/arduino_calculator/sketch.png" style="width: 50%; padding-bottom: 30px;"></a>
+							</div>
+							<p style="text-align: center;">This sketch was made using <a href="http://fritzing.org/" target="_blank">Fritzing</a>, an awesome open source tool for bulding prototypes.</p>
+
+							<div class="code">
+								<pre class="prettyprint" style="border: none;">
+/*
+Layout of 4x4 Dot Matrix Keyboard:
+ ^
+ C R >
+ o o o o
+ o o o o
+ o o o o
+ o o o o
+
+ [7] [8] [9] [/]
+ [4] [5] [6] [*]
+ [3] [2] [1] [-]
+ [X] [0] [=] [+]
+
+ Press X to clear the screen
+
+                      1 1 1 1 1 1
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+ *-------------------------------*
+ |                            2 +|  <--- Memory here
+ |                               |  <--- Cursor set here
+ *-------------------------------*
+
+ */								</pre>
+							</div>
+
+							<p>The code is pretty simple. You're gonna have to define the keypad's layout in a 2 dimensional array, and assign it to an instance of the <i>Keypad</i> class.</p>
+							<div class="code">
+								<pre class="prettyprint" style="border: none;">
+#include &lt;LiquidCrystal.h&gt; //import lcd library
+#include &lt;Keypad.h&gt; //import keypad library
+
+LiquidCrystal lcd(5, 4, 3, 2, 1, 0); //lcd pins
+const byte ROWS = 4; // four rows
+const byte COLS = 4; // four columns
+
+//define the keymap
+char keys [ROWS] [COLS] = {
+  {'7', '4', '1', 'X'},
+  {'8', '5', '2', '0'},
+  {'9', '6', '3', '='},
+  {'/', '*', '-', '+'}
+};
+byte rowPins[ROWS] = {
+  9 ,8 ,7 ,6}; //connect keypad ROW1, ROW2, ROW3, ROW4 to these arduino pins
+byte colPins[COLS] = {
+  13, 12, 11, 10}; //connect keypad COL1, COL2, COL3, COL4 to these arduino pins
+
+//create the keypad
+Keypad myKeypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );</pre>
+							</div>
+							<p>In the setup function, we shall initialize the LCD and print a hello message for two and a half seconds.</p>
+							<div class="code">
+								<pre class="prettyprint" style="border: none;">
+//variables declaration
+boolean valOnePresent = false;
+boolean next = false;
+boolean final = false;
+String num1, num2;
+int ans;
+char op;
+
+void setup(){
+  lcd.begin(16,2);
+  lcd.setCursor(2,0);
+  lcd.print("Hello World!");
+  delay(2500);
+  lcd.clear(); //clears the LCD screen and positions the cursor in the upper-left corner.
+}								</pre>
+							</div>
+							<p>This <i>loop</i> function will listen for keypad inputs indefinitely.</p>
+							<div class="code">
+								<pre class="prettyprint" style="border: none;">
+void loop(){
+  char key = myKeypad.getKey();
+
+  if (key != NO_KEY && (key=='1'||key=='2'||key=='3'||key=='4'||key=='5'||key=='6'||key=='7'||key=='8'||key=='9'||key=='0')){
+    if (valOnePresent != true){
+      num1 = num1 + key;
+      int numLength = num1.length();
+      lcd.setCursor(15 - numLength, 0); //to adjust one whitespace for operator
+      lcd.print(num1);
+    }
+    else {
+      num2 = num2 + key;
+      int numLength = num2.length();
+      lcd.setCursor(15 - numLength, 1);
+      lcd.print(num2);
+      final = true;
+    }
+  }
+
+  else if (valOnePresent == false && key != NO_KEY && (key == '/' || key == '*' || key == '-' || key == '+')){
+    if (valOnePresent == false){
+      valOnePresent = true;
+      op = key;
+      lcd.setCursor(15,0); //operator on right corner
+      lcd.print(op);
+    }
+  }
+
+  else if (final == true && key != NO_KEY && key == '='){
+    if (op == '+'){
+      ans = num1.toInt() + num2.toInt();
+    }
+    else if (op == '-'){
+      ans = num1.toInt() - num2.toInt();
+    }
+    else if (op == '*'){
+      ans = num1.toInt() * num2.toInt();
+    }
+    else if (op == '/'){
+      ans = num1.toInt() / num2.toInt();
+    }
+      lcd.clear();
+      lcd.setCursor(15,0);
+      lcd.autoscroll();
+      lcd.print(ans);
+      lcd.noAutoscroll();
+  }
+  else if (key != NO_KEY && key == 'X'){
+    lcd.clear();
+    valOnePresent = false;
+    final = false;
+    num1 = "";
+    num2 = "";
+    ans = 0;
+    op = ' ';
+  }
+}								</pre>
+							</div>
+							<div class="download_button">
+								<a href="https://github.com/vathsav/Arduino/blob/master/calculator/calculator.ino" target="_blank">View on GitHub</a>
+								<a href="../download/arduino_calculator.zip">Download Source</a>
+							</div>
+						</div>
+						<div class="light_hr"></div>
+						<div class="post_share">
+							<div class="title"><span>Share</span></div>
+							<div class="buttons">
+								<div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+								<div class="fb-share-button" data-href="http://www.vathsav.com/post/arduino_calculator" data-layout="button"></div>
+							</div>
+						</div>
+						<div class="light_hr"></div>
+						<div class="post_comment">
+							<div id="disqus_thread"></div>
+							<script type="text/javascript">
+   								var disqus_config = function () {
+									this.page.url = 'http://vathsav.com/post/arduino_calculator';
+									this.page.identifier = 'arduino_calculator';
+									this.page.title = 'Arduino Calculator';
+								};
+
+								(function() { // DON'T EDIT BELOW THIS LINE
+									var d = document, s = d.createElement('script');
+									s.src = '//vathsav.disqus.com/embed.js';
+									s.setAttribute('data-timestamp', +new Date());
+									(d.head || d.body).appendChild(s);
+								})();
+							</script>
+							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sidebar -->
+				<div class="sidebar" id="sidebar"></div>
+
+				<!-- Popover  -->
+				<div id="holder" class="holder">
+						<div class="popup">
+								<span class="close">&times;</span>
+								<p id="popup_content"></p>
+						</div>
+				</div>
+			</div>
+
+			<div class="footer" id="footer"></div>
+		</div>
+
+		<div class="blog_scroll">
+			<a class="scroll_to_top" href="#">Top</a>
+		</div>
+
+		<!-- Load Templates -->
+    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
+    <script src="http://www.vathsav.com/templates/footer.js"></script>
+
+    <script type="text/javascript">
+        document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('footer').innerHTML = templates['footer'].render();
+    </script>
+
+    <!-- JS Imports -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://www.vathsav.com/js/analytics.js"></script>
+    <script src="http://www.vathsav.com/js/classie.js"></script>
+    <script src="http://www.vathsav.com/js/config.js"></script>
+    <script src="http://www.vathsav.com/js/effects.js"></script>
+    <script src="http://www.vathsav.com/js/subscribe.js"></script>
+
+		<!-- External -->
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+
+
+		<!-- Code for comment count -->
+		<script type="text/javascript">
+		    var disqus_shortname = 'vathsav';
+			(function () {
+			    var s = document.createElement('script'); s.async = true;
+        		s.type = 'text/javascript';
+       			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   			}());
+		</script>
+	</body>
+</html>
