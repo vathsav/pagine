@@ -3,7 +3,7 @@
       <div class="post_title"><a href="{{url}}">{{title}}</a></div>
       <div class="post_info">
           <i>{{date}}</i> <b>| <i><a href="{{disqus_thread}}"></a></i></b>
-          <div class="post_category"><img src="svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+          <div class="post_category"><img src="http://www.vathsav.com/svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
               <a href="{{category_url}}">{{categories}}</a>
           </div>
       </div>
