@@ -233,13 +233,16 @@ a .nav_contact:hover {
 
 .popup {
     background-color: #E0E0E0;
-		color: #212121;
     margin: 15% auto;
 		padding-top: 10px;
 		padding-right: 20px;
 		padding-bottom: 10px;
 		padding-left: 40px;
     width: 75%;
+}
+
+#popup_content {
+	color: #212121;
 }
 
 .close {
