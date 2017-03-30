@@ -4,8 +4,9 @@
 <head>
     <title>Vathsav | Particle Core</title>
     <meta name="author" content="Vathsav Harikrishnan" />
-    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
-    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -14,78 +15,62 @@
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-    <script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+    <script src="../node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div class="inner">
-                <nav class="nav_effect">
-                    <a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
-                    <a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
-                    <a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
-                    <a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
-                    <a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
-                </nav>
-            </div>
-        </div>
-
-        <div class="main">
-            <div class="content">
-                <div id="blog_cards"></div>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="sidebar" id="sidebar"></div>
-
-            <!-- Popover  -->
-            <div id="holder" class="holder">
-                <div class="popup">
-                    <span class="close">&times;</span>
-                    <p id="popup_content"></p>
+        <div class="row">
+            <div class="col-md-9 blog-main">
+                <div class="content">
+                    <div id="blog_cards"></div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar"></div>
+            </div>
         </div>
-
-        <div class="footer" id="footer"></div>
     </div>
 
-    <div class="blog_scroll">
-        <a class="scroll_to_top" href="#">Top</a>
-    </div>
+    <div id="commons"></div>
+
+    <div class="footer" id="footer"></div>
 
     <!-- Load Templates -->
-    <script src="http://www.vathsav.com/templates/blog_cards.js"></script>
-    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
-    <script src="http://www.vathsav.com/templates/footer.js"></script>
+    <script src="../templates/blog_cards.js"></script>
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/commons.js"></script>
+    <script src="../templates/footer.js"></script>
 
     <script type="text/javascript">
         var blog_cards = {
             "blog_cards": [{
-                url: "http://www.vathsav.com/post/custom_tinker_implementation_for_particle_devices",
+                url: "../post/custom_tinker_implementation_for_particle_devices",
                 title: "Custom Tinker Implementation for Particle Devices",
                 date: "Wednesday 31, August '16",
-                disqus_thread: "http://www.vathsav.com/post/custom_tinker_implementation_for_particle_devices#disqus_thread",
-                category_url: "http://www.vathsav.com/categories/particle_core",
+                disqus_thread: "../post/custom_tinker_implementation_for_particle_devices#disqus_thread",
+                category_url: "../categories/particle_core",
                 categories: "Particle Core",
-                image: "http://www.vathsav.com/img/custom_tinker_implementation_for_particle_devices/banner.png",
+                image: "../img/custom_tinker_implementation_for_particle_devices/banner.png",
                 caption: "Tinker away."
             }]
         }
 
         document.getElementById('blog_cards').innerHTML = templates['blog_cards'].render(blog_cards);
         document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
         document.getElementById('footer').innerHTML = templates['footer'].render();
     </script>
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://www.vathsav.com/js/analytics.js"></script>
-    <script src="http://www.vathsav.com/js/classie.js"></script>
-    <script src="http://www.vathsav.com/js/config.js"></script>
-    <script src="http://www.vathsav.com/js/effects.js"></script>
-    <script src="http://www.vathsav.com/js/subscribe.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/effects.js"></script>
+    <script src="../js/subscribe.js"></script>
 
     <!-- External -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
