@@ -7,6 +7,12 @@ Repo for my blog www.vathsav.com.
 * Templates are precompiled using [hulk](https://github.com/twitter/hogan.js/blob/master/bin/hulk), and are rendered on page load.
 * Uses [Firebase](http://firebase.google.com/) as a backend service for subscriptions and contact.
 
+## Todo
+* Bootstrap everything
+* Update Portfolio page
+* Sticky sidebar
+* Pagination
+
 ## Usage
 
 ### Install node packages
