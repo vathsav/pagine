@@ -1,150 +1,134 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Playing with Shapes using Processing | Vathsav</title>
-		<meta name="author" content="Vathsav Harikrishnan" />
-		<link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
-		<link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
-		<link rel="icon" href="images/icon.ico" type="image/x-icon" />
-		<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
-		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-		<script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-					<div class="inner">
-							<nav class="nav_effect">
-									<a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
-									<a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
-									<a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
-									<a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
-									<a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
-							</nav>
-					</div>
-			</div>
 
-			<div class="main">
-				<div class="content">
-					<div class="post">
-						<div class="post_title">Playing with Shapes using Processing</div>
-						<div class="post_info">
-							<i>Sunday 27, March '16</i>
-							<div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
-								<a href="../categories/processing">Processing</a>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_content" id="container">
-              <p>Here's something I did a while back and thought I should share.</p>
+<head>
+    <title>Playing with Shapes using Processing | Vathsav</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+		<script src="../node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+    <script src="../libs/processing.min.js"></script>
+</head>
 
-							<p>Haven't heard of <a href="https://processing.org/">Processing</a>? It's an IDE for visual design and it's open source. Arduino programmers might find it similar to the Arduino IDE and that's because it's a Processing rip-off!</p>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-main content">
+                <div class="post">
+                    <div class="post_title">Playing with Shapes using Processing</div>
+                    <div class="post_info">
+                        <i>Sunday 27, March '16</i>
+                        <div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+                            <a href="../categories/processing">Processing</a>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_content" id="container">
+                        <p>Here's something I did a while back and thought I should share.</p>
 
-							<div class="download_button">
-								<a href="https://github.com/vathsav/processing" target="_blank">View on GitHub</a>
-								<a href="../download/playing_with_shapes_using_processing.rar">Download Source</a>
-							</div>
+                        <p>Haven't heard of <a href="https://processing.org/">Processing</a>? It's an IDE for visual design and it's open source. Arduino programmers might find it similar to the Arduino IDE and that's because it's a Processing rip-off!</p>
 
-              <p>This sketch was done entirely using Processing.</p>
+                        <div class="download_button">
+                            <a href="https://github.com/vathsav/processing" target="_blank">View on GitHub</a>
+                            <a href="../download/playing_with_shapes_using_processing.rar">Download Source</a>
+                        </div>
 
-              <div class="processing_script">
-                  <script type="text/processing">
-                  int count = 5;
-                  float[][] e = new float[count][5];
-                  float[] circleColor = {
-                      135, 60, 160, 100, 210
-                  };
+                        <p>This sketch was done entirely using Processing.</p>
 
-                  var bannerHeight = window.innerHeight * .20;
-                  var bannerWidth = document.getElementById("container").offsetWidth;
-                  int sep, radius;
+												<div class="processing_script">
+					                  <script type="text/processing">
+					                  int count = 5;
+					                  float[][] e = new float[count][5];
+					                  float[] circleColor = {
+					                      135, 60, 160, 100, 210
+					                  };
 
-                  void setup() {
-                    size(bannerWidth, bannerHeight);
-                    radius = (int) bannerHeight * .55;
-                    sep = (int) bannerWidth/count;
-                      noStroke();
-                      smooth();
-                      colorMode(HSB);
-                      for (int j=0; j<count; j++) {
-                        e[j][0] = random((j * sep), (j * sep) + sep); // X
-                        e[j][1] = random(51, height - 51); // Y
-                        e[j][2] = bannerHeight * .55; // Radius
-                        e[j][3] = random(-.075, .075); // X Speed
-                        e[j][4] = random(-.075, .075); // Y Speed
-                      }
-                  }
+					                  var bannerHeight = window.innerHeight * .20;
+					                  var bannerWidth = document.getElementById("container").offsetWidth;
+					                  int sep, radius;
 
-                  void draw() {
-                    background(0, 190, 200);
-                    frameRate(200);
-                    displayInterface();
-                  }
+					                  void setup() {
+					                    size(bannerWidth, bannerHeight);
+					                    radius = (int) bannerHeight * .55;
+					                    sep = (int) bannerWidth/count;
+					                      noStroke();
+					                      smooth();
+					                      colorMode(HSB);
+					                      for (int j=0; j<count; j++) {
+					                        e[j][0] = random((j * sep), (j * sep) + sep); // X
+					                        e[j][1] = random(51, height - 51); // Y
+					                        e[j][2] = bannerHeight * .55; // Radius
+					                        e[j][3] = random(-.075, .075); // X Speed
+					                        e[j][4] = random(-.075, .075); // Y Speed
+					                      }
+					                  }
 
-                  void displayInterface() {
-                      for (int j = 0; j < count; j++) {
-                        //Change color on mouseover
-                        if (sq(e[j][0] - mouseX) + sq(e[j][1] - mouseY) < sq(e[j][2]/2))
-                          fill(circleColor[j]+10, 190, 160);
-                        else
-                          fill(circleColor[j], 190, 170, 200);
-                        //Draw circle
-                        ellipse(e[j][0], e[j][1], radius, radius);
-                        //If bound reached, rebound
-                        if (e[j][0] <= (j*sep) + radius/2)
-                            e[j][3] = random(.01, .075); // X forward
-                        if (e[j][0] >= ((j*sep) + sep - radius/2))
-                            e[j][3] = random (-.075, -.01); // X backward
-                        if (e[j][1] <= radius/2)
-                            e[j][4] = random(.01, .075); // Y downward
-                        if (e[j][1] >= height - radius/2)
-                            e[j][4] = random(-.075, -.01); // Y upward
-                        //Move the circles a little
-                        e[j][0] += e[j][3];
-                        e[j][1] += e[j][4];
-                        //Draw dots in the center of all circles
-                        fill(255);
-                        ellipse(e[j][0], e[j][1], 3, 3);
-                        //Connect the cirles
-                        stroke(200);
-                        if (j!=count-1) {
-                            line(e[j][0], e[j][1], e[j+1][0], e[j+1][1]);
-                        }
-                        noStroke();
-                      }
-                  }
-                </script>
-                <canvas style="border: 0px;"></canvas>
-              </div>
+					                  void draw() {
+					                    background(0, 190, 200);
+					                    frameRate(200);
+					                    displayInterface();
+					                  }
 
-							<p>Processing code has two mandatory functions - <i>setup()</i> and <i>draw()</i>. The <i>setup()</i> function runs just once. You do your initial declarations here. The <i>draw()</i> function runs indefinitely, until the program is stopped. Let me get you started off with something simple. (YAY! Solitaire.)</p>
+					                  void displayInterface() {
+					                      for (int j = 0; j < count; j++) {
+					                        //Change color on mouseover
+					                        if (sq(e[j][0] - mouseX) + sq(e[j][1] - mouseY) < sq(e[j][2]/2))
+					                          fill(circleColor[j]+10, 190, 160);
+					                        else
+					                          fill(circleColor[j], 190, 170, 200);
+					                        //Draw circle
+					                        ellipse(e[j][0], e[j][1], radius, radius);
+					                        //If bound reached, rebound
+					                        if (e[j][0] <= (j*sep) + radius/2)
+					                            e[j][3] = random(.01, .075); // X forward
+					                        if (e[j][0] >= ((j*sep) + sep - radius/2))
+					                            e[j][3] = random (-.075, -.01); // X backward
+					                        if (e[j][1] <= radius/2)
+					                            e[j][4] = random(.01, .075); // Y downward
+					                        if (e[j][1] >= height - radius/2)
+					                            e[j][4] = random(-.075, -.01); // Y upward
+					                        //Move the circles a little
+					                        e[j][0] += e[j][3];
+					                        e[j][1] += e[j][4];
+					                        //Draw dots in the center of all circles
+					                        fill(255);
+					                        ellipse(e[j][0], e[j][1], 3, 3);
+					                        //Connect the cirles
+					                        stroke(200);
+					                        if (j!=count-1) {
+					                            line(e[j][0], e[j][1], e[j+1][0], e[j+1][1]);
+					                        }
+					                        noStroke();
+					                      }
+					                  }
+					                </script>
+					                <canvas style="border: 0px;"></canvas>
+					              </div>
 
-              <p>Move your cursor into the box below.</p>
+                        <p>Processing code has two mandatory functions - <i>setup()</i> and <i>draw()</i>. The <i>setup()</i> function runs just once. You do your initial declarations here. The <i>draw()</i> function runs indefinitely, until the program is stopped. Let me get you started off with something simple. (YAY! Solitaire.)</p>
 
-              <div class="processing_script">
-                <script type="text/processing">
-                  void setup() {
-                    size(225, 225);
-                    background (33, 33, 33);
-                  }
+                        <p>Move your cursor into the box below.</p>
 
-                  void draw() {
-                    fill(205, 220, 57);
-                    rect(mouseX - 25, mouseY - 25, 50, 50);
-                  }
-                </script>
-                <canvas style="border: 0px;"></canvas>
-              </div>
+                        <div class="processing_script">
+                            <script type="text/processing">
+                                void setup() { size(225, 225); background (33, 33, 33); } void draw() { fill(205, 220, 57); rect(mouseX - 25, mouseY - 25, 50, 50); }
+                            </script>
+                            <canvas style="border: 0px;"></canvas>
+                        </div>
 
-              <p>That, was just 4 lines of code. Yes.</p>
+                        <p>That, was just 4 lines of code. Yes.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 void setup() {
   background (33, 33, 33); // background color of the sketch
   size(250, 250); // dimensions
@@ -154,38 +138,21 @@ void draw() {
   fill(205, 220, 57); // fill the color of the rectangle in rgb.
   rect(mouseX - 25, mouseY - 25, 50, 50); // rectangle function. x, y, width, height
 }</pre>
-							</div>
+                        </div>
 
-							<p>You can find the list of Processing concepts and functions <a href="https://processing.org/reference/">here</a>. Moving the <i>background()</i> function from <i>setup()</i> to the top of your <i>draw()</i> function will keep refreshing the background of your sketch and a single rectangle is drawn over the background.</p>
+                        <p>You can find the list of Processing concepts and functions <a href="https://processing.org/reference/">here</a>. Moving the <i>background()</i> function from <i>setup()</i> to the top of your <i>draw()</i> function will keep refreshing the background of your sketch and a single rectangle is drawn over the background.</p>
 
-              <p>Let's create a 3D shape now. And disco?</p>
+                        <p>Let's create a 3D shape now. And disco?</p>
 
-              <div class="processing_script">
-                <script type="text/processing">
-                  int r, g, b;
-                  void setup(){
-                    size(225, 225, OPENGL);
-                    frameRate(30);
-                  }
+                        <div class="processing_script">
+                            <script type="text/processing">
+                                int r, g, b; void setup(){ size(225, 225, OPENGL); frameRate(30); } void draw(){ r = random(255); g = random(255); b = random(255); background (33, 33, 33); fill(r, g, b); translate(mouseX, mouseY); rotateX(mouseX * 0.01); rotateY(mouseY * 0.01); lights(); box(50); }
+                            </script>
+                            <canvas style="border: 0px;"></canvas>
+                        </div>
 
-                  void draw(){
-                    r = random(255);
-                    g = random(255);
-                    b = random(255);
-                    background (33, 33, 33);
-                    fill(r, g, b);
-                    translate(mouseX, mouseY);
-                    rotateX(mouseX * 0.01);
-                    rotateY(mouseY * 0.01);
-                    lights();
-                    box(50);
-                  }
-                </script>
-                <canvas style="border: 0px;"></canvas>
-              </div>
-
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 int r, g, b;
 void setup(){
   size(225, 225, OPENGL);
@@ -204,201 +171,202 @@ void draw(){
   lights();
   box(50);
 }</pre>
-							</div>
+                        </div>
 
-							<p>Since <i>draw()</i> runs indefintely, random rgb values are genrated during each iteration of the loop. <i>frameRate(30)</i> in <i>setup()</i> indicates that <i>draw()</i> should be called 30 times, every second. The third parameter in the <i>size()</i> function, OPENGL, enables 3D rendering.</p>
+                        <p>Since <i>draw()</i> runs indefintely, random rgb values are genrated during each iteration of the loop. <i>frameRate(30)</i> in <i>setup()</i> indicates that <i>draw()</i> should be called 30 times, every second. The third parameter in the <i>size()</i> function, OPENGL, enables 3D rendering.</p>
 
-              <p>
-                Let's now place multiple shapes in a single sketch.
-              </p>
+                        <p>
+                            Let's now place multiple shapes in a single sketch.
+                        </p>
 
-              <div class="processing_script">
-                <script type="text/processing">
-                  boolean cube, pyramid, cuboid, star;
+												<div class="processing_script">
+						                <script type="text/processing">
+						                  boolean cube, pyramid, cuboid, star;
 
-                  void setup() {
-                    size(document.getElementById("container").offsetWidth, 600, OPENGL);
-                    cube = false;
-                    pyramid = false;
-                    cuboid = false;
-                    star = false;
-                  }
+						                  void setup() {
+						                    size(document.getElementById("container").offsetWidth, 600, OPENGL);
+						                    cube = false;
+						                    pyramid = false;
+						                    cuboid = false;
+						                    star = false;
+						                  }
 
-                  void draw() {
-                    displayInterface();
-                    displayShapes();
-                    shapeSelected();
-                    drawShape();
-                  }
+						                  void draw() {
+						                    displayInterface();
+						                    displayShapes();
+						                    shapeSelected();
+						                    drawShape();
+						                  }
 
-                  void displayInterface() {
-                    background(33, 33, 33);
-                    stroke(245, 245, 245);
-                    strokeWeight(5);
-                    line(width/7, 0, width/7, height);
-                    line(0, height/4, width/7, height/4);
-                    line(0, 2*(height/4), width/7, 2*(height/4));
-                    line(0, 3*(height/4), width/7, 3*(height/4));
-                    strokeWeight(1);
-                  }
+						                  void displayInterface() {
+						                    background(33, 33, 33);
+						                    stroke(245, 245, 245);
+						                    strokeWeight(5);
+						                    line(width/7, 0, width/7, height);
+						                    line(0, height/4, width/7, height/4);
+						                    line(0, 2*(height/4), width/7, 2*(height/4));
+						                    line(0, 3*(height/4), width/7, 3*(height/4));
+						                    strokeWeight(1);
+						                  }
 
-                  void displayShapes() {
-                    //cube
-                    pushMatrix();
-                    translate(width/16, height/8);
-                    fill(244, 67, 54);
-                    box(50);
-                    popMatrix();
-                    //pyramid
-                    pushMatrix();
-                    translate(width/16, 3*(height/8), 0);
-                    beginShape();
-                    rotateY(1000);
-                    scale(.5);
-                    fill(63, 81, 181);
-                    //vertex 1
-                    vertex(-100, -100, -100);
-                    vertex( 100, -100, -100);
-                    vertex( 0, 0, 100);
-                    //vertex 2
-                    vertex( 100, -100, -100);
-                    vertex( 100, 100, -100);
-                    vertex( 0, 0, 100);
-                    //vertex 3
-                    vertex( 100, 100, -100);
-                    vertex(-100, 100, -100);
-                    vertex( 0, 0, 100);
-                    //vertex 4
-                    vertex(-100, 100, -100);
-                    vertex(-100, -100, -100);
-                    vertex( 0, 0, 100);
-                    endShape();
-                    popMatrix();
-                    //cuboid
-                    pushMatrix();
-                    translate(width/16, 5*(height/8));
-                    fill(205, 220, 57);
-                    box(100, 50, 20);
-                    popMatrix();
-                    //star
-                    pushMatrix();
-                    translate(width/16, 7*(height/8));
-                    fill(255, 193, 7);
-                    beginShape();
-                    vertex(0, -50);
-                    vertex(14, -20);
-                    vertex(47, -15);
-                    vertex(23, 7);
-                    vertex(29, 40);
-                    vertex(0, 25);
-                    vertex(-29, 40);
-                    vertex(-23, 7);
-                    vertex(-47, -15);
-                    vertex(-14, -20);
-                    endShape();
-                    popMatrix();
-                  }
+						                  void displayShapes() {
+						                    //cube
+						                    pushMatrix();
+						                    translate(width/16, height/8);
+						                    fill(244, 67, 54);
+						                    box(50);
+						                    popMatrix();
+						                    //pyramid
+						                    pushMatrix();
+						                    translate(width/16, 3*(height/8), 0);
+						                    beginShape();
+						                    rotateY(1000);
+						                    scale(.5);
+						                    fill(63, 81, 181);
+						                    //vertex 1
+						                    vertex(-100, -100, -100);
+						                    vertex( 100, -100, -100);
+						                    vertex( 0, 0, 100);
+						                    //vertex 2
+						                    vertex( 100, -100, -100);
+						                    vertex( 100, 100, -100);
+						                    vertex( 0, 0, 100);
+						                    //vertex 3
+						                    vertex( 100, 100, -100);
+						                    vertex(-100, 100, -100);
+						                    vertex( 0, 0, 100);
+						                    //vertex 4
+						                    vertex(-100, 100, -100);
+						                    vertex(-100, -100, -100);
+						                    vertex( 0, 0, 100);
+						                    endShape();
+						                    popMatrix();
+						                    //cuboid
+						                    pushMatrix();
+						                    translate(width/16, 5*(height/8));
+						                    fill(205, 220, 57);
+						                    box(100, 50, 20);
+						                    popMatrix();
+						                    //star
+						                    pushMatrix();
+						                    translate(width/16, 7*(height/8));
+						                    fill(255, 193, 7);
+						                    beginShape();
+						                    vertex(0, -50);
+						                    vertex(14, -20);
+						                    vertex(47, -15);
+						                    vertex(23, 7);
+						                    vertex(29, 40);
+						                    vertex(0, 25);
+						                    vertex(-29, 40);
+						                    vertex(-23, 7);
+						                    vertex(-47, -15);
+						                    vertex(-14, -20);
+						                    endShape();
+						                    popMatrix();
+						                  }
 
-                  void shapeSelected() {
-                    if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 0
-                                            && mouseY <= height/4) {
-                      cube = true;
-                      pyramid = false;
-                      cuboid = false;
-                      star = false;
-                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= height/4
-                                            && mouseY <= 2*(height/4)) {
-                      cube = false;
-                      pyramid = true;
-                      cuboid = false;
-                      star = false;
-                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 2*(height/4)
-                                            && mouseY <= 3*(height/4)) {
-                      cube = false;
-                      pyramid = false;
-                      cuboid = true;
-                      star = false;
-                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 3*(height/4)
-                                            && mouseY <= 4*(height/4)) {
-                      cube = false;
-                      pyramid = false;
-                      cuboid = false;
-                      star = true;
-                    }
-                  }
+						                  void shapeSelected() {
+						                    if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 0
+						                                            && mouseY <= height/4) {
+						                      cube = true;
+						                      pyramid = false;
+						                      cuboid = false;
+						                      star = false;
+						                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= height/4
+						                                            && mouseY <= 2*(height/4)) {
+						                      cube = false;
+						                      pyramid = true;
+						                      cuboid = false;
+						                      star = false;
+						                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 2*(height/4)
+						                                            && mouseY <= 3*(height/4)) {
+						                      cube = false;
+						                      pyramid = false;
+						                      cuboid = true;
+						                      star = false;
+						                    } else if (mouseX >= 0 && mouseX <= width/8 && mouseY >= 3*(height/4)
+						                                            && mouseY <= 4*(height/4)) {
+						                      cube = false;
+						                      pyramid = false;
+						                      cuboid = false;
+						                      star = true;
+						                    }
+						                  }
 
-                  void drawShape() {
-                    if (cube) {
-                      pushMatrix();
-                      fill(244, 67, 54, 127);
-                      translate(mouseX, mouseY);
-                      rotateX(mouseX*0.01);
-                      rotateY(mouseY*0.01);
-                      lights();
-                      box(150);
-                      popMatrix();
-                    } else if (pyramid) {
-                      pushMatrix();
-                      fill (63, 81, 181, 127);
-                      translate(mouseX, mouseY);
-                      rotateX(mouseX*0.01);
-                      rotateY(mouseY*0.01);
-                      lights();
-                      beginShape();
-                      vertex(-100, -100, -100);
-                      vertex(100, -100, -100);
-                      vertex(0, 0, 100);
+						                  void drawShape() {
+						                    if (cube) {
+						                      pushMatrix();
+						                      fill(244, 67, 54, 127);
+						                      translate(mouseX, mouseY);
+						                      rotateX(mouseX*0.01);
+						                      rotateY(mouseY*0.01);
+						                      lights();
+						                      box(150);
+						                      popMatrix();
+						                    } else if (pyramid) {
+						                      pushMatrix();
+						                      fill (63, 81, 181, 127);
+						                      translate(mouseX, mouseY);
+						                      rotateX(mouseX*0.01);
+						                      rotateY(mouseY*0.01);
+						                      lights();
+						                      beginShape();
+						                      vertex(-100, -100, -100);
+						                      vertex(100, -100, -100);
+						                      vertex(0, 0, 100);
 
-                      vertex(100, -100, -100);
-                      vertex(100, 100, -100);
-                      vertex(0, 0, 100);
+						                      vertex(100, -100, -100);
+						                      vertex(100, 100, -100);
+						                      vertex(0, 0, 100);
 
-                      vertex(100, 100, -100);
-                      vertex(-100, 100, -100);
-                      vertex(0, 0, 100);
+						                      vertex(100, 100, -100);
+						                      vertex(-100, 100, -100);
+						                      vertex(0, 0, 100);
 
-                      vertex(-100, 100, -100);
-                      vertex(-100, -100, -100);
-                      vertex(0, 0, 100);
-                      endShape();
-                      popMatrix();
-                    } else if (cuboid) {
-                      pushMatrix();
-                      fill(205, 220, 57, 127);
-                      translate(mouseX, mouseY);
-                      rotateX(mouseX*0.01);
-                      rotateY(mouseY*0.01);
-                      lights();
-                      box(100, 50, 20);
-                      popMatrix();
-                    } else if (star) {
-                      pushMatrix();
-                      fill (255, 193, 7, 127);
-                      translate(mouseX, mouseY);
-                      rotateX(mouseX*0.01);
-                      rotateY(mouseY*0.01);
-                      lights();
-                      beginShape();
-                      vertex(0, -50);
-                      vertex(14, -20);
-                      vertex(47, -15);
-                      vertex(23, 7);
-                      vertex(29, 40);
-                      vertex(0, 25);
-                      vertex(-29, 40);
-                      vertex(-23, 7);
-                      vertex(-47, -15);
-                      vertex(-14, -20);
-                      endShape();
-                      popMatrix();
-                    }
-                  }
-                </script>
-                <canvas style="border: 0px;"></canvas>
-              </div>
+						                      vertex(-100, 100, -100);
+						                      vertex(-100, -100, -100);
+						                      vertex(0, 0, 100);
+						                      endShape();
+						                      popMatrix();
+						                    } else if (cuboid) {
+						                      pushMatrix();
+						                      fill(205, 220, 57, 127);
+						                      translate(mouseX, mouseY);
+						                      rotateX(mouseX*0.01);
+						                      rotateY(mouseY*0.01);
+						                      lights();
+						                      box(100, 50, 20);
+						                      popMatrix();
+						                    } else if (star) {
+						                      pushMatrix();
+						                      fill (255, 193, 7, 127);
+						                      translate(mouseX, mouseY);
+						                      rotateX(mouseX*0.01);
+						                      rotateY(mouseY*0.01);
+						                      lights();
+						                      beginShape();
+						                      vertex(0, -50);
+						                      vertex(14, -20);
+						                      vertex(47, -15);
+						                      vertex(23, 7);
+						                      vertex(29, 40);
+						                      vertex(0, 25);
+						                      vertex(-29, 40);
+						                      vertex(-23, 7);
+						                      vertex(-47, -15);
+						                      vertex(-14, -20);
+						                      endShape();
+						                      popMatrix();
+						                    }
+						                  }
+						                </script>
+						                <canvas style="border: 0px;"></canvas>
+					              </div>
 
-              <div class="code">
-                <pre class="prettyprint" style="border: none;">
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 boolean cube, pyramid, cuboid, star;
 
 void setup() {
@@ -578,110 +546,109 @@ void drawShape() {
     popMatrix();
   }
 }</pre>
-              </div>
+                        </div>
 
-              <p>
-                You can also use Processing on the web using <a href="http://processingjs.org/">processing.js</a>.
-              </p>
-              <p>Like what you see? Tinker around with Processing and have fun creating amazing visuals. If you have any doubts, leave a comment below.</p>
+                        <p>
+                            You can also use Processing on the web using <a href="http://processingjs.org/">processing.js</a>.
+                        </p>
+                        <p>Like what you see? Tinker around with Processing and have fun creating amazing visuals. If you have any doubts, leave a comment below.</p>
 
-							<div class="download_button">
-								<a href="https://github.com/vathsav/processing" target="_blank">View on GitHub</a>
-								<a href="../download/playing_with_shapes_using_processing.rar">Download Source</a>
-							</div>
-						</div>
+                        <div class="download_button">
+                            <a href="https://github.com/vathsav/processing" target="_blank">View on GitHub</a>
+                            <a href="../download/playing_with_shapes_using_processing.rar">Download Source</a>
+                        </div>
+                    </div>
 
-						<div class="light_hr"></div>
-						<div class="post_share">
-							<div class="title"><span>Share</span></div>
-							<div class="buttons">
-								<div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
-								<div class="fb-share-button" data-href="http://www.vathsav.com/post/playing_with_shapes_using_processing" data-layout="button"></div>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_comment">
-							<div id="disqus_thread"></div>
-							<script type="text/javascript">
-							    var disqus_shortname = 'playing_with_shapes_using_processing';
-							    var disqus_identifier = 'playing_with_shapes_using_processing';
-							    var disqus_title = 'Playing with Shapes using Processing';
-							    var disqus_url = 'http://vathsav.com/post/playing_with_shapes_using_processing';
+                    <div class="light_hr"></div>
+                    <div class="post_share">
+                        <div class="title"><span>Share</span></div>
+                        <div class="buttons">
+                            <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+                            <div class="fb-share-button" data-href="http://www.vathsav.com/post/playing_with_shapes_using_processing" data-layout="button"></div>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_comment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_shortname = 'playing_with_shapes_using_processing';
+                            var disqus_identifier = 'playing_with_shapes_using_processing';
+                            var disqus_title = 'Playing with Shapes using Processing';
+                            var disqus_url = 'http://vathsav.com/post/playing_with_shapes_using_processing';
 
-							    /* * * DON'T EDIT BELOW THIS LINE * * */
-							    (function() {
-							        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-							        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-							        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-							    })();
-							</script>
-							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-						</div>
-					</div>
-				</div>
+                            /* * * DON'T EDIT BELOW THIS LINE * * */
+                            (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript';
+                                dsq.async = true;
+                                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Sidebar -->
-				<div class="sidebar" id="sidebar"></div>
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar"></div>
+            </div>
+        </div>
+    </div>
 
-				<!-- Popover  -->
-				<div id="holder" class="holder">
-						<div class="popup">
-								<span class="close">&times;</span>
-								<p id="popup_content"></p>
-						</div>
-				</div>
-			</div>
+    <div id="commons"></div>
 
-			<div class="footer" id="footer"></div>
-		</div>
+    <div class="footer" id="footer"></div>
 
-		<div class="blog_scroll">
-			<a class="scroll_to_top" href="#">Top</a>
-		</div>
-
-		<!-- Load Templates -->
-    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
-    <script src="http://www.vathsav.com/templates/footer.js"></script>
+    <!-- Load Templates -->
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/commons.js"></script>
+    <script src="../templates/footer.js"></script>
 
     <script type="text/javascript">
         document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
         document.getElementById('footer').innerHTML = templates['footer'].render();
     </script>
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://www.vathsav.com/js/analytics.js"></script>
     <script src="http://www.vathsav.com/js/classie.js"></script>
     <script src="http://www.vathsav.com/js/config.js"></script>
     <script src="http://www.vathsav.com/js/effects.js"></script>
     <script src="http://www.vathsav.com/js/subscribe.js"></script>
 
-		<!-- External -->
-		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
-		<!-- Code for comment count -->
-		<script type="text/javascript">
-		    var disqus_shortname = 'vathsav';
-			(function () {
-			    var s = document.createElement('script'); s.async = true;
-        		s.type = 'text/javascript';
-       			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-   			}());
-		</script>
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
 
-    <script type="text/javascript" src="../js/processing.js"></script>
-	</body>
+    <script type="text/javascript" src="../libs/processing.min.js"></script>
+</body>
+
 </html>

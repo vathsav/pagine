@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Interfacing RFID with Arduino | Vathsav</title>
-		<meta name="author" content="Vathsav Harikrishnan" />
-		<link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
-		<link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
-		<link rel="icon" href="images/icon.ico" type="image/x-icon" />
-		<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
-		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-		<script src="https://www.vathsav.com/libs/processing.min.js"></script>
-		<script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-					<div class="inner">
-							<nav class="nav_effect">
-									<a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
-									<a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
-									<a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
-									<a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
-									<a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
-							</nav>
-					</div>
-			</div>
 
-			<div class="main">
-				<div class="content">
-					<div class="post">
-						<div class="post_title">Interfacing RFID with Arduino</div>
-						<div class="post_info">
-							<i>Tuesday 17, November '15</i>
-							<div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
-								<a href="../categories/arduino">Arduino</a>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_content">
-							<p>I've been excited about this one for quite some time! So here we go. I'll be showing you how to build an RFID system using an Arduino board. I've used an EM-18 RFID module and a 16x2 LCD hooked up to a trimpot.</p>
+<head>
+    <title>Interfacing RFID with Arduino | Vathsav</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="../node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+</head>
 
-							<p>Before we connect the LCD to the Arduino board, let's set up the RFID reader and scan a few tags. We shall later hardcode the IDs of these tags into our program to check for a tag's validity.</p>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-main content">
+                <div class="post">
+                    <div class="post_title">Interfacing RFID with Arduino</div>
+                    <div class="post_info">
+                        <i>Tuesday 17, November '15</i>
+                        <div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+                            <a href="../categories/arduino">Arduino</a>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_content">
+                        <p>I've been excited about this one for quite some time! So here we go. I'll be showing you how to build an RFID system using an Arduino board. I've used an EM-18 RFID module and a 16x2 LCD hooked up to a trimpot.</p>
 
-							<div class="download_button">
-								<a href="https://github.com/vathsav/arduino/tree/master/interfacing_rfid" target="_blank">View on GitHub</a>
-								<a href="../download/interfacing_rfid_with_arduino.rar">Download Source</a>
-							</div>
+                        <p>Before we connect the LCD to the Arduino board, let's set up the RFID reader and scan a few tags. We shall later hardcode the IDs of these tags into our program to check for a tag's validity.</p>
 
-							<div class="centered_image">
-								<a href="../img/interfacing_rfid_with_arduino/sketch_rfid.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/sketch_rfid.png" style="width: 40%;"></a>
-							</div>
+                        <div class="download_button">
+                            <a href="https://github.com/vathsav/arduino/tree/master/interfacing_rfid" target="_blank">View on GitHub</a>
+                            <a href="../download/interfacing_rfid_with_arduino.rar">Download Source</a>
+                        </div>
 
-							<div class="centered_image">
-								<a href="../img/interfacing_rfid_with_arduino/em_18_pin_diagram.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/em_18_pin_diagram.png" style="width: 25%;"></a>
-							</div>
+                        <div class="centered_image">
+                            <a href="../img/interfacing_rfid_with_arduino/sketch_rfid.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/sketch_rfid.png" style="width: 40%;"></a>
+                        </div>
 
-							<p></p>
+                        <div class="centered_image">
+                            <a href="../img/interfacing_rfid_with_arduino/em_18_pin_diagram.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/em_18_pin_diagram.png" style="width: 25%;"></a>
+                        </div>
 
-							<p><i>Serial.begin()</i> lets us listen to incoming signals on the RX pin. To check for incoming signals, we have the <i>Serial.available()</i> function that returns a Boolean true when the TX pin of the RFID module sends a digital HIGH to the Arduino's RX pin.</p>
+                        <p></p>
 
-							<p>Now, disconnect the RX pin on the Arduino board and upload the following sketch onto your Arduino. The RX pin should be disconnected, because if you don't, the RFID will interfere with the USB connection while uploading your sketch and you'll get a sync error.</p>
+                        <p><i>Serial.begin()</i> lets us listen to incoming signals on the RX pin. To check for incoming signals, we have the <i>Serial.available()</i> function that returns a Boolean true when the TX pin of the RFID module sends a digital HIGH to the Arduino's RX pin.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <p>Now, disconnect the RX pin on the Arduino board and upload the following sketch onto your Arduino. The RX pin should be disconnected, because if you don't, the RFID will interfere with the USB connection while uploading your sketch and you'll get a sync error.</p>
+
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 int count = 0;
 
 void setup(){
@@ -86,22 +76,22 @@ void loop(){
     Serial.println();
   }
 }</pre>
-							</div>
+                        </div>
 
-							<p><i>Serial.read()</i> reads one character at a time, which is why we have it in a <i>while(Serial.available())</i> loop.</p>
+                        <p><i>Serial.read()</i> reads one character at a time, which is why we have it in a <i>while(Serial.available())</i> loop.</p>
 
-							<p>Now, when you swipe your tag over the reader, you should be able to see the ID of your tag on the Serial Monitor (<b>Ctrl + Shift + M</b> on the Arduino IDE), along with it's length. We can now use this ID to validate your tag to do something specifc, for example, turn an LED on, or rotate a servo motor.</p>
+                        <p>Now, when you swipe your tag over the reader, you should be able to see the ID of your tag on the Serial Monitor (<b>Ctrl + Shift + M</b> on the Arduino IDE), along with it's length. We can now use this ID to validate your tag to do something specifc, for example, turn an LED on, or rotate a servo motor.</p>
 
-							<p>Let's connect the LCD to our circuit.</p>
+                        <p>Let's connect the LCD to our circuit.</p>
 
-							<div class="centered_image">
-								<a href="../img/interfacing_rfid_with_arduino/sketch_rfid_lcd.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/sketch_rfid_lcd.png" style="width: 50%; padding-bottom: 15px;"></a>
-							</div>
+                        <div class="centered_image">
+                            <a href="../img/interfacing_rfid_with_arduino/sketch_rfid_lcd.png" target="_blank"><img src="../img/interfacing_rfid_with_arduino/sketch_rfid_lcd.png" style="width: 50%; padding-bottom: 15px;"></a>
+                        </div>
 
-							<p>Don't forget to disconnect the RX pin before uploading your new sketch.</p>
+                        <p>Don't forget to disconnect the RX pin before uploading your new sketch.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 #include &lt;LiquidCrystal.h&gt;
 
 LiquidCrystal lcd(12, 11, 7, 6, 5, 4);
@@ -170,105 +160,104 @@ void loop() {
     lcd.clear();
   }
 }</pre>
-							</div>
+                        </div>
 
-							<p>Now that you're done with the basic functionality, you can connect more components like a servo motor or a buzzer to the Arduino board, and trigger them from inside the body of the <i>if(flag)</i> statement.</p>
+                        <p>Now that you're done with the basic functionality, you can connect more components like a servo motor or a buzzer to the Arduino board, and trigger them from inside the body of the <i>if(flag)</i> statement.</p>
 
-							<div class="download_button">
-								<a href="https://github.com/vathsav/arduino/tree/master/interfacing_rfid" target="_blank">View on GitHub</a>
-								<a href="../download/interfacing_rfid_with_arduino.rar">Download Source</a>
-							</div>
-						</div>
+                        <div class="download_button">
+                            <a href="https://github.com/vathsav/arduino/tree/master/interfacing_rfid" target="_blank">View on GitHub</a>
+                            <a href="../download/interfacing_rfid_with_arduino.rar">Download Source</a>
+                        </div>
+                    </div>
 
-						<div class="light_hr"></div>
-						<div class="post_share">
-							<div class="title"><span>Share</span></div>
-							<div class="buttons">
-								<div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
-								<div class="fb-share-button" data-href="http://www.vathsav.com/post/interfacing_rfid_with_arduino" data-layout="button"></div>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_comment">
-							<div id="disqus_thread"></div>
-							<script type="text/javascript">
-							    var disqus_shortname = 'interfacing_rfid_with_arduino'; // Make sure you use the same shortname on both sites
-							    var disqus_identifier = 'interfacing_rfid_with_arduino';
-							    var disqus_title = 'Interfacing RFID with Arduino';
-							    var disqus_url = 'http://vathsav.com/post/interfacing_rfid_with_arduino'; // Make sure this is the same, even on example.com
+                    <div class="light_hr"></div>
+                    <div class="post_share">
+                        <div class="title"><span>Share</span></div>
+                        <div class="buttons">
+                            <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+                            <div class="fb-share-button" data-href="http://www.vathsav.com/post/interfacing_rfid_with_arduino" data-layout="button"></div>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_comment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_shortname = 'interfacing_rfid_with_arduino'; // Make sure you use the same shortname on both sites
+                            var disqus_identifier = 'interfacing_rfid_with_arduino';
+                            var disqus_title = 'Interfacing RFID with Arduino';
+                            var disqus_url = 'http://vathsav.com/post/interfacing_rfid_with_arduino'; // Make sure this is the same, even on example.com
 
-							    /* * * DON'T EDIT BELOW THIS LINE * * */
-							    (function() {
-							        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-							        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-							        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-							    })();
-							</script>
-							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-						</div>
-					</div>
-				</div>
+                            /* * * DON'T EDIT BELOW THIS LINE * * */
+                            (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript';
+                                dsq.async = true;
+                                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Sidebar -->
-				<div class="sidebar" id="sidebar"></div>
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar"></div>
+            </div>
+        </div>
+    </div>
 
-				<!-- Popover  -->
-				<div id="holder" class="holder">
-						<div class="popup">
-								<span class="close">&times;</span>
-								<p id="popup_content"></p>
-						</div>
-				</div>
-			</div>
+    <div id="commons"></div>
 
-			<div class="footer" id="footer"></div>
-		</div>
+    <div class="footer" id="footer"></div>
 
-		<div class="blog_scroll">
-			<a class="scroll_to_top" href="#">Top</a>
-		</div>
-
-		<!-- Load Templates -->
-    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
-    <script src="http://www.vathsav.com/templates/footer.js"></script>
+    <!-- Load Templates -->
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/commons.js"></script>
+    <script src="../templates/footer.js"></script>
 
     <script type="text/javascript">
         document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
         document.getElementById('footer').innerHTML = templates['footer'].render();
     </script>
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://www.vathsav.com/js/analytics.js"></script>
     <script src="http://www.vathsav.com/js/classie.js"></script>
     <script src="http://www.vathsav.com/js/config.js"></script>
     <script src="http://www.vathsav.com/js/effects.js"></script>
     <script src="http://www.vathsav.com/js/subscribe.js"></script>
 
-		<!-- External -->
-		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
-		<!-- Code for comment count -->
-		<script type="text/javascript">
-		    var disqus_shortname = 'vathsav';
-			(function () {
-			    var s = document.createElement('script'); s.async = true;
-        		s.type = 'text/javascript';
-       			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-   			}());
-		</script>
-	</body>
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+
 </html>

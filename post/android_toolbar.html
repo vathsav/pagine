@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Android Toolbar | Vathsav</title>
-		<meta name="author" content="Vathsav Harikrishnan" />
-    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
-    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+
+<head>
+    <title>Android Toolbar | Vathsav</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -13,119 +15,108 @@
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-    <script src="http://www.vathsav.com/node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-					<div class="inner">
-							<nav class="nav_effect">
-									<a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
-									<a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
-									<a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
-									<a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
-									<a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
-							</nav>
-					</div>
-			</div>
+    <script src="../node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+</head>
 
-			<div class="main">
-				<div class="content">
-					<div class="post">
-						<div class="post_title">Android Toolbar</div>
-						<div class="post_info">
-							<i>Saturday 7, November '15</i>
-							<div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
-								<a href="../categories/android">Android</a>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_content">
-							<p>Developing Android apps is fun, but designing a visually pleasing app can be challenging. Google's <a href="https://www.google.co.in/design/spec/material-design/introduction.html" target="_blank">Material Design</a> paves the way for modern elegant designs.</p>
-							<p>In this article, I'll show you how to implement a Toolbar, replacing the old ActionBar.</p>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-main content">
+                <div class="post">
+                    <div class="post_title">Android Toolbar</div>
+                    <div class="post_info">
+                        <i>Saturday 7, November '15</i>
+                        <div class="post_category"><img src="../svg/blog/label.svg" height="18px" style="margin: 10px 5px 0 0;">
+                            <a href="../categories/android">Android</a>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_content">
+                        <p>Developing Android apps is fun, but designing a visually pleasing app can be challenging. Google's <a href="https://www.google.co.in/design/spec/material-design/introduction.html" target="_blank">Material Design</a> paves the way for modern elegant designs.</p>
+                        <p>In this article, I'll show you how to implement a Toolbar, replacing the old ActionBar.</p>
 
-							<div class="download_button">
-								<a href="../download/android_toolbar.rar">Download Source</a>
-							</div>
+                        <div class="download_button">
+                            <a href="../download/android_toolbar.rar">Download Source</a>
+                        </div>
 
-							<p>First off, go ahead and create a Blank Activity.</p>
-							<div class="centered_image">
-								<a href="../img/android_toolbar/new_activity.png" target="_blank"><img src="../img/android_toolbar/new_activity.png" style="width: 100%; padding-bottom: 30px;"></a>
-							</div>
+                        <p>First off, go ahead and create a Blank Activity.</p>
+                        <div class="centered_image">
+                            <a href="../img/android_toolbar/new_activity.png" target="_blank"><img src="../img/android_toolbar/new_activity.png" style="width: 100%; padding-bottom: 30px;"></a>
+                        </div>
 
-							<p>Now, in your Gradle dependencies, add the v7 Support Library. Adding this line of code will enable versions of Android before Lollipop (API 21) to support your Toolbar implementation.</p>
+                        <p>Now, in your Gradle dependencies, add the v7 Support Library. Adding this line of code will enable versions of Android before Lollipop (API 21) to support your Toolbar implementation.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 compile 'com.android.support:appcompat-v7:22.2.0'
 // add this instead, if you have the Marshmallow resources installed
 // compile 'com.android.support:appcompat-v7:23.1.0'</pre>
-							</div>
+                        </div>
 
-							<p>Compiling this library will allow us to use the AppCompatActivity and ActionBar classes. Click <a href="http://developer.android.com/tools/support-library/features.html#v7" target="_blank">here</a> to learn more about this library. When you're done, sync your project and you're good to go.</p>
+                        <p>Compiling this library will allow us to use the AppCompatActivity and ActionBar classes. Click <a href="http://developer.android.com/tools/support-library/features.html#v7" target="_blank">here</a> to learn more about this library. When you're done, sync your project and you're good to go.</p>
 
-							<p>Now, open the styles.xml file in your <i>res/values</i> folder and paste the following code.</p>
+                        <p>Now, open the styles.xml file in your <i>res/values</i> folder and paste the following code.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 &lt;resources&gt;
-    &lt;!-- Base application theme. --&gt;
-    &lt;style name="AppTheme" parent="Theme.AppCompat.NoActionBar"&gt;
-        &lt;item name="colorPrimaryDark"&gt;#673AB7&lt;/item&gt;
-        &lt;item name="colorPrimary"&gt;#9C27B0&lt;/item&gt;
+	&lt;!-- Base application theme. --&gt;
+	&lt;style name="AppTheme" parent="Theme.AppCompat.NoActionBar"&gt;
+	&lt;item name="colorPrimaryDark"&gt;#673AB7&lt;/item&gt;
+	&lt;item name="colorPrimary"&gt;#9C27B0&lt;/item&gt;
 	&lt;item name="android:textColorPrimary"&gt;#E0E0E0&lt;/item&gt;
-    &lt;/style&gt;
+	&lt;/style&gt;
 &lt;/resources&gt;</pre>
-							</div>
+                        </div>
 
-							<p><i>colorPrimaryDark</i> will be the color of your status bar and <i>colorPrimary</i> will be the color of your toolbar.</p>
+                        <p><i>colorPrimaryDark</i> will be the color of your status bar and <i>colorPrimary</i> will be the color of your toolbar.</p>
 
-							<p>Note that the parent theme is set to Theme.AppCompat.<b>NoActionBar</b>. This means that we've removed the standard ActionBar and the activity is going to be blank. Choose a good color combination for your status bar and Toolbar.</p>
+                        <p>Note that the parent theme is set to Theme.AppCompat.<b>NoActionBar</b>. This means that we've removed the standard ActionBar and the activity is going to be blank. Choose a good color combination for your status bar and Toolbar.</p>
 
-							<div class="centered_image">
-								<a href="../img/android_toolbar/toolbar_color.png" target="_blank"><img src="../img/android_toolbar/toolbar_color.png" style="width: 40%; padding-bottom: 30px;"></a>
-							</div>
+                        <div class="centered_image">
+                            <a href="../img/android_toolbar/toolbar_color.png" target="_blank"><img src="../img/android_toolbar/toolbar_color.png" style="width: 40%; padding-bottom: 30px;"></a>
+                        </div>
 
-							<p><a href="http://www.materialui.co/colors" target="_blank">MaterialUI</a> is my personal favourite when it comes to picking colors for my projects. I've chosen purple and indigo!</p>
+                        <p><a href="http://www.materialui.co/colors" target="_blank">MaterialUI</a> is my personal favourite when it comes to picking colors for my projects. I've chosen purple and indigo!</p>
 
-							<p>Now, open your activity's layout.xml file inside <i>res/layout</i> and add the Toolbar widget.</p>
+                        <p>Now, open your activity's layout.xml file inside <i>res/layout</i> and add the Toolbar widget.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.vathsav.toolbar.Toolbar"&gt;
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.vathsav.toolbar.Toolbar"&gt;
 
-    &lt;android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        /&gt;
+	&lt;android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:minHeight="?attr/actionBarSize"
+		android:background="?attr/colorPrimary"
+		/&gt;
 
 &lt;/LinearLayout&gt;</pre>
-							</div>
+                        </div>
 
-							<p>When you're done, you should be able to have a look at your toolbar from the Preview tab in Android Studio. Awesome!</p>
+                        <p>When you're done, you should be able to have a look at your toolbar from the Preview tab in Android Studio. Awesome!</p>
 
-							<p>Now, add the following strings to your strings.xml file inside <i>res/values</i>.</p>
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <p>Now, add the following strings to your strings.xml file inside <i>res/values</i>.</p>
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 &lt;string name="app_name"&gt;Toolbar&lt;/string&gt;
 &lt;string name="title_activity_toolbar"&gt;Toolbar&lt;/string&gt;
 &lt;string name="title_activity_home"&gt;Home&lt;/string&gt;
 &lt;string name="toolbar_title_text"&gt;Toolbar&lt;/string&gt;
 &lt;string name="action_settings"&gt;Settings&lt;/string&gt;
 &lt;string name="action_search"&gt;Search&lt;/string&gt;</pre>
-							</div>
+                        </div>
 
-							<p>Now that we're done creating the XML layouts, let's move on to Java! In your MainActivity, implement the following changes.</p>
+                        <p>Now that we're done creating the XML layouts, let's move on to Java! In your MainActivity, implement the following changes.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 package com.vathsav.toolbar;
 
 import android.support.v7.app.AppCompatActivity;
@@ -134,50 +125,50 @@ import android.support.v7.widget.Toolbar;
 
 public class Home extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.toolbar_title_text);
-        setSupportActionBar(toolbar);
-    }
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		toolbar.setTitle(R.string.toolbar_title_text);
+		setSupportActionBar(toolbar);
+	}
 }</pre>
-							</div>
+                        </div>
 
-							<p>And you're done! Build and run the app on your phone and you should see a neat looking Toolbar.</p>
+                        <p>And you're done! Build and run the app on your phone and you should see a neat looking Toolbar.</p>
 
-							<div class="centered_image">
-								<a href="../img/android_toolbar/toolbar_flat.png" target="_blank"><img src="../img/android_toolbar/toolbar_flat.png" style="width: 40%; padding-bottom: 30px;"></a>
-							</div>
+                        <div class="centered_image">
+                            <a href="../img/android_toolbar/toolbar_flat.png" target="_blank"><img src="../img/android_toolbar/toolbar_flat.png" style="width: 40%; padding-bottom: 30px;"></a>
+                        </div>
 
-							<p> Looks flat? Let's add an elevation to it. Add the following line to your Toolbar widget in your MainActivity's xml file.</p>
+                        <p> Looks flat? Let's add an elevation to it. Add the following line to your Toolbar widget in your MainActivity's xml file.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 android:elevation="10dp"</pre>
-							</div>
+                        </div>
 
-							<p>Let's create the menu items for your list in the toolbar. Add the following items to your menu_main.xml file in <i>res/menu</i>.</p>
+                        <p>Let's create the menu items for your list in the toolbar. Add the following items to your menu_main.xml file in <i>res/menu</i>.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 &lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.vathsav.toolbar.Home"&gt;
-    &lt;item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" /&gt;
-    &lt;item android:id="@+id/action_search" android:title="@string/action_search"
-        android:orderInCategory="100" app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_search"/&gt;
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools" tools:context="com.vathsav.toolbar.Home"&gt;
+	&lt;item android:id="@+id/action_settings" android:title="@string/action_settings"
+		android:orderInCategory="100" app:showAsAction="never" /&gt;
+	&lt;item android:id="@+id/action_search" android:title="@string/action_search"
+		android:orderInCategory="100" app:showAsAction="ifRoom"
+		android:icon="@android:drawable/ic_menu_search"/&gt;
 &lt;/menu&gt;</pre>
-							</div>
+                        </div>
 
-							<p>To enable the list, you need to override the <i>onCreateOptionsMenu()</i> and <i>onOptionsItemSelected()</i> methods, and use the the <i>setDisplayHomeAsUpEnabled()</i>  function to display a back button for your activity.</p>
+                        <p>To enable the list, you need to override the <i>onCreateOptionsMenu()</i> and <i>onOptionsItemSelected()</i> methods, and use the the <i>setDisplayHomeAsUpEnabled()</i> function to display a back button for your activity.</p>
 
-							<div class="code">
-								<pre class="prettyprint" style="border: none;">
+                        <div class="code">
+                            <pre class="prettyprint" style="border: none;">
 package com.vathsav.toolbar;
 
 import android.support.v7.app.AppCompatActivity;
@@ -189,149 +180,147 @@ import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.toolbar_title_text);
-        toolbar.setSubtitle(R.string.toolbar_title_text);
-        setSupportActionBar(toolbar);
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		toolbar.setTitle(R.string.toolbar_title_text);
+		toolbar.setSubtitle(R.string.toolbar_title_text);
+		setSupportActionBar(toolbar);
 
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+		if (getSupportActionBar() != null)
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_home, menu);
+		return true;
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        switch (id) {
-            case android.R.id.home:
-                Toast.makeText(getApplicationContext(), "Back Pressed", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_settings:
-                Toast.makeText(getApplicationContext(), "Settings Pressed", Toast.LENGTH_SHORT).show();
-                return true;
-        }
+		//noinspection SimplifiableIfStatement
+		switch (id) {
+			case android.R.id.home:
+				Toast.makeText(getApplicationContext(), "Back Pressed", Toast.LENGTH_SHORT).show();
+				return true;
+			case R.id.action_settings:
+				Toast.makeText(getApplicationContext(), "Settings Pressed", Toast.LENGTH_SHORT).show();
+				return true;
+		}
 
-        return super.onOptionsItemSelected(item);
-    }
+		return super.onOptionsItemSelected(item);
+	}
 }</pre>
-							</div>
+                        </div>
 
-							<div class="centered_image">
-								<a href="../img/android_toolbar/toolbar_final.png" target="_blank"><img src="../img/android_toolbar/toolbar_final.png" style="width: 40%; padding-bottom: 30px;"></a>
-							</div>
+                        <div class="centered_image">
+                            <a href="../img/android_toolbar/toolbar_final.png" target="_blank"><img src="../img/android_toolbar/toolbar_final.png" style="width: 40%; padding-bottom: 30px;"></a>
+                        </div>
 
-							<p>Neat! :) I hope you found my article useful. Please share and feel free to comment if you have any questions!</p>
+                        <p>Neat! :) I hope you found my article useful. Please share and feel free to comment if you have any questions!</p>
 
-							<div class="download_button">
-								<a href="../download/android_toolbar.rar">Download Source</a>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_share">
-							<div class="title"><span>Share</span></div>
-							<div class="buttons">
-								<div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
-								<div class="fb-share-button" data-href="http://www.vathsav.com/post/android_toolbar" data-layout="button"></div>
-							</div>
-						</div>
-						<div class="light_hr"></div>
-						<div class="post_comment">
-							<div id="disqus_thread"></div>
-							<script type="text/javascript">
-								var disqus_config = function () {
-									this.page.url = 'http://vathsav.com/post/android_toolbar';
-									this.page.identifier = 'android_toolbar';
-									this.page.title = 'Android Toolbar';
-								};
+                        <div class="download_button">
+                            <a href="../download/android_toolbar.rar">Download Source</a>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_share">
+                        <div class="title"><span>Share</span></div>
+                        <div class="buttons">
+                            <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>
+                            <div class="fb-share-button" data-href="../post/android_toolbar" data-layout="button"></div>
+                        </div>
+                    </div>
+                    <div class="light_hr"></div>
+                    <div class="post_comment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_config = function() {
+                                this.page.url = 'http://vathsav.com/post/android_toolbar';
+                                this.page.identifier = 'android_toolbar';
+                                this.page.title = 'Android Toolbar';
+                            };
 
-								(function() { // DON'T EDIT BELOW THIS LINE
-									var d = document, s = d.createElement('script');
-									s.src = '//vathsav.disqus.com/embed.js';
-									s.setAttribute('data-timestamp', +new Date());
-									(d.head || d.body).appendChild(s);
-								})();
-							</script>
-							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-						</div>
-					</div>
-				</div>
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                                var d = document,
+                                    s = d.createElement('script');
+                                s.src = '//vathsav.disqus.com/embed.js';
+                                s.setAttribute('data-timestamp', +new Date());
+                                (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                  	</div>
+                </div>
+        		</div>
 
-				<!-- Sidebar -->
-				<div class="sidebar" id="sidebar"></div>
+		        <div class="col-md-3">
+		            <div class="sidebar" id="sidebar"></div>
+		        </div>
+    		</div>
+    </div>
 
-				<!-- Popover  -->
-				<div id="holder" class="holder">
-						<div class="popup">
-								<span class="close">&times;</span>
-								<p id="popup_content"></p>
-						</div>
-				</div>
-			</div>
+    <div id="commons"></div>
 
-			<div class="footer" id="footer"></div>
-		</div>
+    <div class="footer" id="footer"></div>
 
-		<div class="blog_scroll">
-			<a class="scroll_to_top" href="#">Top</a>
-		</div>
-
-		<!-- Load Templates -->
-    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
-    <script src="http://www.vathsav.com/templates/footer.js"></script>
+    <!-- Load Templates -->
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/commons.js"></script>
+    <script src="../templates/footer.js"></script>
 
     <script type="text/javascript">
         document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
         document.getElementById('footer').innerHTML = templates['footer'].render();
     </script>
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://www.vathsav.com/js/analytics.js"></script>
-    <script src="http://www.vathsav.com/js/classie.js"></script>
-    <script src="http://www.vathsav.com/js/config.js"></script>
-    <script src="http://www.vathsav.com/js/effects.js"></script>
-    <script src="http://www.vathsav.com/js/subscribe.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/effects.js"></script>
+    <script src="../js/subscribe.js"></script>
 
-		<!-- External -->
-		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
-		<!-- Code for comment count -->
-		<script type="text/javascript">
-		    var disqus_shortname = 'vathsav';
-			(function () {
-			    var s = document.createElement('script'); s.async = true;
-        		s.type = 'text/javascript';
-       			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-   			}());
-		</script>
-	</body>
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+
 </html>
