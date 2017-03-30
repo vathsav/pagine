@@ -1,0 +1,24 @@
+<div class="header">
+    <div class="inner">
+        <nav class="nav_effect">
+            <a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
+            <a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
+            <a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
+            <a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
+            <a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
+        </nav>
+    </div>
+</div>
+
+<div class="blog_scroll">
+    <a class="scroll_to_top" href="#">Top</a>
+</div>
+
+<!-- Popover  -->
+<div id="holder" class="holder">
+    <div class="popup">
+        <span class="close">&times;</span>
+        <span class="glyphicon glyphicon-heart icon" aria-hidden="true"></span>
+        <p id="popup_content"></p>
+    </div>
+</div>

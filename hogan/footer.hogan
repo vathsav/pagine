@@ -1,38 +1,50 @@
-<div class="inner">
-    <div class="widget">
-        <div class="widget_title"><span>Quick Links</span></div>
-        <div class="footer_hr"></div>
-        <p>
-            <a href="archive">Archive</a><br>
-            <a href="about">About</a><br>
-            <a href="index#contact">Contact</a><br>
-            <a href="portfolio">Portfolio</a><br>
-        </p>
-    </div>
-    <div class="widget">
-        <div class="widget_title"><span>Socialize</span></div>
-        <div class="footer_hr"></div>
-        <p>
-            <a href="https://www.facebook.com/vathsavh" target="_blank"><img src="http://www.vathsav.com/svg/social/facebook.svg"></a>
-            <a href="https://plus.google.com/u/0/+VathsavHarikrishnan" target="_blank"><img src="http://www.vathsav.com/svg/social/google.svg"></a>
-            <a href="https://twitter.com/vathsav_h" target="_blank"><img src="http://www.vathsav.com/svg/social/twitter.svg"></a>
-            <a href="https://www.linkedin.com/in/vathsav" target="_blank"><img src="http://www.vathsav.com/svg/social/linkedin.svg"></a>
-            <a href="https://github.com/vathsav" target="_blank"><img src="http://www.vathsav.com/svg/social/github_light.svg"></a>
-            <a href="https://instagram.com/vathsavh/" target="_blank"><img src="http://www.vathsav.com/svg/social/instagram.svg"></a>
-        </p>
-    </div>
-    <div class="widget">
-        <div class="widget_title"><span>Subscribe</span></div>
-        <div class="footer_hr"></div>
-        <form id="subscribe" onsubmit="return false">
-            <div class="subscribe_field">
-                <input type="text" id="subscribe_email" placeholder="Email Address">
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="widget">
+                <div class="widget_title"><span>Quick Links</span></div>
+                <div class="footer_hr"></div>
+                <p>
+                    <a href="archive">Archive</a><br>
+                    <a href="about">About</a><br>
+                    <a href="index#contact">Contact</a><br>
+                    <a href="portfolio">Portfolio</a><br>
+                </p>
             </div>
-            <div class="button">
-                <input type="button" onclick="subscribe()" value="Go">
+        </div>
+        <div class="col-md-4">
+            <div class="widget">
+                <div class="widget_title"><span>Socialize</span></div>
+                <div class="footer_hr"></div>
+                <p>
+                    <a href="https://www.facebook.com/vathsavh" target="_blank"><img src="http://www.vathsav.com/svg/social/facebook.svg"></a>
+                    <a href="https://plus.google.com/u/0/+VathsavHarikrishnan" target="_blank"><img src="http://www.vathsav.com/svg/social/google.svg"></a>
+                    <a href="https://twitter.com/vathsav_h" target="_blank"><img src="http://www.vathsav.com/svg/social/twitter.svg"></a>
+                    <a href="https://www.linkedin.com/in/vathsav" target="_blank"><img src="http://www.vathsav.com/svg/social/linkedin.svg"></a>
+                    <a href="https://github.com/vathsav" target="_blank"><img src="http://www.vathsav.com/svg/social/github_light.svg"></a>
+                    <a href="https://instagram.com/vathsavh/" target="_blank"><img src="http://www.vathsav.com/svg/social/instagram.svg"></a>
+                </p>
             </div>
-        </form>
+        </div>
+        <div class="col-md-4">
+            <div class="widget">
+                <div class="widget_title"><span>Subscribe</span></div>
+                <div class="footer_hr"></div>
+                <form id="subscribe" onsubmit="return false">
+                    <div class="subscribe_field">
+                        <input type="text" id="subscribe_email" placeholder="Email Address">
+                    </div>
+                    <div class="button">
+                        <input type="button" onclick="subscribe()" value="Go">
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
+
 </div>
 
 <div class="copyright_info">

@@ -111,28 +111,13 @@ a .nav_contact:hover {
 	width: 100%;
 	/* position:absolute; */
 	bottom: 0;
-	left: 0;
 }
 
-.footer .inner {
-	padding-top: 10px;
-	width: 65%;
-	margin: auto;
-}
-
-.footer .inner .widget {
-	width: 33.3333%;
-	float: left;
+.footer .container-fluid .widget {
+	margin: 0 auto;
+	width: 80%;
 	margin-top: 20px;
 	text-align: center;
-}
-
-.footer .widget hr {
-	color: #212121;
-	background-color: #212121;
-	height: 1px;
-	border: none;
-	margin: 8px;
 }
 
 .footer_hr {
@@ -140,9 +125,8 @@ a .nav_contact:hover {
 	color: #212121;
 	background-color: #212121;
 	height: 2px;
+	margin-bottom: 15px;
 	border: none;
-	margin-top: 2px;
-	width: 70%;
 }
 
 .footer .widget_title_portfolio span {
@@ -218,6 +202,12 @@ a .nav_contact:hover {
 
 /* Popover */
 
+.icon {
+	margin: 25px;
+	font-size: 100px;
+	color: #d32f2f;
+}
+
 .holder {
     display: none;
     position: fixed;
@@ -232,13 +222,18 @@ a .nav_contact:hover {
 }
 
 .popup {
+	text-align: center;
     background-color: #E0E0E0;
     margin: 15% auto;
-		padding-top: 10px;
+		padding-top: 20px;
 		padding-right: 20px;
-		padding-bottom: 10px;
-		padding-left: 40px;
-    width: 75%;
+		padding-bottom: 20px;
+		padding-left: 20px;
+    width: 55%;
+}
+
+.popup p {
+	margin-bottom: 0px;
 }
 
 #popup_content {
@@ -350,57 +345,6 @@ a .nav_contact:hover {
     transition: left 0.3s;
 }
 
-/* Media Queries */
-@media screen and (max-width: 55em) {
-
-	.header .inner {
-		width: 100%;
-	}
-
-	.header h1,
-	.header nav {
-		display: block;
-		margin: 0 auto;
-		text-align: center;
-		float: none;
-	}
-
-	.header h1,
-	.header nav a {
-		line-height: 115px;
-	}
-
-	.header nav a {
-		margin: 0 10px;
-	}
-
-	.header.header-shrink h1,
-	.header.header-shrink nav a {
-		line-height: 45px;
-	}
-
-	.header.header-shrink h1 {
-		font-size: 2em;
-	}
-
-	.header.header-shrink nav a {
-		font-size: 1em;
-	}
-}
-
-@media screen and (max-width: 32.25em) {
-	.header nav a {
-		font-size: 1em;
-	}
-}
-
-@media screen and (max-width: 24em) {
-	.header nav a,
-	.header.header-shrink nav a {
-		line-height: 1;
-	}
-}
-
 .light_hr {
 	color: #E0E0E0;
 	background-color: #E0E0E0;
@@ -479,26 +423,4 @@ ul {
 .fb-share-button {
 	margin-left: 50px;
 	top: -4px;
-}
-
-@media only screen and (min-width: 768px) {
-	.scroll_to_top {
-		right: 20px;
-		bottom: 20px;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.scroll_to_top {
-		height: 60px;
-		width: 60px;
-		right: 30px;
-		bottom: 30px;
-	}
-}
-
-@media only screen and (max-width: 1366px) {
-	.footer .inner {
-		width: 75%;
-	}
 }

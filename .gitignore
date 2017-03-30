@@ -38,3 +38,4 @@ jspm_packages
 
 # Files
 js/config.js
+.DS_Store

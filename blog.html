@@ -2,10 +2,11 @@
 <html>
 
 <head>
-    <title>Vathsav | Android</title>
+    <title>Vathsav | Blog</title>
     <meta name="author" content="Vathsav Harikrishnan" />
-    <link rel="stylesheet" href="http://www.vathsav.com/css/blog.css">
-    <link rel="stylesheet" href="http://www.vathsav.com/css/common.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -18,121 +19,112 @@
 </head>
 
 <body>
+
     <div class="container">
-        <div class="header">
-            <div class="inner">
-                <nav class="nav_effect">
-                    <a href="http://www.vathsav.com"><span class="nav_home">Home</span></a>
-                    <a href="http://www.vathsav.com/blog" style="color: #0277BD;"><span class="nav_blog">{ Blog }</span></a>
-                    <a href="http://www.vathsav.com/portfolio"><span class="nav_portfolio">Portfolio</span></a>
-                    <a href="http://www.vathsav.com/about"><span class="nav_about">About</span></a>
-                    <a href="http://www.vathsav.com#contact"><span class="nav_contact">Contact</span></a>
-                </nav>
-            </div>
-        </div>
-
-        <div class="main">
-            <div class="content">
-                <div id="blog_cards"></div>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="sidebar" id="sidebar"></div>
-
-            <!-- Popover  -->
-            <div id="holder" class="holder">
-                <div class="popup">
-                    <span class="close">&times;</span>
-                    <p id="popup_content"></p>
+        <div class="row">
+            <div class="col-md-9 blog-main">
+                <div class="content">
+                    <div id="blog_cards"></div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar"></div>
+            </div>
         </div>
-
-        <div class="footer" id="footer"></div>
     </div>
 
-    <div class="blog_scroll">
-        <a class="scroll_to_top" href="#">Top</a>
-    </div>
+    <div id="commons"></div>
+
+    <div class="footer" id="footer"></div>
+
+    <!-- TODO FIX ALL URLS TO ABSOLUTE -->
+<!--
+    <script src="http://www.vathsav.com/templates/blog_cards.js"></script>
+    <script src="http://www.vathsav.com/commons.js"></script>
+    <script src="http://www.vathsav.com/templates/sidebar.js"></script>
+    <script src="http://www.vathsav.com/templates/footer.js"></script> -->
 
     <!-- Load Templates -->
     <script src="http://www.vathsav.com/templates/blog_cards.js"></script>
+    <script src="templates/commons.js"></script>
     <script src="http://www.vathsav.com/templates/sidebar.js"></script>
-    <script src="http://www.vathsav.com/templates/footer.js"></script>
+    <script src="templates/footer.js"></script>
 
     <script type="text/javascript">
         var blog_cards = {
-          "blog_cards": [
-            {
-              url: "post/realtime_chat_client_using_firebase",
-              title: "Real-time Chat Client Using Firebase",
-              date: "Thursday 8, September '16",
-              disqus_thread: "http://www.vathsav.com/post/realtime_chat_client_using_firebase#disqus_thread",
-              category_url: "categories/android",
-              categories: "Android",
-              image: "img/realtime_chat_client_using_firebase/banner.png",
-              caption:"A guide to using Firebase as a backend for your chat application."
-            },
-            {
-              url: "post/custom_tinker_implementation_for_particle_devices",
-              title: "Custom Tinker Implementation for Particle Devices",
-              date: "Wednesday 31, August '16",
-              disqus_thread: "http://www.vathsav.com/post/custom_tinker_implementation_for_particle_devices#disqus_thread",
-              category_url: "categories/particle_core",
-              categories: "Particle Core",
-              image: "img/custom_tinker_implementation_for_particle_devices/banner.png",
-              caption:"Tinker away."
-            },
-            {
-              url: "post/playing_with_shapes_using_processing",
-              title: "Playing with Shapes using Processing",
-              date: "Sunday 27, March '16",
-              disqus_thread: "http://www.vathsav.com/post/arduino_calculator#disqus_thread",
-              category_url: "categories/processing",
-              categories: "Processing",
-              image: "img/playing_with_shapes_using_processing/banner.png",
-              caption:"This is a calculator that can perform basic arithmetic operations input from a 4x4 dotmatrix keypad."
-            },
-            {
-              url: "post/interfacing_rfid_with_arduino",
-              title: "Interfacing RFID with Arduino",
-              date: "Tuesday 17, November '15",
-              disqus_thread: "http://www.vathsav.com/post/interfacing_rfid_with_arduino#disqus_thread",
-              category_url: "categories/arduino",
-              categories: "Arduino",
-              image: "img/interfacing_rfid_with_arduino/banner.png",
-              caption:"Interfacing RFID with Arduino."
-            },
-            {
-              url: "post/android_toolbar",
-              title: "Android Toolbar",
-              date: "Saturday 7, November '15",
-              disqus_thread: "http://www.vathsav.com/post/android_toolbar#disqus_thread",
-              category_url: "categories/android",
-              categories: "Android",
-              image: "img/android_toolbar/banner.png",
-              caption:"A guide to implement the Android Toolbar."
-            },
-            {
-              url: "post/arduino_calculator",
-              title: "Arduino Calculator",
-              date: "Saturday 15, November '14",
-              disqus_thread: "http://www.vathsav.com/post/arduino_calculator#disqus_thread",
-              category_url: "categories/arduino",
-              categories: "Arduino",
-              image: "img/arduino_calculator/banner.png",
-              caption:"This is a calculator that can perform basic arithmetic operations input from a 4x4 dotmatrix keypad."
-            }
-          ]
+            "blog_cards": [{
+                    url: "post/realtime_chat_client_using_firebase",
+                    title: "Real-time Chat Client Using Firebase",
+                    date: "Thursday 8, September '16",
+                    disqus_thread: "http://www.vathsav.com/post/realtime_chat_client_using_firebase#disqus_thread",
+                    category_url: "categories/android",
+                    categories: "Android",
+                    image: "img/realtime_chat_client_using_firebase/banner.png",
+                    caption: "A guide to using Firebase as a backend for your chat application."
+                },
+                {
+                    url: "post/custom_tinker_implementation_for_particle_devices",
+                    title: "Custom Tinker Implementation for Particle Devices",
+                    date: "Wednesday 31, August '16",
+                    disqus_thread: "http://www.vathsav.com/post/custom_tinker_implementation_for_particle_devices#disqus_thread",
+                    category_url: "categories/particle_core",
+                    categories: "Particle Core",
+                    image: "img/custom_tinker_implementation_for_particle_devices/banner.png",
+                    caption: "Tinker away."
+                },
+                {
+                    url: "post/playing_with_shapes_using_processing",
+                    title: "Playing with Shapes using Processing",
+                    date: "Sunday 27, March '16",
+                    disqus_thread: "http://www.vathsav.com/post/arduino_calculator#disqus_thread",
+                    category_url: "categories/processing",
+                    categories: "Processing",
+                    image: "img/playing_with_shapes_using_processing/banner.png",
+                    caption: "This is a calculator that can perform basic arithmetic operations input from a 4x4 dotmatrix keypad."
+                },
+                {
+                    url: "post/interfacing_rfid_with_arduino",
+                    title: "Interfacing RFID with Arduino",
+                    date: "Tuesday 17, November '15",
+                    disqus_thread: "http://www.vathsav.com/post/interfacing_rfid_with_arduino#disqus_thread",
+                    category_url: "categories/arduino",
+                    categories: "Arduino",
+                    image: "img/interfacing_rfid_with_arduino/banner.png",
+                    caption: "Interfacing RFID with Arduino."
+                },
+                {
+                    url: "post/android_toolbar",
+                    title: "Android Toolbar",
+                    date: "Saturday 7, November '15",
+                    disqus_thread: "http://www.vathsav.com/post/android_toolbar#disqus_thread",
+                    category_url: "categories/android",
+                    categories: "Android",
+                    image: "img/android_toolbar/banner.png",
+                    caption: "A guide to implement the Android Toolbar."
+                },
+                {
+                    url: "post/arduino_calculator",
+                    title: "Arduino Calculator",
+                    date: "Saturday 15, November '14",
+                    disqus_thread: "http://www.vathsav.com/post/arduino_calculator#disqus_thread",
+                    category_url: "categories/arduino",
+                    categories: "Arduino",
+                    image: "img/arduino_calculator/banner.png",
+                    caption: "This is a calculator that can perform basic arithmetic operations input from a 4x4 dotmatrix keypad."
+                }
+            ]
         }
 
         document.getElementById('blog_cards').innerHTML = templates['blog_cards'].render(blog_cards);
         document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
         document.getElementById('footer').innerHTML = templates['footer'].render();
     </script>
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://www.vathsav.com/js/analytics.js"></script>
     <script src="http://www.vathsav.com/js/classie.js"></script>
     <script src="http://www.vathsav.com/js/config.js"></script>
