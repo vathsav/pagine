@@ -1,4 +1,4 @@
-.container {
+.home {
 	position: relative;
 	overflow: hidden;
 }
@@ -203,7 +203,6 @@ p {
 	font-size: 85px;
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 40px;
 	text-align: center;
 }
 
@@ -221,6 +220,7 @@ p {
 
 .contact form {
 	margin: 0 auto;
+	margin-top: 20px;
 	width: 75%;
 }
 
@@ -228,10 +228,9 @@ p {
 	text-align: center;
 }
 
-.input_name input {
-	float: left;
+.input_name {
+	width: 100%;
 	height: 40px;
-	width: 47%;
 	padding-left: 15px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
@@ -243,14 +242,13 @@ p {
 	color: #EEEEEE;
 }
 
-.input_name input:focus {
+.input_name:focus {
 	outline-color: #EEEEEE;
 }
 
-.input_email input {
-	float: right;
+.input_email {
+	width: 100%;
 	height: 40px;
-	width: 47%;
 	padding-left: 15px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
@@ -262,16 +260,16 @@ p {
 	color: #EEEEEE;
 }
 
-.input_email input:focus {
+.input_email:focus {
 	outline-color: #EEEEEE;
 }
 
 .input_large textarea {
+	width: 100%;
 	resize: vertical;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	height: 200px;
-	width: 100%;
 	padding: 15px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;

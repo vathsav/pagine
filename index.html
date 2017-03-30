@@ -4,8 +4,9 @@
 <head>
     <title>Vathsav | Home</title>
     <meta name="author" content="Vathsav Harikrishnan" />
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="../svg/logo.svg" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="home">
         <div class="header">
             <div class="inner">
                 <nav>
@@ -57,15 +58,20 @@
                     <div class="title_text">Get in Touch</div>
                     <p>All fields are mandatory.</p>
                     <form class="contact_form" onsubmit="return false">
-                        <div class="input_name">
-                            <input type="text" id="name" name="name" placeholder="Your Name">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <input class="input_name" type="text" id="name" name="name" placeholder="Your Name">
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="input_email" type="text" id="email" name="email" placeholder="Your Email">
+                            </div>
                         </div>
-                        <div class="input_email">
-                            <input type="text" id="email" name="email" placeholder="Your Email"><br>
-                        </div>
-                        <br>
-                        <div class="input_large">
-                            <textarea id="message" name="message" placeholder="Message"></textarea>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="input_large">
+                                    <textarea id="message" name="message" placeholder="Message"></textarea>
+                                </div>
+                            </div>
                         </div>
                         <div class="button">
                             <input type="button" onclick="submitContact()" value="Send">
@@ -78,6 +84,7 @@
             <div id="holder" class="holder">
                 <div class="popup">
                     <span class="close">&times;</span>
+                    <span class="glyphicon glyphicon-heart icon" aria-hidden="true"></span>
                     <p id="popup_content"></p>
                 </div>
             </div>
@@ -110,6 +117,7 @@
 
     <!-- JS Imports -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/analytics.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/config.js"></script>
