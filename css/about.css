@@ -21,7 +21,7 @@ body {
 }
 
 a {
-	color: #F9A825;
+	color: #F9A825 !important;
 	text-decoration: none;
 }
 

@@ -18,36 +18,19 @@ window.onclick = function(event) {
 }
 
 function subscribe() {
-    if (document.getElementById('subscribe_email').value) {
-        // Check if already subscribed
-        firebase.database().ref('subscriptions/').once('value')
-            .then(function(snapshot) {
-                var found = false;
-
-                snapshot.forEach(function(element) {
-                    if (element.val().value == document.getElementById('subscribe_email').value) {
-                        found = true;
-                    }
-                })
-
-                if (!found) {
-                    firebase.database().ref('subscriptions/').push()
-                        .set({
-                            timestamp: firebase.database.ServerValue.TIMESTAMP,
-                            value: document.getElementById('subscribe_email').value
-                        })
-                        .then(function() {
-                            holder.style.display = "block";
-                            document.getElementById('popup_content').innerHTML = "You're now subscribed!";
-                        })
-                        .catch(function(e) {
-                            holder.style.display = "block";
-                            document.getElementById('popup_content').innerHTML = "An error occurred! Please try again.";
-                        });
-                } else {
-                    holder.style.display = "block";
-                    document.getElementById('popup_content').innerHTML = "You're already subscribed!";
-                }
-            });
-    }
+    var email = document.getElementById('subscribe_email').value;
+    email = email.replace(/\./g, ',');
+    firebase.database().ref('subscriptions/' + email)
+        .set({
+            email: email,
+            timestamp: firebase.database.ServerValue.TIMESTAMP
+        })
+        .then(function() {
+            holder.style.display = "block";
+            document.getElementById('popup_content').innerHTML = "You're now subscribed!";
+        })
+        .catch(function(e) {
+            holder.style.display = "block";
+            document.getElementById('popup_content').innerHTML = "You're already subscribed!";
+        });
 }
