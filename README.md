@@ -11,6 +11,7 @@ Repo for my blog www.vathsav.com.
 * Bootstrap everything
 * Update Portfolio page
 * Sticky sidebar
+* Notifications and mail on Android (admin)
 * Pagination
 
 ## Usage
