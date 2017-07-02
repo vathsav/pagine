@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="demo-3 no-js">
+	<head>
+		<title>Vathsav | Portfolio</title>
+		<meta name="author" content="Vathsav Harikrishnan" />
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/portfolio.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="icon" href="img/logo.png?v=2">
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+		<script src="node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+		<script src="js/snap.svg-min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="inner">
+					<nav class="nav_effect">
+						<a href="index"><span class="nav_home">Home</span></a>
+						<a href="blog"><span class="nav_blog">Blog</span></a>
+						<a href="portfolio" style="color: #00C853;"><span class="nav_portfolio">{ Portfolio }</span></a>
+						<a href="about"><span class="nav_about">About</span></a>
+						<a href="index#contacts"><span class="nav_contact">Contact</span></a>
+					</nav>
+				</div>
+			</div>
+
+			<div class="main">
+				<div class="large_text">The Work of My Hands</div>
+
+				<section id="grid" class="grid clearfix">
+					<a href="https://github.com/vathsav/lynk" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/lynk.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Lynk</h2>
+								<p>Home automation using Spark Core</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+					<a href="https://play.google.com/store/apps/details?id=com.vathsav.canopy" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/canopy.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Canopy</h2>
+								<p>Food ordering application</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+					<a href="https://github.com/vathsav/flick" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/flick.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Flick</h2>
+								<p>Real-time chat client</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+					<a href="https://github.com/vathsav/pagine" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/pagine.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Pagine</h2>
+								<p>What you're looking at</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+				</section>
+
+				<div class="large_text">Open Source Contributions</div>
+
+				<section id="grid" class="grid clearfix">
+					<a href="http://app.rawgraphs.io/" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/rawgraphs.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>RAWGraphs</h2>
+								<p>From spreadsheets to data visualisations</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+					<a href="http://wiki.openstreetmap.org/wiki/Contribute_map_data" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/openstreetmaps.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Open Street Maps</h2>
+								<p>Editable map of the world</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+					<a href="https://github.com/densitydesign/polimatters" target="_blank" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						<figure>
+							<img src="img/portfolio/polimatters.png" />
+							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
+							<figcaption>
+								<h2>Polimatters</h2>
+								<p>Visualisation of theses using d3.js</p>
+								<button>View</button>
+							</figcaption>
+						</figure>
+					</a>
+				</section>
+
+				<div class="inspiration">
+					Design inspiration from Tympanus <span style="color: #f44336">&hearts;</span>
+				</div>
+
+			</div>
+
+			<!-- Popover  -->
+			<div id="holder" class="holder">
+					<div class="popup">
+							<span class="close">&times;</span>
+							<span class="glyphicon glyphicon-heart icon" aria-hidden="true"></span>
+							<p id="popup_content"></p>
+					</div>
+			</div>
+
+			<div class="footer" id="footer">
+
+		</div><!-- /container -->
+		<div class="portfolio_scroll">
+			<a class="scroll_to_top" href="#">Top</a>
+		</div>
+
+		<!-- Load Templates -->
+		<script src="templates/footer.js"></script>
+
+		<script>
+			document.getElementById('footer').innerHTML = templates['footer'].render();
+		</script>
+
+		<!-- JS Imports -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/subscribe.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/effects.js"></script>
+		<script src="js/analytics.js"></script>
+		<script src="js/hovers.js"></script>
+	</body>
+</html>
