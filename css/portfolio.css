@@ -27,8 +27,10 @@ body {
 }
 
 .footer a:hover {
-	position: relative;
 	color: #00C853;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .large_text {

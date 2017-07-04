@@ -52,7 +52,9 @@ a:hover {
 }
 
 .footer a:hover {
-	color: #F9A825;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .large_text {

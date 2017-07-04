@@ -173,6 +173,7 @@ body {
 
 .post_title a:hover {
 	color: #e53935;
+	text-decoration: none;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -200,7 +201,8 @@ body {
 }
 
 .post_category a:hover {
-	color: #e53935;
+	color: #424242;
+	text-decoration: none;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -310,6 +312,8 @@ p a {
 
 .read_more a:hover {
 	background-color: #0D47A1;
+	color: #E0E0E0;
+	text-decoration: none;
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	transition: all .5s;
@@ -321,6 +325,17 @@ p a {
 	color: #FFF;
 	padding-bottom: 5px;
 	border-bottom: 2px solid #1565C0;
+}
+
+.footer .widget a {
+	text-decoration: none;
+}
+
+.footer .widget a:hover {
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .footer .copyright_info a {

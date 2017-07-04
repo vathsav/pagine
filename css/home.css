@@ -53,6 +53,14 @@ p {
 	width: 70%;
 }
 
+.intro .content a:hover {
+	color: #E0E0E0;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
 .intro .content p {
 	line-height: 35px;
 }
@@ -358,6 +366,11 @@ p {
 
 .footer a:hover {
 	color: #e53935;
+	text-decoration: none;
+	/*color: #e0e0e0;*/
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .widget .button input {
