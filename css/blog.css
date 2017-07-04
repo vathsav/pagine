@@ -254,6 +254,8 @@ body {
 .download_button a:hover {
 	cursor: pointer;
 	background-color: #0D47A1;
+	text-decoration: none;
+	color: #FFFFFF;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
