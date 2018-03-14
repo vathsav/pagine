@@ -25,6 +25,7 @@
         <ul>
             <li><a href="../categories/android">Android</a></li>
             <li><a href="../categories/arduino">Arduino</a></li>
+            <li><a href="../categories/data_visualisation">Data Visualisation</a></li>
             <li><a href="../categories/particle_core">Particle Core</a></li>
             <li><a href="../categories/processing">Processing</a></li>
             <li><a href="../categories/rants">Rants</a></li>

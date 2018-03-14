@@ -3,7 +3,7 @@
 
 <head>
     <title>Vathsav | Home</title>
-    <meta name="author" content="Vathsav Harikrishnan" />
+    <meta name="author" content="Vathsav Harikrishnan"/>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
@@ -17,111 +17,115 @@
 </head>
 
 <body>
-    <div class="home">
-        <div class="header">
-            <div class="inner">
-                <nav>
-                    <a href="index" style="color: #e53935;"><span class="nav_home">{ Home }</span></a>
-                    <a href="blog"><span class="nav_blog">Blog</span></a>
-                    <a href="portfolio"><span class="nav_portfolio">Portfolio</span></a>
-                    <a href="about"><span class="nav_about">About</span></a>
-                    <a href="index#contact"><span class="nav_contact">Contact</span></a>
-                </nav>
+<div class="home">
+    <div class="header">
+        <div class="inner">
+            <nav>
+                <a href="index" style="color: #e53935;"><span class="nav_home">{ Home }</span></a>
+                <a href="blog"><span class="nav_blog">Blog</span></a>
+                <a href="portfolio"><span class="nav_portfolio">Portfolio</span></a>
+                <a href="about"><span class="nav_about">About</span></a>
+                <a href="index#contact"><span class="nav_contact">Contact</span></a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="intro">
+            <div class="content">
+                <div class="title_text">Welcome to <br>my online <br>portfolio</div>
+                <p>Hello. I am Vathsav - a programmer, designer, and a hardware<br> and gaming enthusiast.
+                    I'm currently a developer at<br><a href="http://www.vinhood.com/" target="_blank">Vinhood</a>
+                    in Milan, Italy. I constantly aspire to build<br>creative solutions to bridge
+                    the gap between the physical and <br>digital worlds. Check out <a href="portfolio">what I've been up
+                        to</a> and learn<br> more <a href="about">about me</a>.<br><br></p>
             </div>
         </div>
 
-        <div class="main">
-            <div class="intro">
-                <div class="content">
-                    <div class="title_text">Welcome to <br>my online <br>portfolio</div>
-                    <p>Hello. I am Vathsav - a programmer, designer, and a hardware<br> and gaming enthusiast. I'm currently an intern at<br><a href="http://www.densitydesign.org/" target="_blank">DensityDesign</a> in Milan, Italy. I constantly aspire to build<br>creative solutions to bridge the gap between the physical and <br>digital worlds. Check out <a href="portfolio">what I've been up to</a> and learn<br> more <a href="about">about me</a>.<br><br></p>
+        <div class="about">
+            <div class="content">
+                <div class="title_text">
+                    Sit back and relax as you soar through my cyberspace.
                 </div>
             </div>
+        </div>
 
-            <div class="about">
-                <div class="content">
-                    <div class="title_text">
-                        Sit back and relax as you soar through my cyberspace.
+        <div class="latest_blog_post">
+            <div class="content">
+                <div class="title_text">Latest Blog Post</div>
+                <div id="blog_card_home"></div>
+            </div>
+        </div>
+
+        <div class="contact" id="contact">
+            <div class="content">
+                <div class="title_text">Get in Touch</div>
+                <p>All fields are mandatory.</p>
+                <form class="contact_form" onsubmit="return false">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input class="input_name" type="text" id="name" name="name" placeholder="Your Name">
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="input_email" type="text" id="email" name="email" placeholder="Your Email">
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="latest_blog_post">
-                <div class="content">
-                    <div class="title_text">Latest Blog Post</div>
-                    <div id="blog_card_home"></div>
-                </div>
-            </div>
-
-            <div class="contact" id="contact">
-                <div class="content">
-                    <div class="title_text">Get in Touch</div>
-                    <p>All fields are mandatory.</p>
-                    <form class="contact_form" onsubmit="return false">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <input class="input_name" type="text" id="name" name="name" placeholder="Your Name">
-                            </div>
-                            <div class="col-xs-6">
-                                <input class="input_email" type="text" id="email" name="email" placeholder="Your Email">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input_large">
+                                <textarea id="message" name="message" placeholder="Message"></textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="input_large">
-                                    <textarea id="message" name="message" placeholder="Message"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button">
-                            <input type="button" onclick="submitContact()" value="Send">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Popover  -->
-            <div id="holder" class="holder">
-                <div class="popup">
-                    <span class="close">&times;</span>
-                    <span class="glyphicon glyphicon-heart icon" aria-hidden="true"></span>
-                    <p id="popup_content"></p>
-                </div>
+                    </div>
+                    <div class="button">
+                        <input type="button" onclick="submitContact()" value="Send">
+                    </div>
+                </form>
             </div>
         </div>
 
-        <div class="footer" id="footer"></div>
+        <!-- Popover  -->
+        <div id="holder" class="holder">
+            <div class="popup">
+                <span class="close">&times;</span>
+                <span class="glyphicon glyphicon-heart icon" aria-hidden="true"></span>
+                <p id="popup_content"></p>
+            </div>
+        </div>
     </div>
-    <div class="home_scroll">
-        <a class="scroll_to_top" href="#">Top</a>
-    </div>
 
-    <!-- Load Templates -->
-    <script src="templates/blog_card_home.js"></script>
-    <script src="templates/footer.js"></script>
+    <div class="footer" id="footer"></div>
+</div>
+<div class="home_scroll">
+    <a class="scroll_to_top" href="#">Top</a>
+</div>
 
-    <script>
-        var blog_card_data = {
-            url: "post/anxiety_love_and_travel",
-            title: "Anxiety, Love, and Travel",
-            date: "Wednesday 28, June '17",
-            image: "img/anxiety_love_and_travel/banner.png",
-            caption: "Summing up my life in college."
-        };
+<!-- Load Templates -->
+<script src="templates/blog_card_home.js"></script>
+<script src="templates/footer.js"></script>
 
-        document.getElementById('blog_card_home').innerHTML = templates['blog_card_home'].render(blog_card_data);
-        document.getElementById('footer').innerHTML = templates['footer'].render();
-    </script>
+<script>
+    var blog_card_data = {
+        url: "post/audio_frequencies_using_d3",
+        title: "Audio Frequencies Using D3",
+        date: "Saturday 9, December '17",
+        image: "img/audio_frequencies_using_d3/banner.png",
+        caption: "Gettin' groovy with audio visualisations!"
+    };
 
-    <!-- JS Imports -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/analytics.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/effects.js"></script>
-    <script src="js/subscribe.js"></script>
+    document.getElementById('blog_card_home').innerHTML = templates['blog_card_home'].render(blog_card_data);
+    document.getElementById('footer').innerHTML = templates['footer'].render();
+</script>
+
+<!-- JS Imports -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/config.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/subscribe.js"></script>
 </body>
 
 </html>
