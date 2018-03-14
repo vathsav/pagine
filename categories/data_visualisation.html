@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vathsav | Data Visualisation</title>
+    <meta name="author" content="Vathsav Harikrishnan" />
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" href="img/logo.png?v=2">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ruda:900,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="../node_modules/hogan.js/dist/hogan-3.0.2.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-main">
+                <div class="content">
+                    <div id="blog_cards"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="commons"></div>
+
+    <div class="footer" id="footer"></div>
+
+    <!-- Load Templates -->
+    <script src="../templates/blog_cards.js"></script>
+    <script src="../templates/sidebar.js"></script>
+    <script src="../templates/commons.js"></script>
+    <script src="../templates/footer.js"></script>
+
+    <script type="text/javascript">
+        var blog_cards = {
+            "blog_cards": [{
+                url: "../post/audio_frequencies_using_d3",
+                title: "Audio Frequencies Using D3",
+                date: "Saturday 9, December '17",
+                disqus_thread: "../post/audio_frequencies_using_d3#disqus_thread",
+                category_url: "../categories/data_visualisation",
+                categories: "Data Visualisation",
+                image: "../img/audio_frequencies_using_d3/banner.png",
+                caption: "Gettin' groovy with audio visualisations!"
+            }]
+        }
+
+        document.getElementById('blog_cards').innerHTML = templates['blog_cards'].render(blog_cards);
+        document.getElementById('sidebar').innerHTML = templates['sidebar'].render();
+        document.getElementById('commons').innerHTML = templates['commons'].render();
+        document.getElementById('footer').innerHTML = templates['footer'].render();
+    </script>
+
+    <!-- JS Imports -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/effects.js"></script>
+    <script src="../js/subscribe.js"></script>
+
+    <!-- External -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Code for comment count -->
+    <script type="text/javascript">
+        var disqus_shortname = 'vathsav';
+        (function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+
+</html>
