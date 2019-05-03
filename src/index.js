@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import Blog from './modules/blog';
+import Error404 from './modules/error/component/404';
 import Home from './modules/home';
 import Portfolio from './modules/portfolio';
 
@@ -19,7 +20,7 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/portfolio" component={Portfolio} />
-      <Route path="*" component={Home} />
+      <Route path="*" component={Error404} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root'),
