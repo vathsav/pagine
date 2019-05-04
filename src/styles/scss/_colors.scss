@@ -1,0 +1,58 @@
+$black: #212121;
+$white: #FFF;
+
+$blue-dark: #016EFF;
+$cyan-dark: #00FFBF;
+$red-dark: #FF0A43;
+
+$blue-light: #FAFCFF;
+$cyan-light: #FAFFFE;
+$red-light: #FFFAFB;
+
+/***********
+  Classes
+************/
+
+.color-white {
+  color: $white;
+}
+
+.color-black {
+  color: $black;
+}
+
+.color-blue-dark {
+  color: $blue-dark;
+}
+
+.color-cyan-dark {
+  color: $cyan-dark;
+}
+
+.color-red-dark {
+  color: $red-dark;
+}
+
+.bg-blue-dark {
+  background: $blue-dark;
+}
+
+.bg-cyan-dark {
+  background: $cyan-dark;
+}
+
+.bg-red-dark {
+  background: $red-dark;
+}
+
+.bg-blue-light {
+  background: $blue-light;
+}
+
+.bg-cyan-light {
+  background: $cyan-light;
+}
+
+.bg-red-light {
+  background: $red-light;
+}

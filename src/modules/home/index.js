@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
-import { Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+
+// Components
+import About from './components/about';
+import Contact from './components/contact';
+import Footer from '../footer/component';
+import Header from '../header/component';
+import Introduction from './components/introduction';
 
 class Home extends Component {
   render() {
     return (
-      <Row className="blog">
-        Home
-      </Row>
+      <Container fluid className="bg-red-light">
+        <Header />
+
+        <Introduction />
+
+        <About />
+
+        <Container>
+          <Contact />
+        </Container>
+
+        <Footer />
+      </Container>
     );
   }
 }

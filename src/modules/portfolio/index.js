@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import { Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+
+// Components
+import Footer from '../footer/component';
+import Header from '../header/component';
 
 class Portfolio extends Component {
   render() {
     return (
-      <Row className="blog">
-        Portfolio
-      </Row>
+      <Container fluid className="bg-cyan-light">
+        <Header />
+
+          Portfolio
+
+        <Footer />
+      </Container>
     );
   }
 }

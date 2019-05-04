@@ -1,0 +1,411 @@
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+.border-black {
+  border-top: 2px solid #212121;
+}
+
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+.title-small {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-medium {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-large {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.content-small {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-medium {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-large {
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+}
+
+.monospace {
+  font-family: CutiveMono, sans-serif;
+}
+
+.card {
+  background: #FFF;
+  border-radius: 2px;
+  font-family: NotoSansRegular, sans-serif;
+  font-size: 14px;
+  margin: 0 0 25px;
+  padding: 16px;
+  box-shadow: 1px 1px 2px 2px #dedede;
+}
+
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+/*************
+  Font Faces
+**************/
+@font-face {
+  font-family: CutiveMono;
+  src: url("../../assets/fonts/CutiveMono-Regular.ttf");
+}
+@font-face {
+  font-family: NotoSansRegular;
+  src: url("../../assets/fonts/NotoSans-Regular.ttf");
+}
+@font-face {
+  font-family: NotoSansBold;
+  src: url("../../assets/fonts/NotoSans-Bold.ttf");
+}
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+/*************
+  Font Faces
+**************/
+@font-face {
+  font-family: CutiveMono;
+  src: url("../../assets/fonts/CutiveMono-Regular.ttf");
+}
+@font-face {
+  font-family: NotoSansRegular;
+  src: url("../../assets/fonts/NotoSans-Regular.ttf");
+}
+@font-face {
+  font-family: NotoSansBold;
+  src: url("../../assets/fonts/NotoSans-Bold.ttf");
+}
+.title-small {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-medium {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-large {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.content-small {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-medium {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-large {
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+}
+
+.monospace {
+  font-family: CutiveMono, sans-serif;
+}
+
+.field-input {
+  background: #FFF;
+  border-color: #212121;
+  border-width: 3px;
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  margin: 40px 0;
+  padding: 25px;
+  height: 60px;
+  width: 100%;
+}
+.field-input::placeholder {
+  color: #212121;
+}
+.field-input.area {
+  min-height: 300px;
+  margin: 0;
+}
+
+.button-submit {
+  border-color: #212121;
+  border-width: 3px;
+  border-radius: 5px;
+  background: #FF0A43;
+  cursor: pointer;
+  font-family: NotoSansBold, sans-serif;
+  font-size: 20px;
+  padding: 10px 75px;
+  color: #FFF;
+  margin: 35px 0 45px;
+  text-transform: uppercase;
+}
+
+.social-icons {
+  text-align: right;
+}
+.social-icons img {
+  height: 50px;
+  margin: 0 20px;
+  width: auto;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  margin: 35px 70px;
+}
+
+.title-small {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-medium {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.title-large {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.content-small {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-medium {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.content-large {
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+}
+
+.monospace {
+  font-family: CutiveMono, sans-serif;
+}
+
+.skew {
+  padding: 150px 150px;
+  transform: rotate(-3.5deg);
+  margin: 100px -100px 60px;
+}
+.skew .balance {
+  transform: rotate(3.5deg);
+}
+
+/*# sourceMappingURL=main.css.map */
