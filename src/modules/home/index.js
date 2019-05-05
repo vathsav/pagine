@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { bindActionCreators, compose } from 'redux';
 
 // Components
-import About from './components/about';
-import Contact from './components/contact';
-import Footer from '../footer/component';
+import { firestoreConnect } from 'react-redux-firebase';
+import Home from './components';
 import Header from '../header/component';
-import Introduction from './components/introduction';
+import Footer from '../footer/component';
 
-class Home extends Component {
+// Actions
+import actionFetchHomepageContent from './actions';
+
+class HomeContainer extends Component {
+  componentDidMount() {
+    const { fetchHomepageContent } = this.props;
+    fetchHomepageContent();
+  }
+
   render() {
+    const { firestoreReducer } = this.props;
+    const { content } = firestoreReducer.data;
+
     return (
       <Container fluid className="bg-red-light">
         <Header />
 
-        <Introduction />
+        {firestoreReducer.data.content
+        && <Home content={content.home} />
+        }
 
-        <About />
-
-        <Container>
-          <Contact />
-        </Container>
+        {!firestoreReducer.data.content
+        && <div>LOADING</div>
+        }
 
         <Footer />
       </Container>
@@ -28,4 +41,21 @@ class Home extends Component {
   }
 }
 
-export default Home;
+HomeContainer.propTypes = {
+  fetchHomepageContent: PropTypes.func.isRequired,
+  homeReducer: PropTypes.object.isRequired,
+  firestoreReducer: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => state;
+
+const mapActionsToProps = dispatch => bindActionCreators({
+  fetchHomepageContent: actionFetchHomepageContent,
+}, dispatch);
+
+export default compose(
+  connect(mapStateToProps, mapActionsToProps),
+  firestoreConnect([
+    { collection: 'content' },
+  ]),
+)(HomeContainer);
