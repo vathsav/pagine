@@ -14,7 +14,7 @@ import Sidebar from '../components/sidebar';
 
 class BlogPostContainer extends Component {
   render() {
-    const { firestoreReducer } = this.props;
+    const { firestoreReducer, match } = this.props;
     const { content, posts } = firestoreReducer.data;
 
     return (
@@ -28,7 +28,7 @@ class BlogPostContainer extends Component {
             <Container>
               <Row>
                 <Col md={9}>
-                  <BlogPost content={posts[Object.keys(posts)[0]]} />
+                  <BlogPost content={posts[match.params[0]]} />
                 </Col>
 
                 <Col md={3}>
@@ -51,6 +51,7 @@ class BlogPostContainer extends Component {
 
 BlogPostContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => state;

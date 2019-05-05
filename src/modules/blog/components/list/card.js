@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 
 class PostCard extends Component {
   render() {
-    const { content } = this.props;
+    const { content, slug } = this.props;
 
     return (
       <Row className="card w-100">
         { content
           && (
           <div>
-            <Link to="/post/mZigjyRUapENbCbOvqEV">
+            <Link to={`post/${slug}`}>
               <div>
                 {content.caption}
               </div>
@@ -33,10 +33,6 @@ class PostCard extends Component {
 
             <div>
               {content.is_published}
-            </div>
-
-            <div>
-              {content.post_slug}
             </div>
 
             <div>
@@ -64,6 +60,7 @@ class PostCard extends Component {
 
 PostCard.propTypes = {
   content: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default PostCard;
