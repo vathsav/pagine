@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 // Components
 import AddPost from './containers/add-post';
-import NavigationMenu from './components/navigation-menu';
+import NavigationMenu from './components/navigation/navigation-menu';
 import ListBlog from './containers/list-blog';
 import ListPortfolio from './containers/list-porfolio';
 import AddPortfolioItem from './containers/add-portfolio-item';
@@ -58,13 +58,11 @@ class AdminPanel extends Component {
 
     return (
       <Container fluid>
-        ADMIN PANEL HEADER
-
         <Row>
-          <Col md={4}>
+          <Col md={3} className="p-0 vh-100 position-fixed">
             <NavigationMenu updateView={this.updateView} />
           </Col>
-          <Col md={8}>
+          <Col md={9} className="offset-3">
             {selectedComponent}
           </Col>
         </Row>
