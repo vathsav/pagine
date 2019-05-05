@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
-import { Provider } from 'react-redux';
-import firebase from 'firebase';
-import thunk from 'redux-thunk';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
+import thunk from 'redux-thunk';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -28,15 +29,6 @@ import reducers from './rootReducer';
 // Styles
 import './styles/css/main.css';
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const rrfConfig = { userProfile: 'users' }; // react-redux-firebase config
 
 const storeEnhancers = compose(
   // eslint-disable-next-line no-underscore-dangle
@@ -47,6 +39,15 @@ const storeEnhancers = compose(
 
 const store = createStore(reducers, storeEnhancers);
 
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+};
+
+// react-redux-firebase config
+const rrfConfig = { posts: 'posts' };
+
 const rrfProps = {
   firebase,
   config: rrfConfig,
@@ -54,6 +55,7 @@ const rrfProps = {
   createFirestoreInstance,
 };
 
+firebase.initializeApp(firebaseConfig);
 
 // URLs
 ReactDOM.render(
