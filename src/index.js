@@ -13,7 +13,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import AdminPanel from './modules/admin';
-import Blog from './modules/blog';
+import BlogContainer from './modules/blog/containers';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio';
@@ -65,7 +65,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_HOME} component={HomeContainer} />
-          <Route exact path={URL_BLOG} component={Blog} />
+          <Route exact path={URL_BLOG} component={BlogContainer} />
           <Route exact path={URL_PORTFOLIO} component={Portfolio} />
           <Route path="*" component={Error404} />
         </Switch>

@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class SidebarAbout extends Component {
   render() {
+    const { content } = this.props;
+
     return (
       <div className="card">
         <div className="title-small">About</div>
-
-        <div>
-          Welcome to my blog! I write about the stuff I work on, places I travel, food, and occassionally about my take
-          on life.
-        </div>
-
-        <div>
-          Learn more about me!
-        </div>
+        {content}
       </div>
     );
   }
 }
+
+SidebarAbout.propTypes = {
+  content: PropTypes.string.isRequired,
+};
 
 export default SidebarAbout;
