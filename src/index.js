@@ -14,7 +14,7 @@ import * as serviceWorker from './serviceWorker';
 import AdminPanel from './modules/admin';
 import Blog from './modules/blog';
 import Error404 from './modules/error/component/404';
-import HomeContainer from './modules/home/index';
+import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio';
 
 // Constants

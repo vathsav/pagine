@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import me from '../../../assets/images/vathsav.png';
+import imageVathsav from '../../../assets/images/vathsav.png';
+
 
 class About extends Component {
   render() {
@@ -15,10 +16,10 @@ class About extends Component {
         </Col>
 
         <Col sm={6} className="text-center balance">
-          <img src={me} alt="vathsav" />
+          <img src={imageVathsav} alt="vathsav" />
 
           <p>
-            This was taken in Oregon, USA on the 3rd of January '19.
+            This was taken in Oregon, USA on the 3rd of January &apos;19.
           </p>
         </Col>
       </Row>

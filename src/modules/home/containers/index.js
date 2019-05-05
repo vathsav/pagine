@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 import PropTypes from 'prop-types';
-import { bindActionCreators, compose } from 'redux';
 
 // Components
-import { firestoreConnect } from 'react-redux-firebase';
-import Home from './components';
-import Header from '../header/component';
-import Footer from '../footer/component';
+import Footer from '../../footer/component';
+import Home from '../components';
+import Header from '../../header/component';
 
-// Actions
-import actionFetchHomepageContent from './actions';
 
 class HomeContainer extends Component {
-  componentDidMount() {
-    const { fetchHomepageContent } = this.props;
-    fetchHomepageContent();
-  }
-
   render() {
     const { firestoreReducer } = this.props;
     const { content } = firestoreReducer.data;
@@ -27,6 +20,7 @@ class HomeContainer extends Component {
       <Container fluid className="bg-red-light">
         <Header />
 
+        {/* TODO handle content.home being null? */}
         {firestoreReducer.data.content
         && <Home content={content.home} />
         }
@@ -42,19 +36,13 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
-  fetchHomepageContent: PropTypes.func.isRequired,
-  homeReducer: PropTypes.object.isRequired,
   firestoreReducer: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => state;
 
-const mapActionsToProps = dispatch => bindActionCreators({
-  fetchHomepageContent: actionFetchHomepageContent,
-}, dispatch);
-
 export default compose(
-  connect(mapStateToProps, mapActionsToProps),
+  connect(mapStateToProps),
   firestoreConnect([
     { collection: 'content' },
   ]),

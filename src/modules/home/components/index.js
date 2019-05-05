@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // Components
 import About from './about';
 import Contact from './contact';
 import Introduction from './introduction';
+
 
 class Home extends Component {
   render() {
@@ -23,5 +25,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  content: PropTypes.object.isRequired,
+};
 
 export default Home;
