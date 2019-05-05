@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
@@ -9,45 +10,53 @@ class PostCard extends Component {
 
     return (
       <Row className="card w-100">
-        <div>
-          {content.caption}
-        </div>
+        { content
+          && (
+          <div>
+            <Link to="/post/mZigjyRUapENbCbOvqEV">
+              <div>
+                {content.caption}
+              </div>
+            </Link>
 
-        <div>
-          {content.content}
-        </div>
+            <div>
+              {content.content}
+            </div>
 
-        <div>
-          {content.disqus_url}
-        </div>
+            <div>
+              {content.disqus_url}
+            </div>
 
-        <div>
-          {content.image}
-        </div>
+            <div>
+              {content.image}
+            </div>
 
-        <div>
-          {content.is_published}
-        </div>
+            <div>
+              {content.is_published}
+            </div>
 
-        <div>
-          {content.post_slug}
-        </div>
+            <div>
+              {content.post_slug}
+            </div>
 
-        <div>
-          {content.tags}
-        </div>
+            <div>
+              {content.tags}
+            </div>
 
-        <div>
-          {content.time_to_read}
-        </div>
+            <div>
+              {content.time_to_read}
+            </div>
 
-        <div>
-          {content.timestamp.seconds}
-        </div>
+            <div>
+              {content.timestamp.seconds}
+            </div>
 
-        <div>
-          {content.title}
-        </div>
+            <div>
+              {content.title}
+            </div>
+          </div>
+          )
+        }
       </Row>
     );
   }

@@ -13,14 +13,19 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import AdminPanel from './modules/admin';
-import BlogContainer from './modules/blog/containers';
+import BlogListContainer from './modules/blog/containers/list';
+import BlogPostContainer from './modules/blog/containers/post';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio';
 
 // Constants
 import {
-  URL_ADMIN, URL_BLOG, URL_HOME, URL_PORTFOLIO,
+  URL_ADMIN,
+  URL_BLOG_LIST,
+  URL_BLOG_POST,
+  URL_HOME,
+  URL_PORTFOLIO,
 } from './utils/constants';
 
 // Reducers
@@ -64,8 +69,9 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route exact path={URL_ADMIN} component={AdminPanel} />
+          <Route exact path={URL_BLOG_LIST} component={BlogListContainer} />
+          <Route exact path={URL_BLOG_POST} component={BlogPostContainer} />
           <Route exact path={URL_HOME} component={HomeContainer} />
-          <Route exact path={URL_BLOG} component={BlogContainer} />
           <Route exact path={URL_PORTFOLIO} component={Portfolio} />
           <Route path="*" component={Error404} />
         </Switch>

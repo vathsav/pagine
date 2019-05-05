@@ -30,8 +30,8 @@ class AdminPanel extends Component {
       caption, content, disqusURL, image, isPublished, slug, tags, timeToRead, timestamp, title,
     } = this.state;
 
-    firestore.collection('posts').add({
-      caption, content, disqusURL, image, isPublished, slug, tags, timeToRead, timestamp, title,
+    firestore.collection('posts').doc(slug).set({
+      caption, content, disqusURL, image, isPublished, tags, timeToRead, timestamp, title,
     })
       .then(() => {
         console.log('Post created successfully!');

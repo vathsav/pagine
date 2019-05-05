@@ -6,13 +6,13 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
+import BlogPost from '../components/post';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
-import PostList from '../components/list';
 import Sidebar from '../components/sidebar';
 
 
-class BlogContainer extends Component {
+class BlogPostContainer extends Component {
   render() {
     const { firestoreReducer } = this.props;
     const { content, posts } = firestoreReducer.data;
@@ -22,24 +22,25 @@ class BlogContainer extends Component {
         <Header />
 
         {/* TODO handle content.home being null? */}
+        {/* TODO if posts is undefined, redirect to 404. */}
         {posts && content // && categories
-        && (
-        <Container>
-          <Row>
-            <Col md={9}>
-              <PostList posts={posts} />
-            </Col>
+          && (
+            <Container>
+              <Row>
+                <Col md={9}>
+                  <BlogPost content={posts[Object.keys(posts)[0]]} />
+                </Col>
 
-            <Col md={3}>
-              <Sidebar content={content.blog} />
-            </Col>
-          </Row>
-        </Container>
-        )
+                <Col md={3}>
+                  <Sidebar content={content.blog} />
+                </Col>
+              </Row>
+            </Container>
+          )
         }
 
         {!posts && !content // && !categories
-        && <div>LOADING</div>
+          && <div>LOADING</div>
         }
 
         <Footer />
@@ -48,7 +49,7 @@ class BlogContainer extends Component {
   }
 }
 
-BlogContainer.propTypes = {
+BlogPostContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
@@ -56,7 +57,9 @@ const mapStateToProps = state => state;
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([
-    'posts', 'content', 'categories',
+  firestoreConnect(props => [
+    { collection: 'posts', doc: props.match.params[0] },
+    'content',
+    'categories',
   ]),
-)(BlogContainer);
+)(BlogPostContainer);
