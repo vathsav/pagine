@@ -11,13 +11,16 @@ import { createFirestoreInstance } from 'redux-firestore';
 import * as serviceWorker from './serviceWorker';
 
 // Components
+import AdminPanel from './modules/admin';
 import Blog from './modules/blog';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/index';
 import Portfolio from './modules/portfolio';
 
 // Constants
-import { URL_BLOG, URL_HOME, URL_PORTFOLIO } from './utils/constants';
+import {
+  URL_ADMIN, URL_BLOG, URL_HOME, URL_PORTFOLIO,
+} from './utils/constants';
 
 // Reducers
 import reducers from './rootReducer';
@@ -57,6 +60,7 @@ ReactDOM.render(
     <ReactReduxFirebaseProvider {...rrfProps}>
       <BrowserRouter>
         <Switch>
+          <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_HOME} component={HomeContainer} />
           <Route exact path={URL_BLOG} component={Blog} />
           <Route exact path={URL_PORTFOLIO} component={Portfolio} />
