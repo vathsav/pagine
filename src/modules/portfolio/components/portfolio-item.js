@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 
@@ -7,9 +8,9 @@ class PortfolioItem extends Component {
     const { content } = this.props;
 
     return (
-      <div>
+      <Col md={4} className="card">
         {JSON.stringify(content)}
-      </div>
+      </Col>
     );
   }
 }

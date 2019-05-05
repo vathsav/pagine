@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // Components
@@ -16,9 +17,11 @@ class Portfolio extends Component {
     });
 
     return (
-      <div>
-        {portfolioItems}
-      </div>
+      <Container>
+        <Row>
+          {portfolioItems}
+        </Row>
+      </Container>
     );
   }
 }
