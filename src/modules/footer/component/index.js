@@ -10,7 +10,7 @@ import socialLinkedIn from '../../../assets/images/social-linkedin.png';
 class Footer extends Component {
   render() {
     return (
-      <Row className="border-black align-items-end px-5 py-3">
+      <Row className="border-black align-items-end px-5 py-">
         <Col sm={4}>
           <div className="content-large">
             mail@vathsav.com

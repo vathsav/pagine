@@ -19,7 +19,7 @@ class BlogPostContainer extends Component {
 
     return (
       <Container fluid className="bg-blue-light">
-        <Header />
+        <Header color="blue" />
 
         {/* TODO handle content.home being null? */}
         {/* TODO if posts is undefined, redirect to 404. */}

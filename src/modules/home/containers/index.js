@@ -18,7 +18,7 @@ class HomeContainer extends Component {
 
     return (
       <Container fluid className="bg-red-light">
-        <Header />
+        <Header color="red" />
 
         {/* TODO handle content.home being null? */}
         {content

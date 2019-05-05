@@ -18,7 +18,7 @@ class PortfolioContainer extends Component {
 
     return (
       <Container fluid className="bg-cyan-light">
-        <Header />
+        <Header color="green" />
 
 
         {/* TODO handle content.home being null? */}

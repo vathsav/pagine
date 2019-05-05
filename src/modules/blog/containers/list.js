@@ -19,27 +19,27 @@ class BlogListContainer extends Component {
 
     return (
       <Container fluid className="bg-blue-light">
-        <Header />
+        <Header color="blue" />
 
         {/* TODO handle content.home being null? */}
         {posts && content // && categories
-        && (
-        <Container>
-          <Row>
-            <Col md={9}>
-              <PostList posts={posts} />
-            </Col>
+          && (
+          <Container>
+            <Row>
+              <Col md={9}>
+                <PostList posts={posts} />
+              </Col>
 
-            <Col md={3}>
-              <Sidebar content={content.blog} />
-            </Col>
-          </Row>
-        </Container>
-        )
+              <Col md={3}>
+                <Sidebar content={content.blog} />
+              </Col>
+            </Row>
+          </Container>
+          )
         }
 
         {!posts && !content // && !categories
-        && <div>LOADING</div>
+          && <div>LOADING</div>
         }
 
         <Footer />
