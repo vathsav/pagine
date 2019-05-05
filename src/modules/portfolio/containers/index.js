@@ -6,26 +6,27 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
+import Portfolio from '../components';
 import Footer from '../../footer/component';
-import Home from '../components';
 import Header from '../../header/component';
 
 
-class HomeContainer extends Component {
+class PortfolioContainer extends Component {
   render() {
     const { firestoreReducer } = this.props;
-    const { content } = firestoreReducer.data;
+    const { portfolio } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-red-light">
+      <Container fluid className="bg-cyan-light">
         <Header />
 
+
         {/* TODO handle content.home being null? */}
-        {content
-        && <Home content={content.home} />
+        {portfolio
+        && <Portfolio items={portfolio} />
         }
 
-        {!content
+        {!portfolio
         && <div>LOADING</div>
         }
 
@@ -35,7 +36,7 @@ class HomeContainer extends Component {
   }
 }
 
-HomeContainer.propTypes = {
+PortfolioContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
@@ -44,6 +45,6 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'content' },
+    { collection: 'portfolio' },
   ]),
-)(HomeContainer);
+)(PortfolioContainer);

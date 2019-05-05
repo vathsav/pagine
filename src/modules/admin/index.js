@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
-import PropTypes from 'prop-types';
+
+// Components
+import AddPost from './containers/add-post';
+import NavigationMenu from './components/navigation-menu';
+import ListBlog from './containers/list-blog';
+import ListPortfolio from './containers/list-porfolio';
+import AddPortfolioItem from './containers/add-portfolio-item';
+
+// Constants
+import {
+  ADMIN_VIEW_BLOG_POSTS,
+  ADMIN_VIEW_CREATE_BLOG_POST,
+  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM,
+  ADMIN_VIEW_PORTFOLIO,
+} from '../../utils/constants';
 
 
 class AdminPanel extends Component {
@@ -9,175 +23,54 @@ class AdminPanel extends Component {
     super(props);
 
     this.state = {
-      caption: '',
-      content: '',
-      disqusURL: '',
-      image: '',
-      isPublished: false,
-      slug: '',
-      tags: [],
-      timeToRead: 0,
-      timestamp: { seconds: 0, nanoseconds: 0 },
-      title: '',
+      view: '',
     };
 
-    this.createPost = this.createPost.bind(this);
+    this.updateView = this.updateView.bind(this);
   }
 
-  createPost() {
-    const { firestore } = this.props;
-    const {
-      caption, content, disqusURL, image, isPublished, slug, tags, timeToRead, timestamp, title,
-    } = this.state;
-
-    firestore.collection('posts').doc(slug.toLowerCase()).set({
-      caption, content, disqusURL, image, isPublished, tags, timeToRead, timestamp, title,
-    })
-      .then(() => {
-        console.log('Post created successfully!');
-      })
-      .catch((error) => {
-        console.error('Error creating post: ', error);
-      });
+  updateView(view) {
+    this.setState({ view });
   }
 
   render() {
-    const { content } = this.state;
+    const { view } = this.state;
+    const selectedComponent = [];
 
-    console.log(this.state);
+    switch (view) {
+      case ADMIN_VIEW_CREATE_BLOG_POST:
+        selectedComponent.push(<AddPost key="add-post" />);
+        break;
+      case ADMIN_VIEW_CREATE_PORTFOLIO_ITEM:
+        selectedComponent.push(<AddPortfolioItem key="add-post" />);
+        break;
+      case ADMIN_VIEW_BLOG_POSTS:
+        selectedComponent.push(<ListBlog key="view-blog" />);
+        break;
+      case ADMIN_VIEW_PORTFOLIO:
+        selectedComponent.push(<ListPortfolio key="view-portfolio" />);
+        break;
+      default:
+        // Show add post by default
+        selectedComponent.push(<AddPost key="add" />);
+        break;
+    }
 
     return (
       <Container fluid>
-        <Row>
-          <div className="title-small">Title</div>
-
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                title: event.target.value,
-              });
-            })}
-          />
-        </Row>
+        ADMIN PANEL HEADER
 
         <Row>
-          <div className="title-small">Is Published</div>
-          <input
-            type="checkbox"
-            onChange={((event) => {
-              this.setState({
-                isPublished: event.target.checked,
-              });
-            })}
-          />
-        </Row>
-        <Row>
-          <div className="title-small">Caption</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                caption: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-
-        <div className="title-small">Content</div>
-
-        <Row>
-          <Col sm={12} md={6}>
-            {/* Fields */}
-            <textarea
-              className="w-100"
-              rows={10}
-              placeholder="Post Content"
-              onChange={((event) => {
-                this.setState({
-                  content: event.target.value,
-                });
-              })}
-            />
+          <Col md={4}>
+            <NavigationMenu updateView={this.updateView} />
           </Col>
-
-          <Col sm={12} md={6}>
-            {/* Preview */}
-            <div className="card w-100" dangerouslySetInnerHTML={{ __html: content }} />
+          <Col md={8}>
+            {selectedComponent}
           </Col>
         </Row>
-
-        <Row>
-          <div className="title-small">Image</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                image: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Tags</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                tags: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Timestamp</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                timestamp: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Post Slug</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                slug: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Disqus URL</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                disqusURL: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <button type="submit" onClick={this.createPost}>
-          Create
-        </button>
       </Container>
     );
   }
 }
-
-AdminPanel.propTypes = {
-  firestore: PropTypes.object.isRequired,
-};
 
 export default firestoreConnect()(AdminPanel);

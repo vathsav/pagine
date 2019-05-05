@@ -17,7 +17,7 @@ import BlogListContainer from './modules/blog/containers/list';
 import BlogPostContainer from './modules/blog/containers/post';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
-import Portfolio from './modules/portfolio';
+import Portfolio from './modules/portfolio/containers';
 
 // Constants
 import {
