@@ -30,7 +30,7 @@ class AdminPanel extends Component {
       caption, content, disqusURL, image, isPublished, slug, tags, timeToRead, timestamp, title,
     } = this.state;
 
-    firestore.collection('posts').doc(slug).set({
+    firestore.collection('posts').doc(slug.toLowerCase()).set({
       caption, content, disqusURL, image, isPublished, tags, timeToRead, timestamp, title,
     })
       .then(() => {
