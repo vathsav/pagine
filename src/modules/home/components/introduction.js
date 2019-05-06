@@ -12,8 +12,8 @@ class Introduction extends Component {
 
     return (
       <Row>
-        <Col sm={6} className="title-large">
-          HELLO, YOU.
+        <Col sm={6} className="title-large text-uppercase font-weight-bold">
+          Hello, you.
 
           {/* TODO Move the skyline to the index? */}
           <SkylineAnimation />

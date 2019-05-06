@@ -6,7 +6,7 @@ class Contact extends Component {
   render() {
     return (
       <Container fluid>
-        <div className="title-medium text-center">Want to get in touch?</div>
+        <div className="title-medium text-uppercase font-weight-bold text-center">Want to get in touch?</div>
 
         <Row>
           <Col sm={6}>
