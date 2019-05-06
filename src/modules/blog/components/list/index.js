@@ -12,7 +12,9 @@ class PostList extends Component {
     const listOfPosts = [];
 
     Object.keys(posts).forEach((key) => {
-      listOfPosts.push(<PostCard key={key} slug={key} content={posts[key]} />);
+      if (posts[key].isPublished) {
+        listOfPosts.push(<PostCard key={key} slug={key} content={posts[key]} />);
+      }
     });
 
     return (
