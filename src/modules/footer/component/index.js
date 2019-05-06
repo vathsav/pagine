@@ -7,11 +7,19 @@ import socialGithub from '../../../assets/images/social-github.png';
 import socialInstagram from '../../../assets/images/social-instagram.png';
 import socialLinkedIn from '../../../assets/images/social-linkedin.png';
 
+// Constants
+import {
+  URL_CONNECT_FACEBOOK,
+  URL_CONNECT_GITHUB,
+  URL_CONNECT_INSTAGRAM,
+  URL_CONNECT_LINKEDIN,
+} from '../../../utils/constants';
+
 
 class Footer extends Component {
   render() {
     return (
-      <Row className="border-black align-items-end px-5 py-">
+      <Row className="border-top-black align-items-end px-5 py-">
         <Col sm={4}>
           <div className="content-large">
             mail@vathsav.com
@@ -26,10 +34,18 @@ class Footer extends Component {
         </Col>
 
         <Col sm={4} className="social-icons my-auto">
-          <img src={socialInstagram} alt="Instagram" />
-          <img src={socialGithub} alt="Github" />
-          <img src={socialFacebook} alt="FB" />
-          <img src={socialLinkedIn} alt="LinkedIn" />
+          <a href={URL_CONNECT_INSTAGRAM} target="_blank" rel="noopener noreferrer">
+            <img src={socialInstagram} alt="Instagram" />
+          </a>
+          <a href={URL_CONNECT_GITHUB} target="_blank" rel="noopener noreferrer">
+            <img src={socialGithub} alt="Github" />
+          </a>
+          <a href={URL_CONNECT_FACEBOOK} target="_blank" rel="noopener noreferrer">
+            <img src={socialFacebook} alt="FB" />
+          </a>
+          <a href={URL_CONNECT_LINKEDIN} target="_blank" rel="noopener noreferrer">
+            <img src={socialLinkedIn} alt="LinkedIn" />
+          </a>
         </Col>
       </Row>
     );
