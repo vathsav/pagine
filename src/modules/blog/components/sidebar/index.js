@@ -12,10 +12,13 @@ class Sidebar extends Component {
     const { content } = this.props;
 
     return (
-      <div className="paragraph">
+      <div className="paragraph h-100">
         <SidebarAbout content={content.about} />
-        <SidebarSubscribe />
-        <SidebarCategories />
+
+        <div className="position-sticky sidebar-sticky-offset">
+          <SidebarSubscribe />
+          <SidebarCategories />
+        </div>
       </div>
     );
   }

@@ -470,4 +470,8 @@
   height: 3px;
 }
 
+.sidebar-sticky-offset {
+  top: 125px;
+}
+
 /*# sourceMappingURL=main.css.map */
