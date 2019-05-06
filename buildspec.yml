@@ -1,6 +1,7 @@
 --- 
 artifacts: 
-  files: 
+  files:
+    - build/**/*
     - 'appspec.yml'
   type: zip
 phases: 
