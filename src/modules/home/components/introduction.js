@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+// Components
+import SkylineAnimation from './skyline/index';
+
 
 class Introduction extends Component {
   render() {
@@ -10,7 +13,10 @@ class Introduction extends Component {
     return (
       <Row>
         <Col sm={6} className="title-large">
-            HELLO, YOU.
+          HELLO, YOU.
+
+          {/* TODO Move the skyline to the index? */}
+          <SkylineAnimation />
         </Col>
 
         <Col sm={6} className="content-large">

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^5.9.2",
     "firebase": "^5.11.1",
     "prop-types": "latest",
     "react": "^16.8.6",
@@ -14,8 +15,7 @@
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
     "redux-firestore": "^0.7.3",
-    "redux-thunk": "^2.3.0",
-    "d3": "latest"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
