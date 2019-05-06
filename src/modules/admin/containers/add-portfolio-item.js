@@ -13,6 +13,7 @@ class AddPortfolioItem extends Component {
       image: '',
       tags: [],
       title: '',
+      isContribution: false,
       url: '',
     };
 
@@ -90,6 +91,18 @@ class AddPortfolioItem extends Component {
             onChange={((event) => {
               this.setState({
                 url: event.target.value,
+              });
+            })}
+          />
+        </Row>
+
+        <Row>
+          <div className="title-small">is_contribution</div>
+          <input
+            type="checkbox"
+            onChange={((event) => {
+              this.setState({
+                isContribution: event.target.checked,
               });
             })}
           />

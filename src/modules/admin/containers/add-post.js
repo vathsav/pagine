@@ -44,133 +44,134 @@ class AddPost extends Component {
   render() {
     const { content } = this.state;
 
-    console.log(this.state);
-
     return (
       <Container fluid>
         <Row>
-          <div className="title-small">Title</div>
+          <Col sm={12} md={6} className="card">
+            <Row>
+              <div className="title-small">Title</div>
 
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                title: event.target.value,
-              });
-            })}
-          />
-        </Row>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    title: event.target.value,
+                  });
+                })}
+              />
+            </Row>
 
-        <Row>
-          <div className="title-small">Is Published</div>
-          <input
-            type="checkbox"
-            onChange={((event) => {
-              this.setState({
-                isPublished: event.target.checked,
-              });
-            })}
-          />
-        </Row>
-        <Row>
-          <div className="title-small">Caption</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                caption: event.target.value,
-              });
-            })}
-          />
-        </Row>
+            <Row>
+              <div className="title-small">Is Published</div>
+              <input
+                type="checkbox"
+                onChange={((event) => {
+                  this.setState({
+                    isPublished: event.target.checked,
+                  });
+                })}
+              />
+            </Row>
+            <Row>
+              <div className="title-small">Caption</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    caption: event.target.value,
+                  });
+                })}
+              />
+            </Row>
 
+            <div className="title-small">Content</div>
 
-        <div className="title-small">Content</div>
+            <Row>
+              <Col sm={12} md={6}>
+                {/* Fields */}
+                <textarea
+                  className="w-100"
+                  rows={10}
+                  placeholder="Post Content"
+                  onChange={((event) => {
+                    this.setState({
+                      content: event.target.value,
+                    });
+                  })}
+                />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col sm={12} md={6}>
-            {/* Fields */}
-            <textarea
-              className="w-100"
-              rows={10}
-              placeholder="Post Content"
-              onChange={((event) => {
-                this.setState({
-                  content: event.target.value,
-                });
-              })}
-            />
+            <Row>
+              <div className="title-small">Image</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    image: event.target.value,
+                  });
+                })}
+              />
+            </Row>
+
+            <Row>
+              <div className="title-small">Tags</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    tags: event.target.value,
+                  });
+                })}
+              />
+            </Row>
+
+            <Row>
+              <div className="title-small">Timestamp</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    timestamp: event.target.value,
+                  });
+                })}
+              />
+            </Row>
+
+            <Row>
+              <div className="title-small">Post Slug</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    slug: event.target.value,
+                  });
+                })}
+              />
+            </Row>
+
+            <Row>
+              <div className="title-small">Disqus URL</div>
+              <input
+                type="text"
+                onChange={((event) => {
+                  this.setState({
+                    disqusURL: event.target.value,
+                  });
+                })}
+              />
+            </Row>
+
+            <button type="submit" onClick={this.createPost}>
+              Create
+            </button>
           </Col>
 
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className="card">
             {/* Preview */}
-            <div className="card w-100" dangerouslySetInnerHTML={{ __html: content }} />
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </Col>
         </Row>
-
-        <Row>
-          <div className="title-small">Image</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                image: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Tags</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                tags: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Timestamp</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                timestamp: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Post Slug</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                slug: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <Row>
-          <div className="title-small">Disqus URL</div>
-          <input
-            type="text"
-            onChange={((event) => {
-              this.setState({
-                disqusURL: event.target.value,
-              });
-            })}
-          />
-        </Row>
-
-        <button type="submit" onClick={this.createPost}>
-          Create
-        </button>
       </Container>
     );
   }
