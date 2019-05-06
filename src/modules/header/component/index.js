@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // Components
-import ProgressIndicator from './progress-indicator';
+import ScrollIndicator from './scroll-indicator';
 
 // Constants
 import { URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO } from '../../../utils/constants';
@@ -32,7 +32,7 @@ class Header extends Component {
         {progress
           && (
           <Col sm={12} className="text-center align-self-center px-0">
-            <ProgressIndicator color={color} />
+            <ScrollIndicator color={color} />
           </Col>
           )
         }

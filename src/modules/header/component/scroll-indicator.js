@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
-class ProgressIndicator extends Component {
+class ScrollIndicator extends Component {
   constructor(props) {
     super(props);
 
@@ -31,8 +31,8 @@ class ProgressIndicator extends Component {
   }
 }
 
-ProgressIndicator.propTypes = {
+ScrollIndicator.propTypes = {
   color: PropTypes.string.isRequired,
 };
 
-export default ProgressIndicator;
+export default ScrollIndicator;
