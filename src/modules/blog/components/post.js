@@ -13,29 +13,34 @@ class BlogPost extends Component {
     console.log(content);
 
     return (
-      <div className="card w-100">
-        <Row className="border-bottom-black">
+      <div className="card w-100 mb-4">
+        <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center">
           <Col xs={12}>
-            <div className="title-small font-weight-bold">
+            <div className="title-medium font-weight-bold">
               {content.title}
             </div>
           </Col>
 
-          <Col>
+          <Col xs={8}>
             <div className="title-small">
               {content.timestamp}
+              {' '}
+              |
+              <span className="content-medium font-weight-bold px-1">
+                1 comment
+              </span>
             </div>
           </Col>
 
-          <Col>
-            <div className="title-small">
-              <img src={iconTag} alt="" />
+          <Col xs={4}>
+            <div className="content-small float-right">
+              <img src={iconTag} alt="" className="tag mr-2" />
               {content.tags}
             </div>
           </Col>
         </Row>
 
-        <div dangerouslySetInnerHTML={{ __html: content.content }} />
+        <div className="paragraph px-3 pt-3" dangerouslySetInnerHTML={{ __html: content.content }} />
       </div>
     );
   }

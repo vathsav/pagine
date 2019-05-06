@@ -130,6 +130,11 @@
   font-size: 25px;
 }
 
+.paragraph {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+
 .monospace {
   font-family: CutiveMono, sans-serif;
 }
@@ -303,6 +308,11 @@
   font-size: 25px;
 }
 
+.paragraph {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+
 .monospace {
   font-family: CutiveMono, sans-serif;
 }
@@ -399,6 +409,11 @@
 .content-large {
   font-family: "Raleway", sans-serif;
   font-size: 25px;
+}
+
+.paragraph {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
 }
 
 .monospace {

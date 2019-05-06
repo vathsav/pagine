@@ -36,6 +36,11 @@ $title-font: 'Noto Sans', sans-serif;
   font-size: 25px;
 }
 
+.paragraph {
+  font-family: $title-font;
+  font-size: 16px;
+}
+
 .monospace {
   font-family: $font-monospace;
 }
