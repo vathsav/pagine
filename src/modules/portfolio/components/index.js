@@ -10,16 +10,34 @@ class Portfolio extends Component {
   render() {
     const { items } = this.props;
 
-    const portfolioItems = [];
+    const portfolioMine = [];
+    const portfolioContributions = [];
 
     Object.keys(items).forEach((key) => {
-      portfolioItems.push(<PortfolioItem key={key} content={items[key]} />);
+      if (items[key].isContribution) {
+        portfolioContributions.push(<PortfolioItem key={key} content={items[key]} />);
+      } else {
+        portfolioMine.push(<PortfolioItem key={key} content={items[key]} />);
+      }
     });
 
     return (
       <Container>
+
+        <div className="title-large">
+          THE WORK OF MY HANDS.
+        </div>
+
         <Row>
-          {portfolioItems}
+          {portfolioMine}
+        </Row>
+
+        <div className="title-large">
+          OPEN SOURCE CONTRIBUTIONS.
+        </div>
+
+        <Row>
+          {portfolioContributions}
         </Row>
       </Container>
     );
