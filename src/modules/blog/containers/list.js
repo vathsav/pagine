@@ -27,7 +27,7 @@ class BlogListContainer extends Component {
           && (
           <Container>
             <Row>
-              <Col md={1}>
+              <Col md={1} id="timeline-wrapper">
                 <PostTimeline numberOfPosts={Object.keys(posts).length} />
               </Col>
 

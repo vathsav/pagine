@@ -7,22 +7,32 @@ class PostTimeline extends Component {
   componentDidMount() {
     const { numberOfPosts } = this.props;
 
+    const colors = {
+      red: '#FF0A43',
+      cyan: '#00FFBF',
+      blue: '#016EFF',
+      black: '#212121',
+    };
+
     const postHeight = 160;
     const postMarginBottom = 25;
+    const timelineHeight = (postHeight * numberOfPosts) + (postMarginBottom * (numberOfPosts - 1));
 
-    const lineHeight = (postHeight * numberOfPosts) + (postMarginBottom * (numberOfPosts - 1));
+    const timelineWrapperStyles = window.getComputedStyle(document.getElementById('timeline-wrapper'));
+    const timelineWidth = parseInt(timelineWrapperStyles.width, 0)
+      - parseInt(timelineWrapperStyles.paddingLeft, 0)
+      - parseInt(timelineWrapperStyles.paddingRight, 0);
 
-    const timelineVector = d3.select('#post-timeline').append('svg');
-
-    timelineVector
-      .attr('height', lineHeight)
-      .attr('width', 60);
+    const timelineVector = d3.select('#timeline')
+      .append('svg')
+      .attr('height', timelineHeight)
+      .attr('width', timelineWidth);
 
     // Base line
     const lineGenerator = d3.line();
     const points = [
       [30, 0],
-      [30, lineHeight],
+      [30, timelineHeight],
     ];
 
     const baseLine = lineGenerator(points);
@@ -31,38 +41,39 @@ class PostTimeline extends Component {
       .append('path')
       .attr('d', baseLine)
       .attr('fill', 'none')
-      .attr('stroke-width', 3)
-      .attr('stroke', '#999');
+      .attr('stroke-width', 1)
+      .attr('stroke', colors.black);
 
     const smallCircleRadius = 5;
     const bigCircleRadius = 6;
 
-    // Append the first and last circles
-    timelineVector
-      .append('circle')
-      .attr('cx', points[0][0])
-      .attr('cy', points[0][1] + smallCircleRadius)
-      .attr('r', smallCircleRadius);
-
+    // Append the last circles
     timelineVector
       .append('circle')
       .attr('cx', points[1][0])
       .attr('cy', points[1][1] - bigCircleRadius)
-      .attr('r', bigCircleRadius);
+      .attr('r', bigCircleRadius)
+      .attr('fill', colors.black);
 
     // Append circles for each post
-    for (let count = 1; count < numberOfPosts; count += 1) {
+    for (let count = 0; count < numberOfPosts; count += 1) {
       timelineVector
         .append('circle')
         .attr('cx', points[0][0])
-        .attr('cy', points[0][1] + (postHeight * count) + (postMarginBottom * count))
-        .attr('r', smallCircleRadius);
+        .attr('cy', points[0][1] + (postHeight * count) + (postMarginBottom * count) + smallCircleRadius)
+        .attr('r', smallCircleRadius)
+        .attr('fill', () => {
+          const keys = Object.keys(colors);
+          keys.splice(keys.indexOf('black'), 1);
+
+          return colors[keys[count % 3]];
+        });
     }
   }
 
   render() {
     return (
-      <div id="post-timeline" />
+      <div id="timeline" />
     );
   }
 }
