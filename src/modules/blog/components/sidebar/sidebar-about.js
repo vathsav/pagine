@@ -8,7 +8,7 @@ class SidebarAbout extends Component {
 
     return (
       <div className="card">
-        <div className="title-small">About</div>
+        <div className="title-small text-uppercase font-weight-bold">About</div>
         {content}
       </div>
     );

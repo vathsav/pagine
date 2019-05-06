@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class SidebarSubscribe extends Component {
   render() {
     return (
-      <div className="card">
-        <div className="title-small">Subscribe</div>
+      <div className="card my-4">
+        <div className="title-small text-uppercase font-weight-bold">Subscribe</div>
 
         <div>
           Receive updates for new posts!

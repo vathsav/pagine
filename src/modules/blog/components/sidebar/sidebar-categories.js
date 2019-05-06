@@ -4,7 +4,7 @@ class SidebarCategories extends Component {
   render() {
     return (
       <div className="card">
-        <div className="title-small">Categories</div>
+        <div className="title-small text-uppercase font-weight-bold">Categories</div>
 
         <ul>
           <li>Android</li>
