@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import PostList from '../components/list';
+import PostTimeline from '../components/post-timeline';
 import Sidebar from '../components/sidebar';
 
 
@@ -26,7 +27,11 @@ class BlogListContainer extends Component {
           && (
           <Container>
             <Row>
-              <Col md={9}>
+              <Col md={1}>
+                <PostTimeline numberOfPosts={Object.keys(posts).length} />
+              </Col>
+
+              <Col md={8}>
                 <PostList posts={posts} />
               </Col>
 

@@ -9,6 +9,7 @@ import { URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO } from '../../../utils/constants
 // Images
 import logo from '../../../assets/images/logo.png';
 
+
 class Header extends Component {
   render() {
     const { color } = this.props;
