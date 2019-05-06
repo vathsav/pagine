@@ -10,11 +10,11 @@ import Introduction from './introduction';
 
 class Home extends Component {
   render() {
-    const { content } = this.props;
+    const { content, weather } = this.props;
 
     return (
       <div>
-        <Introduction content={content.intro} />
+        <Introduction content={content.intro} weather={weather} />
 
         <About content={content.about} />
 
@@ -28,6 +28,11 @@ class Home extends Component {
 
 Home.propTypes = {
   content: PropTypes.object.isRequired,
+  weather: PropTypes.object,
+};
+
+Home.defaultProps = {
+  weather: {},
 };
 
 export default Home;

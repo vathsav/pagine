@@ -8,7 +8,7 @@ import SkylineAnimation from './skyline/index';
 
 class Introduction extends Component {
   render() {
-    const { content } = this.props;
+    const { content, weather } = this.props;
 
     return (
       <Row>
@@ -21,6 +21,8 @@ class Introduction extends Component {
 
         <Col sm={6} className="content-large">
           {content}
+
+          {JSON.stringify(weather)}
         </Col>
 
         {/* <Skyline/> */}
@@ -31,6 +33,11 @@ class Introduction extends Component {
 
 Introduction.propTypes = {
   content: PropTypes.string.isRequired,
+  weather: PropTypes.object,
+};
+
+Introduction.defaultProps = {
+  weather: {},
 };
 
 export default Introduction;
