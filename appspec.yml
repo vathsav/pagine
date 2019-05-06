@@ -1,0 +1,10 @@
+--- 
+files: 
+  - 
+    destination: /var/www/beta
+    overwrite: true
+    source: /build/
+
+
+os: linux
+version: 0.0
