@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+// Images
+import iconTag from '../../../../assets/images/icon_tag.png';
+import iconReadTime from '../../../../assets/images/icon_read_time.png';
 
 
 class PostCard extends Component {
@@ -9,50 +13,63 @@ class PostCard extends Component {
     const { content, slug } = this.props;
 
     return (
-      <Row className="card w-100">
-        { content
+      <Row className="card w-100 mb-4 pb-0">
+        <Link to={`post/${slug}`}>
+          { content
           && (
-          <div>
-            <Link to={`post/${slug}`}>
-              <div>
-                {content.caption}
-              </div>
-            </Link>
-
             <div>
-              {content.content}
-            </div>
+              <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center">
+                <Col xs={12}>
+                  <div className="title-medium font-weight-bold">
+                    {content.title}
+                  </div>
+                </Col>
 
-            <div>
-              {content.disqus_url}
-            </div>
+                <Col xs={8}>
+                  <div className="title-small">
+                    {content.caption}
+                  </div>
+                </Col>
 
-            <div>
-              {content.image}
-            </div>
+                <Col xs={4}>
+                  <div className="content-small float-right">
+                    <img src={iconTag} alt="" className="tag mr-2" />
+                    {content.tags}
+                  </div>
+                </Col>
+              </Row>
 
-            <div>
-              {content.is_published}
-            </div>
+              <img src={content.image} alt="" className="post-banner" />
 
-            <div>
-              {content.tags}
-            </div>
+              <Row className="py-2 align-items-center">
+                <Col xs={4} className="">
+                  <div className="content-small ">
+                    <img src={iconReadTime} alt="" className="tag-2 mr-2" />
+                    {content.timeToRead}
+                    {' '}
+                    min read
+                  </div>
+                </Col>
 
-            <div>
-              {content.time_to_read}
-            </div>
+                <Col xs={6} className="px-1">
+                  <div className="content-medium float-right">
+                    {content.timestamp}
+                    {' '}
+                    |
+                  </div>
+                </Col>
 
-            <div>
-              {content.timestamp.seconds}
+                <Col xs={2} className="px-1">
+                  <div className="content-medium font-weight-bold">
+                    1 comment
+                    {/* {content.disqusURL} */}
+                  </div>
+                </Col>
+              </Row>
             </div>
-
-            <div>
-              {content.title}
-            </div>
-          </div>
           )
         }
+        </Link>
       </Row>
     );
   }
