@@ -12,7 +12,7 @@ class Sidebar extends Component {
     const { content } = this.props;
 
     return (
-      <div>
+      <div className="paragraph">
         <SidebarAbout content={content.about} />
         <SidebarSubscribe />
         <SidebarCategories />

@@ -3,11 +3,13 @@
 
 .card {
   background: $white;
+  border: none;
   border-radius: 2px;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.04);
+  color: $black;
   font-family: $font-noto-regular;
-  font-size: 14px;
-  padding: 16px;
-  box-shadow: 1px 1px 2px 2px rgb(222, 222, 222);
+  padding: 14px;
+  transition-duration: .35s;
 
   * {
     text-decoration: none !important;
@@ -15,5 +17,10 @@
 
   a {
     color: $black;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 6px 4px rgba(0, 0, 0, 0.08);
+    transition-duration: .35s;
   }
 }

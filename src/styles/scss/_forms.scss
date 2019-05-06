@@ -37,3 +37,32 @@
   margin: 35px 0 45px;
   text-transform: uppercase;
 }
+
+.field-input-small {
+  background: $white;
+  border-color: $black;
+  border-width: 1px;
+  border-radius: 3px 0 0 3px;
+  font-family: $font-raleway-regular;
+  font-size: 16px;
+  padding: 0 10px;
+  height: 38px;
+  width: 100%;
+
+  &::placeholder {
+    color: $black;
+  }
+}
+
+.button-submit-small {
+  border: 1px solid $black;
+  border-left-style: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  font-family: $font-noto-bold;
+  font-size: 20px;
+  height: 38px;
+  color: $white;
+  width: 100%;
+  text-transform: uppercase;
+}
