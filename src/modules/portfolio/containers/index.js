@@ -17,7 +17,7 @@ class PortfolioContainer extends Component {
     const { portfolio } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-cyan-light">
+      <Container fluid className="bg-cyan-light px-0">
         <Header color="green" />
 
 

@@ -10,8 +10,6 @@ class BlogPost extends Component {
   render() {
     const { content } = this.props;
 
-    console.log(content);
-
     return (
       <div className="card w-100 mb-4">
         <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center">

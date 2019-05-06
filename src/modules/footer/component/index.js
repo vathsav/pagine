@@ -19,7 +19,7 @@ import {
 class Footer extends Component {
   render() {
     return (
-      <Row className="border-top-black align-items-end px-5 py-">
+      <Row className="border-top-black align-items-end px-5 py-2 mx-0">
         <Col sm={4}>
           <div className="content-large">
             mail@vathsav.com

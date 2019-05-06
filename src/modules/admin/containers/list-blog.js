@@ -15,7 +15,7 @@ class BlogListContainer extends Component {
     const { content, posts } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-blue-light">
+      <Container fluid className="bg-blue-light px-0">
         {/* TODO handle content.home being null? */}
         {posts && content // && categories
         && (

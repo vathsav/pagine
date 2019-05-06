@@ -466,8 +466,8 @@
   transform: rotate(-2.5deg);
 }
 
-html, body {
-  overflow-x: hidden;
+.scroll-indicator {
+  height: 3px;
 }
 
 /*# sourceMappingURL=main.css.map */

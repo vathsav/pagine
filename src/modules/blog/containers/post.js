@@ -18,8 +18,8 @@ class BlogPostContainer extends Component {
     const { content, posts } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-blue-light">
-        <Header color="blue" />
+      <Container fluid className="bg-blue-light px-0">
+        <Header color="blue" progress />
 
         {/* TODO handle content.home being null? */}
         {/* TODO if posts is undefined, redirect to 404. */}

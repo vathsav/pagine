@@ -17,17 +17,20 @@ class HomeContainer extends Component {
     const { content } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-red-light">
+      <Container fluid className="bg-red-light px-0">
         <Header color="red" />
 
-        {/* TODO handle content.home being null? */}
-        {content
-          && <Home content={content.home} />
-        }
+        <div className="overflow-hidden">
 
-        {!content
-          && <div>LOADING</div>
-        }
+          {/* TODO handle content.home being null? */}
+          {content
+            && <Home content={content.home} />
+          }
+
+          {!content
+            && <div>LOADING</div>
+          }
+        </div>
 
         <Footer />
       </Container>

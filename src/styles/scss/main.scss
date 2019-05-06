@@ -7,6 +7,6 @@
 @import "text";
 @import "transforms";
 
-html, body {
-  overflow-x: hidden;
+.scroll-indicator {
+  height: 3px;
 }
