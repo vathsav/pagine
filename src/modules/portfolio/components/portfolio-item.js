@@ -8,8 +8,26 @@ class PortfolioItem extends Component {
     const { content } = this.props;
 
     return (
-      <Col md={4} className="card">
-        {JSON.stringify(content)}
+      <Col md={4} className="card mx-2 my-3">
+        <div>
+          url
+          {content.url}
+        </div>
+
+        <div>
+          title
+          {content.title}
+        </div>
+
+        <div>
+          image
+          {content.image}
+        </div>
+
+        <div>
+          description
+          {content.description}
+        </div>
       </Col>
     );
   }

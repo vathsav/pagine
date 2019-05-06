@@ -24,16 +24,16 @@ class Portfolio extends Component {
     return (
       <Container>
 
-        <div className="title-large">
-          THE WORK OF MY HANDS.
+        <div className="title-large text-uppercase font-weight-bold">
+          The work of my hands.
         </div>
 
         <Row>
           {portfolioMine}
         </Row>
 
-        <div className="title-large">
-          OPEN SOURCE CONTRIBUTIONS.
+        <div className="title-large text-uppercase font-weight-bold">
+          Open source contributions.
         </div>
 
         <Row>
