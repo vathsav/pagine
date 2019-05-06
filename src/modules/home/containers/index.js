@@ -22,11 +22,11 @@ class HomeContainer extends Component {
 
         {/* TODO handle content.home being null? */}
         {content
-        && <Home content={content.home} />
+          && <Home content={content.home} />
         }
 
         {!content
-        && <div>LOADING</div>
+          && <div>LOADING</div>
         }
 
         <Footer />

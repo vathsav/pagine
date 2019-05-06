@@ -1,9 +1,11 @@
-.skew {
-  padding: 150px 150px;
-  transform: rotate(-3.5deg);
-  margin: 100px -100px 60px;
+.skew-up-top-right {
+  margin: 150px -20px -60px;
+  padding: 60px 0;
+  transform: rotate(-2.5deg);
+}
 
-  .balance {
-    transform: rotate(3.5deg);
-  }
+.skew-down-bottom-left {
+  margin: -40px -20px 80px;
+  padding: 40px 0;
+  transform: rotate(-2.5deg);
 }

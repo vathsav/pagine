@@ -10,19 +10,27 @@ class About extends Component {
     const { content } = this.props;
 
     return (
-      <Row className="bg-red-dark color-white content-medium skew">
-        <Col sm={6} className="balance">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </Col>
+      <div>
+        <div className="skew-up-top-right bg-red-dark" />
 
-        <Col sm={6} className="text-center balance">
-          <img src={imageVathsav} alt="vathsav" />
+        <Row className="bg-red-dark color-white content-medium py-5">
 
-          <p>
+          <Col sm={6}>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </Col>
+
+          <Col sm={6} className="text-center">
+            <img src={imageVathsav} alt="vathsav" />
+
+            <p>
             This was taken in Oregon, USA on the 3rd of January &apos;19.
-          </p>
-        </Col>
-      </Row>
+            </p>
+          </Col>
+
+        </Row>
+
+        <div className="skew-down-bottom-left bg-red-dark" />
+      </div>
     );
   }
 }
