@@ -13,7 +13,7 @@ phases:
       - echo REACT_APP_FIREBASE_AUTH_DOMAIN=\"$REACT_APP_FIREBASE_AUTH_DOMAIN\" >>.env
       - echo REACT_APP_FIREBASE_PROJECT_ID=\"$REACT_APP_FIREBASE_PROJECT_ID\" >>.env
       - pwd
-      - "yarn install"
+      - "npm install"
       - pwd
       - "npm run build"
 version: 0.2
