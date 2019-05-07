@@ -26,7 +26,13 @@ export const URL_BLOG_POST = '/post/*';
 export const URL_HOME = '/';
 export const URL_PORTFOLIO = '/portfolio';
 
-// Weather Codes
+// Weather Intensities
+export const WEATHER_INTENSITY_LOW = 0;
+export const WEATHER_INTENSITY_MEDIUM = 5;
+export const WEATHER_INTENSITY_HIGH = 10;
+
+
+// Weather Statuses
 export const WEATHER_STATUS_THUNDERSTORM = 'Thunderstorm';
 export const WEATHER_STATUS_DRIZZLE = 'Drizzle';
 export const WEATHER_STATUS_RAIN = 'Rain';

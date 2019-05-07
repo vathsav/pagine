@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Components
-import PropTypes from 'prop-types';
-import SkylineBuildings from './buildings';
-import SkylineSky from './sky';
+import SkylineBuildings from './charts/buildings';
+import SkylineCondition from './charts/condition';
+import SkylineSpace from './charts/space';
 
 
 class SkylineAnimation extends Component {
@@ -12,7 +13,13 @@ class SkylineAnimation extends Component {
 
     return (
       <div className="pt-5">
-        <SkylineSky weather={weather} />
+        {/* Time of the day */}
+        <SkylineSpace />
+
+        {/* Weather Condition */}
+        <SkylineCondition weather={weather} />
+
+        {/* Skyline of Milano */}
         <SkylineBuildings />
       </div>
     );

@@ -1,4 +1,6 @@
 import {
+  WEATHER_INTENSITY_HIGH,
+  WEATHER_INTENSITY_LOW, WEATHER_INTENSITY_MEDIUM,
   WEATHER_STATUS_ASH,
   WEATHER_STATUS_CLEAR,
   WEATHER_STATUS_CLOUDS,
@@ -7,6 +9,7 @@ import {
   WEATHER_STATUS_SNOW, WEATHER_STATUS_SQUALL,
   WEATHER_STATUS_THUNDERSTORM, WEATHER_STATUS_TORNADO,
 } from './constants';
+
 
 export function getWordCount(string) {
   const matches = string.match(/\S+/g);
@@ -57,334 +60,332 @@ export function resolveWeatherCode(code) {
     case 200: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 201: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 202: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 10,
-
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 210: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 211: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 212: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 221: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 230: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 231: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 232: {
       return {
         status: WEATHER_STATUS_THUNDERSTORM,
-        intensity: 10,
-
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 300: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 301: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 302: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 310: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 311: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 312: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 313: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 314: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 321: {
       return {
         status: WEATHER_STATUS_DRIZZLE,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 500: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 501: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 502: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 503: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 504: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 511: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 520: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 521: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 522: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 531: {
       return {
         status: WEATHER_STATUS_RAIN,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 600: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 601: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 602: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     case 611: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 612: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 613: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 615: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 616: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 620: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 621: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 5,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 622: {
       return {
         status: WEATHER_STATUS_SNOW,
-        intensity: 10,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
 
     case 701: {
       return {
         status: WEATHER_STATUS_MIST,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 711: {
       return {
         status: WEATHER_STATUS_SMOKE,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 721: {
       return {
         status: WEATHER_STATUS_HAZE,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 731: {
       return {
         status: WEATHER_STATUS_DUST,
-        intensity: 1,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 741: {
       return {
         status: WEATHER_STATUS_FOG,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 751: {
       return {
         status: WEATHER_STATUS_SAND,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 761: {
       return {
         status: WEATHER_STATUS_DUST,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 762: {
       return {
         status: WEATHER_STATUS_ASH,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 771: {
       return {
         status: WEATHER_STATUS_SQUALL,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 781: {
       return {
         status: WEATHER_STATUS_TORNADO,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 800: {
       return {
         status: WEATHER_STATUS_CLEAR,
-        intensity: 0,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 801: {
       return {
         status: WEATHER_STATUS_CLOUDS,
-        intensity: 2,
+        intensity: WEATHER_INTENSITY_LOW,
       };
     }
     case 802: {
       return {
         status: WEATHER_STATUS_CLOUDS,
-        intensity: 4,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 803: {
       return {
         status: WEATHER_STATUS_CLOUDS,
-        intensity: 6,
+        intensity: WEATHER_INTENSITY_MEDIUM,
       };
     }
     case 804: {
       return {
         status: WEATHER_STATUS_CLOUDS,
-        intensity: 8,
+        intensity: WEATHER_INTENSITY_HIGH,
       };
     }
     default: {
