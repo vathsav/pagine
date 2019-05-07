@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { DiscussionEmbed, CommentCount } from 'disqus-react';
 import PropTypes from 'prop-types';
 
 // Images
 import iconTag from '../../../assets/images/icon_tag.png';
 
+// Constants
+import { DISQUS_URL_PREFIX } from '../../../utils/constants';
+
 
 class BlogPost extends Component {
   render() {
-    const { content } = this.props;
+    const { content, slug } = this.props;
+
+    const disqusShortName = process.env.REACT_APP_DISQUS_SHORT_NAME;
+    const disqusConfig = {
+      url: DISQUS_URL_PREFIX + slug,
+      identifier: slug,
+      title: content.title,
+    };
 
     return (
       <div className="card w-100 mb-4">
@@ -25,7 +36,7 @@ class BlogPost extends Component {
               {' '}
               |
               <span className="content-medium font-weight-bold px-1">
-                1 comment
+                <CommentCount shortname={disqusShortName} config={disqusConfig} />
               </span>
             </div>
           </Col>
@@ -39,6 +50,8 @@ class BlogPost extends Component {
         </Row>
 
         <div className="paragraph px-3 pt-3" dangerouslySetInnerHTML={{ __html: content.content }} />
+
+        <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
       </div>
     );
   }
@@ -46,6 +59,7 @@ class BlogPost extends Component {
 
 BlogPost.propTypes = {
   content: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default BlogPost;

@@ -28,7 +28,7 @@ class BlogPostContainer extends Component {
             <Container>
               <Row>
                 <Col md={9}>
-                  <BlogPost content={posts[match.params[0]]} />
+                  <BlogPost content={posts[match.params[0]]} slug={match.params[0]} />
                 </Col>
 
                 <Col md={3}>

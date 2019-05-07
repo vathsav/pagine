@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CommentCount } from 'disqus-react';
 import PropTypes from 'prop-types';
 
 // Images
-import iconTag from '../../../../assets/images/icon_tag.png';
 import iconReadTime from '../../../../assets/images/icon_read_time.png';
+import iconTag from '../../../../assets/images/icon_tag.png';
 
 
 class PostCard extends Component {
   render() {
     const { content, slug } = this.props;
+
+    const disqusShortName = process.env.REACT_APP_DISQUS_SHORT_NAME;
+    const disqusConfig = {
+      url: `https://vathsav.com/post/${slug}`,
+      identifier: slug,
+      title: content.title,
+    };
 
     return (
       <Row className="card w-100 mb-4 pb-0">
@@ -61,8 +69,7 @@ class PostCard extends Component {
 
                 <Col xs={2} className="px-1">
                   <div className="content-medium font-weight-bold">
-                    1 comment
-                    {/* {content.disqusURL} */}
+                    <CommentCount shortname={disqusShortName} config={disqusConfig} />
                   </div>
                 </Col>
               </Row>

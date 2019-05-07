@@ -7,6 +7,9 @@ export const ADMIN_VIEW_CREATE_PORTFOLIO_ITEM = 'ADMIN_VIEW_CREATE_PORTFOLIO_ITE
 export const ADMIN_VIEW_BLOG_POSTS = 'ADMIN_VIEW_BLOG_POSTS';
 export const ADMIN_VIEW_PORTFOLIO = 'ADMIN_VIEW_PORTFOLIO';
 
+// Disqus Config
+export const DISQUS_URL_PREFIX = "https://vathsav.com/post/";
+
 // Social Links
 export const URL_CONNECT_INSTAGRAM = 'https://www.instagram.com/vathsavh/';
 export const URL_CONNECT_GITHUB = 'https://github.com/vathsav';
