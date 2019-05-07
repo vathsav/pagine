@@ -18,7 +18,7 @@ class PostList extends Component {
     });
 
     return (
-      <Row>
+      <Row id="list-of-posts">
         {listOfPosts}
       </Row>
     );

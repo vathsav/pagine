@@ -50,7 +50,9 @@ class PostCard extends Component {
                 </Col>
               </Row>
 
-              <img src={content.image} alt="" className="post-banner" />
+              {content.image
+                && <img src={content.image} alt="" className="post-banner" />
+              }
 
               <Row className="py-2 align-items-center">
                 <Col xs={4}>

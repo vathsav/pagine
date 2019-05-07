@@ -402,7 +402,7 @@
 
 .post-banner {
   width: 100%;
-  height: auto;
+  min-height: 350px;
 }
 
 .tag {
