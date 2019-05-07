@@ -8,7 +8,10 @@ export const ADMIN_VIEW_BLOG_POSTS = 'ADMIN_VIEW_BLOG_POSTS';
 export const ADMIN_VIEW_PORTFOLIO = 'ADMIN_VIEW_PORTFOLIO';
 
 // Disqus Config
-export const DISQUS_URL_PREFIX = "https://vathsav.com/post/";
+export const DISQUS_URL_PREFIX = 'https://vathsav.com/post/';
+
+// Miscellaneous
+export const READ_TIME_WORDS_PER_MINUTE = 265;
 
 // Social Links
 export const URL_CONNECT_INSTAGRAM = 'https://www.instagram.com/vathsavh/';

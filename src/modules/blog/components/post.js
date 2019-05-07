@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 // Images
 import iconTag from '../../../assets/images/icon_tag.png';
 
-// Constants
+// Utils
 import { DISQUS_URL_PREFIX } from '../../../utils/constants';
+import { beautifyDateTime } from '../../../utils/helper';
 
 
 class BlogPost extends Component {
@@ -32,7 +33,7 @@ class BlogPost extends Component {
 
           <Col xs={8}>
             <div className="title-small">
-              {content.timestamp}
+              {beautifyDateTime(new Date(content.timestamp))}
               {' '}
               |
               <span className="content-medium font-weight-bold px-1">

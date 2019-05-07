@@ -3,6 +3,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
+// Utils
+import { READ_TIME_WORDS_PER_MINUTE } from '../../../utils/constants';
+import { getWordCount } from '../../../utils/helper';
+
 
 class AddPost extends Component {
   constructor(props) {
@@ -11,13 +15,11 @@ class AddPost extends Component {
     this.state = {
       caption: '',
       content: '',
-      disqusURL: '',
       image: '',
       isPublished: false,
       slug: '',
       tags: [],
       timeToRead: 0,
-      timestamp: { seconds: 0, nanoseconds: 0 },
       title: '',
     };
 
@@ -27,11 +29,18 @@ class AddPost extends Component {
   createPost() {
     const { firestore } = this.props;
     const {
-      caption, content, disqusURL, image, isPublished, slug, tags, timeToRead, timestamp, title,
+      caption, content, image, isPublished, slug, tags, timeToRead, title,
     } = this.state;
 
     firestore.collection('posts').doc(slug.toLowerCase()).set({
-      caption, content, disqusURL, image, isPublished, tags, timeToRead, timestamp, title,
+      caption,
+      content,
+      image,
+      isPublished,
+      tags,
+      timeToRead,
+      timestamp: Date.now(),
+      title,
     })
       .then(() => {
         console.log('Post created successfully!');
@@ -43,6 +52,7 @@ class AddPost extends Component {
 
   render() {
     const { content } = this.state;
+    const previewTextContent = document.getElementById('preview');
 
     return (
       <Container fluid>
@@ -88,7 +98,6 @@ class AddPost extends Component {
 
             <Row>
               <Col sm={12} md={6}>
-                {/* Fields */}
                 <textarea
                   className="w-100"
                   rows={10}
@@ -96,6 +105,8 @@ class AddPost extends Component {
                   onChange={((event) => {
                     this.setState({
                       content: event.target.value,
+                      // eslint-disable-next-line max-len
+                      timeToRead: previewTextContent ? Math.round(getWordCount(previewTextContent.textContent) / READ_TIME_WORDS_PER_MINUTE) : 1,
                     });
                   })}
                 />
@@ -127,36 +138,12 @@ class AddPost extends Component {
             </Row>
 
             <Row>
-              <div className="title-small">Timestamp</div>
-              <input
-                type="text"
-                onChange={((event) => {
-                  this.setState({
-                    timestamp: event.target.value,
-                  });
-                })}
-              />
-            </Row>
-
-            <Row>
               <div className="title-small">Post Slug</div>
               <input
                 type="text"
                 onChange={((event) => {
                   this.setState({
                     slug: event.target.value,
-                  });
-                })}
-              />
-            </Row>
-
-            <Row>
-              <div className="title-small">Disqus URL</div>
-              <input
-                type="text"
-                onChange={((event) => {
-                  this.setState({
-                    disqusURL: event.target.value,
                   });
                 })}
               />
@@ -169,7 +156,7 @@ class AddPost extends Component {
 
           <Col sm={12} md={6} className="card">
             {/* Preview */}
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div id="preview" dangerouslySetInnerHTML={{ __html: content }} />
           </Col>
         </Row>
       </Container>

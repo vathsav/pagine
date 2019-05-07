@@ -21,7 +21,7 @@ class MenuItem extends Component {
 }
 
 MenuItem.propTypes = {
-  name: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   view: PropTypes.string.isRequired,
   updateView: PropTypes.func.isRequired,
 };

@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 import iconReadTime from '../../../../assets/images/icon_read_time.png';
 import iconTag from '../../../../assets/images/icon_tag.png';
 
+// Utils
+import { beautifyDateTime } from '../../../../utils/helper';
+
 
 class PostCard extends Component {
   render() {
@@ -50,8 +53,8 @@ class PostCard extends Component {
               <img src={content.image} alt="" className="post-banner" />
 
               <Row className="py-2 align-items-center">
-                <Col xs={4} className="">
-                  <div className="content-small ">
+                <Col xs={4}>
+                  <div className="content-small">
                     <img src={iconReadTime} alt="" className="tag-2 mr-2" />
                     {content.timeToRead}
                     {' '}
@@ -59,17 +62,16 @@ class PostCard extends Component {
                   </div>
                 </Col>
 
-                <Col xs={6} className="px-1">
-                  <div className="content-medium float-right">
-                    {content.timestamp}
-                    {' '}
-                    |
-                  </div>
-                </Col>
-
-                <Col xs={2} className="px-1">
-                  <div className="content-medium font-weight-bold">
-                    <CommentCount shortname={disqusShortName} config={disqusConfig} />
+                <Col xs={8}>
+                  <div className="float-right">
+                    <span className="content-medium px-1">
+                      {beautifyDateTime(new Date(content.timestamp))}
+                      {' '}
+                      |
+                    </span>
+                    <span className="content-medium font-weight-bold">
+                      <CommentCount shortname={disqusShortName} config={disqusConfig} />
+                    </span>
                   </div>
                 </Col>
               </Row>
