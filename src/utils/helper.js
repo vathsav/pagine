@@ -9,6 +9,7 @@ import {
   WEATHER_STATUS_SNOW, WEATHER_STATUS_SQUALL,
   WEATHER_STATUS_THUNDERSTORM, WEATHER_STATUS_TORNADO,
 } from './constants';
+import React from "react";
 
 
 export function getWordCount(string) {

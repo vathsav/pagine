@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import SkylineBuildings from './charts/buildings';
-import SkylineCondition from './charts/condition';
+import SkylineCondition from './charts/conditions/index';
 import SkylineSpace from './charts/space';
 
 
