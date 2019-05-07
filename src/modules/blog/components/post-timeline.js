@@ -75,8 +75,6 @@ class PostTimeline extends Component {
 
       // Height of nth post
       const postHeight = window.getComputedStyle(listOfPosts.children[count]).height;
-      console.log(postHeight);
-
       postDotOffset += parseInt(postHeight, 0) + parseInt(postMarginBottom, 0);
     }
   }

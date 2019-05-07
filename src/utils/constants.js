@@ -25,3 +25,20 @@ export const URL_BLOG_LIST = '/blog';
 export const URL_BLOG_POST = '/post/*';
 export const URL_HOME = '/';
 export const URL_PORTFOLIO = '/portfolio';
+
+// Weather Codes
+export const WEATHER_STATUS_THUNDERSTORM = 'Thunderstorm';
+export const WEATHER_STATUS_DRIZZLE = 'Drizzle';
+export const WEATHER_STATUS_RAIN = 'Rain';
+export const WEATHER_STATUS_SNOW = 'Snow';
+export const WEATHER_STATUS_MIST = 'Mist';
+export const WEATHER_STATUS_SMOKE = 'Smoke';
+export const WEATHER_STATUS_HAZE = 'Haze';
+export const WEATHER_STATUS_FOG = 'Fog';
+export const WEATHER_STATUS_SAND = 'Sand';
+export const WEATHER_STATUS_DUST = 'Dust';
+export const WEATHER_STATUS_ASH = 'Ash';
+export const WEATHER_STATUS_SQUALL = 'Squall';
+export const WEATHER_STATUS_TORNADO = 'Tornado';
+export const WEATHER_STATUS_CLEAR = 'Clear';
+export const WEATHER_STATUS_CLOUDS = 'Clouds';

@@ -14,7 +14,9 @@ class Home extends Component {
 
     return (
       <div>
-        <Introduction content={content.intro} weather={weather} />
+        <Container>
+          <Introduction content={content.intro} weather={weather} />
+        </Container>
 
         <About content={content.about} />
 

@@ -16,13 +16,11 @@ class Introduction extends Component {
           Hello, you.
 
           {/* TODO Move the skyline to the index? */}
-          <SkylineAnimation />
+          <SkylineAnimation weather={weather.weather} />
         </Col>
 
-        <Col sm={6} className="content-large">
+        <Col sm={6} className="content-medium">
           {content}
-
-          {JSON.stringify(weather)}
         </Col>
 
         {/* <Skyline/> */}
