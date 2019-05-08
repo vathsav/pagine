@@ -27,50 +27,54 @@ class SkylineCondition extends Component {
 
   componentDidMount() {
     const { weather } = this.props;
-    const condition = resolveWeatherCode(weather.weather[0].id);
+    let condition = null;
 
-    const svgCondition = d3.select('#chart-condition')
-      .append('svg')
-      .attr('height', 200)
-      .attr('width', 600)
-      .style('position', 'absolute')
-      .append('g');
+    if (weather) {
+      condition = resolveWeatherCode(weather.weather[0].id);
 
-    this.animationClouds(svgCondition, condition.intensity);
+      const svgCondition = d3.select('#chart-condition')
+        .append('svg')
+        .attr('height', 200)
+        .attr('width', 600)
+        .style('position', 'absolute')
+        .append('g');
 
-    switch (condition.status) {
-      case WEATHER_STATUS_THUNDERSTORM:
-        break;
-      case WEATHER_STATUS_DRIZZLE:
-        break;
-      case WEATHER_STATUS_RAIN:
-        break;
-      case WEATHER_STATUS_SNOW:
-        break;
-      case WEATHER_STATUS_CLEAR:
-        break;
-      case WEATHER_STATUS_CLOUDS:
-        break;
-      case WEATHER_STATUS_MIST:
-        break;
-      case WEATHER_STATUS_SMOKE:
-        break;
-      case WEATHER_STATUS_HAZE:
-        break;
-      case WEATHER_STATUS_FOG:
-        break;
-      case WEATHER_STATUS_SAND:
-        break;
-      case WEATHER_STATUS_DUST:
-        break;
-      case WEATHER_STATUS_ASH:
-        break;
-      case WEATHER_STATUS_SQUALL:
-        break;
-      case WEATHER_STATUS_TORNADO:
-        break;
-      default:
-        break;
+      this.animationClouds(svgCondition, condition.intensity);
+
+      switch (condition.status) {
+        case WEATHER_STATUS_THUNDERSTORM:
+          break;
+        case WEATHER_STATUS_DRIZZLE:
+          break;
+        case WEATHER_STATUS_RAIN:
+          break;
+        case WEATHER_STATUS_SNOW:
+          break;
+        case WEATHER_STATUS_CLEAR:
+          break;
+        case WEATHER_STATUS_CLOUDS:
+          break;
+        case WEATHER_STATUS_MIST:
+          break;
+        case WEATHER_STATUS_SMOKE:
+          break;
+        case WEATHER_STATUS_HAZE:
+          break;
+        case WEATHER_STATUS_FOG:
+          break;
+        case WEATHER_STATUS_SAND:
+          break;
+        case WEATHER_STATUS_DUST:
+          break;
+        case WEATHER_STATUS_ASH:
+          break;
+        case WEATHER_STATUS_SQUALL:
+          break;
+        case WEATHER_STATUS_TORNADO:
+          break;
+        default:
+          break;
+      }
     }
   }
 
