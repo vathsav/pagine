@@ -11,6 +11,7 @@ import Header from '../../header/component';
 import PostList from '../components/list';
 import PostTimeline from '../components/post-timeline';
 import Sidebar from '../components/sidebar';
+import Loader from '../../loader';
 
 
 class BlogListContainer extends Component {
@@ -19,36 +20,37 @@ class BlogListContainer extends Component {
     const { content, posts } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-blue-light px-0">
-        <Header color="blue" />
+      <div>
+        {(!posts || !content) // && !categories
+          && <Loader color="blue" />
+        }
 
-        {/* TODO handle content.home being null? */}
         {posts && content // && categories
           && (
-          <Container>
-            <Row>
-              <Col md={1} id="timeline-wrapper">
-                <PostTimeline numberOfPosts={Object.keys(posts).length} />
-              </Col>
+            <Container fluid className="bg-blue-light px-0">
+              <Header color="blue" />
 
-              <Col md={8}>
-                <PostList posts={posts} />
-              </Col>
+              <Container>
+                <Row>
+                  <Col md={1} id="timeline-wrapper">
+                    <PostTimeline numberOfPosts={Object.keys(posts).length} />
+                  </Col>
 
-              <Col md={3}>
-                <Sidebar content={content.blog} />
-              </Col>
-            </Row>
-          </Container>
+                  <Col md={8}>
+                    <PostList posts={posts} />
+                  </Col>
+
+                  <Col md={3}>
+                    <Sidebar content={content.blog} />
+                  </Col>
+                </Row>
+              </Container>
+
+              <Footer />
+            </Container>
           )
         }
-
-        {!posts && !content // && !categories
-          && <div>LOADING</div>
-        }
-
-        <Footer />
-      </Container>
+      </div>
     );
   }
 }

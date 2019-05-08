@@ -29,7 +29,7 @@ class SkylineCondition extends Component {
     const { weather } = this.props;
     let condition = null;
 
-    if (weather) {
+    if (weather && weather.weather) {
       condition = resolveWeatherCode(weather.weather[0].id);
 
       const svgCondition = d3.select('#chart-condition')

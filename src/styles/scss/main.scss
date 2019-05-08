@@ -7,6 +7,10 @@
 @import "text";
 @import "transforms";
 
+body, #root {
+  min-height: 100vh;
+}
+
 .scroll-indicator {
   height: 3px;
 }

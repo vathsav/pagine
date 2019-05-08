@@ -10,8 +10,9 @@ import fetchWeatherReport from '../actions/fetch-weather';
 
 // Components
 import Footer from '../../footer/component';
-import Home from '../components';
 import Header from '../../header/component';
+import Home from '../components';
+import Loader from '../../loader';
 
 
 class HomeContainer extends Component {
@@ -25,23 +26,25 @@ class HomeContainer extends Component {
     const { content } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-red-light px-0">
-        <Header color="red" />
+      <div>
+        {!content
+          && <Loader color="red" />
+        }
 
-        <div className="overflow-hidden">
+        {content
+          && (
+            <Container fluid className="bg-red-light px-0">
+              <Header color="red" />
 
-          {/* TODO handle content.home being null? */}
-          {content
-            && <Home content={content.home} weather={weatherReducer} />
-          }
+              <div className="overflow-hidden">
+                <Home content={content.home} weather={weatherReducer} />
+              </div>
 
-          {!content
-            && <div>LOADING</div>
-          }
-        </div>
-
-        <Footer />
-      </Container>
+              <Footer />
+            </Container>
+          )
+        }
+      </div>
     );
   }
 }

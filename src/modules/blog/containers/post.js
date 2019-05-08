@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import BlogPost from '../components/post';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
+import Loader from '../../loader';
 import Sidebar from '../components/sidebar';
 
 
@@ -18,33 +19,34 @@ class BlogPostContainer extends Component {
     const { content, posts } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-blue-light px-0">
-        <Header color="blue" progress />
+      <div>
+        {(!posts || !content) // && !categories
+          && <Loader color="blue" />
+        }
 
-        {/* TODO handle content.home being null? */}
         {/* TODO if posts is undefined, redirect to 404. */}
         {posts && content // && categories
           && (
-            <Container>
-              <Row>
-                <Col md={9}>
-                  <BlogPost content={posts[match.params[0]]} slug={match.params[0]} />
-                </Col>
+            <Container fluid className="bg-blue-light px-0">
+              <Header color="blue" progress />
 
-                <Col md={3}>
-                  <Sidebar content={content.blog} />
-                </Col>
-              </Row>
+              <Container>
+                <Row>
+                  <Col md={9}>
+                    <BlogPost content={posts[match.params[0]]} slug={match.params[0]} />
+                  </Col>
+
+                  <Col md={3}>
+                    <Sidebar content={content.blog} />
+                  </Col>
+                </Row>
+              </Container>
+
+              <Footer />
             </Container>
           )
         }
-
-        {!posts && !content // && !categories
-          && <div>LOADING</div>
-        }
-
-        <Footer />
-      </Container>
+      </div>
     );
   }
 }

@@ -6,9 +6,10 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
-import Portfolio from '../components';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
+import Loader from '../../loader';
+import Portfolio from '../components';
 
 
 class PortfolioContainer extends Component {
@@ -17,21 +18,23 @@ class PortfolioContainer extends Component {
     const { portfolio } = firestoreReducer.data;
 
     return (
-      <Container fluid className="bg-cyan-light px-0">
-        <Header color="green" />
-
-
-        {/* TODO handle content.home being null? */}
-        {portfolio
-        && <Portfolio items={portfolio} />
-        }
-
+      <div>
         {!portfolio
-        && <div>LOADING</div>
+          && <Loader color="cyan" />
         }
 
-        <Footer />
-      </Container>
+        {portfolio
+          && (
+            <Container fluid className="bg-cyan-light px-0">
+              <Header color="green" />
+
+              <Portfolio items={portfolio} />
+
+              <Footer />
+            </Container>
+          )
+        }
+      </div>
     );
   }
 }

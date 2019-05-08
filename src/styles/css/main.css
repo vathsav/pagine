@@ -455,7 +455,7 @@
 }
 
 .skew-up-top-right {
-  margin: 150px -20px -60px;
+  margin: 0 -20px -60px;
   padding: 60px 0;
   transform: rotate(-2.5deg);
 }
@@ -464,6 +464,10 @@
   margin: -40px -20px 80px;
   padding: 40px 0;
   transform: rotate(-2.5deg);
+}
+
+body, #root {
+  min-height: 100vh;
 }
 
 .scroll-indicator {
