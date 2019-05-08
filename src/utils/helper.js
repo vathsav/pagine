@@ -20,6 +20,15 @@ export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + Math.ceil(min);
 }
 
+// https://stackoverflow.com/a/38230545/5592308
+export function getTransformTranslation(transform) {
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.setAttributeNS(null, 'transform', transform);
+
+  const { matrix } = g.transform.baseVal.consolidate();
+  return [matrix.e, matrix.f];
+}
+
 export function beautifyDateTime(date) {
   function getDay(dataObject) {
     switch (dataObject.getDay()) {

@@ -15,7 +15,12 @@ import {
   WEATHER_STATUS_SNOW, WEATHER_STATUS_SQUALL,
   WEATHER_STATUS_THUNDERSTORM, WEATHER_STATUS_TORNADO,
 } from '../../../../../../utils/constants';
-import { resolveWeatherCode } from '../../../../../../utils/helper';
+import {
+  getRandomInt,
+  getTransformTranslation,
+  getTranslation,
+  resolveWeatherCode
+} from '../../../../../../utils/helper';
 
 
 class SkylineCondition extends Component {
@@ -79,22 +84,53 @@ class SkylineCondition extends Component {
 
   animationClouds(svgCondition, intensity) {
     // This is wrong. Appending cloud on another. Append on a base group instead
-    const cloudGroup = svgCondition.append('svg').append('g');
+    const cloudGroup = svgCondition.append('svg');
 
-    cloudGroup
+    const initialPositions = {
+      cloudOne: [getRandomInt(40, 60), getRandomInt(8, 12)],
+      cloudTwo: [getRandomInt(150, 170), getRandomInt(22, 28)],
+      cloudThree: [getRandomInt(80, 100), getRandomInt(40, 45)],
+      cloudFour: [getRandomInt(280, 300), getRandomInt(8, 12)],
+      cloudFive: [getRandomInt(360, 380), getRandomInt(22, 28)],
+      cloudSix: [getRandomInt(320, 340), getRandomInt(30, 35)],
+    };
+
+    const cloudOne = cloudGroup
+      .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)
-      .attr('transform', 'translate(50,5)');
+      .attr('transform', `translate(${initialPositions.cloudOne[0]}, ${initialPositions.cloudOne[1]})`);
 
-    cloudGroup
+    const cloudTwo = cloudGroup
+      .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO)
-      .attr('transform', 'translate(200,25)');
+      .attr('transform', `translate(${initialPositions.cloudTwo[0]}, ${initialPositions.cloudTwo[1]})`);
 
-    cloudGroup
+    const cloudThree = cloudGroup
+      .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
-      .attr('transform', 'translate(250,0)');
+      .attr('transform', `translate(${initialPositions.cloudThree[0]}, ${initialPositions.cloudThree[1]})`);
+
+    const cloudFour = cloudGroup
+      .append('g')
+      .append('path')
+      .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)
+      .attr('transform', `translate(${initialPositions.cloudFour[0]}, ${initialPositions.cloudFour[1]})`);
+
+    const cloudFive = cloudGroup
+      .append('g')
+      .append('path')
+      .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO)
+      .attr('transform', `translate(${initialPositions.cloudFive[0]}, ${initialPositions.cloudFive[1]})`);
+
+    const cloudSix = cloudGroup
+      .append('g')
+      .append('path')
+      .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
+      .attr('transform', `translate(${initialPositions.cloudSix[0]}, ${initialPositions.cloudSix[1]})`);
+
 
     cloudGroup.selectAll('path')
       .attr('stroke', '#000')
@@ -102,21 +138,29 @@ class SkylineCondition extends Component {
       .attr('fill', '#fff');
 
     function loopTransition(group) {
+      const translateCoordinates = getTransformTranslation(group.attr('transform'));
+      console.log(translateCoordinates);
+
       group
         .transition()
         .ease(d3.easeSin)
-        .duration(10000)
-        .attr('transform', 'translate(150,5)')
+        .duration(getRandomInt(15000, 18000))
+        .attr('transform', `translate(${translateCoordinates[0] + 125}, ${translateCoordinates[1]})`)
         .transition()
         .ease(d3.easeSin)
-        .duration(10000)
-        .attr('transform', 'translate(50,5)')
+        .duration(getRandomInt(15000, 18000))
+        .attr('transform', `translate(${translateCoordinates[0]}, ${translateCoordinates[1]})`)
         .on('end', () => {
           loopTransition(group);
         });
     }
 
-    loopTransition(cloudGroup);
+    loopTransition(cloudOne);
+    loopTransition(cloudTwo);
+    loopTransition(cloudThree);
+    loopTransition(cloudFour);
+    loopTransition(cloudFive);
+    loopTransition(cloudSix);
   }
 
   render() {
