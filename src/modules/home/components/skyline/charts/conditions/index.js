@@ -79,6 +79,7 @@ class SkylineCondition extends Component {
   }
 
   animationClouds(svgCondition, intensity) {
+    // This is wrong. Appending cloud on another. Append on a base group instead
     const pathOne = svgCondition
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)

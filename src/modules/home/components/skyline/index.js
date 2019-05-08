@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import SkylineBuildings from './charts/buildings';
+import SkylineLandscape from './charts/landscape';
 import SkylineCondition from './charts/conditions/index';
 import SkylineSpace from './charts/space';
 
@@ -20,7 +20,7 @@ class SkylineAnimation extends Component {
         <SkylineCondition weather={weather} />
 
         {/* Skyline of Milano */}
-        <SkylineBuildings />
+        <SkylineLandscape />
       </div>
     );
   }
