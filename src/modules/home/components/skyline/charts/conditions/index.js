@@ -36,8 +36,7 @@ class SkylineCondition extends Component {
         .append('svg')
         .attr('height', 200)
         .attr('width', 600)
-        .style('position', 'absolute')
-        .append('g');
+        .style('position', 'absolute');
 
       this.animationClouds(svgCondition, condition.intensity);
 
@@ -80,43 +79,47 @@ class SkylineCondition extends Component {
 
   animationClouds(svgCondition, intensity) {
     // This is wrong. Appending cloud on another. Append on a base group instead
-    const pathOne = svgCondition
+    const cloudGroup = svgCondition.append('svg').append('g');
+
+    cloudGroup
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)
       .attr('transform', 'translate(50,5)');
 
-    svgCondition
+    cloudGroup
       .append('path')
-      .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO);
+      .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO)
+      .attr('transform', 'translate(200,25)');
 
-    svgCondition
+    cloudGroup
       .append('path')
-      .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE);
+      .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
+      .attr('transform', 'translate(250,0)');
 
-    svgCondition.selectAll('path')
+    cloudGroup.selectAll('path')
       .attr('stroke', '#000')
       .attr('stroke-width', '1.5')
-      .attr('fill', 'none');
+      .attr('fill', '#fff');
 
-    function loopTransition() {
-      pathOne
+    function loopTransition(group) {
+      group
         .transition()
         .ease(d3.easeSin)
-        .duration(40000)
-        .attr('transform', 'translate(450,5)')
+        .duration(10000)
+        .attr('transform', 'translate(150,5)')
         .transition()
         .ease(d3.easeSin)
-        .duration(40000)
+        .duration(10000)
         .attr('transform', 'translate(50,5)')
-        .on('end', loopTransition);
+        .on('end', () => {
+          loopTransition(group);
+        });
     }
 
-    loopTransition();
+    loopTransition(cloudGroup);
   }
 
   render() {
-    console.log('r');
-
     return (
       <div id="chart-condition" />
     );
