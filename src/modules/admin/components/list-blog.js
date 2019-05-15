@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
 // Components
-import PostCard from './post-card';
+import PostCard from './card';
 
 
 class ListBlog extends Component {
