@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 
+// Utils
+import {
+  COLOR_BLACK, COLOR_BLUE_DARK, COLOR_CYAN_DARK, COLOR_RED_DARK,
+} from '../../../utils/constants';
+
 
 class PostTimeline extends Component {
   componentDidMount() {
@@ -10,10 +15,10 @@ class PostTimeline extends Component {
     const listOfPosts = document.getElementById('list-of-posts');
 
     const colors = {
-      red: '#FF0A43',
-      cyan: '#00FFBF',
-      blue: '#016EFF',
-      black: '#212121',
+      red: COLOR_RED_DARK,
+      cyan: COLOR_CYAN_DARK,
+      blue: COLOR_BLUE_DARK,
+      black: COLOR_BLACK,
     };
 
     const postMarginBottom = window.getComputedStyle(listOfPosts.children[0]).marginBottom;
