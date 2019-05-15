@@ -4,6 +4,8 @@ import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
 // Utils
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import { READ_TIME_WORDS_PER_MINUTE } from '../../../utils/constants';
 import { getWordCount } from '../../../utils/helper';
 
@@ -18,7 +20,7 @@ class AddPost extends Component {
       image: '',
       isPublished: false,
       slug: '',
-      tags: [],
+      postTags: [null, null, null],
       timeToRead: 0,
       title: '',
     };
@@ -29,7 +31,7 @@ class AddPost extends Component {
   createPost() {
     const { firestore } = this.props;
     const {
-      caption, content, image, isPublished, slug, tags, timeToRead, title,
+      caption, content, image, isPublished, slug, postTags, timeToRead, title,
     } = this.state;
 
     firestore.collection('posts').doc(slug.toLowerCase()).set({
@@ -37,7 +39,7 @@ class AddPost extends Component {
       content,
       image,
       isPublished,
-      tags,
+      tags: postTags,
       timeToRead,
       timestamp: Date.now(),
       title,
@@ -51,8 +53,20 @@ class AddPost extends Component {
   }
 
   render() {
+    const { firestoreReducer } = this.props;
     const { content } = this.state;
     const previewTextContent = document.getElementById('preview');
+
+    const { tags } = firestoreReducer.data;
+    const tagSelectors = [];
+
+    if (tags && Object.keys(tags).length) {
+      Object.keys(tags).forEach((tag) => {
+        tagSelectors.push(
+          <option key={tag} value={tag}>{tags[tag].name}</option>,
+        );
+      });
+    }
 
     return (
       <Container fluid>
@@ -82,6 +96,7 @@ class AddPost extends Component {
                 })}
               />
             </Row>
+
             <Row>
               <div className="title-small">Caption</div>
               <input
@@ -125,17 +140,50 @@ class AddPost extends Component {
               />
             </Row>
 
-            <Row>
-              <div className="title-small">Tags</div>
-              <input
-                type="text"
-                onChange={((event) => {
-                  this.setState({
-                    tags: event.target.value,
-                  });
-                })}
-              />
-            </Row>
+            {tags && (
+              <Row>
+                <div className="title-small">Tags</div>
+
+                <select onChange={
+                  ((event) => {
+                    const { postTags } = this.state;
+                    this.setState({
+                      postTags: [event.target.value, postTags[1], postTags[2]],
+                    });
+                  })
+                }
+                >
+                  <option>Choose</option>
+                  {tagSelectors}
+                </select>
+
+                <select onChange={
+                  ((event) => {
+                    const { postTags } = this.state;
+                    this.setState({
+                      postTags: [postTags[0], event.target.value, postTags[2]],
+                    });
+                  })
+                }
+                >
+                  <option>Choose</option>
+                  {tagSelectors}
+                </select>
+
+                <select onChange={
+                  ((event) => {
+                    const { postTags } = this.state;
+                    this.setState({
+                      postTags: [postTags[0], postTags[1], event.target.value],
+                    });
+                  })
+                }
+                >
+                  <option>Choose</option>
+                  {tagSelectors}
+                </select>
+              </Row>
+            )}
 
             <Row>
               <div className="title-small">Post Slug</div>
@@ -166,6 +214,14 @@ class AddPost extends Component {
 
 AddPost.propTypes = {
   firestore: PropTypes.object.isRequired,
+  firestoreReducer: PropTypes.object.isRequired,
 };
 
-export default firestoreConnect()(AddPost);
+const mapStateToProps = state => state;
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    'tags',
+  ]),
+)(AddPost);

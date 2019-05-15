@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 // Components
 import AddPost from './containers/add-post';
+import AddTag from './containers/add-tag';
 import NavigationMenu from './components/navigation/navigation-menu';
 import ListBlog from './containers/list-blog';
 import ListPortfolio from './containers/list-porfolio';
@@ -16,7 +17,6 @@ import {
   ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_CREATE_TAG,
   ADMIN_VIEW_PORTFOLIO,
 } from '../../utils/constants';
-import AddTag from "./containers/add-tag";
 
 
 class AdminPanel extends Component {
