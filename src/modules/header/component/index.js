@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // Components
@@ -18,25 +18,29 @@ class Header extends Component {
     const { color, progress } = this.props;
 
     return (
-      <Row className={`sticky-top bg-${color}-light mb-3 mx-0`}>
-        <Col sm={7}>
-          <img src={logo} alt="Vathsav" className="logo" />
-        </Col>
+      <div className={`sticky-top bg-${color}-light mb-3`}>
+        <Container>
+          <Row>
+            <Col xs={4}>
+              <img src={logo} alt="Vathsav" className="logo" />
+            </Col>
 
-        <Col sm={5} className="text-center align-self-center">
-          <Link to={URL_HOME} className="nav-item content-large color-black">Home</Link>
-          <Link to={URL_BLOG_LIST} className="nav-item content-large color-black px-5">Blog</Link>
-          <Link to={URL_PORTFOLIO} className="nav-item content-large color-black">Portfolio</Link>
-        </Col>
+            <Col xs={8} className="text-right align-self-center">
+              <Link to={URL_HOME} className="nav-item content-large color-black">Home</Link>
+              <Link to={URL_BLOG_LIST} className="nav-item content-large color-black px-4 px-lg-5">Blog</Link>
+              <Link to={URL_PORTFOLIO} className="nav-item content-large color-black">Portfolio</Link>
+            </Col>
 
-        {progress
-          && (
-          <Col sm={12} className="text-center align-self-center px-0">
-            <ScrollIndicator color={color} />
-          </Col>
-          )
-        }
-      </Row>
+            {progress
+            && (
+              <Col sm={12} className="text-center align-self-center px-0">
+                <ScrollIndicator color={color} />
+              </Col>
+            )
+            }
+          </Row>
+        </Container>
+      </div>
     );
   }
 }

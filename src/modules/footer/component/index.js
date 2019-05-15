@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 // Images
 import socialFacebook from '../../../assets/images/social-facebook.png';
@@ -19,35 +19,39 @@ import {
 class Footer extends Component {
   render() {
     return (
-      <Row className="border-top-black align-items-end px-5 py-2 mx-0">
-        <Col sm={4}>
-          <div className="content-large">
-            mail@vathsav.com
-          </div>
-          <div className="content-large font-weight-bold">
-            © 2014-2019 Vathsav Harikrishnan
-          </div>
-        </Col>
+      <div className="border-top-black">
+        <Container>
+          <Row className="align-items-end py-2 mx-0">
+            <Col sm={4} md={6} lg={4} className="content-medium order-lg-0 order-md-1 order-2 text-center text-lg-left">
+              <div>
+                mail@vathsav.com
+              </div>
+              <div className="font-weight-bold">
+                © 2014-2019 Vathsav Harikrishnan
+              </div>
+            </Col>
 
-        <Col sm={4} className="monospace text-center h-100">
-          Handcrafted with &#x2764;
-        </Col>
+            <Col sm={4} md={12} lg={4} className="monospace text-center h-100 order-lg-1 order-md-0 order-0">
+              Handcrafted with &#x2764;
+            </Col>
 
-        <Col sm={4} className="social-icons my-auto">
-          <a href={URL_CONNECT_INSTAGRAM} target="_blank" rel="noopener noreferrer">
-            <img src={socialInstagram} alt="Instagram" />
-          </a>
-          <a href={URL_CONNECT_GITHUB} target="_blank" rel="noopener noreferrer">
-            <img src={socialGithub} alt="Github" />
-          </a>
-          <a href={URL_CONNECT_FACEBOOK} target="_blank" rel="noopener noreferrer">
-            <img src={socialFacebook} alt="FB" />
-          </a>
-          <a href={URL_CONNECT_LINKEDIN} target="_blank" rel="noopener noreferrer">
-            <img src={socialLinkedIn} alt="LinkedIn" />
-          </a>
-        </Col>
-      </Row>
+            <Col sm={4} md={6} lg={4} className="social-icons my-auto order-lg-2 order-md-2 order-1 text-center text-lg-right">
+              <a href={URL_CONNECT_INSTAGRAM} target="_blank" rel="noopener noreferrer">
+                <img src={socialInstagram} alt="Instagram" />
+              </a>
+              <a href={URL_CONNECT_GITHUB} target="_blank" rel="noopener noreferrer">
+                <img src={socialGithub} alt="Github" />
+              </a>
+              <a href={URL_CONNECT_FACEBOOK} target="_blank" rel="noopener noreferrer">
+                <img src={socialFacebook} alt="FB" />
+              </a>
+              <a href={URL_CONNECT_LINKEDIN} target="_blank" rel="noopener noreferrer">
+                <img src={socialLinkedIn} alt="LinkedIn" />
+              </a>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }
