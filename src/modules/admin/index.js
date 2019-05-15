@@ -13,9 +13,10 @@ import AddPortfolioItem from './containers/add-portfolio-item';
 import {
   ADMIN_VIEW_BLOG_POSTS,
   ADMIN_VIEW_CREATE_BLOG_POST,
-  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM,
+  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_CREATE_TAG,
   ADMIN_VIEW_PORTFOLIO,
 } from '../../utils/constants';
+import AddTag from "./containers/add-tag";
 
 
 class AdminPanel extends Component {
@@ -23,7 +24,7 @@ class AdminPanel extends Component {
     super(props);
 
     this.state = {
-      view: '',
+      view: null,
     };
 
     this.updateView = this.updateView.bind(this);
@@ -42,7 +43,10 @@ class AdminPanel extends Component {
         selectedComponent.push(<AddPost key="add-post" />);
         break;
       case ADMIN_VIEW_CREATE_PORTFOLIO_ITEM:
-        selectedComponent.push(<AddPortfolioItem key="add-post" />);
+        selectedComponent.push(<AddPortfolioItem key="add-portfolio" />);
+        break;
+      case ADMIN_VIEW_CREATE_TAG:
+        selectedComponent.push(<AddTag key="add-tag" />);
         break;
       case ADMIN_VIEW_BLOG_POSTS:
         selectedComponent.push(<ListBlog key="view-blog" />);

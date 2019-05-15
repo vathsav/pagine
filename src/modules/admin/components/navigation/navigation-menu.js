@@ -7,7 +7,7 @@ import MenuItem from './menu-item';
 import {
   ADMIN_VIEW_BLOG_POSTS,
   ADMIN_VIEW_CREATE_BLOG_POST,
-  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_PORTFOLIO,
+  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_CREATE_TAG, ADMIN_VIEW_PORTFOLIO,
 } from '../../../../utils/constants';
 
 
@@ -26,6 +26,12 @@ class NavigationMenu extends Component {
         <MenuItem
           name="Create New Portfolio Items"
           view={ADMIN_VIEW_CREATE_PORTFOLIO_ITEM}
+          updateView={updateView}
+        />
+
+        <MenuItem
+          name="Create New Tag"
+          view={ADMIN_VIEW_CREATE_TAG}
           updateView={updateView}
         />
 
