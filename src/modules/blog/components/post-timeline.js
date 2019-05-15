@@ -33,8 +33,8 @@ class PostTimeline extends Component {
     // Base line
     const lineGenerator = d3.line();
     const points = [
-      [30, 0],
-      [30, timelineHeight],
+      [timelineWidth / 2, 0],
+      [timelineWidth / 2, timelineHeight],
     ];
 
     const baseLine = lineGenerator(points);
