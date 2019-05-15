@@ -67,7 +67,7 @@ class SkylineLandscape extends Component {
   render() {
     return (
       <div id="chart" className="pt-5">
-        <svg width="1140px" height="300px">
+        <svg width="1140px" height="200px">
           <g id="Website" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="skyline" transform="translate(-1.000000, -229.000000)">
               <g transform="translate(2.000000, 230.655631)">

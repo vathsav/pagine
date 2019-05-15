@@ -1,11 +1,28 @@
+@import "breakpoints";
+
 .skew-up-top-right {
-  margin: 0 -20px -60px;
+  margin: 20px -20px -60px;
   padding: 60px 0;
   transform: rotate(-2.5deg);
 }
 
 .skew-down-bottom-left {
-  margin: -50px -20px 80px;
+  margin: -40px -20px 40px;
   padding: 50px 0;
   transform: rotate(-2.5deg);
 }
+
+@media (max-width: $breakpoint-small) {
+  .skew-up-top-right {
+    margin: -30px -20px -30px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+

@@ -1,3 +1,4 @@
+@import "breakpoints";
 @import "colors";
 @import "fonts";
 @import "text";
@@ -5,13 +6,13 @@
 .field-input {
   background: $white;
   border-color: $black;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 5px;
   font-family: $font-raleway-regular;
-  font-size: 20px;
-  margin: 40px 0;
-  padding: 25px;
-  height: 60px;
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  height: 45px;
   width: 100%;
 
   &::placeholder {
@@ -26,15 +27,15 @@
 
 .button-submit {
   border-color: $black;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 5px;
   background: $red-dark;
   cursor: pointer;
   font-family: $font-noto-bold;
-  font-size: 20px;
-  padding: 10px 75px;
+  font-size: 16px;
+  padding: 10px 55px;
   color: $white;
-  margin: 35px 0 45px;
+  margin: 10px 0 20px;
   text-transform: uppercase;
 }
 
@@ -65,4 +66,90 @@
   color: $white;
   width: 100%;
   text-transform: uppercase;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .field-input {
+    border-width: 3px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 20px 0;
+    padding: 15px;
+    height: 60px;
+    width: 100%;
+
+    &.area {
+      min-height: 200px;
+      margin: 0;
+    }
+  }
+
+  .button-submit {
+    border-width: 3px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px 75px;
+    margin: 20px 0 30px;
+  }
+
+  .field-input-small {
+    border-width: 1px;
+    border-radius: 3px 0 0 3px;
+    // TODO: font size shouldn't be here. Should be a font class
+    font-size: 12px;
+    padding: 0 10px;
+    height: 30px;
+  }
+
+  .button-submit-small {
+    border: 1px solid $black;
+    border-left-style: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    font-size: 16px;
+    height: 30px;
+    width: 100%;
+  }
+}
+
+@media (min-width: $breakpoint-large) {
+  .field-input {
+    border-width: 3px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 30px 0;
+    padding: 20px;
+    height: 55px;
+
+    &.area {
+      min-height: 275px;
+    }
+  }
+
+  .button-submit {
+    border-width: 3px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px 75px;
+    margin: 25px 0 40px;
+  }
+
+  .field-input-small {
+    border-width: 1px;
+    border-radius: 3px 0 0 3px;
+    font-size: 16px;
+    padding: 0 10px;
+    height: 38px;
+
+  }
+
+  .button-submit-small {
+    border: 1px solid $black;
+    border-left-style: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    font-size: 20px;
+    height: 38px;
+    width: 100%;
+  }
 }

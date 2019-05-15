@@ -14,18 +14,17 @@ class About extends Component {
         <div className="skew-up-top-right bg-red-dark" />
 
         <div className="bg-red-dark">
-          <Container className="color-white content-medium py-5">
+          <Container className="color-white content-medium py-4">
             <Row>
-
-              <Col sm={6}>
+              <Col md={12} lg={6} className="order-lg-first order-last zindex-tooltip">
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               </Col>
 
-              <Col sm={6} className="text-center">
-                <img src={imageVathsav} alt="vathsav" />
+              <Col md={12} lg={6} className="text-center order-lg-last order-first my-auto">
+                <img src={imageVathsav} alt="vathsav" className="myself" />
 
                 <p>
-            This was taken in Oregon, USA on the 3rd of January &apos;19.
+                  This was taken in Oregon, USA on the 3rd of January &apos;19.
                 </p>
               </Col>
 

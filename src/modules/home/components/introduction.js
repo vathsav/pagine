@@ -12,14 +12,16 @@ class Introduction extends Component {
 
     return (
       <Row>
-        <Col sm={6} className="title-large text-uppercase font-weight-bold">
-          Hello, you.
+        <Col sm={12} lg={6} className="order-lg-first order-last">
+          <div className="title-large text-uppercase font-weight-bold">
+            Hello, you.
+          </div>
 
           {/* TODO Move the skyline to the index? */}
           <SkylineAnimation weather={weather.weather} />
         </Col>
 
-        <Col sm={6} className="content-medium">
+        <Col sm={12} lg={6} className="content-medium order-lg-last order-first">
           {content}
         </Col>
 

@@ -16,7 +16,7 @@ class SkylineSpace extends Component {
   componentDidMount() {
     const spaceGroup = d3.select('#chart-space')
       .append('svg')
-      .attr('height', 300)
+      .attr('height', 200)
       .attr('width', 600)
       .style('position', 'absolute')
       .append('g');
