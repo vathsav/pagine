@@ -30,7 +30,9 @@ class PortfolioContainer extends Component {
 
               <Portfolio items={portfolio} />
 
-              <Footer />
+              <div className="fixed-bottom">
+                <Footer />
+              </div>
             </Container>
           )
         }
