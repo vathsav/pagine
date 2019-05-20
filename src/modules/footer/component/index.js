@@ -35,18 +35,18 @@ class Footer extends Component {
               Handcrafted with &#x2764;
             </Col>
 
-            <Col sm={4} md={6} lg={4} className="social-icons my-auto order-lg-2 order-md-2 order-1 text-center text-lg-right">
+            <Col sm={4} md={6} lg={4} className="my-auto order-lg-2 order-md-2 order-1 text-center text-lg-right">
               <a href={URL_CONNECT_INSTAGRAM} target="_blank" rel="noopener noreferrer">
-                <img src={socialInstagram} alt="Instagram" />
+                <img src={socialInstagram} alt="Instagram" className="social" />
               </a>
               <a href={URL_CONNECT_GITHUB} target="_blank" rel="noopener noreferrer">
-                <img src={socialGithub} alt="Github" />
+                <img src={socialGithub} alt="Github" className="social" />
               </a>
               <a href={URL_CONNECT_FACEBOOK} target="_blank" rel="noopener noreferrer">
-                <img src={socialFacebook} alt="FB" />
+                <img src={socialFacebook} alt="FB" className="social" />
               </a>
               <a href={URL_CONNECT_LINKEDIN} target="_blank" rel="noopener noreferrer">
-                <img src={socialLinkedIn} alt="LinkedIn" />
+                <img src={socialLinkedIn} alt="LinkedIn" className="social" />
               </a>
             </Col>
           </Row>

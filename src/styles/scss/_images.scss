@@ -1,10 +1,9 @@
 @import "breakpoints";
 
-.social-icons {
-
-  img {
-    width: auto;
-  }
+.social {
+  height: 25px;
+  margin: 5px;
+  width: auto;
 }
 
 .logo {
@@ -43,12 +42,9 @@
 }
 
 @media (min-width: $breakpoint-medium) {
-  .social-icons {
-
-    img {
-      height: 30px;
-      margin: 0 10px;
-    }
+  .social {
+    height: 30px;
+    margin: 0 10px;
   }
 
   .post-banner {
@@ -67,11 +63,9 @@
 }
 
 @media (min-width: $breakpoint-large) {
-  .social-icons {
-    img {
-      height: 35px;
-      margin: 0 0 0 25px;
-    }
+  .social {
+    height: 35px;
+    margin: 0 0 0 25px;
   }
 
   .logo {

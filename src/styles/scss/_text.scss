@@ -1,12 +1,13 @@
 @import "breakpoints";
+@import "fonts";
 
 $font-monospace: CutiveMono, sans-serif;
 $font-noto-regular: NotoSansRegular, sans-serif;
 $font-noto-bold: NotoSansBold, sans-serif;
-$font-raleway-regular: 'Raleway', sans-serif;
+$font-raleway-regular: RalewayRegular, sans-serif;
 
-$content-font: 'Raleway', sans-serif;
-$title-font: 'Noto Sans', sans-serif;
+$content-font: RalewayRegular, sans-serif;
+$title-font: NotoSansBold, sans-serif;
 
 .title-small, .title-medium, .title-large, .paragraph {
   font-family: $title-font;
