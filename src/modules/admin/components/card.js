@@ -5,8 +5,8 @@ import { CommentCount } from 'disqus-react';
 import PropTypes from 'prop-types';
 
 // Images
-import iconReadTime from '../../../assets/images/icon_read_time.png';
-import iconTag from '../../../assets/images/icon_tag.png';
+import iconReadTime from '../../../assets/images/icon-read-time.png';
+import iconTag from '../../../assets/images/icon-tag.png';
 
 // Utils
 import { beautifyDateTime } from '../../../utils/helper';

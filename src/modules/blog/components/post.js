@@ -4,7 +4,7 @@ import { DiscussionEmbed, CommentCount } from 'disqus-react';
 import PropTypes from 'prop-types';
 
 // Images
-import iconTag from '../../../assets/images/icon_tag.png';
+import iconTag from '../../../assets/images/icon-tag.png';
 
 // Utils
 import { DISQUS_URL_PREFIX } from '../../../utils/constants';
