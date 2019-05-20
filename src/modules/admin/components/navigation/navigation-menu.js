@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
+// Components
 import MenuItem from './menu-item';
 
 // Constants
 import {
   ADMIN_VIEW_BLOG_POSTS,
   ADMIN_VIEW_CREATE_BLOG_POST,
-  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_CREATE_TAG, ADMIN_VIEW_PORTFOLIO,
+  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM,
+  ADMIN_VIEW_CREATE_TAG,
+  ADMIN_VIEW_PORTFOLIO,
 } from '../../../../utils/constants';
 
 

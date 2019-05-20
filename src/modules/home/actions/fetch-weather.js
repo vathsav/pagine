@@ -1,12 +1,13 @@
 import fetch from 'cross-fetch';
 
-// Constants
-import { ACTION_FETCH_WEATHER } from '../../../utils/constants';
+// Utils
+import { ACTION_FETCH_WEATHER, API_URL_OWM } from '../../../utils/constants';
 
 
 export default function fetchWeatherReport() {
-  return dispatch => fetch(`https://api.openweathermap.org/data/2.5/weather?id=${process.env.REACT_APP_OPEN_WEATHER_MAP_CITY_ID}&appId=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`)
+  return dispatch => fetch(`${API_URL_OWM}id=${process.env.REACT_APP_OPEN_WEATHER_MAP_CITY_ID}&appId=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`)
     .then((response) => {
+      // TODO: Move 400 to consts
       if (response.status >= 400) {
         throw new Error('Bad response from server');
       }

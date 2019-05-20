@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 // Components
 import ListBlog from '../components/list-blog';
 
+// Utils
+import { FIRESTORE_COLLECTION_CONTENT, FIRESTORE_COLLECTION_POSTS } from '../../../utils/constants';
+
 
 class BlogListContainer extends Component {
   render() {
@@ -16,7 +19,8 @@ class BlogListContainer extends Component {
 
     return (
       <Container fluid className="bg-blue-light px-0">
-        {/* TODO handle content.home being null? */}
+        {/* TODO: handle content.home being null? */}
+        {/* TODO: need categories? */}
         {posts && content // && categories
         && (
           <Container>
@@ -46,6 +50,6 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    'posts', 'content', 'categories',
+    FIRESTORE_COLLECTION_POSTS, FIRESTORE_COLLECTION_CONTENT,
   ]),
 )(BlogListContainer);

@@ -14,6 +14,9 @@ import Header from '../../header/component';
 import Home from '../components';
 import Loader from '../../loader';
 
+// Utils
+import { FIRESTORE_COLLECTION_CONTENT } from '../../../utils/constants';
+
 
 class HomeContainer extends Component {
   componentDidMount() {
@@ -68,6 +71,6 @@ const mapDispatchToProps = {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
-    { collection: 'content' },
+    { collection: FIRESTORE_COLLECTION_CONTENT },
   ]),
 )(HomeContainer);

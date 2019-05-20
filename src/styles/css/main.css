@@ -120,7 +120,7 @@
   src: url("../../assets/fonts/NotoSans-Bold.ttf");
 }
 .title-small, .title-medium, .title-large, .paragraph {
-  font-family: NotoSansBold, sans-serif;
+  font-family: NotoSansRegular, sans-serif;
 }
 
 .content-small, .content-medium, .content-large {
@@ -428,7 +428,7 @@
   src: url("../../assets/fonts/NotoSans-Bold.ttf");
 }
 .title-small, .title-medium, .title-large, .paragraph {
-  font-family: NotoSansBold, sans-serif;
+  font-family: NotoSansRegular, sans-serif;
 }
 
 .content-small, .content-medium, .content-large {
@@ -800,7 +800,7 @@
   src: url("../../assets/fonts/NotoSans-Bold.ttf");
 }
 .title-small, .title-medium, .title-large, .paragraph {
-  font-family: NotoSansBold, sans-serif;
+  font-family: NotoSansRegular, sans-serif;
 }
 
 .content-small, .content-medium, .content-large {

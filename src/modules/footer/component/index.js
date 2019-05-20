@@ -7,7 +7,7 @@ import socialGithub from '../../../assets/images/social-github.png';
 import socialInstagram from '../../../assets/images/social-instagram.png';
 import socialLinkedIn from '../../../assets/images/social-linkedin.png';
 
-// Constants
+// Utils
 import {
   URL_CONNECT_FACEBOOK,
   URL_CONNECT_GITHUB,

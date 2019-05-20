@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import { Col, Container, Row } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
 // Utils
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { READ_TIME_WORDS_PER_MINUTE } from '../../../utils/constants';
+import {
+  FIRESTORE_COLLECTION_POSTS,
+  FIRESTORE_COLLECTION_TAGS,
+  READ_TIME_WORDS_PER_MINUTE,
+} from '../../../utils/constants';
 import { getWordCount } from '../../../utils/helper';
 
 
@@ -34,7 +38,7 @@ class AddPost extends Component {
       caption, content, image, isPublished, slug, postTags, timeToRead, title,
     } = this.state;
 
-    firestore.collection('posts').doc(slug.toLowerCase()).set({
+    firestore.collection(FIRESTORE_COLLECTION_POSTS).doc(slug.toLowerCase()).set({
       caption,
       content,
       image,
@@ -45,9 +49,11 @@ class AddPost extends Component {
       title,
     })
       .then(() => {
+        // TODO: Create popups
         console.log('Post created successfully!');
       })
       .catch((error) => {
+        // TODO: Create popups
         console.error('Error creating post: ', error);
       });
   }
@@ -203,7 +209,6 @@ class AddPost extends Component {
           </Col>
 
           <Col sm={12} md={6} className="card">
-            {/* Preview */}
             <div id="preview" dangerouslySetInnerHTML={{ __html: content }} />
           </Col>
         </Row>
@@ -222,6 +227,6 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    'tags',
+    FIRESTORE_COLLECTION_TAGS,
   ]),
 )(AddPost);

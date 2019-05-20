@@ -11,6 +11,9 @@ import Header from '../../header/component';
 import Loader from '../../loader';
 import Portfolio from '../components';
 
+// Utils
+import { FIRESTORE_COLLECTION_PORTFOLIO } from '../../../utils/constants';
+
 
 class PortfolioContainer extends Component {
   render() {
@@ -50,6 +53,6 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'portfolio' },
+    { collection: FIRESTORE_COLLECTION_PORTFOLIO },
   ]),
 )(PortfolioContainer);

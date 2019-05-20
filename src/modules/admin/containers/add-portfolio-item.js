@@ -3,6 +3,9 @@ import { Container, Row } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
+// Utils
+import { FIRESTORE_COLLECTION_PORTFOLIO } from '../../../utils/constants';
+
 
 class AddPortfolioItem extends Component {
   constructor(props) {
@@ -23,11 +26,13 @@ class AddPortfolioItem extends Component {
   createPortfolioItem() {
     const { firestore } = this.props;
 
-    firestore.collection('portfolio').add(this.state)
+    firestore.collection(FIRESTORE_COLLECTION_PORTFOLIO).add(this.state)
       .then(() => {
+        // TODO Create popup
         console.log('Post created successfully!');
       })
       .catch((error) => {
+        // TODO Create popup
         console.error('Error creating post: ', error);
       });
   }

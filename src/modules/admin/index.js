@@ -10,7 +10,7 @@ import ListBlog from './containers/list-blog';
 import ListPortfolio from './containers/list-porfolio';
 import AddPortfolioItem from './containers/add-portfolio-item';
 
-// Constants
+// Utils
 import {
   ADMIN_VIEW_BLOG_POSTS,
   ADMIN_VIEW_CREATE_BLOG_POST,

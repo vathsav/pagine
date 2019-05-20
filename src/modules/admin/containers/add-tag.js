@@ -3,6 +3,9 @@ import { Container, Row } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
+// Utils
+import { FIRESTORE_COLLECTION_TAGS } from '../../../utils/constants';
+
 
 class AddTag extends Component {
   constructor(props) {
@@ -21,11 +24,13 @@ class AddTag extends Component {
   createPortfolioItem() {
     const { firestore } = this.props;
 
-    firestore.collection('tags').add(this.state)
+    firestore.collection(FIRESTORE_COLLECTION_TAGS).add(this.state)
       .then(() => {
+        // TODO: Create popups
         console.log('Tag created successfully!');
       })
       .catch((error) => {
+        // TODO: Create popups
         console.error('Error creating tag: ', error);
       });
   }

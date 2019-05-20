@@ -12,6 +12,13 @@ import Header from '../../header/component';
 import Loader from '../../loader';
 import Sidebar from '../components/sidebar';
 
+// Utils
+import {
+  FIRESTORE_COLLECTION_CONTENT,
+  FIRESTORE_COLLECTION_POSTS,
+  FIRESTORE_COLLECTION_TAGS,
+} from '../../../utils/constants';
+
 
 class BlogPostContainer extends Component {
   render() {
@@ -61,8 +68,8 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => [
-    { collection: 'posts', doc: props.match.params[0] },
-    'content',
-    'categories',
+    { collection: FIRESTORE_COLLECTION_POSTS, doc: props.match.params[0] },
+    FIRESTORE_COLLECTION_CONTENT,
+    FIRESTORE_COLLECTION_TAGS,
   ]),
 )(BlogPostContainer);

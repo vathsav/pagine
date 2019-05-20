@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class SidebarCategories extends Component {
   render() {
     return (

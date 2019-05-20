@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 // Components
 import ScrollIndicator from './scroll-indicator';
 
-// Constants
-import { URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO } from '../../../utils/constants';
-
 // Images
 import logo from '../../../assets/images/logo.png';
+
+// Utils
+import { URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO } from '../../../utils/constants';
 
 
 class Header extends Component {
@@ -32,11 +32,11 @@ class Header extends Component {
             </Col>
 
             {progress
-            && (
-              <Col sm={12} className="text-center align-self-center px-0">
-                <ScrollIndicator color={color} />
-              </Col>
-            )
+              && (
+                <Col sm={12} className="text-center align-self-center px-0">
+                  <ScrollIndicator color={color} />
+                </Col>
+              )
             }
           </Row>
         </Container>

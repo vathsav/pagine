@@ -8,6 +8,9 @@ export const ADMIN_VIEW_CREATE_PORTFOLIO_ITEM = 'ADMIN_VIEW_CREATE_PORTFOLIO_ITE
 export const ADMIN_VIEW_CREATE_TAG = 'ADMIN_VIEW_CREATE_TAG';
 export const ADMIN_VIEW_PORTFOLIO = 'ADMIN_VIEW_PORTFOLIO';
 
+// API URLs
+export const API_URL_OWM = 'https://api.openweathermap.org/data/2.5/weather?';
+
 // Colors
 export const COLOR_RED_DARK = '#FF0A43';
 export const COLOR_CYAN_DARK = '#00FFBF';
@@ -16,6 +19,12 @@ export const COLOR_BLACK = '#212121';
 
 // Disqus Config
 export const DISQUS_URL_PREFIX = 'https://vathsav.com/post/';
+
+// Firestore Collections
+export const FIRESTORE_COLLECTION_CONTENT = 'content';
+export const FIRESTORE_COLLECTION_PORTFOLIO = 'portfolio';
+export const FIRESTORE_COLLECTION_POSTS = 'posts';
+export const FIRESTORE_COLLECTION_TAGS = 'tags';
 
 // Miscellaneous
 export const READ_TIME_WORDS_PER_MINUTE = 265;

@@ -17,15 +17,13 @@ class Introduction extends Component {
             Hello, you.
           </div>
 
-          {/* TODO Move the skyline to the index? */}
+          {/* TODO: Move the skyline to the index? */}
           <SkylineAnimation weather={weather.weather} />
         </Col>
 
         <Col sm={12} lg={6} className="content-medium order-lg-last order-first">
           {content}
         </Col>
-
-        {/* <Skyline/> */}
       </Row>
     );
   }

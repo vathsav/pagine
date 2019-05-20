@@ -8,10 +8,17 @@ import PropTypes from 'prop-types';
 // Components
 import Footer from '../../footer/component';
 import Header from '../../header/component';
+import Loader from '../../loader';
 import PostList from '../components/list';
 import PostTimeline from '../components/post-timeline';
 import Sidebar from '../components/sidebar';
-import Loader from '../../loader';
+
+// Utils
+import {
+  FIRESTORE_COLLECTION_CONTENT,
+  FIRESTORE_COLLECTION_POSTS,
+  FIRESTORE_COLLECTION_TAGS,
+} from '../../../utils/constants';
 
 
 class BlogListContainer extends Component {
@@ -64,7 +71,8 @@ const mapStateToProps = state => state;
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'posts', orderBy: [['timestamp', 'desc']] },
-    'content', 'categories',
+    { collection: FIRESTORE_COLLECTION_POSTS, orderBy: [['timestamp', 'desc']] },
+    FIRESTORE_COLLECTION_CONTENT,
+    FIRESTORE_COLLECTION_TAGS,
   ]),
 )(BlogListContainer);
