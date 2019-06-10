@@ -9,24 +9,22 @@ class PortfolioItem extends Component {
 
     return (
       <Col md={4} className="card mx-2 my-3">
-        <div>
-          url
-          {content.url}
-        </div>
+        <img src={content.image} alt="" className="portfolio-item" />
 
         <div>
-          title
           {content.title}
         </div>
 
         <div>
-          image
-          {content.image}
+          {content.url}
         </div>
 
         <div>
-          description
           {content.description}
+        </div>
+
+        <div>
+          {content.tags}
         </div>
       </Col>
     );

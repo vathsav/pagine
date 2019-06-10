@@ -29,7 +29,7 @@ class PortfolioContainer extends Component {
         {portfolio
           && (
             <Container fluid className="bg-cyan-light px-0">
-              <Header color="green" />
+              {/*<Header color="green" />*/}
 
               <Portfolio items={portfolio} />
 

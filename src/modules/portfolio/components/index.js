@@ -23,7 +23,6 @@ class Portfolio extends Component {
 
     return (
       <Container>
-
         <div className="title-large text-uppercase font-weight-bold">
           The work of my hands.
         </div>

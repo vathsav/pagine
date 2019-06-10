@@ -711,6 +711,11 @@
   width: auto;
 }
 
+.portfolio-item {
+  width: 100%;
+  height: auto;
+}
+
 .logo {
   height: 60px;
   width: auto;
