@@ -22,6 +22,7 @@ import Portfolio from './modules/portfolio/containers';
 // Constants
 import {
   URL_ADMIN,
+  URL_BLOG_CATEGORY,
   URL_BLOG_LIST,
   URL_BLOG_POST,
   URL_HOME,
@@ -68,6 +69,7 @@ ReactDOM.render(
           <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_BLOG_LIST} component={BlogListContainer} />
           <Route exact path={URL_BLOG_POST} component={BlogPostContainer} />
+          <Route exact path={URL_BLOG_CATEGORY} component={BlogListContainer} />
           <Route exact path={URL_HOME} component={HomeContainer} />
           <Route exact path={URL_PORTFOLIO} component={Portfolio} />
           <Route path="*" component={Error404} />

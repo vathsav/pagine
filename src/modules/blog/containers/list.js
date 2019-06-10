@@ -18,21 +18,60 @@ import {
   FIRESTORE_COLLECTION_CONTENT,
   FIRESTORE_COLLECTION_POSTS,
   FIRESTORE_COLLECTION_TAGS,
+  URL_BLOG_CATEGORY,
 } from '../../../utils/constants';
+import Error404 from '../../error/component/404';
 
 
 class BlogListContainer extends Component {
   render() {
-    const { firestoreReducer } = this.props;
-    const { content, posts } = firestoreReducer.data;
+    const { firestoreReducer, match } = this.props;
+    const { content, posts, tags } = firestoreReducer.data;
+    let selectedPosts = posts;
+
+    if (tags && match.path === URL_BLOG_CATEGORY) {
+      const categoryTag = match.params[0];
+
+      let isValidTag = false;
+      let categoryTagKey = null;
+
+      Object.keys(tags).forEach((key) => {
+        if (tags[key].slug === categoryTag) {
+          isValidTag = true;
+          categoryTagKey = key;
+        }
+      });
+
+      if (isValidTag) {
+        Object.keys(selectedPosts).forEach((slug) => {
+          const postTags = selectedPosts[slug].tags;
+
+          if (postTags && postTags.includes(categoryTagKey)) {
+          } else {
+            delete selectedPosts[slug];
+          }
+        });
+      } else {
+        selectedPosts = null;
+      }
+    }
+
+    console.log(selectedPosts);
 
     return (
       <div>
-        {(!posts || !content) // && !categories
+        {/* TODO show 404 if selected posts is empty */}
+
+        {
+          !selectedPosts && content
+            && <Error404 />
+        }
+
+        {(!selectedPosts || !content) // && !categories
           && <Loader color="blue" />
         }
 
-        {posts && content // && categories
+        {selectedPosts && content // && categories
           && (
             <Container fluid className="bg-blue-light px-0">
               <Header color="blue" />
@@ -40,11 +79,11 @@ class BlogListContainer extends Component {
               <Container>
                 <Row>
                   <Col md={1} id="timeline-wrapper">
-                    <PostTimeline numberOfPosts={Object.keys(posts).length} />
+                    <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} />
                   </Col>
 
                   <Col md={8}>
-                    <PostList posts={posts} />
+                    <PostList posts={selectedPosts} />
                   </Col>
 
                   <Col md={3}>
@@ -64,6 +103,7 @@ class BlogListContainer extends Component {
 
 BlogListContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => state;

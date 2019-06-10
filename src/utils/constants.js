@@ -37,6 +37,7 @@ export const URL_CONNECT_LINKEDIN = 'https://www.linkedin.com/in/vathsav/';
 
 // URLs
 export const URL_ADMIN = '/admin';
+export const URL_BLOG_CATEGORY = '/category/*';
 export const URL_BLOG_LIST = '/blog';
 export const URL_BLOG_POST = '/post/*';
 export const URL_HOME = '/';
