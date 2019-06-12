@@ -23,7 +23,7 @@ import {
 class BlogPostContainer extends Component {
   render() {
     const { firestoreReducer, match } = this.props;
-    const { content, posts } = firestoreReducer.data;
+    const { content, posts, tags } = firestoreReducer.data;
 
     return (
       <div>
@@ -44,7 +44,7 @@ class BlogPostContainer extends Component {
                   </Col>
 
                   <Col md={3}>
-                    <Sidebar content={content.blog} />
+                    <Sidebar content={content.blog} tags={tags} />
                   </Col>
                 </Row>
               </Container>
