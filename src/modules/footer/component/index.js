@@ -26,7 +26,7 @@ class Footer extends Component {
               <div>
                 mail@vathsav.com
               </div>
-              <div className="font-weight-bold">
+              <div className="title-small">
                 © 2014-2019 Vathsav Harikrishnan
               </div>
             </Col>

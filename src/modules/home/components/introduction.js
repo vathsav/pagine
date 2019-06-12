@@ -22,7 +22,7 @@ class Introduction extends Component {
         </Col>
 
         <Col sm={12} lg={6} className="content-medium order-lg-last order-first">
-          {content}
+          <div dangerouslySetInnerHTML={{ __html: content }} />
         </Col>
       </Row>
     );

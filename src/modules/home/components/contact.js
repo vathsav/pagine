@@ -26,7 +26,7 @@ class Contact extends Component {
 
         <Row className="text-center">
           <Col sm={12}>
-            <input type="button" className="button-submit" value="submit" />
+            <input type="button" className="button-submit bg-red-dark" value="submit" />
           </Col>
         </Row>
       </Container>

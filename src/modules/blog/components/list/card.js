@@ -37,7 +37,7 @@ class PostCard extends Component {
                 </Col>
 
                 <Col xs={8}>
-                  <div className="title-small">
+                  <div className="content-medium">
                     {content.caption}
                   </div>
                 </Col>
