@@ -9,7 +9,7 @@ import SidebarCategories from './sidebar-categories';
 
 class Sidebar extends Component {
   render() {
-    const { content } = this.props;
+    const { content, tags } = this.props;
 
     return (
       <div className="paragraph h-100">
@@ -17,7 +17,7 @@ class Sidebar extends Component {
 
         <div className="position-sticky sidebar-sticky-offset">
           <SidebarSubscribe />
-          <SidebarCategories />
+          <SidebarCategories tags={tags} />
         </div>
       </div>
     );
@@ -26,7 +26,11 @@ class Sidebar extends Component {
 
 Sidebar.propTypes = {
   content: PropTypes.object.isRequired,
-  // categories: PropTypes.object.isRequired,
+  tags: PropTypes.object,
+};
+
+Sidebar.defaultProps = {
+  tags: {},
 };
 
 export default Sidebar;

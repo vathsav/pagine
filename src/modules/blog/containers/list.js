@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
+import Error404 from '../../error/component/404';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
@@ -20,7 +21,6 @@ import {
   FIRESTORE_COLLECTION_TAGS,
   URL_BLOG_CATEGORY,
 } from '../../../utils/constants';
-import Error404 from '../../error/component/404';
 
 
 class BlogListContainer extends Component {
@@ -56,8 +56,6 @@ class BlogListContainer extends Component {
       }
     }
 
-    console.log(selectedPosts);
-
     return (
       <div>
         {/* TODO show 404 if selected posts is empty */}
@@ -87,7 +85,7 @@ class BlogListContainer extends Component {
                   </Col>
 
                   <Col md={3}>
-                    <Sidebar content={content.blog} />
+                    <Sidebar content={content.blog} tags={tags} />
                   </Col>
                 </Row>
               </Container>
