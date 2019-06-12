@@ -1,20 +1,16 @@
 @import "breakpoints";
 @import "fonts";
 
+$font-content: OpenSansRegular, sans-serif;
 $font-monospace: CutiveMono, sans-serif;
-$font-noto-regular: NotoSansRegular, sans-serif;
-$font-noto-bold: NotoSansBold, sans-serif;
-$font-raleway-regular: RalewayRegular, sans-serif;
+$font-title: OpenSansBold, sans-serif;
 
-$content-font: RalewayRegular, sans-serif;
-$title-font: NotoSansRegular, sans-serif;
-
-.title-small, .title-medium, .title-large, .paragraph {
-  font-family: $title-font;
+.title-small, .title-medium, .title-large {
+  font-family: $font-title;
 }
 
 .content-small, .content-medium, .content-large {
-  font-family: $content-font;
+  font-family: $font-content;
 }
 
 .monospace {
@@ -46,11 +42,8 @@ $title-font: NotoSansRegular, sans-serif;
     font-size: 18px;
   }
 
-  .paragraph {
-    font-size: 12px;
-  }
-
   .monospace {
+
   }
 }
 
@@ -77,10 +70,6 @@ $title-font: NotoSansRegular, sans-serif;
 
   .content-large {
     font-size: 18px;
-  }
-
-  .paragraph {
-    font-size: 12px;
   }
 
   .monospace {
@@ -112,10 +101,6 @@ $title-font: NotoSansRegular, sans-serif;
     font-size: 25px;
   }
 
-  .paragraph {
-    font-size: 16px;
-  }
-
   .monospace {
     font-size: 16px;
   }
@@ -144,10 +129,6 @@ $title-font: NotoSansRegular, sans-serif;
 
   .content-large {
     font-size: 24px;
-  }
-
-  .paragraph {
-    font-size: 16px;
   }
 
   .monospace {
