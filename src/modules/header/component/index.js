@@ -18,14 +18,14 @@ class Header extends Component {
     const { color, progress } = this.props;
 
     return (
-      <div className={`sticky-top bg-${color}-light mb-3`}>
+      <div className={`sticky-top bg-${color}-light mb-xs-1 mb-2`}>
         <Container>
           <Row>
-            <Col xs={4}>
-              <img src={logo} alt="Vathsav" className="logo" />
+            <Col xs={3} sm={4}>
+              <img src={logo} alt="Vathsav" className="logo my-3 mx-0" />
             </Col>
 
-            <Col xs={8} className="text-right align-self-center">
+            <Col xs={9} sm={8} className="text-right align-self-center">
               <Link to={URL_HOME} className="nav-item content-large color-black">Home</Link>
               <Link to={URL_BLOG_LIST} className="nav-item content-large color-black px-4 px-lg-5">Blog</Link>
               <Link to={URL_PORTFOLIO} className="nav-item content-large color-black">Portfolio</Link>

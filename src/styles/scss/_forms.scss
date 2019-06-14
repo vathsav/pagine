@@ -3,6 +3,8 @@
 @import "fonts";
 @import "text";
 
+$field-height-small: 40px;
+
 .field-input {
   background: $white;
   border-color: $black;
@@ -10,9 +12,8 @@
   border-radius: 5px;
   font-family: $font-content;
   font-size: 16px;
-  margin: 0 0 15px 0;
-  padding: 15px;
-  height: 45px;
+  padding: 8px 14px;
+  height: $field-height-small;
   width: 100%;
 
   &::placeholder {
@@ -20,7 +21,7 @@
   }
 
   &.area {
-    min-height: 300px;
+    min-height: 200px;
     margin: 0;
   }
 }
@@ -32,9 +33,9 @@
   cursor: pointer;
   font-family: $font-title;
   font-size: 16px;
-  padding: 10px 55px;
+  padding: 0 55px;
+  height: $field-height-small;
   color: $white;
-  margin: 10px 0 20px;
   text-transform: uppercase;
 }
 
@@ -72,7 +73,6 @@
     border-width: 3px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 20px 0;
     padding: 15px;
     height: 60px;
     width: 100%;
@@ -116,7 +116,6 @@
     border-width: 3px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 30px 0;
     padding: 20px;
     height: 55px;
 

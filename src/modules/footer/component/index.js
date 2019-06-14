@@ -22,8 +22,8 @@ class Footer extends Component {
       <div className="border-top-black">
         <Container>
           <Row className="align-items-end py-2 mx-0">
-            <Col sm={4} md={6} lg={4} className="content-medium order-lg-0 order-md-1 order-2 text-center text-lg-left">
-              <div>
+            <Col sm={12} md={6} lg={4} className="content-medium order-lg-0 order-md-1 order-2 text-center text-lg-left">
+              <div className="content-medium pb-md-1">
                 mail@vathsav.com
               </div>
               <div className="title-small">
@@ -31,11 +31,11 @@ class Footer extends Component {
               </div>
             </Col>
 
-            <Col sm={4} md={12} lg={4} className="monospace text-center h-100 order-lg-1 order-md-0 order-0">
+            <Col sm={12} md={12} lg={4} className="monospace text-center h-100 order-lg-1 order-md-0 order-0">
               Handcrafted with &#x2764;
             </Col>
 
-            <Col sm={4} md={6} lg={4} className="my-auto order-lg-2 order-md-2 order-1 text-center text-lg-right">
+            <Col sm={12} md={6} lg={4} className="my-auto order-lg-2 order-md-2 order-1 text-center text-lg-right py-2">
               <a href={URL_CONNECT_INSTAGRAM} target="_blank" rel="noopener noreferrer">
                 <img src={socialInstagram} alt="Instagram" className="social" />
               </a>

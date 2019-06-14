@@ -6,15 +6,15 @@ class Contact extends Component {
   render() {
     return (
       <Container fluid>
-        <div className="title-large text-uppercase font-weight-bold text-center">Want to get in touch?</div>
+        <div className="title-large text-uppercase font-weight-bold text-center mb-3">Want to get in touch?</div>
 
         <Row>
           <Col sm={6}>
-            <input type="text" className="field-input" placeholder="Name" />
+            <input type="text" className="field-input mb-2" placeholder="Name" />
           </Col>
 
           <Col sm={6}>
-            <input type="email" className="field-input" placeholder="Email" />
+            <input type="email" className="field-input mb-2" placeholder="Email" />
           </Col>
         </Row>
 
@@ -26,7 +26,7 @@ class Contact extends Component {
 
         <Row className="text-center">
           <Col sm={12}>
-            <input type="button" className="button-submit bg-red-dark" value="submit" />
+            <input type="button" className="button-submit bg-red-dark mt-2 mb-3" value="submit" />
           </Col>
         </Row>
       </Container>

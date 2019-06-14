@@ -35,7 +35,7 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .content-medium {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .content-large {
@@ -43,11 +43,11 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .monospace {
-
+    font-size: 14px;
   }
 }
 
-@media (min-width: $breakpoint-medium) {
+@media (min-width: $breakpoint-small) {
   .title-small {
     font-size: 14px;
   }
@@ -57,7 +57,7 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .title-large {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .content-small {
@@ -73,20 +73,22 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .monospace {
+    font-size: 16px;
   }
 }
 
-@media (min-width: $breakpoint-large) {
+@media (min-width: $breakpoint-medium) {
   .title-small {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .title-medium {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .title-large {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .content-small {
@@ -94,11 +96,11 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .content-medium {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .content-large {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .monospace {
@@ -106,9 +108,10 @@ $font-title: OpenSansBold, sans-serif;
   }
 }
 
-@media (min-width: $breakpoint-extra-large) {
+@media (min-width: $breakpoint-large) {
   .title-small {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .title-medium {
@@ -124,7 +127,38 @@ $font-title: OpenSansBold, sans-serif;
   }
 
   .content-medium {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .content-large {
+    font-size: 24px;
+  }
+
+  .monospace {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: $breakpoint-extra-large) {
+  .title-small {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .title-medium {
+    font-size: 30px;
+  }
+
+  .title-large {
+    font-size: 35px;
+  }
+
+  .content-small {
+    font-size: 15px;
+  }
+
+  .content-medium {
+    font-size: 19px;
   }
 
   .content-large {

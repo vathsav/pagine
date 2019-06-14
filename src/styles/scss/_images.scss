@@ -2,7 +2,7 @@
 
 .social {
   height: 25px;
-  margin: 5px;
+  margin: 0 8px;
   width: auto;
 }
 
@@ -43,7 +43,6 @@
 @media (max-width: $breakpoint-small) {
   .logo {
     height: 45px;
-    margin: 25px 0;
   }
 }
 

@@ -145,14 +145,18 @@
   }
 
   .content-medium {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 14px;
+  }
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .title-small {
     font-size: 14px;
   }
@@ -162,7 +166,7 @@
   }
 
   .title-large {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .content-small {
@@ -176,18 +180,23 @@
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 16px;
+  }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .title-small {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .title-medium {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .title-large {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .content-small {
@@ -195,20 +204,21 @@
   }
 
   .content-medium {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .content-large {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .monospace {
     font-size: 16px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .title-small {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .title-medium {
@@ -224,7 +234,37 @@
   }
 
   .content-medium {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .content-large {
+    font-size: 24px;
+  }
+
+  .monospace {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .title-small {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .title-medium {
+    font-size: 30px;
+  }
+
+  .title-large {
+    font-size: 35px;
+  }
+
+  .content-small {
+    font-size: 15px;
+  }
+
+  .content-medium {
+    font-size: 19px;
   }
 
   .content-large {
@@ -425,14 +465,18 @@
   }
 
   .content-medium {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 14px;
+  }
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .title-small {
     font-size: 14px;
   }
@@ -442,7 +486,7 @@
   }
 
   .title-large {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .content-small {
@@ -456,18 +500,23 @@
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 16px;
+  }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .title-small {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .title-medium {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .title-large {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .content-small {
@@ -475,20 +524,21 @@
   }
 
   .content-medium {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .content-large {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .monospace {
     font-size: 16px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .title-small {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .title-medium {
@@ -504,7 +554,37 @@
   }
 
   .content-medium {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .content-large {
+    font-size: 24px;
+  }
+
+  .monospace {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .title-small {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .title-medium {
+    font-size: 30px;
+  }
+
+  .title-large {
+    font-size: 35px;
+  }
+
+  .content-small {
+    font-size: 15px;
+  }
+
+  .content-medium {
+    font-size: 19px;
   }
 
   .content-large {
@@ -522,16 +602,15 @@
   border-radius: 5px;
   font-family: OpenSansRegular, sans-serif;
   font-size: 16px;
-  margin: 0 0 15px 0;
-  padding: 15px;
-  height: 45px;
+  padding: 8px 14px;
+  height: 40px;
   width: 100%;
 }
 .field-input::placeholder {
   color: #212121;
 }
 .field-input.area {
-  min-height: 300px;
+  min-height: 200px;
   margin: 0;
 }
 
@@ -542,9 +621,9 @@
   cursor: pointer;
   font-family: OpenSansBold, sans-serif;
   font-size: 16px;
-  padding: 10px 55px;
+  padding: 0 55px;
+  height: 40px;
   color: #FFF;
-  margin: 10px 0 20px;
   text-transform: uppercase;
 }
 
@@ -581,7 +660,6 @@
     border-width: 3px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 20px 0;
     padding: 15px;
     height: 60px;
     width: 100%;
@@ -622,7 +700,6 @@
     border-width: 3px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 30px 0;
     padding: 20px;
     height: 55px;
   }
@@ -658,7 +735,7 @@
 }
 .social {
   height: 25px;
-  margin: 5px;
+  margin: 0 8px;
   width: auto;
 }
 
@@ -697,7 +774,6 @@
 @media (max-width: 576px) {
   .logo {
     height: 45px;
-    margin: 25px 0;
   }
 }
 @media (min-width: 768px) {
@@ -781,14 +857,18 @@
   }
 
   .content-medium {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 14px;
+  }
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .title-small {
     font-size: 14px;
   }
@@ -798,7 +878,7 @@
   }
 
   .title-large {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .content-small {
@@ -812,18 +892,23 @@
   .content-large {
     font-size: 18px;
   }
+
+  .monospace {
+    font-size: 16px;
+  }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .title-small {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .title-medium {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .title-large {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .content-small {
@@ -831,20 +916,21 @@
   }
 
   .content-medium {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .content-large {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .monospace {
     font-size: 16px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .title-small {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .title-medium {
@@ -860,7 +946,37 @@
   }
 
   .content-medium {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .content-large {
+    font-size: 24px;
+  }
+
+  .monospace {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .title-small {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .title-medium {
+    font-size: 30px;
+  }
+
+  .title-large {
+    font-size: 35px;
+  }
+
+  .content-small {
+    font-size: 15px;
+  }
+
+  .content-medium {
+    font-size: 19px;
   }
 
   .content-large {
