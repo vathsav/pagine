@@ -24,25 +24,25 @@ class PostCard extends Component {
     };
 
     return (
-      <Row className="card w-100 mb-4 pb-0">
+      <Row className="card w-100 mb-4 pb-0 mx-auto">
         <Link to={`post/${slug}`}>
           { content
           && (
             <div>
-              <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center">
+              <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center no-gutters">
                 <Col xs={12}>
-                  <div className="title-medium font-weight-bold">
+                  <div className="title-medium font-weight-bold pb-1">
                     {content.title}
                   </div>
                 </Col>
 
-                <Col xs={8}>
+                <Col xs={12} sm={8}>
                   <div className="content-medium">
                     {content.caption}
                   </div>
                 </Col>
 
-                <Col xs={4}>
+                <Col xs={12} sm={4}>
                   <div className="content-small float-right">
                     <img src={iconTag} alt="" className="tag mr-2" />
                     {content.tags}
@@ -54,8 +54,8 @@ class PostCard extends Component {
                 && <img src={content.image} alt="" className="post-banner" />
               }
 
-              <Row className="py-2 align-items-center">
-                <Col xs={4}>
+              <Row className="py-3 align-items-center">
+                <Col xs={12} sm={4}>
                   <div className="content-small">
                     <img src={iconReadTime} alt="" className="tag-2 mr-2" />
                     {content.timeToRead}
@@ -64,7 +64,7 @@ class PostCard extends Component {
                   </div>
                 </Col>
 
-                <Col xs={8}>
+                <Col xs={12} sm={8}>
                   <div className="float-right">
                     <span className="content-medium px-1">
                       {beautifyDateTime(new Date(content.timestamp))}

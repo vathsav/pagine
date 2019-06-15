@@ -9,7 +9,7 @@ class SidebarSubscribe extends Component {
   render() {
     return (
       <div className="card my-4">
-        <div className="title-small text-uppercase font-weight-bold">Subscribe</div>
+        <div className="title-small text-uppercase font-weight-bold pb-2">Subscribe</div>
 
         <div>
           Receive newsletters for new posts!
