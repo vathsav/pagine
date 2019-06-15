@@ -30,8 +30,8 @@ class SkylineCondition extends Component {
     this.animationClouds = this.animationClouds.bind(this);
   }
 
-  componentDidMount() {
-    const { weather } = this.props;
+  componentDidUpdate() {
+    const { weather, chartWidth } = this.props;
     let condition = null;
 
     if (weather && weather.weather) {
@@ -40,7 +40,7 @@ class SkylineCondition extends Component {
       const svgCondition = d3.select('#chart-condition')
         .append('svg')
         .attr('height', 200)
-        .attr('width', 600)
+        .attr('width', chartWidth)
         .style('position', 'absolute');
 
       this.animationClouds(svgCondition, condition.intensity);
@@ -83,16 +83,18 @@ class SkylineCondition extends Component {
   }
 
   animationClouds(svgCondition, intensity) {
+    const { chartWidth } = this.props;
+
     // This is wrong. Appending cloud on another. Append on a base group instead
     const cloudGroup = svgCondition.append('svg');
 
     const initialPositions = {
-      cloudOne: [getRandomInt(40, 60), getRandomInt(8, 12)],
-      cloudTwo: [getRandomInt(150, 170), getRandomInt(22, 28)],
-      cloudThree: [getRandomInt(80, 100), getRandomInt(40, 45)],
-      cloudFour: [getRandomInt(280, 300), getRandomInt(8, 12)],
-      cloudFive: [getRandomInt(360, 380), getRandomInt(22, 28)],
-      cloudSix: [getRandomInt(320, 340), getRandomInt(30, 35)],
+      cloudOne: [getRandomInt(chartWidth * 0.2, chartWidth * 0.2), getRandomInt(8, 12)],
+      cloudTwo: [getRandomInt(chartWidth * 0.4, chartWidth * 0.4), getRandomInt(22, 28)],
+      cloudThree: [getRandomInt(chartWidth * 0.8, chartWidth * 0.8), getRandomInt(40, 45)],
+      cloudFour: [getRandomInt(chartWidth * 0.6, chartWidth * 0.6), getRandomInt(8, 12)],
+      cloudFive: [getRandomInt(chartWidth * 0.75, chartWidth * 0.75), getRandomInt(22, 28)],
+      cloudSix: [getRandomInt(chartWidth * 0.9, chartWidth * 0.9), getRandomInt(30, 35)],
     };
 
     const cloudOne = cloudGroup
@@ -139,7 +141,6 @@ class SkylineCondition extends Component {
 
     function loopTransition(group) {
       const translateCoordinates = getTransformTranslation(group.attr('transform'));
-      console.log(translateCoordinates);
 
       group
         .transition()

@@ -18,7 +18,7 @@ class Introduction extends Component {
           </div>
 
           {/* TODO: Move the skyline to the index? */}
-          {/*<SkylineAnimation weather={weather.weather} />*/}
+          <SkylineAnimation weather={weather.weather} />
         </Col>
 
         <Col sm={12} lg={6} className="content-medium">

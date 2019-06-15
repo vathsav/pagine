@@ -8,19 +8,40 @@ import SkylineSpace from './charts/space';
 
 
 class SkylineAnimation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      chartWidth: 0,
+    };
+  }
+
+  componentDidMount() {
+    const { chartWidth } = this.state;
+
+    const chartClientWidth = document.getElementById('skyline-chart').clientWidth;
+
+    if (chartWidth !== chartClientWidth) {
+      this.setState({ chartWidth: chartClientWidth });
+    }
+  }
+
   render() {
     const { weather } = this.props;
+    const { chartWidth } = this.state;
+
+    console.log(chartWidth);
 
     return (
-      <div className="pt-5">
+      <div id="skyline-chart" className="pt-5">
         {/* Time of the day */}
-        <SkylineSpace />
+        <SkylineSpace chartWidth={chartWidth} />
 
         {/* Weather Condition */}
-        <SkylineCondition weather={weather} />
+        <SkylineCondition weather={weather} chartWidth={chartWidth} />
 
         {/* Skyline of Milano */}
-        <SkylineLandscape />
+        <SkylineLandscape chartWidth={chartWidth} />
       </div>
     );
   }

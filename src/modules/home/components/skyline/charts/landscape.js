@@ -5,10 +5,12 @@ import * as d3 from 'd3';
 class SkylineLandscape extends Component {
   componentDidMount() {
     // Set road to be full width
+    const { chartWidth } = this.props;
+
     const road = d3.select('#road');
     console.log(road);
 
-    road.attr('width', window.innerWidth);
+    road.attr('width', chartWidth);
 
     // Modify all strokeWidths
     // d3.selectAll('path')
@@ -65,9 +67,11 @@ class SkylineLandscape extends Component {
   }
 
   render() {
+    const { chartWidth } = this.props;
+
     return (
       <div id="chart" className="pt-5">
-        <svg width="1140px" height="200px">
+        <svg width={chartWidth} height="200px">
           <g id="Website" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="skyline" transform="translate(-1.000000, -229.000000)">
               <g transform="translate(2.000000, 230.655631)">

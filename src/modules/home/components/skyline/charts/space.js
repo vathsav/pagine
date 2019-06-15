@@ -13,17 +13,19 @@ import { getRandomInt } from '../../../../../utils/helper';
 
 
 class SkylineSpace extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
+    const { chartWidth } = this.props;
+
     const spaceGroup = d3.select('#chart-space')
       .append('svg')
       .attr('height', 200)
-      .attr('width', 600)
+      .attr('width', chartWidth)
       .style('position', 'absolute')
       .append('g');
 
     // Generate stars
     for (let count = 0; count < getRandomInt(8, 10); count += 1) {
-      const translateX = getRandomInt(20, 550);
+      const translateX = getRandomInt(20, chartWidth);
       const translateY = getRandomInt(5, 50);
 
       spaceGroup
