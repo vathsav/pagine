@@ -5,6 +5,10 @@ $font-content: OpenSansRegular, sans-serif;
 $font-monospace: CutiveMono, sans-serif;
 $font-title: OpenSansBold, sans-serif;
 
+.title-large {
+  line-height: 1;
+}
+
 .title-small, .title-medium, .title-large {
   font-family: $font-title;
 }

@@ -115,6 +115,10 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
+.title-large {
+  line-height: 1;
+}
+
 .title-small, .title-medium, .title-large {
   font-family: OpenSansBold, sans-serif;
 }
@@ -441,6 +445,10 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
+.title-large {
+  line-height: 1;
+}
+
 .title-small, .title-medium, .title-large {
   font-family: OpenSansBold, sans-serif;
 }
@@ -839,6 +847,10 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
+.title-large {
+  line-height: 1;
+}
+
 .title-small, .title-medium, .title-large {
   font-family: OpenSansBold, sans-serif;
 }

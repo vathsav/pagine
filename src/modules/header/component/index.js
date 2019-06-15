@@ -18,7 +18,7 @@ class Header extends Component {
     const { color, progress } = this.props;
 
     return (
-      <div className={`sticky-top bg-${color}-light mb-xs-1 mb-2`}>
+      <div className={`sticky-top bg-${color}-light mb-xs-1 mb-4`}>
         <Container>
           <Row>
             <Col xs={3} sm={4}>
