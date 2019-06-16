@@ -10,7 +10,6 @@ import BlogPost from '../components/post';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
-import ScrollToTop from '../components/scroll-to-top';
 import Sidebar from '../components/sidebar';
 
 // Utils

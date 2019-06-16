@@ -39,7 +39,9 @@ class HomeContainer extends Component {
             <Container fluid className="main bg-red-light px-0">
               <Header color="red" />
 
-              <Home content={content.home} weather={weatherReducer} />
+              <div className="overflow-hidden">
+                <Home content={content.home} weather={weatherReducer} />
+              </div>
 
               <Footer />
             </Container>

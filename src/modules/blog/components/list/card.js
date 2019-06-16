@@ -28,7 +28,7 @@ class PostCard extends Component {
 
     if (tags && content.tags) {
       (content.tags).forEach((tag) => {
-        tagsAsString += `${tags[tag].name} `;
+        if (tags[tag]) tagsAsString += `${tags[tag].name} `;
       });
     }
 
@@ -52,10 +52,12 @@ class PostCard extends Component {
                 </Col>
 
                 <Col xs={12} sm={4}>
-                  <div className="content-small float-right">
-                    <img src={iconTag} alt="" className="tag mr-2" />
-                    {tagsAsString}
-                  </div>
+                  {tagsAsString && (
+                    <div className="content-small float-right">
+                      <img src={iconTag} alt="" className="tag mr-2" />
+                      {tagsAsString}
+                    </div>
+                  )}
                 </Col>
               </Row>
 
@@ -98,7 +100,11 @@ class PostCard extends Component {
 PostCard.propTypes = {
   content: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  tags: PropTypes.object.isRequired,
+  tags: PropTypes.object,
+};
+
+PostCard.defaultProps = {
+  tags: {},
 };
 
 export default PostCard;

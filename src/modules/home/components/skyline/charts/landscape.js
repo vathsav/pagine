@@ -12,7 +12,7 @@ class SkylineLandscape extends Component {
     const { chartWidth } = this.props;
 
     const originalWidth = 540;
-    const strokeScale = (chartWidth / originalWidth) * 1.35;
+    const strokeScale = (chartWidth / originalWidth) * (chartWidth < 576 ? 1.45 : 1);
     const scale = (chartWidth / originalWidth);
 
     // Modify all strokeWidths

@@ -30,8 +30,6 @@ class SkylineAnimation extends Component {
     const { weather } = this.props;
     const { chartWidth } = this.state;
 
-    console.log(chartWidth);
-
     return (
       <div id="skyline-chart" className="pt-5">
         {/* Time of the day */}
