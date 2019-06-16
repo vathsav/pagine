@@ -1064,9 +1064,6 @@ body, #root {
   min-height: 100vh;
   position: relative;
 }
-body .main, #root .main {
-  padding-bottom: 70px;
-}
 
 .scroll-indicator {
   height: 3px;
@@ -1074,6 +1071,32 @@ body .main, #root .main {
 
 .sidebar-sticky-offset {
   top: 125px;
+}
+
+@media (max-width: 576px) {
+  .main {
+    padding-bottom: 115px;
+  }
+}
+@media (min-width: 576px) {
+  .main {
+    padding-bottom: 115px;
+  }
+}
+@media (min-width: 768px) {
+  .main {
+    padding-bottom: 90px;
+  }
+}
+@media (min-width: 992px) {
+  .main {
+    padding-bottom: 70px;
+  }
+}
+@media (min-width: 1200px) {
+  .main {
+    padding-bottom: 70px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

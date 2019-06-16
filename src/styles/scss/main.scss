@@ -11,10 +11,6 @@
 body, #root {
   min-height: 100vh;
   position: relative;
-
-  .main {
-    padding-bottom: 70px;
-  }
 }
 
 .scroll-indicator {
@@ -23,4 +19,34 @@ body, #root {
 
 .sidebar-sticky-offset {
   top: 125px;
+}
+
+@media (max-width: $breakpoint-small) {
+  .main {
+    padding-bottom: 115px;
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .main {
+    padding-bottom: 115px;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .main {
+    padding-bottom: 90px;
+  }
+}
+
+@media (min-width: $breakpoint-large) {
+  .main {
+    padding-bottom: 70px;
+  }
+}
+
+@media (min-width: $breakpoint-extra-large) {
+  .main {
+    padding-bottom: 70px;
+  }
 }
