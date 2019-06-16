@@ -24,6 +24,14 @@ class SkylineAnimation extends Component {
     if (chartWidth !== chartClientWidth) {
       this.setState({ chartWidth: chartClientWidth });
     }
+
+    window.addEventListener('resize', () => {
+      const resizedWidth = document.getElementById('skyline-chart').clientWidth;
+
+      if (chartWidth !== resizedWidth) {
+        this.setState({ chartWidth: resizedWidth });
+      }
+    });
   }
 
   render() {

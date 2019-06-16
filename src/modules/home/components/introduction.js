@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-
 // Components
 import SkylineAnimation from './skyline/index';
 
@@ -17,7 +16,6 @@ class Introduction extends Component {
             Hello, you.
           </div>
 
-          {/* TODO: Move the skyline to the index? */}
           <SkylineAnimation weather={weather.weather} />
         </Col>
 

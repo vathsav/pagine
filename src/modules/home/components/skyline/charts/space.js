@@ -16,24 +16,27 @@ import { getRandomInt, getTimeInMilan } from '../../../../../utils/helper';
 class SkylineSpace extends Component {
   componentDidUpdate() {
     const { chartWidth } = this.props;
-
-    const spaceGroup = d3.select('#chart-space')
-      .append('svg')
-      .attr('height', chartWidth / 3.375)
-      .attr('width', chartWidth)
-      .style('position', 'absolute')
-      .append('g');
-
     const originalWidth = 540;
     const scale = (chartWidth / originalWidth);
 
-    function animateStars() {
+    function drawSun(group) {
+      // Draw the sun
+      group
+        .append('path')
+        .attr('d', SKYLINE_ASSET_PATH_SUN)
+        .attr('fill', '#FFA86D')
+        .attr('stroke', '#000')
+        .attr('stroke-width', '1.5')
+        .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
+    }
+
+    function animateStars(group) {
       // Generate stars
       for (let count = 0; count < getRandomInt(8, 10); count += 1) {
         const translateX = getRandomInt(20, chartWidth);
         const translateY = getRandomInt(5, 50);
 
-        spaceGroup
+        group
           .append('path')
           .attr('class', 'star')
           .attr('d', SKYLINE_ASSET_PATH_STAR_HORIZONTAL)
@@ -41,7 +44,7 @@ class SkylineSpace extends Component {
           .attr('stroke-width', '1.5')
           .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
 
-        spaceGroup
+        group
           .append('path')
           .attr('class', 'star')
           .attr('d', SKYLINE_ASSET_PATH_STAR_VERTICAL)
@@ -52,7 +55,7 @@ class SkylineSpace extends Component {
 
       // Twinkle the stars
       function twinkleStars() {
-        spaceGroup.selectAll('.star')
+        group.selectAll('.star')
           .transition()
           .ease(d3.easeSin)
           .duration(getRandomInt(1000, 2000))
@@ -67,23 +70,19 @@ class SkylineSpace extends Component {
       twinkleStars();
     }
 
-    function drawSun() {
-      // Draw the sun
-      spaceGroup
-        .append('path')
-        .attr('d', SKYLINE_ASSET_PATH_SUN)
-        .attr('fill', '#FFA86D')
-        .attr('stroke', '#000')
-        .attr('stroke-width', '1.5')
-        .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
-    }
+    if (d3.select('#chart-condition svg').empty()) {
+      const spaceGroup = d3.select('#chart-space')
+        .append('svg')
+        .attr('height', chartWidth / 3.375)
+        .attr('width', chartWidth)
+        .style('position', 'absolute')
+        .append('g');
 
-    console.log(getTimeInMilan());
-
-    if (getTimeInMilan() > 21 || getTimeInMilan() < 5) {
-      animateStars();
-    } else {
-      drawSun();
+      if (getTimeInMilan() > 21 || getTimeInMilan() < 5) {
+        animateStars(spaceGroup);
+      } else {
+        drawSun(spaceGroup);
+      }
     }
   }
 

@@ -54,53 +54,57 @@ class SkylineCondition extends Component {
     if (weather && weather.weather) {
       condition = resolveWeatherCode(weather.weather[0].id);
 
-      const svgCondition = d3.select('#chart-condition')
-        .append('svg')
-        .attr('height', chartWidth / 2.66)
-        .attr('width', chartWidth)
-        .style('position', 'absolute');
+      if (d3.select('#chart-condition svg').empty()) {
+        const svgCondition = d3.select('#chart-condition')
+          .append('svg')
+          .attr('height', chartWidth / 2.66)
+          .attr('width', chartWidth)
+          .style('position', 'absolute');
 
-      switch (condition.status) {
-        case WEATHER_STATUS_THUNDERSTORM:
-          this.animationClouds(svgCondition, condition.intensity, scale);
-          this.animationRain(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_DRIZZLE:
-          this.animationRain(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_RAIN:
-          this.animationRain(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_SNOW:
-          this.animationSnow(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_CLEAR:
-          break;
-        case WEATHER_STATUS_CLOUDS:
-          this.animationClouds(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_MIST:
-          break;
-        case WEATHER_STATUS_SMOKE:
-          break;
-        case WEATHER_STATUS_HAZE:
-          this.animationClouds(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_FOG:
-          this.animationClouds(svgCondition, condition.intensity, scale);
-          break;
-        case WEATHER_STATUS_SAND:
-          break;
-        case WEATHER_STATUS_DUST:
-          break;
-        case WEATHER_STATUS_ASH:
-          break;
-        case WEATHER_STATUS_SQUALL:
-          break;
-        case WEATHER_STATUS_TORNADO:
-          break;
-        default:
-          break;
+        this.animationClouds(svgCondition, condition.intensity, scale);
+
+        switch (condition.status) {
+          case WEATHER_STATUS_THUNDERSTORM:
+            this.animationClouds(svgCondition, condition.intensity, scale);
+            this.animationRain(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_DRIZZLE:
+            this.animationRain(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_RAIN:
+            this.animationRain(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_SNOW:
+            this.animationSnow(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_CLEAR:
+            break;
+          case WEATHER_STATUS_CLOUDS:
+            this.animationClouds(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_MIST:
+            break;
+          case WEATHER_STATUS_SMOKE:
+            break;
+          case WEATHER_STATUS_HAZE:
+            this.animationClouds(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_FOG:
+            this.animationClouds(svgCondition, condition.intensity, scale);
+            break;
+          case WEATHER_STATUS_SAND:
+            break;
+          case WEATHER_STATUS_DUST:
+            break;
+          case WEATHER_STATUS_ASH:
+            break;
+          case WEATHER_STATUS_SQUALL:
+            break;
+          case WEATHER_STATUS_TORNADO:
+            break;
+          default:
+            break;
+        }
       }
     }
   }
