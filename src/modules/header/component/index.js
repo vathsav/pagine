@@ -30,16 +30,16 @@ class Header extends Component {
               <Link to={URL_BLOG_LIST} className="nav-item content-large color-black px-4 px-lg-5">Blog</Link>
               <Link to={URL_PORTFOLIO} className="nav-item content-large color-black">Portfolio</Link>
             </Col>
-
-            {progress
-              && (
-                <Col sm={12} className="text-center align-self-center px-0">
-                  <ScrollIndicator color={color} />
-                </Col>
-              )
-            }
           </Row>
         </Container>
+
+        {progress
+          && (
+            <Col sm={12} className="text-center align-self-center px-0">
+              <ScrollIndicator color={color} />
+            </Col>
+          )
+        }
       </div>
     );
   }
