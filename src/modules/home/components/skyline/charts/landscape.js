@@ -1,69 +1,34 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import PropTypes from 'prop-types';
+
+// Utils
+import { scaleVectorGroup } from '../../../../../utils/helper';
 
 
 class SkylineLandscape extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
     // Set road to be full width
     const { chartWidth } = this.props;
 
-    const road = d3.select('#road');
-    console.log(road);
-
-    road.attr('width', chartWidth);
+    const originalWidth = 540;
+    const strokeScale = (chartWidth / originalWidth) * 1.35;
+    const scale = (chartWidth / originalWidth);
 
     // Modify all strokeWidths
-    // d3.selectAll('path')
-    //   .attr('stroke-width', 1.5);
-    //
-    // d3.selectAll('polyline')
-    //   .attr('stroke-width', 1.5);
-    //
-    // d3.selectAll('rect')
-    //   .attr('stroke-width', 1.5);
-    //
-    // d3.selectAll('circle')
-    //   .attr('stroke-width', 1.5);
+    d3.selectAll('path')
+      .attr('stroke-width', strokeScale);
 
-    // Scale buildings
-    // d3.selectAll('#torre-solari')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#allianz-tower')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#generali-tower')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#generali-tower')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#generali-tower')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#gelateria')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#unicredit-tower')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#palazzo-lombardia')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#arco-della-pace')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#arco-della-pace')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#torre')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#duomo')
-    //   .attr('transform', `scale(${1})`);
-    //
-    // d3.selectAll('#road')
-    //   .attr('transform', `scale(${1})`);
+    d3.selectAll('polyline')
+      .attr('stroke-width', strokeScale);
+
+    d3.selectAll('rect')
+      .attr('stroke-width', strokeScale);
+
+    d3.selectAll('circle')
+      .attr('stroke-width', strokeScale);
+
+    scaleVectorGroup('#skyline', scale);
   }
 
   render() {
@@ -71,7 +36,7 @@ class SkylineLandscape extends Component {
 
     return (
       <div id="chart" className="pt-5">
-        <svg width={chartWidth} height="200px">
+        <svg width={chartWidth} height={chartWidth / 3.375}>
           <g id="Website" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="skyline" transform="translate(-10.000000, -229.000000)">
               <g transform="translate(11.000000, 230.655631)">
@@ -489,5 +454,9 @@ class SkylineLandscape extends Component {
     );
   }
 }
+
+SkylineLandscape.propTypes = {
+  chartWidth: PropTypes.number.isRequired,
+};
 
 export default SkylineLandscape;

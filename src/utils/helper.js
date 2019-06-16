@@ -1,13 +1,24 @@
+import * as d3 from 'd3';
+
+// Constants
 import {
   WEATHER_INTENSITY_HIGH,
-  WEATHER_INTENSITY_LOW, WEATHER_INTENSITY_MEDIUM,
+  WEATHER_INTENSITY_LOW,
+  WEATHER_INTENSITY_MEDIUM,
   WEATHER_STATUS_ASH,
   WEATHER_STATUS_CLEAR,
   WEATHER_STATUS_CLOUDS,
-  WEATHER_STATUS_DRIZZLE, WEATHER_STATUS_DUST, WEATHER_STATUS_FOG, WEATHER_STATUS_HAZE, WEATHER_STATUS_MIST,
-  WEATHER_STATUS_RAIN, WEATHER_STATUS_SAND, WEATHER_STATUS_SMOKE,
-  WEATHER_STATUS_SNOW, WEATHER_STATUS_SQUALL,
-  WEATHER_STATUS_THUNDERSTORM, WEATHER_STATUS_TORNADO,
+  WEATHER_STATUS_DRIZZLE,
+  WEATHER_STATUS_DUST,
+  WEATHER_STATUS_FOG,
+  WEATHER_STATUS_HAZE,
+  WEATHER_STATUS_MIST,
+  WEATHER_STATUS_RAIN,
+  WEATHER_STATUS_SAND, WEATHER_STATUS_SMOKE,
+  WEATHER_STATUS_SNOW,
+  WEATHER_STATUS_SQUALL,
+  WEATHER_STATUS_THUNDERSTORM,
+  WEATHER_STATUS_TORNADO,
 } from './constants';
 
 
@@ -27,6 +38,12 @@ export function getTransformTranslation(transform) {
 
   const { matrix } = g.transform.baseVal.consolidate();
   return [matrix.e, matrix.f];
+}
+
+export function scaleVectorGroup(id, scaling) {
+  const vectorGroup = d3.selectAll(id);
+  const vectorGroupCoordinates = getTransformTranslation(vectorGroup.attr('transform'));
+  vectorGroup.attr('transform', `scale(${scaling}) translate(${vectorGroupCoordinates[0]},${vectorGroupCoordinates[1]})`);
 }
 
 export function beautifyDateTime(date) {
