@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import PropTypes from 'prop-types';
 
 // Assets
 import {
@@ -18,10 +19,13 @@ class SkylineSpace extends Component {
 
     const spaceGroup = d3.select('#chart-space')
       .append('svg')
-      .attr('height', 200)
+      .attr('height', chartWidth / 3.375)
       .attr('width', chartWidth)
       .style('position', 'absolute')
       .append('g');
+
+    const originalWidth = 540;
+    const scale = (chartWidth / originalWidth);
 
     // Generate stars
     for (let count = 0; count < getRandomInt(8, 10); count += 1) {
@@ -34,7 +38,7 @@ class SkylineSpace extends Component {
         .attr('d', SKYLINE_ASSET_PATH_STAR_HORIZONTAL)
         .attr('stroke', '#000')
         .attr('stroke-width', '1.5')
-        .attr('transform', `translate(${translateX},${translateY})scale(${0.9})`);
+        .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
 
       spaceGroup
         .append('path')
@@ -42,7 +46,7 @@ class SkylineSpace extends Component {
         .attr('d', SKYLINE_ASSET_PATH_STAR_VERTICAL)
         .attr('stroke', '#000')
         .attr('stroke-width', '1.5')
-        .attr('transform', `translate(${translateX},${translateY})scale(${0.9})`);
+        .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
     }
 
     // Twinkle the stars
@@ -68,7 +72,7 @@ class SkylineSpace extends Component {
       .attr('fill', '#FFA86D')
       .attr('stroke', '#000')
       .attr('stroke-width', '1.5')
-      .attr('transform', 'translate(120,25)scale(.8)');
+      .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
   }
 
   render() {
@@ -77,5 +81,9 @@ class SkylineSpace extends Component {
     );
   }
 }
+
+SkylineSpace.propTypes = {
+  chartWidth: PropTypes.number.isRequired,
+};
 
 export default SkylineSpace;

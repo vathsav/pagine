@@ -39,6 +39,9 @@ class SkylineCondition extends Component {
 
   componentDidUpdate() {
     const { weather, chartWidth } = this.props;
+    const originalWidth = 540;
+    const scale = (chartWidth / originalWidth);
+
     let condition = null;
 
     if (weather && weather.weather) {
@@ -46,11 +49,11 @@ class SkylineCondition extends Component {
 
       const svgCondition = d3.select('#chart-condition')
         .append('svg')
-        .attr('height', 200)
+        .attr('height', chartWidth / 3.375)
         .attr('width', chartWidth)
         .style('position', 'absolute');
 
-      this.animationClouds(svgCondition, condition.intensity);
+      this.animationClouds(svgCondition, condition.intensity, scale);
 
       switch (condition.status) {
         case WEATHER_STATUS_THUNDERSTORM:
@@ -89,7 +92,7 @@ class SkylineCondition extends Component {
     }
   }
 
-  animationClouds(svgCondition, intensity) {
+  animationClouds(svgCondition, intensity, scale) {
     const { chartWidth } = this.props;
 
     // This is wrong. Appending cloud on another. Append on a base group instead
@@ -108,37 +111,37 @@ class SkylineCondition extends Component {
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)
-      .attr('transform', `translate(${initialPositions.cloudOne[0]}, ${initialPositions.cloudOne[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudOne[0]}, ${initialPositions.cloudOne[1]}) scale(${scale})`);
 
     const cloudTwo = cloudGroup
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO)
-      .attr('transform', `translate(${initialPositions.cloudTwo[0]}, ${initialPositions.cloudTwo[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudTwo[0]}, ${initialPositions.cloudTwo[1]}) scale(${scale})`);
 
     const cloudThree = cloudGroup
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
-      .attr('transform', `translate(${initialPositions.cloudThree[0]}, ${initialPositions.cloudThree[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudThree[0]}, ${initialPositions.cloudThree[1]}) scale(${scale})`);
 
     const cloudFour = cloudGroup
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_ONE)
-      .attr('transform', `translate(${initialPositions.cloudFour[0]}, ${initialPositions.cloudFour[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudFour[0]}, ${initialPositions.cloudFour[1]}) scale(${scale})`);
 
     const cloudFive = cloudGroup
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_TWO)
-      .attr('transform', `translate(${initialPositions.cloudFive[0]}, ${initialPositions.cloudFive[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudFive[0]}, ${initialPositions.cloudFive[1]}) scale(${scale})`);
 
     const cloudSix = cloudGroup
       .append('g')
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
-      .attr('transform', `translate(${initialPositions.cloudSix[0]}, ${initialPositions.cloudSix[1]})`);
+      .attr('transform', `translate(${initialPositions.cloudSix[0]}, ${initialPositions.cloudSix[1]}) scale(${scale})`);
 
 
     cloudGroup.selectAll('path')
@@ -153,11 +156,11 @@ class SkylineCondition extends Component {
         .transition()
         .ease(d3.easeSin)
         .duration(getRandomInt(15000, 18000))
-        .attr('transform', `translate(${translateCoordinates[0] + (chartWidth * 0.2)}, ${translateCoordinates[1]})`)
+        .attr('transform', `translate(${translateCoordinates[0] + (chartWidth * 0.2)}, ${translateCoordinates[1]}) scale(${scale})`)
         .transition()
         .ease(d3.easeSin)
         .duration(getRandomInt(15000, 18000))
-        .attr('transform', `translate(${translateCoordinates[0]}, ${translateCoordinates[1]})`)
+        .attr('transform', `translate(${translateCoordinates[0]}, ${translateCoordinates[1]}) scale(${scale})`)
         .on('end', () => {
           loopTransition(group);
         });
