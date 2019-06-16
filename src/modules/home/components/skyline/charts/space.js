@@ -32,21 +32,21 @@ class SkylineSpace extends Component {
       const translateX = getRandomInt(20, chartWidth);
       const translateY = getRandomInt(5, 50);
 
-      spaceGroup
-        .append('path')
-        .attr('class', 'star')
-        .attr('d', SKYLINE_ASSET_PATH_STAR_HORIZONTAL)
-        .attr('stroke', '#000')
-        .attr('stroke-width', '1.5')
-        .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
-
-      spaceGroup
-        .append('path')
-        .attr('class', 'star')
-        .attr('d', SKYLINE_ASSET_PATH_STAR_VERTICAL)
-        .attr('stroke', '#000')
-        .attr('stroke-width', '1.5')
-        .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
+      // spaceGroup
+      //   .append('path')
+      //   .attr('class', 'star')
+      //   .attr('d', SKYLINE_ASSET_PATH_STAR_HORIZONTAL)
+      //   .attr('stroke', '#000')
+      //   .attr('stroke-width', '1.5')
+      //   .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
+      //
+      // spaceGroup
+      //   .append('path')
+      //   .attr('class', 'star')
+      //   .attr('d', SKYLINE_ASSET_PATH_STAR_VERTICAL)
+      //   .attr('stroke', '#000')
+      //   .attr('stroke-width', '1.5')
+      //   .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
     }
 
     // Twinkle the stars
@@ -63,16 +63,16 @@ class SkylineSpace extends Component {
         .on('end', twinkleStars);
     }
 
-    twinkleStars();
+    // twinkleStars();
 
     // Draw the sun
-    spaceGroup
-      .append('path')
-      .attr('d', SKYLINE_ASSET_PATH_SUN)
-      .attr('fill', '#FFA86D')
-      .attr('stroke', '#000')
-      .attr('stroke-width', '1.5')
-      .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
+    // spaceGroup
+    //   .append('path')
+    //   .attr('d', SKYLINE_ASSET_PATH_SUN)
+    //   .attr('fill', '#FFA86D')
+    //   .attr('stroke', '#000')
+    //   .attr('stroke-width', '1.5')
+    //   .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
   }
 
   render() {

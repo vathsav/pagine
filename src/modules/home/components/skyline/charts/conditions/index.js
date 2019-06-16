@@ -3,7 +3,12 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 
 // Skyline Assets
-import { SKYLINE_ASSET_PATH_CLOUD_ONE, SKYLINE_ASSET_PATH_CLOUD_THREE, SKYLINE_ASSET_PATH_CLOUD_TWO } from './assets';
+import {
+  SKYLINE_ASSET_PATH_CLOUD_ONE,
+  SKYLINE_ASSET_PATH_CLOUD_THREE,
+  SKYLINE_ASSET_PATH_CLOUD_TWO,
+  SKYLINE_ASSET_PATH_RAIN_DROPLET,
+} from './assets';
 
 // Utils
 import {
@@ -35,6 +40,7 @@ class SkylineCondition extends Component {
     super(props);
 
     this.animationClouds = this.animationClouds.bind(this);
+    this.animationRain = this.animationRain.bind(this);
   }
 
   componentDidUpdate() {
@@ -49,11 +55,12 @@ class SkylineCondition extends Component {
 
       const svgCondition = d3.select('#chart-condition')
         .append('svg')
-        .attr('height', chartWidth / 3.375)
+        .attr('height', chartWidth / 2.66)
         .attr('width', chartWidth)
         .style('position', 'absolute');
 
       this.animationClouds(svgCondition, condition.intensity, scale);
+      this.animationRain(svgCondition, condition.intensity, scale);
 
       switch (condition.status) {
         case WEATHER_STATUS_THUNDERSTORM:
@@ -92,10 +99,51 @@ class SkylineCondition extends Component {
     }
   }
 
+  animationRain(svgCondition, intensity, scale) {
+    const { chartWidth } = this.props;
+    const rainGroup = svgCondition.append('svg');
+    let currentPhase = 0;
+    let finishedPhase = 0;
+
+    // Rain
+    function pour() {
+      for (let i = 0; i < 40; i += 1) {
+        const positionX = getRandomInt(-30, chartWidth);
+        const positionY = -50;
+
+        rainGroup
+          .append('g')
+          .attr('class', `rain-drop-${currentPhase}`)
+          .append('path')
+          .attr('d', SKYLINE_ASSET_PATH_RAIN_DROPLET)
+          .attr('stroke-width', 1)
+          .attr('stroke', '#000')
+          .attr('transform', `translate(${positionX + i}, ${positionY + getRandomInt(0, 50)}) scale(${scale})`)
+          .transition()
+          .ease(d3.easeLinear)
+          .duration(getRandomInt(5000, 6000))
+          .attr('transform', `translate(${positionX + i + 100}, ${chartWidth / 2.66}) scale(${scale})`);
+      }
+
+      currentPhase += 1;
+      setTimeout(pour, 1000);
+    }
+
+    function cleanDroplets() {
+      svgCondition.selectAll(`.rain-drop-${finishedPhase}`).remove();
+      finishedPhase += 1;
+
+      setTimeout(cleanDroplets, 1010);
+    }
+
+    setTimeout(pour, 1000);
+
+    // Clear fallen droplets every 6 seconds
+    setTimeout(cleanDroplets, 6000);
+  }
+
   animationClouds(svgCondition, intensity, scale) {
     const { chartWidth } = this.props;
-
-    // This is wrong. Appending cloud on another. Append on a base group instead
     const cloudGroup = svgCondition.append('svg');
 
     const initialPositions = {
@@ -142,7 +190,6 @@ class SkylineCondition extends Component {
       .append('path')
       .attr('d', SKYLINE_ASSET_PATH_CLOUD_THREE)
       .attr('transform', `translate(${initialPositions.cloudSix[0]}, ${initialPositions.cloudSix[1]}) scale(${scale})`);
-
 
     cloudGroup.selectAll('path')
       .attr('stroke', '#000')
