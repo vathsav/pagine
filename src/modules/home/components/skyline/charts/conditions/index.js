@@ -10,16 +10,23 @@ import {
   WEATHER_STATUS_ASH,
   WEATHER_STATUS_CLEAR,
   WEATHER_STATUS_CLOUDS,
-  WEATHER_STATUS_DRIZZLE, WEATHER_STATUS_DUST, WEATHER_STATUS_FOG, WEATHER_STATUS_HAZE, WEATHER_STATUS_MIST,
-  WEATHER_STATUS_RAIN, WEATHER_STATUS_SAND, WEATHER_STATUS_SMOKE,
-  WEATHER_STATUS_SNOW, WEATHER_STATUS_SQUALL,
-  WEATHER_STATUS_THUNDERSTORM, WEATHER_STATUS_TORNADO,
+  WEATHER_STATUS_DRIZZLE,
+  WEATHER_STATUS_DUST,
+  WEATHER_STATUS_FOG,
+  WEATHER_STATUS_HAZE,
+  WEATHER_STATUS_MIST,
+  WEATHER_STATUS_RAIN,
+  WEATHER_STATUS_SAND,
+  WEATHER_STATUS_SMOKE,
+  WEATHER_STATUS_SNOW,
+  WEATHER_STATUS_SQUALL,
+  WEATHER_STATUS_THUNDERSTORM,
+  WEATHER_STATUS_TORNADO,
 } from '../../../../../../utils/constants';
 import {
   getRandomInt,
   getTransformTranslation,
-  getTranslation,
-  resolveWeatherCode
+  resolveWeatherCode,
 } from '../../../../../../utils/helper';
 
 
@@ -89,12 +96,12 @@ class SkylineCondition extends Component {
     const cloudGroup = svgCondition.append('svg');
 
     const initialPositions = {
-      cloudOne: [getRandomInt(chartWidth * 0.2, chartWidth * 0.2), getRandomInt(8, 12)],
-      cloudTwo: [getRandomInt(chartWidth * 0.4, chartWidth * 0.4), getRandomInt(22, 28)],
-      cloudThree: [getRandomInt(chartWidth * 0.8, chartWidth * 0.8), getRandomInt(40, 45)],
-      cloudFour: [getRandomInt(chartWidth * 0.6, chartWidth * 0.6), getRandomInt(8, 12)],
-      cloudFive: [getRandomInt(chartWidth * 0.75, chartWidth * 0.75), getRandomInt(22, 28)],
-      cloudSix: [getRandomInt(chartWidth * 0.9, chartWidth * 0.9), getRandomInt(30, 35)],
+      cloudOne: [getRandomInt(chartWidth * 0.1, chartWidth * 0.125), getRandomInt(8, 12)],
+      cloudTwo: [getRandomInt(chartWidth * 0.2, chartWidth * 0.23), getRandomInt(22, 28)],
+      cloudThree: [getRandomInt(chartWidth * 0.35, chartWidth * 0.37), getRandomInt(40, 45)],
+      cloudFour: [getRandomInt(chartWidth * 0.52, chartWidth * 0.56), getRandomInt(8, 12)],
+      cloudFive: [getRandomInt(chartWidth * 0.7, chartWidth * 0.70), getRandomInt(22, 28)],
+      cloudSix: [getRandomInt(chartWidth * 0.65, chartWidth * 0.68), getRandomInt(30, 35)],
     };
 
     const cloudOne = cloudGroup
@@ -146,7 +153,7 @@ class SkylineCondition extends Component {
         .transition()
         .ease(d3.easeSin)
         .duration(getRandomInt(15000, 18000))
-        .attr('transform', `translate(${translateCoordinates[0] + 125}, ${translateCoordinates[1]})`)
+        .attr('transform', `translate(${translateCoordinates[0] + (chartWidth * 0.2)}, ${translateCoordinates[1]})`)
         .transition()
         .ease(d3.easeSin)
         .duration(getRandomInt(15000, 18000))
@@ -172,6 +179,7 @@ class SkylineCondition extends Component {
 }
 
 SkylineCondition.propTypes = {
+  chartWidth: PropTypes.number.isRequired,
   weather: PropTypes.object,
 };
 
