@@ -36,12 +36,10 @@ class HomeContainer extends Component {
 
         {content
           && (
-            <Container fluid className="bg-red-light px-0">
+            <Container fluid className="main bg-red-light px-0">
               <Header color="red" />
 
-              <div className="overflow-hidden">
-                <Home content={content.home} weather={weatherReducer} />
-              </div>
+              <Home content={content.home} weather={weatherReducer} />
 
               <Footer />
             </Container>

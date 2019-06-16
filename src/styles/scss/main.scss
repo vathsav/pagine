@@ -2,6 +2,7 @@
 @import "cards";
 @import "colors";
 @import "fonts";
+@import "footer";
 @import "forms";
 @import "images";
 @import "text";
@@ -9,6 +10,11 @@
 
 body, #root {
   min-height: 100vh;
+  position: relative;
+
+  .main {
+    padding-bottom: 70px;
+  }
 }
 
 .scroll-indicator {

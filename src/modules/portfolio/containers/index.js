@@ -28,14 +28,12 @@ class PortfolioContainer extends Component {
 
         {portfolio
           && (
-            <Container fluid className="bg-cyan-light px-0">
-              {/*<Header color="green" />*/}
+            <Container fluid className="main bg-cyan-light px-0">
+              <Header color="cyan" />
 
               <Portfolio items={portfolio} />
 
-              <div className="fixed-bottom">
-                <Footer />
-              </div>
+              <Footer />
             </Container>
           )
         }

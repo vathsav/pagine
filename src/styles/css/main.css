@@ -368,6 +368,12 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
 /***********
   Classes
 ************/
@@ -1044,6 +1050,10 @@
 }
 body, #root {
   min-height: 100vh;
+  position: relative;
+}
+body .main, #root .main {
+  padding-bottom: 70px;
 }
 
 .scroll-indicator {

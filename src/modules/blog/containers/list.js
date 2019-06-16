@@ -71,7 +71,7 @@ class BlogListContainer extends Component {
 
         {selectedPosts && content // && categories
           && (
-            <Container fluid className="bg-blue-light px-0">
+            <Container fluid className="main bg-blue-light px-0">
               <Header color="blue" />
 
               <Container>

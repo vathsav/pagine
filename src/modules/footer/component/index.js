@@ -19,7 +19,7 @@ import {
 class Footer extends Component {
   render() {
     return (
-      <div className="border-top-black">
+      <div className="footer border-top-black">
         <Container>
           <Row className="align-items-end py-2 mx-0">
             <Col sm={12} md={6} lg={4} className="content-medium order-lg-0 order-md-1 order-2 text-center text-lg-left">

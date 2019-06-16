@@ -34,7 +34,7 @@ class BlogPostContainer extends Component {
         {/* TODO if posts is undefined, redirect to 404. */}
         {posts && content // && categories
           && (
-            <Container fluid className="bg-blue-light px-0">
+            <Container fluid className="main bg-blue-light px-0">
               <Header color="blue" progress />
 
               <Container>
