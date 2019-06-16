@@ -78,7 +78,9 @@ class SkylineSpace extends Component {
         .attr('transform', `translate(${chartWidth * 0.2}, ${(chartWidth / 3.375) * 0.25}) scale(${scale})`);
     }
 
-    if (getTimeInMilan() > 21 && getTimeInMilan() < 5) {
+    console.log(getTimeInMilan());
+
+    if (getTimeInMilan() > 21 || getTimeInMilan() < 5) {
       animateStars();
     } else {
       drawSun();
