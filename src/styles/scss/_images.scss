@@ -40,6 +40,14 @@
   width: auto;
 }
 
+.icon-scroll {
+  img {
+    cursor: pointer;
+    height: 50px;
+    width: auto;
+  }
+}
+
 @media (max-width: $breakpoint-small) {
   .logo {
     height: 45px;

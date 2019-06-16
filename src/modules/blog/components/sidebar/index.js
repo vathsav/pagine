@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
+import ScrollToTop from '../scroll-to-top';
 import SidebarAbout from './sidebar-about';
 import SidebarSubscribe from './sidebar-subscribe';
 import SidebarCategories from './sidebar-categories';
@@ -18,7 +19,10 @@ class Sidebar extends Component {
         <div className="position-sticky sidebar-sticky-offset">
           <SidebarSubscribe />
           <SidebarCategories tags={tags} />
+
         </div>
+
+        <ScrollToTop />
       </div>
     );
   }

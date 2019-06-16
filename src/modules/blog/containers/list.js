@@ -6,7 +6,6 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
-import Error404 from '../../error/component/404';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
@@ -58,13 +57,6 @@ class BlogListContainer extends Component {
 
     return (
       <div>
-        {/* TODO show 404 if selected posts is empty */}
-
-        {
-          !selectedPosts && content
-            && <Error404 />
-        }
-
         {(!selectedPosts || !content) // && !categories
           && <Loader color="blue" />
         }

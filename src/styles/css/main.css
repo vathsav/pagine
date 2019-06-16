@@ -368,10 +368,16 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
-.footer {
+.absolute-bottom {
   bottom: 0;
   position: absolute;
   width: 100%;
+}
+
+.absolute-bottom-right {
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
 /***********
@@ -794,6 +800,12 @@
 .myself {
   height: 200px;
   margin-bottom: 20px;
+  width: auto;
+}
+
+.icon-scroll img {
+  cursor: pointer;
+  height: 50px;
   width: auto;
 }
 

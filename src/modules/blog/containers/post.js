@@ -10,6 +10,7 @@ import BlogPost from '../components/post';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
+import ScrollToTop from '../components/scroll-to-top';
 import Sidebar from '../components/sidebar';
 
 // Utils
@@ -27,6 +28,8 @@ class BlogPostContainer extends Component {
 
     return (
       <div>
+        {/* TODO show 404 if post doesn't exist */}
+
         {(!posts || !content) // && !categories
           && <Loader color="blue" />
         }
@@ -37,7 +40,7 @@ class BlogPostContainer extends Component {
             <Container fluid className="main bg-blue-light px-0">
               <Header color="blue" progress />
 
-              <Container>
+              <Container className="position-relative">
                 <Row>
                   <Col md={9}>
                     <BlogPost content={posts[match.params[0]]} slug={match.params[0]} />
@@ -48,7 +51,6 @@ class BlogPostContainer extends Component {
                   </Col>
                 </Row>
               </Container>
-
               <Footer />
             </Container>
           )
