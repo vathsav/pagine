@@ -7,7 +7,7 @@ import {
   SKYLINE_ASSET_PATH_CLOUD_ONE,
   SKYLINE_ASSET_PATH_CLOUD_THREE,
   SKYLINE_ASSET_PATH_CLOUD_TWO,
-  SKYLINE_ASSET_PATH_RAIN_DROPLET,
+  SKYLINE_ASSET_PATH_RAIN_DROPLET, SKYLINE_ASSET_PATH_SNOW_FLAKE,
 } from './assets';
 
 // Utils
@@ -41,6 +41,7 @@ class SkylineCondition extends Component {
 
     this.animationClouds = this.animationClouds.bind(this);
     this.animationRain = this.animationRain.bind(this);
+    this.animationSnow = this.animationSnow.bind(this);
   }
 
   componentDidUpdate() {
@@ -59,8 +60,9 @@ class SkylineCondition extends Component {
         .attr('width', chartWidth)
         .style('position', 'absolute');
 
-      this.animationClouds(svgCondition, condition.intensity, scale);
-      this.animationRain(svgCondition, condition.intensity, scale);
+      // this.animationClouds(svgCondition, condition.intensity, scale);
+      // this.animationRain(svgCondition, condition.intensity, scale);
+      this.animationSnow(svgCondition, condition.intensity, scale);
 
       switch (condition.status) {
         case WEATHER_STATUS_THUNDERSTORM:
@@ -219,6 +221,49 @@ class SkylineCondition extends Component {
     loopTransition(cloudFour);
     loopTransition(cloudFive);
     loopTransition(cloudSix);
+  }
+
+  animationSnow(svgCondition, intensity, scale) {
+    const { chartWidth } = this.props;
+    const rainGroup = svgCondition.append('svg');
+    let currentPhase = 0;
+    let finishedPhase = 0;
+
+    // Rain
+    function pour() {
+      for (let i = 0; i < 30; i += 1) {
+        const positionX = getRandomInt(0, chartWidth);
+        const positionY = -50;
+
+        rainGroup
+          .append('g')
+          .attr('class', `rain-drop-${currentPhase}`)
+          .append('path')
+          .attr('d', SKYLINE_ASSET_PATH_SNOW_FLAKE)
+          .attr('stroke-width', 1)
+          .attr('stroke', '#000')
+          .attr('transform', `translate(${positionX + i}, ${positionY + getRandomInt(0, 50)}) scale(${scale})`)
+          .transition()
+          .ease(d3.easeLinear)
+          .duration(getRandomInt(9000, 10000))
+          .attr('transform', `translate(${positionX + i}, ${chartWidth / 2.66}) scale(${scale})`);
+      }
+
+      currentPhase += 1;
+      setTimeout(pour, 2000);
+    }
+
+    function cleanDroplets() {
+      svgCondition.selectAll(`.rain-drop-${finishedPhase}`).remove();
+      finishedPhase += 1;
+
+      setTimeout(cleanDroplets, 2020);
+    }
+
+    setTimeout(pour, 2000);
+
+    // Clear fallen droplets every 6 seconds
+    setTimeout(cleanDroplets, 10000);
   }
 
   render() {
