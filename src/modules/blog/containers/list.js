@@ -73,7 +73,7 @@ class BlogListContainer extends Component {
                   </Col>
 
                   <Col xs={11} md={8}>
-                    <PostList posts={selectedPosts} />
+                    <PostList posts={selectedPosts} tags={tags} />
                   </Col>
 
                   <Col xs={12} md={3}>

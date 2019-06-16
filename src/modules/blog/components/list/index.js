@@ -8,12 +8,12 @@ import PostCard from './card';
 
 class PostList extends Component {
   render() {
-    const { posts } = this.props;
+    const { posts, tags } = this.props;
     const listOfPosts = [];
 
     Object.keys(posts).forEach((key) => {
       if (posts[key].isPublished) {
-        listOfPosts.push(<PostCard key={key} slug={key} content={posts[key]} />);
+        listOfPosts.push(<PostCard key={key} slug={key} content={posts[key]} tags={tags} />);
       }
     });
 
@@ -27,6 +27,7 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.object.isRequired,
+  tags: PropTypes.object.isRequired,
 };
 
 export default PostList;

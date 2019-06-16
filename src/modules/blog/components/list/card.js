@@ -14,7 +14,7 @@ import { beautifyDateTime } from '../../../../utils/helper';
 
 class PostCard extends Component {
   render() {
-    const { content, slug } = this.props;
+    const { content, slug, tags } = this.props;
 
     const disqusShortName = process.env.REACT_APP_DISQUS_SHORT_NAME;
     const disqusConfig = {
@@ -22,6 +22,15 @@ class PostCard extends Component {
       identifier: slug,
       title: content.title,
     };
+
+    // Get the tags used in this post
+    let tagsAsString = '';
+
+    if (tags && content.tags) {
+      (content.tags).forEach((tag) => {
+        tagsAsString += `${tags[tag].name} `;
+      });
+    }
 
     return (
       <Row className="card w-100 mb-4 pb-0 mx-auto">
@@ -45,7 +54,7 @@ class PostCard extends Component {
                 <Col xs={12} sm={4}>
                   <div className="content-small float-right">
                     <img src={iconTag} alt="" className="tag mr-2" />
-                    {content.tags}
+                    {tagsAsString}
                   </div>
                 </Col>
               </Row>
@@ -89,6 +98,7 @@ class PostCard extends Component {
 PostCard.propTypes = {
   content: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
+  tags: PropTypes.object.isRequired,
 };
 
 export default PostCard;
