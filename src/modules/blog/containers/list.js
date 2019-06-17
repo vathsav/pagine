@@ -45,8 +45,7 @@ class BlogListContainer extends Component {
         Object.keys(selectedPosts).forEach((slug) => {
           const postTags = selectedPosts[slug].tags;
 
-          if (postTags && postTags.includes(categoryTagKey)) {
-          } else {
+          if (!postTags && !postTags.includes(categoryTagKey)) {
             delete selectedPosts[slug];
           }
         });

@@ -14,6 +14,8 @@ class SkylineAnimation extends Component {
     this.state = {
       chartWidth: 0,
     };
+
+    this.updateChartWidth = this.updateChartWidth.bind(this);
   }
 
   componentDidMount() {
@@ -25,13 +27,18 @@ class SkylineAnimation extends Component {
       this.setState({ chartWidth: chartClientWidth });
     }
 
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', this.updateChartWidth);
+  }
+
+  updateChartWidth() {
+    if (document.getElementById('skyline-chart')) {
       const resizedWidth = document.getElementById('skyline-chart').clientWidth;
+      const { chartWidth } = this.state;
 
       if (chartWidth !== resizedWidth) {
         this.setState({ chartWidth: resizedWidth });
       }
-    });
+    }
   }
 
   render() {
@@ -39,7 +46,7 @@ class SkylineAnimation extends Component {
     const { chartWidth } = this.state;
 
     return (
-      <div id="skyline-chart" className="pt-5">
+      <div id="skyline-chart" className="pt-0">
         {/* Time of the day */}
         <SkylineSpace chartWidth={chartWidth} />
 
