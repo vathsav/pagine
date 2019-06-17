@@ -61,8 +61,6 @@ class SkylineCondition extends Component {
           .attr('width', chartWidth)
           .style('position', 'absolute');
 
-        this.animationClouds(svgCondition, condition.intensity, scale);
-
         switch (condition.status) {
           case WEATHER_STATUS_THUNDERSTORM:
             this.animationClouds(svgCondition, condition.intensity, scale);
