@@ -707,6 +707,7 @@
     font-size: 20px;
     padding: 10px 75px;
     margin: 20px 0 30px;
+    height: 50px;
   }
 
   .field-input-small {
@@ -745,6 +746,7 @@
     font-size: 20px;
     padding: 10px 75px;
     margin: 25px 0 40px;
+    height: 50px;
   }
 
   .field-input-small {
@@ -1050,54 +1052,54 @@
 }
 @media (min-width: 576px) {
   .skew-up-top-right {
-    margin: -130px -20px -20px;
-    padding: 40px 0;
-    transform: rotate(-2.5deg);
+    margin: 0 -10px -20px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
   }
 
   .skew-down-bottom-left {
-    margin: -30px -20px 50px;
-    padding: 30px 0;
-    transform: rotate(-2.5deg);
+    margin: -20px -10px 50px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
   }
 }
 @media (min-width: 768px) {
   .skew-up-top-right {
-    margin: -30px -20px -30px;
-    padding: 40px 0;
-    transform: rotate(-2.5deg);
+    margin: 0 -10px -30px;
+    padding: 30px 0;
+    transform: rotate(-3deg);
   }
 
   .skew-down-bottom-left {
-    margin: -30px -20px 50px;
+    margin: -30px -10px 50px;
     padding: 30px 0;
-    transform: rotate(-2.5deg);
+    transform: rotate(-3deg);
   }
 }
 @media (min-width: 992px) {
   .skew-up-top-right {
-    margin: -30px -20px -30px;
+    margin: 30px -10px -30px;
     padding: 40px 0;
     transform: rotate(-2.5deg);
   }
 
   .skew-down-bottom-left {
-    margin: -30px -20px 50px;
+    margin: -30px -10px 50px;
     padding: 30px 0;
     transform: rotate(-2.5deg);
   }
 }
 @media (min-width: 1200px) {
   .skew-up-top-right {
-    margin: -30px -20px -30px;
+    margin: 40px -10px -30px;
     padding: 40px 0;
-    transform: rotate(-2.5deg);
+    transform: rotate(-2deg);
   }
 
   .skew-down-bottom-left {
-    margin: -30px -20px 50px;
+    margin: -30px -10px 60px;
     padding: 30px 0;
-    transform: rotate(-2.5deg);
+    transform: rotate(-2deg);
   }
 }
 body, #root {
@@ -1120,7 +1122,7 @@ body, #root {
 }
 @media (min-width: 576px) {
   .main {
-    padding-bottom: 115px;
+    padding-bottom: 130px;
   }
 }
 @media (min-width: 768px) {

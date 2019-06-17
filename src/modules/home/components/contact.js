@@ -10,11 +10,11 @@ class Contact extends Component {
 
         <Row>
           <Col sm={6}>
-            <input type="text" className="field-input mb-2" placeholder="Name" />
+            <input type="text" className="field-input mb-2 mb-lg-3" placeholder="Name" />
           </Col>
 
           <Col sm={6}>
-            <input type="email" className="field-input mb-2" placeholder="Email" />
+            <input type="email" className="field-input mb-2 mb-lg-3" placeholder="Email" />
           </Col>
         </Row>
 
@@ -26,7 +26,7 @@ class Contact extends Component {
 
         <Row className="text-center">
           <Col sm={12}>
-            <input type="button" className="button-submit bg-red-dark mt-2 mb-3" value="submit" />
+            <input type="button" className="button-submit bg-red-dark mt-2 mt-lg-3 mb-5" value="submit" />
           </Col>
         </Row>
       </Container>
