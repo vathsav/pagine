@@ -142,7 +142,7 @@
   }
 
   .title-large {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .content-small {
@@ -150,8 +150,8 @@
   }
 
   .content-medium {
-    font-size: 14px;
-    line-height: 1.25;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   .content-large {
@@ -484,7 +484,7 @@
   }
 
   .title-large {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .content-small {
@@ -492,8 +492,8 @@
   }
 
   .content-medium {
-    font-size: 14px;
-    line-height: 1.25;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   .content-large {
@@ -892,7 +892,7 @@
   }
 
   .title-large {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .content-small {
@@ -900,8 +900,8 @@
   }
 
   .content-medium {
-    font-size: 14px;
-    line-height: 1.25;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   .content-large {
@@ -1035,19 +1035,59 @@
     font-size: 16px;
   }
 }
-.skew-up-top-right {
-  margin: 20px -20px -60px;
-  padding: 60px 0;
-  transform: rotate(-2.5deg);
-}
-
-.skew-down-bottom-left {
-  margin: -40px -20px 40px;
-  padding: 50px 0;
-  transform: rotate(-2.5deg);
-}
-
 @media (max-width: 576px) {
+  .skew-up-top-right {
+    margin: 0 -10px -20px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -20px -10px 50px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
+  }
+}
+@media (min-width: 576px) {
+  .skew-up-top-right {
+    margin: -130px -20px -20px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+@media (min-width: 768px) {
+  .skew-up-top-right {
+    margin: -30px -20px -30px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+@media (min-width: 992px) {
+  .skew-up-top-right {
+    margin: -30px -20px -30px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+@media (min-width: 1200px) {
   .skew-up-top-right {
     margin: -30px -20px -30px;
     padding: 40px 0;

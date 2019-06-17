@@ -19,7 +19,7 @@ class Introduction extends Component {
           <SkylineAnimation weather={weather.weather} />
         </Col>
 
-        <Col sm={12} lg={6} className="content-medium">
+        <Col sm={12} lg={6} className="content-medium py-4 py-lg-0">
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </Col>
       </Row>

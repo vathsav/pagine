@@ -1,18 +1,34 @@
 @import "breakpoints";
 
-.skew-up-top-right {
-  margin: 20px -20px -60px;
-  padding: 60px 0;
-  transform: rotate(-2.5deg);
-}
-
-.skew-down-bottom-left {
-  margin: -40px -20px 40px;
-  padding: 50px 0;
-  transform: rotate(-2.5deg);
-}
-
 @media (max-width: $breakpoint-small) {
+  .skew-up-top-right {
+    margin: 0 -10px -20px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -20px -10px 50px;
+    padding: 20px 0;
+    transform: rotate(-3deg);
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .skew-up-top-right {
+    margin: -130px -20px -20px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
   .skew-up-top-right {
     margin: -30px -20px -30px;
     padding: 40px 0;
@@ -26,3 +42,30 @@
   }
 }
 
+@media (min-width: $breakpoint-large) {
+  .skew-up-top-right {
+    margin: -30px -20px -30px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}
+
+@media (min-width: $breakpoint-extra-large) {
+  .skew-up-top-right {
+    margin: -30px -20px -30px;
+    padding: 40px 0;
+    transform: rotate(-2.5deg);
+  }
+
+  .skew-down-bottom-left {
+    margin: -30px -20px 50px;
+    padding: 30px 0;
+    transform: rotate(-2.5deg);
+  }
+}

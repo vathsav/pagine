@@ -23,11 +23,10 @@ class About extends Component {
               <Col md={12} lg={6} className="text-center order-lg-last order-first my-auto">
                 <img src={imageVathsav} alt="vathsav" className="myself" />
 
-                <p>
-                  This was taken in Oregon, USA on the 3rd of January &apos;19.
+                <p className="font-weight-bold pt-1 pb-3">
+                  This was taken in Seaside, Oregon on the 3rd of January &apos;19.
                 </p>
               </Col>
-
             </Row>
           </Container>
         </div>
