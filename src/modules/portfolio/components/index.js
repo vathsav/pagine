@@ -23,21 +23,21 @@ class Portfolio extends Component {
 
     return (
       <Container>
-        <div className="title-large text-uppercase font-weight-bold">
+        <div className="title-large text-uppercase font-weight-bold mb-4">
           The work of my hands.
         </div>
 
-        <Row>
+        <div className="card-columns">
           {portfolioMine}
-        </Row>
+        </div>
 
-        <div className="title-large text-uppercase font-weight-bold">
+        <div className="title-large text-uppercase font-weight-bold my-4">
           Open source contributions.
         </div>
 
-        <Row>
+        <div className="card-columns">
           {portfolioContributions}
-        </Row>
+        </div>
       </Container>
     );
   }

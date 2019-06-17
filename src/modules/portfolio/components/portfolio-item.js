@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
+// Images
+import iconArticle from '../../../assets/images/icon-article.png';
+import iconCode from '../../../assets/images/icon-code.png';
+import iconExternalLink from '../../../assets/images/icon-external-link.png';
 
 
 class PortfolioItem extends Component {
@@ -8,25 +12,39 @@ class PortfolioItem extends Component {
     const { content } = this.props;
 
     return (
-      <Col md={4} className="card mx-2 my-3">
+      <div className="card mb-3 p-0">
         <img src={content.image} alt="" className="portfolio-item" />
 
-        <div>
-          {content.title}
-        </div>
+        <div className="p-3">
+          <div className="title-small pb-2">
+            {content.title}
+          </div>
 
-        <div>
-          {content.url}
-        </div>
+          <div className="content-small pb-3">
+            {content.description}
+          </div>
 
-        <div>
-          {content.description}
-        </div>
+          <div className="text-center">
+            <span className="px-3">
+              <a href={content.url}>
+                <img src={iconCode} alt="Link" className="tag-3" />
+              </a>
+            </span>
 
-        <div>
-          {content.tags}
+            <span className="px-3">
+              <a href={content.url}>
+                <img src={iconArticle} alt="Link" className="tag-3" />
+              </a>
+            </span>
+
+            <span className="px-3">
+              <a href={content.url}>
+                <img src={iconExternalLink} alt="Link" className="tag-3" />
+              </a>
+            </span>
+          </div>
         </div>
-      </Col>
+      </div>
     );
   }
 }
