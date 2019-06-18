@@ -1,6 +1,6 @@
 {
-  "name": "pagine",
-  "version": "0.2.7",
+  "name": "Pagine",
+  "version": "0.3.7",
   "private": true,
   "dependencies": {
     "cross-fetch": "^3.0.2",

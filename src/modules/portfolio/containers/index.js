@@ -23,13 +23,13 @@ class PortfolioContainer extends Component {
     return (
       <div>
         {!portfolio
-          && <Loader color="cyan" />
+          && <Loader color="yellow" />
         }
 
         {portfolio
           && (
-            <Container fluid className="main bg-cyan-light px-0">
-              <Header color="cyan" />
+            <Container fluid className="main bg-yellow-light px-0">
+              <Header color="yellow" />
 
               <Portfolio items={portfolio} />
 

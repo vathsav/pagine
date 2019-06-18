@@ -26,19 +26,19 @@ class PortfolioItem extends Component {
 
           <div className="text-center">
             <span className="px-3">
-              <a href={content.url}>
+              <a href={content.url} target="_blank" rel="noopener noreferrer">
                 <img src={iconCode} alt="Link" className="tag-3" />
               </a>
             </span>
 
             <span className="px-3">
-              <a href={content.url}>
+              <a href={content.url} target="_blank" rel="noopener noreferrer">
                 <img src={iconArticle} alt="Link" className="tag-3" />
               </a>
             </span>
 
             <span className="px-3">
-              <a href={content.url}>
+              <a href={content.url} target="_blank" rel="noopener noreferrer">
                 <img src={iconExternalLink} alt="Link" className="tag-3" />
               </a>
             </span>
