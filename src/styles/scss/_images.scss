@@ -20,7 +20,7 @@
 
 .post-banner {
   width: 100%;
-  min-height: 350px;
+  min-height: auto;
 }
 
 .tag {
@@ -39,7 +39,6 @@
   height: 25px;
   width: auto;
 }
-
 
 .myself {
   height: 200px;
@@ -65,10 +64,6 @@
   .social {
     height: 30px;
     margin: 0 10px;
-  }
-
-  .post-banner {
-    min-height: 150px;
   }
 
   .logo {

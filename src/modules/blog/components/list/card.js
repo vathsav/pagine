@@ -33,7 +33,7 @@ class PostCard extends Component {
     }
 
     return (
-      <Row className="card w-100 mb-4 pb-0 mx-auto">
+      <div className="card mb-4 pb-0">
         <Link to={`post/${slug}`}>
           { content
           && (
@@ -92,7 +92,7 @@ class PostCard extends Component {
           )
         }
         </Link>
-      </Row>
+      </div>
     );
   }
 }

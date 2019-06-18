@@ -786,7 +786,7 @@
 
 .post-banner {
   width: 100%;
-  min-height: 350px;
+  min-height: auto;
 }
 
 .tag {
@@ -825,10 +825,6 @@
   .social {
     height: 30px;
     margin: 0 10px;
-  }
-
-  .post-banner {
-    min-height: 150px;
   }
 
   .logo {

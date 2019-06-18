@@ -67,11 +67,11 @@ class BlogListContainer extends Component {
 
               <Container>
                 <Row>
-                  <Col xs={1} md={1} id="timeline-wrapper">
+                  <Col xs={0} md={1} id="timeline-wrapper" className="d-none d-md-block">
                     <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} />
                   </Col>
 
-                  <Col xs={11} md={8}>
+                  <Col xs={12} md={8}>
                     <PostList posts={selectedPosts} tags={tags} />
                   </Col>
 

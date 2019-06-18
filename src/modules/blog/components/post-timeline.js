@@ -21,66 +21,70 @@ class PostTimeline extends Component {
       black: COLOR_BLACK,
     };
 
-    const postMarginBottom = window.getComputedStyle(listOfPosts.children[0]).marginBottom;
+    const timelineWrapper = document.getElementById('timeline-wrapper');
 
-    const timelineHeight = parseInt(window.getComputedStyle((listOfPosts)).height, 0) - parseInt(postMarginBottom, 0);
+    if (timelineWrapper) {
+      const postMarginBottom = window.getComputedStyle(listOfPosts.children[0]).marginBottom;
 
-    const timelineWrapperStyles = window.getComputedStyle(document.getElementById('timeline-wrapper'));
-    const timelineWidth = parseInt(timelineWrapperStyles.width, 0)
-      - parseInt(timelineWrapperStyles.paddingLeft, 0)
-      - parseInt(timelineWrapperStyles.paddingRight, 0);
+      const timelineHeight = parseInt(window.getComputedStyle((listOfPosts)).height, 0) - parseInt(postMarginBottom, 0);
 
-    const timelineVector = d3.select('#timeline')
-      .append('svg')
-      .attr('height', timelineHeight)
-      .attr('width', timelineWidth);
+      const timelineWrapperStyles = window.getComputedStyle(timelineWrapper);
+      const timelineWidth = parseInt(timelineWrapperStyles.width, 0)
+        - parseInt(timelineWrapperStyles.paddingLeft, 0)
+        - parseInt(timelineWrapperStyles.paddingRight, 0);
 
-    // Base line
-    const lineGenerator = d3.line();
-    const points = [
-      [timelineWidth / 2, 0],
-      [timelineWidth / 2, timelineHeight],
-    ];
+      const timelineVector = d3.select('#timeline')
+        .append('svg')
+        .attr('height', timelineHeight)
+        .attr('width', timelineWidth);
 
-    const baseLine = lineGenerator(points);
+      // Base line
+      const lineGenerator = d3.line();
+      const points = [
+        [timelineWidth / 2, 0],
+        [timelineWidth / 2, timelineHeight],
+      ];
 
-    timelineVector
-      .append('path')
-      .attr('d', baseLine)
-      .attr('fill', 'none')
-      .attr('stroke-width', 1)
-      .attr('stroke', colors.black);
+      const baseLine = lineGenerator(points);
 
-    const smallCircleRadius = 5;
-    const bigCircleRadius = 6;
+      timelineVector
+        .append('path')
+        .attr('d', baseLine)
+        .attr('fill', 'none')
+        .attr('stroke-width', 1)
+        .attr('stroke', colors.black);
 
-    // Append the last circles
-    timelineVector
-      .append('circle')
-      .attr('cx', points[1][0])
-      .attr('cy', points[1][1] - bigCircleRadius)
-      .attr('r', bigCircleRadius)
-      .attr('fill', colors.black);
+      const smallCircleRadius = 5;
+      const bigCircleRadius = 6;
 
-    let postDotOffset = 0;
-
-    // Append circles for each post
-    for (let count = 0; count < numberOfPosts; count += 1) {
+      // Append the last circles
       timelineVector
         .append('circle')
-        .attr('cx', points[0][0])
-        .attr('cy', points[0][1] + postDotOffset + smallCircleRadius)
-        .attr('r', smallCircleRadius)
-        .attr('fill', () => {
-          const keys = Object.keys(colors);
-          keys.splice(keys.indexOf('black'), 1);
+        .attr('cx', points[1][0])
+        .attr('cy', points[1][1] - bigCircleRadius)
+        .attr('r', bigCircleRadius)
+        .attr('fill', colors.black);
 
-          return colors[keys[count % 3]];
-        });
+      let postDotOffset = 0;
 
-      // Height of nth post
-      const postHeight = window.getComputedStyle(listOfPosts.children[count]).height;
-      postDotOffset += parseInt(postHeight, 0) + parseInt(postMarginBottom, 0);
+      // Append circles for each post
+      for (let count = 0; count < numberOfPosts; count += 1) {
+        timelineVector
+          .append('circle')
+          .attr('cx', points[0][0])
+          .attr('cy', points[0][1] + postDotOffset + smallCircleRadius)
+          .attr('r', smallCircleRadius)
+          .attr('fill', () => {
+            const keys = Object.keys(colors);
+            keys.splice(keys.indexOf('black'), 1);
+
+            return colors[keys[count % 3]];
+          });
+
+        // Height of nth post
+        const postHeight = window.getComputedStyle(listOfPosts.children[count]).height;
+        postDotOffset += parseInt(postHeight, 0) + parseInt(postMarginBottom, 0);
+      }
     }
   }
 
