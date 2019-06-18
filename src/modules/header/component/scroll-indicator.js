@@ -9,15 +9,23 @@ class ScrollIndicator extends Component {
     this.state = {
       scrollPercent: 0,
     };
+
+    this.updateScrollPercent = this.updateScrollPercent.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', () => {
-      const scrollPercent = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100;
+    window.addEventListener('scroll', this.updateScrollPercent);
+  }
 
-      this.setState({
-        scrollPercent,
-      });
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.updateScrollPercent);
+  }
+
+  updateScrollPercent() {
+    const scrollPercent = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+    this.setState({
+      scrollPercent,
     });
   }
 
