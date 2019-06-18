@@ -27,7 +27,11 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.object.isRequired,
-  tags: PropTypes.object.isRequired,
+  tags: PropTypes.object,
+};
+
+PostList.defaultProps = {
+  tags: {},
 };
 
 export default PostList;
