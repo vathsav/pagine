@@ -10,7 +10,7 @@ import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
 import PostList from '../components/list';
-import PostTimeline from '../components/post-timeline';
+// import PostTimeline from '../components/post-timeline';
 import Sidebar from '../components/sidebar';
 
 // Utils
@@ -67,11 +67,11 @@ class BlogListContainer extends Component {
 
               <Container>
                 <Row>
-                  <Col xs={0} md={1} id="timeline-wrapper" className="d-none d-md-block">
-                    <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} />
+                  <Col xs={0} md={0} id="timeline-wrapper" className="d-none d-md-block">
+                    {/* <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} /> */}
                   </Col>
 
-                  <Col xs={12} md={8}>
+                  <Col xs={12} md={9}>
                     <PostList posts={selectedPosts} tags={tags} />
                   </Col>
 
