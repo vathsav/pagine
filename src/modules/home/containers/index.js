@@ -16,15 +16,37 @@ import Loader from '../../loader';
 
 // Utils
 import { FIRESTORE_COLLECTION_CONTENT } from '../../../utils/constants';
+import PopupSubmit from '../../popups/contact-submit';
 
 
 class HomeContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    // TODO: Refactor these long keys
+    this.state = {
+      isContactFormSubmitted: false,
+      isContactFormSubmittedSuccessfully: false,
+    };
+
+    this.contactFormSubmitted = this.contactFormSubmitted.bind(this);
+  }
+
   componentDidMount() {
     const { getWeatherReport } = this.props;
     getWeatherReport();
   }
 
+  contactFormSubmitted(success, open) {
+    this.setState({
+      isContactFormSubmitted: open,
+      isContactFormSubmittedSuccessfully: success,
+    });
+  }
+
   render() {
+    const { isContactFormSubmitted, isContactFormSubmittedSuccessfully } = this.state;
+
     const { firestoreReducer, weatherReducer } = this.props;
     const { content } = firestoreReducer.data;
 
@@ -36,15 +58,28 @@ class HomeContainer extends Component {
 
         {content
           && (
-            <Container fluid className="main bg-red-light px-0">
-              <Header color="red" />
+            <div>
+              {isContactFormSubmitted && (
+                <PopupSubmit
+                  success={isContactFormSubmittedSuccessfully}
+                  contactFormSubmitted={this.contactFormSubmitted}
+                />
+              )}
 
-              <div className="overflow-hidden">
-                <Home content={content.home} weather={weatherReducer} />
-              </div>
+              <Container fluid className="main bg-red-light px-0">
+                <Header color="red" />
 
-              <Footer />
-            </Container>
+                <div className="overflow-hidden">
+                  <Home
+                    content={content.home}
+                    weather={weatherReducer}
+                    contactFormSubmitted={this.contactFormSubmitted}
+                  />
+                </div>
+
+                <Footer />
+              </Container>
+            </div>
           )
         }
       </div>

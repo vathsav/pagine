@@ -368,6 +368,93 @@
   font-family: OpenSansBold;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
 }
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+.popup-overlay {
+  background: #FFFAFBCC;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+.popup-overlay .popup {
+  background: #FFF;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  opacity: 1;
+  position: relative;
+  width: 85%;
+}
+.popup-overlay .popup .popup-close {
+  background: #FF0A43 url("../../assets/images/close.png") no-repeat 12px 12px;
+  background-size: 16px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+  opacity: 1;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 40px;
+}
+.popup-overlay .popup img {
+  height: 55px;
+  width: auto;
+}
+@media (min-width: 768px) {
+  .popup-overlay .popup {
+    width: 55%;
+  }
+  .popup-overlay .popup img {
+    height: 75px;
+    width: auto;
+  }
+}
+
 .absolute-bottom {
   bottom: 0;
   position: absolute;

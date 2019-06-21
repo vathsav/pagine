@@ -11,6 +11,7 @@ import Introduction from './introduction';
 class Home extends Component {
   render() {
     const { content, weather } = this.props;
+    const { contactFormSubmitted } = this.props;
 
     return (
       <div>
@@ -21,7 +22,7 @@ class Home extends Component {
         <About content={content.about} />
 
         <Container>
-          <Contact />
+          <Contact contactFormSubmitted={contactFormSubmitted} />
         </Container>
       </div>
     );
@@ -29,6 +30,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
+  contactFormSubmitted: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,
   weather: PropTypes.object,
 };
