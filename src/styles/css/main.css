@@ -1467,12 +1467,35 @@ body, #root {
   position: relative;
 }
 
-.scroll-indicator {
-  height: 3px;
+body {
+  margin: 0;
 }
 
-.sidebar-sticky-offset {
-  top: 125px;
+.point-mouse {
+  fill: #016EFF;
+}
+
+#rotation {
+  position: absolute;
+  font-family: monospace;
+  padding: 10px;
+  background: #00FFBF;
+}
+
+#rotation input {
+  width: 300px;
+}
+
+.country {
+  fill: #00FFBF;
+  stroke: #212121;
+  stroke-width: 0.5px;
+}
+
+.graticule {
+  fill: none;
+  stroke: #212121;
+  stroke-width: 0.5px;
 }
 
 @media (max-width: 576px) {

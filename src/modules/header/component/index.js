@@ -10,7 +10,9 @@ import ScrollIndicator from './scroll-indicator';
 import logo from '../../../assets/images/logo.png';
 
 // Utils
-import { URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO } from '../../../utils/constants';
+import {
+  URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO, URL_TRAVEL,
+} from '../../../utils/constants';
 
 
 class Header extends Component {
@@ -27,8 +29,9 @@ class Header extends Component {
 
             <Col xs={9} sm={8} className="text-right align-self-center">
               <Link to={URL_HOME} className="nav-item content-large color-black">Home</Link>
-              <Link to={URL_BLOG_LIST} className="nav-item content-large color-black px-4 px-lg-5">Blog</Link>
-              <Link to={URL_PORTFOLIO} className="nav-item content-large color-black">Portfolio</Link>
+              <Link to={URL_BLOG_LIST} className="nav-item content-large color-black pl-3 pl-lg-5">Blog</Link>
+              <Link to={URL_PORTFOLIO} className="nav-item content-large color-black pl-3 pl-lg-5">Portfolio</Link>
+              <Link to={URL_TRAVEL} className="nav-item content-large color-black pl-3 pl-lg-5">Travel</Link>
             </Col>
           </Row>
         </Container>

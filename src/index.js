@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
@@ -18,6 +18,7 @@ import BlogPostContainer from './modules/blog/containers/post';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio/containers';
+import Travel from './modules/travel/containers';
 
 // Constants
 import {
@@ -27,6 +28,7 @@ import {
   URL_BLOG_POST,
   URL_HOME,
   URL_PORTFOLIO,
+  URL_TRAVEL,
 } from './utils/constants';
 
 // Reducers
@@ -64,7 +66,7 @@ firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_BLOG_LIST} component={BlogListContainer} />
@@ -72,9 +74,10 @@ ReactDOM.render(
           <Route exact path={URL_BLOG_CATEGORY} component={BlogListContainer} />
           <Route exact path={URL_HOME} component={HomeContainer} />
           <Route exact path={URL_PORTFOLIO} component={Portfolio} />
+          <Route exact path={URL_TRAVEL} component={Travel} />
           <Route path="*" component={Error404} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root'),
