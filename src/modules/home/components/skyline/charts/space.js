@@ -31,40 +31,45 @@ class SkylineSpace extends Component {
     }
 
     function animateStars(group) {
+      const numberOfStars = getRandomInt(10, 12);
+
       // Generate stars
-      for (let count = 0; count < getRandomInt(8, 10); count += 1) {
-        const translateX = getRandomInt(20, chartWidth);
-        const translateY = getRandomInt(5, 50);
+      for (let count = 0; count < numberOfStars; count += 1) {
+        const translateX = getRandomInt(20, chartWidth - 20);
+        const translateY = getRandomInt(15, 60);
+        const starScale = scale * getRandomInt(50, 90) * 0.01;
 
         group
           .append('path')
-          .attr('class', 'star')
+          .attr('class', `star${count}`)
           .attr('d', SKYLINE_ASSET_PATH_STAR_HORIZONTAL)
           .attr('stroke', '#000')
           .attr('stroke-width', '1.5')
-          .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
+          .attr('transform', `translate(${translateX}, ${translateY}) scale(${starScale})`);
 
         group
           .append('path')
-          .attr('class', 'star')
+          .attr('class', `star${count}`)
           .attr('d', SKYLINE_ASSET_PATH_STAR_VERTICAL)
           .attr('stroke', '#000')
           .attr('stroke-width', '1.5')
-          .attr('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
+          .attr('transform', `translate(${translateX}, ${translateY}) scale(${starScale})`);
       }
 
       // Twinkle the stars
       function twinkleStars() {
-        group.selectAll('.star')
-          .transition()
-          .ease(d3.easeSin)
-          .duration(getRandomInt(1000, 2000))
-          .attr('style', 'opacity: 0.5')
-          .transition()
-          .ease(d3.easeSin)
-          .duration(getRandomInt(1000, 2000))
-          .attr('style', 'opacity: 1')
-          .on('end', twinkleStars);
+        for (let count = 0; count < numberOfStars; count += 1) {
+          group.selectAll(`.star${count}`)
+            .transition()
+            .ease(d3.easeSin)
+            .duration(getRandomInt(1000, 2000))
+            .attr('style', 'opacity: 0.5')
+            .transition()
+            .ease(d3.easeSin)
+            .duration(getRandomInt(1000, 2000))
+            .attr('style', 'opacity: 1')
+            .on('end', twinkleStars);
+        }
       }
 
       twinkleStars();
