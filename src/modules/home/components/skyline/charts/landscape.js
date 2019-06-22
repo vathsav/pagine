@@ -37,17 +37,22 @@ class SkylineLandscape extends Component {
 
     // Move the car
     function animateCar() {
+      const stopAtGelateria = getRandomInt(0, 2);
+      const initialPosition = `translate(${-50}, ${carPosition[1]})`;
+      const finalPosistion = `translate(${originalWidth}, ${carPosition[1]})`;
+      const stopAtPosition = `translate(${stopAtGelateria ? gelateriaPosition[0] + 8 : originalWidth}, ${carPosition[1]})`;
+
       car
-        .attr('transform', `translate(${-50}, ${carPosition[1]})`)
+        .attr('transform', initialPosition)
         .transition()
         .ease(d3.easeLinear)
-        .delay(getRandomInt(5000, 8000))
-        .duration(getRandomInt(10000, 14000))
-        .attr('transform', `translate(${gelateriaPosition[0] + 8}, ${carPosition[1]})`)
+        .delay(getRandomInt(1000, 2000))
+        .duration(getRandomInt(6000, 9000))
+        .attr('transform', stopAtPosition)
         .transition()
         .ease(d3.easeLinear)
-        .delay(getRandomInt(8000, 10000))
-        .attr('transform', `translate(${chartWidth}, ${carPosition[1]})`)
+        .delay(stopAtGelateria ? getRandomInt(8000, 10000) : 0)
+        .attr('transform', stopAtGelateria ? `translate(${originalWidth}, ${carPosition[1]})` : finalPosistion)
         .on('end', animateCar);
     }
 
