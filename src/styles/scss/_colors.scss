@@ -4,10 +4,12 @@ $white: #FFF;
 $blue-dark: #016EFF;
 $cyan-dark: #00FFBF;
 $red-dark: #FF0A43;
+$yellow-dark: #F1FF38;
 
 $blue-light: #FAFCFF;
 $cyan-light: #FAFFFE;
 $red-light: #FFFAFB;
+$yellow-light: #FEFFF8;
 
 /***********
   Classes
@@ -45,6 +47,10 @@ $red-light: #FFFAFB;
   background: $red-dark;
 }
 
+.bg-yellow-dark {
+  background: $yellow-dark;
+}
+
 .bg-blue-light {
   background: $blue-light;
 }
@@ -55,4 +61,8 @@ $red-light: #FFFAFB;
 
 .bg-red-light {
   background: $red-light;
+}
+
+.bg-yellow-light {
+  background: $yellow-light;
 }
