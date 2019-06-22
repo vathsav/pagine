@@ -100,6 +100,53 @@
   background: #FFFAFB;
 }
 
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
 /*************
   Font Faces
 **************/
@@ -112,15 +159,17 @@
   src: url("../../assets/fonts/OpenSans-Regular.ttf");
 }
 @font-face {
-  font-family: OpenSansBold;
+  font-family: OpenSansRegular;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
 }
 .title-large {
   line-height: 1;
 }
 
 .title-small, .title-medium, .title-large {
-  font-family: OpenSansBold, sans-serif;
+  font-family: OpenSansRegular, sans-serif;
+  font-weight: bold;
 }
 
 .content-small, .content-medium, .content-large {
@@ -285,6 +334,25 @@
     font-size: 16px;
   }
 }
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  background: #FFF;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 .card {
   background: #FFF;
   border: none;
@@ -365,8 +433,9 @@
   src: url("../../assets/fonts/OpenSans-Regular.ttf");
 }
 @font-face {
-  font-family: OpenSansBold;
+  font-family: OpenSansRegular;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
 }
 /***********
   Classes
@@ -526,9 +595,57 @@
   src: url("../../assets/fonts/OpenSans-Regular.ttf");
 }
 @font-face {
-  font-family: OpenSansBold;
+  font-family: OpenSansRegular;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
 }
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
 /*************
   Font Faces
 **************/
@@ -541,15 +658,17 @@
   src: url("../../assets/fonts/OpenSans-Regular.ttf");
 }
 @font-face {
-  font-family: OpenSansBold;
+  font-family: OpenSansRegular;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
 }
 .title-large {
   line-height: 1;
 }
 
 .title-small, .title-medium, .title-large {
-  font-family: OpenSansBold, sans-serif;
+  font-family: OpenSansRegular, sans-serif;
+  font-weight: bold;
 }
 
 .content-small, .content-medium, .content-large {
@@ -714,6 +833,25 @@
     font-size: 16px;
   }
 }
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  background: #FFF;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 .field-input {
   background: #FFF;
   border-color: #212121;
@@ -738,7 +876,8 @@
   border-width: 2px;
   border-radius: 5px;
   cursor: pointer;
-  font-family: OpenSansBold, sans-serif;
+  font-family: OpenSansRegular, sans-serif;
+  font-weight: bold;
   font-size: 16px;
   padding: 0 55px;
   height: 40px;
@@ -766,7 +905,8 @@
   border-left-style: none;
   border-radius: 0 3px 3px 0;
   cursor: pointer;
-  font-family: OpenSansBold, sans-serif;
+  font-family: OpenSansRegular, sans-serif;
+  font-weight: bold;
   font-size: 20px;
   height: 38px;
   color: #FFF;
@@ -940,6 +1080,53 @@
     margin-bottom: 20px;
   }
 }
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
 /*************
   Font Faces
 **************/
@@ -952,15 +1139,17 @@
   src: url("../../assets/fonts/OpenSans-Regular.ttf");
 }
 @font-face {
-  font-family: OpenSansBold;
+  font-family: OpenSansRegular;
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
 }
 .title-large {
   line-height: 1;
 }
 
 .title-small, .title-medium, .title-large {
-  font-family: OpenSansBold, sans-serif;
+  font-family: OpenSansRegular, sans-serif;
+  font-weight: bold;
 }
 
 .content-small, .content-medium, .content-large {
@@ -1125,6 +1314,25 @@
     font-size: 16px;
   }
 }
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  background: #FFF;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 @media (max-width: 576px) {
   .skew-up-top-right {
     margin: 0 -10px -20px;

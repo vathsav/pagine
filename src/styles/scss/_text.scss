@@ -1,16 +1,17 @@
 @import "breakpoints";
+@import "colors";
 @import "fonts";
 
 $font-content: OpenSansRegular, sans-serif;
 $font-monospace: CutiveMono, sans-serif;
-$font-title: OpenSansBold, sans-serif;
 
 .title-large {
   line-height: 1;
 }
 
 .title-small, .title-medium, .title-large {
-  font-family: $font-title;
+  font-family: $font-content;
+  font-weight: bold;
 }
 
 .content-small, .content-medium, .content-large {
@@ -177,5 +178,30 @@ $font-title: OpenSansBold, sans-serif;
 
   .monospace {
     font-size: 16px;
+  }
+}
+
+// Text hovers
+.hover {
+  &-red {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $red-dark;
+      background: $white;
+      text-decoration: none;
+    }
+  }
+
+  &-white {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $white;
+      background: $red-dark;
+      text-decoration: none;
+    }
   }
 }
