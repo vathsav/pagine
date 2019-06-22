@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 
 // Utils
-import { scaleVectorGroup } from '../../../../../utils/helper';
+import { getRandomInt, getTransformTranslation, scaleVectorGroup } from '../../../../../utils/helper';
 
 
 class SkylineLandscape extends Component {
@@ -29,6 +29,29 @@ class SkylineLandscape extends Component {
       .attr('stroke-width', strokeScale);
 
     scaleVectorGroup('#skyline', scale);
+
+    const car = d3.select('#car');
+    const gelateria = d3.select('#gelateria');
+    const carPosition = getTransformTranslation(car.attr('transform'));
+    const gelateriaPosition = getTransformTranslation(gelateria.attr('transform'));
+
+    // Move the car
+    function animateCar() {
+      car
+        .attr('transform', `translate(${-50}, ${carPosition[1]})`)
+        .transition()
+        .ease(d3.easeLinear)
+        .delay(getRandomInt(5000, 8000))
+        .duration(getRandomInt(10000, 14000))
+        .attr('transform', `translate(${gelateriaPosition[0] + 8}, ${carPosition[1]})`)
+        .transition()
+        .ease(d3.easeLinear)
+        .delay(getRandomInt(8000, 10000))
+        .attr('transform', `translate(${chartWidth}, ${carPosition[1]})`)
+        .on('end', animateCar);
+    }
+
+    animateCar();
   }
 
   render() {
@@ -444,6 +467,15 @@ class SkylineLandscape extends Component {
                       <rect id="trunk" fill="#000000" x="6.3" y="21.7358491" width="1.4" height="14.2641509" />
                       <path d="M7,31.245283 C10.8659932,31.245283 14,28.2041983 14,24.4528302 C14,20.7014621 10.8659932,-2.48689958e-14 7,-2.48689958e-14 C3.13400675,-2.48689958e-14 -1.42108547e-14,20.7014621 -1.42108547e-14,24.4528302 C-1.42108547e-14,28.2041983 3.13400675,31.245283 7,31.245283 Z" id="leaves" stroke="#000000" strokeWidth="1.5" fill="#03EBB0" />
                     </g>
+                  </g>
+                  <g id="car" transform="translate(0, 43)">
+                    <g id="body" fill="#FC0B42">
+                      <path d="M3.805846,4 C5.77651122,2.02015434 8.17456255,0.850097369 11,0.489829076 C13.8254374,0.129560783 16.3462708,1.29961776 18.5625,4 L20.625,7.77554336 L2.92669368,7.77554336 L3.805846,4 Z" />
+                      <polygon points="16.84375 3.48982908 21.8947704 4.56794299 21.8947704 7.77554336 20.4740567 7.77554336" />
+                      <path d="M0.458333333,4.56794299 L3.805846,4 L3.20833333,7.77554336 L0.458333333,7.77554336 C0.458333333,6.77554336 0.458333333,5.98982908 0.458333333,5.4184005 C0.458333333,4.84697193 0.458333333,4.56348609 0.458333333,4.56794299 Z" />
+                    </g>
+                    <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="5.5" cy="7.5" r="1.5" />
+                    <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="16.5" cy="7.5" r="1.5" />
                   </g>
                 </g>
               </g>
