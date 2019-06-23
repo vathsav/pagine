@@ -38,7 +38,7 @@ class Globe extends Component {
       .projection(projection);
 
     const graticule = d3.geoGraticule()
-      .step([10, 10]);
+      .step([1, 1]);
 
     let v0; // Mouse position in Cartesian coordinates at start of drag gesture.
     let r0; // Projection rotation as Euler angles at start.

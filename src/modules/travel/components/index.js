@@ -18,9 +18,16 @@ class TravelComponent extends Component {
 
         <Globe />
 
+        <div className="text-center py-3">
+          <div className="title-small text-uppercase">Countries visited</div>
+          <div className="title-large">02</div>
+        </div>
+
         <Row>
           <Col>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, culpa delectus fugit illo magni modi porro quasi recusandae. Dolores omnis quisquam tempora veniam. Et pariatur quas quo reprehenderit tempore, voluptatibus.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, culpa delectus fugit illo magni modi porro
+            quasi recusandae. Dolores omnis quisquam tempora veniam. Et pariatur quas quo reprehenderit tempore,
+            voluptatibus.
           </Col>
         </Row>
       </Container>

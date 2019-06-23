@@ -1489,13 +1489,13 @@ body {
 .country {
   fill: #00FFBF;
   stroke: #212121;
-  stroke-width: 0.5px;
+  stroke-width: 0.2px;
 }
 
 .graticule {
-  fill: none;
-  stroke: #212121;
-  stroke-width: 0.5px;
+  fill: #016EFF;
+  stroke: #016EFF;
+  stroke-width: 0.25px;
 }
 
 @media (max-width: 576px) {
