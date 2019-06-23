@@ -26,14 +26,6 @@ class Globe extends Component {
     const path = d3.geoPath()
       .projection(projection);
 
-    // const graticule = d3.geoGraticule()
-    //   .step([10, 10]);
-    //
-    // svg.append('path')
-    //   .datum(graticule)
-    //   .attr('class', 'graticule')
-    //   .attr('d', path);
-
     svg.append('path')
       .datum({ type: 'Sphere' })
       .attr('class', 'water')
@@ -76,7 +68,9 @@ class Globe extends Component {
           })
           .attr('d', path)
           .on('mouseover', (d) => {
-            d3.select(d3.event.target).attr('class', 'country-hovered');
+            if (!countriesVisited.includes(d.properties.name)) {
+              d3.select(d3.event.target).attr('class', 'country-hovered');
+            }
           })
           .on('mouseout', (d) => {
             if (countriesVisited.includes(d.properties.name)) {

@@ -1,5 +1,7 @@
 @import "borders";
+@import "breakpoints";
 @import "cards";
+@import "charts";
 @import "colors";
 @import "fonts";
 @import "popups";
@@ -16,57 +18,6 @@ body, #root {
 
 body {
   margin: 0;
-}
-
-.point-mouse {
-  fill: $blue-dark;
-}
-
-#rotation {
-  position: absolute;
-  font-family: monospace;
-  padding: 10px;
-  background: $cyan-dark;
-}
-
-#rotation input {
-  width: 300px;
-}
-
-.country {
-  fill: $white;
-  stroke: $black;
-  stroke-width: 0.2px;
-}
-
-.country-hovered {
-  fill: $yellow-dark;
-  stroke: $black;
-  stroke-width: 0.2px;
-}
-
-.country-visited {
-  fill: $cyan-dark;
-  stroke: $black;
-  stroke-width: 0.2px;
-}
-
-.been {
-  fill: $cyan-dark;
-  stroke: $black;
-  stroke-width: 0.2px;
-}
-
-.water {
-  fill: $blue-dark;
-  stroke: $black;
-  stroke-width: 0.2px;
-}
-
-.graticule {
-  fill: $white;
-  stroke: $black;
-  stroke-width: 0.25px;
 }
 
 @media (max-width: $breakpoint-small) {

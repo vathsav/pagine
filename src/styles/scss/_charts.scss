@@ -1,0 +1,28 @@
+@import "colors";
+
+// Globe
+#globe {
+  .country {
+    fill: $white;
+    stroke: $black;
+    stroke-width: 0.2px;
+
+    &-hovered {
+      fill: $black;
+      stroke: $black;
+      stroke-width: 0.2px;
+    }
+
+    &-visited {
+      fill: $cyan-dark;
+      stroke: $black;
+      stroke-width: 0.2px;
+    }
+  }
+
+  .water {
+    fill: $blue-dark;
+    stroke: $black;
+    stroke-width: 0.2px;
+  }
+}
