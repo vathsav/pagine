@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
@@ -66,7 +66,7 @@ firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_BLOG_LIST} component={BlogListContainer} />
@@ -77,7 +77,7 @@ ReactDOM.render(
           <Route exact path={URL_TRAVEL} component={Travel} />
           <Route path="*" component={Error404} />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root'),
