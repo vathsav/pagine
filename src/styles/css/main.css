@@ -1487,6 +1487,24 @@ body {
 }
 
 .country {
+  fill: #FFF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+
+.country-hovered {
+  fill: #F1FF38;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+
+.country-visited {
+  fill: #00FFBF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+
+.been {
   fill: #00FFBF;
   stroke: #212121;
   stroke-width: 0.2px;
@@ -1499,8 +1517,8 @@ body {
 }
 
 .graticule {
-  fill: #016EFF;
-  stroke: #016EFF;
+  fill: #FFF;
+  stroke: #212121;
   stroke-width: 0.25px;
 }
 

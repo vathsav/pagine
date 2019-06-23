@@ -34,6 +34,24 @@ body {
 }
 
 .country {
+  fill: $white;
+  stroke: $black;
+  stroke-width: 0.2px;
+}
+
+.country-hovered {
+  fill: $yellow-dark;
+  stroke: $black;
+  stroke-width: 0.2px;
+}
+
+.country-visited {
+  fill: $cyan-dark;
+  stroke: $black;
+  stroke-width: 0.2px;
+}
+
+.been {
   fill: $cyan-dark;
   stroke: $black;
   stroke-width: 0.2px;
@@ -46,8 +64,8 @@ body {
 }
 
 .graticule {
-  fill: $blue-dark;
-  stroke: $blue-dark;
+  fill: $white;
+  stroke: $black;
   stroke-width: 0.25px;
 }
 
