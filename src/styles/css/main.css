@@ -1492,6 +1492,12 @@ body {
   stroke-width: 0.2px;
 }
 
+.water {
+  fill: #016EFF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+
 .graticule {
   fill: #016EFF;
   stroke: #016EFF;

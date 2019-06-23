@@ -8,6 +8,7 @@ class Globe extends Component {
     const { topojson } = window;
 
     const angles = ['λ', 'φ', 'γ'];
+
     // angles.forEach((angle, index) => {
     //   d3.select('#rotation').append('div')
     //     .attr('class', `angle-label angle-label-${index}`)
@@ -22,8 +23,8 @@ class Globe extends Component {
     //     .attr('value', '0');
     // });
 
-    const width = 400;
-    const height = 400;
+    const width = 350;
+    const height = 350;
 
     const svg = d3.select('#globe').append('svg')
       .attr('width', width)
@@ -37,16 +38,22 @@ class Globe extends Component {
     const path = d3.geoPath()
       .projection(projection);
 
-    const graticule = d3.geoGraticule()
-      .step([1, 1]);
 
     let v0; // Mouse position in Cartesian coordinates at start of drag gesture.
     let r0; // Projection rotation as Euler angles at start.
     let q0; // Projection rotation as versor at start.
 
+    // const graticule = d3.geoGraticule()
+    // .step([1, 1]);
+
+    // svg.append('path')
+    //   .datum(graticule)
+    //   .attr('class', 'graticule')
+    //   .attr('d', path);
+
     svg.append('path')
-      .datum(graticule)
-      .attr('class', 'graticule')
+      .datum({ type: 'Sphere' })
+      .attr('class', 'water')
       .attr('d', path);
 
     function update(eulerAngles) {
@@ -112,7 +119,7 @@ class Globe extends Component {
 
     d3.json('https://barbarous-falcon.s3.eu-west-2.amazonaws.com/resources/countries.json')
       .then((countries) => {
-        svg.selectAll('.subunit')
+        svg.selectAll('.country')
           .data(topojson.feature(countries, countries.objects.polygons).features)
           .enter().append('path')
           .attr('class', 'country')
@@ -122,7 +129,7 @@ class Globe extends Component {
 
   render() {
     return (
-      <div id="globe" className="text-center py-4" />
+      <div id="globe" className="text-center py-5" />
     );
   }
 }
