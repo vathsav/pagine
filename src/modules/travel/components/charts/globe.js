@@ -110,7 +110,7 @@ class Globe extends Component {
       svg.selectAll('path').attr('d', path);
     });
 
-    d3.json('https://bl.ocks.org/HarryStevens/raw/75b3eb474527c10055618fa00123ba44/342f3dcc07bce4ff7274f39a4c41c3d33b80f663/countries.json')
+    d3.json('https://barbarous-falcon.s3.eu-west-2.amazonaws.com/resources/countries.json')
       .then((countries) => {
         svg.selectAll('.subunit')
           .data(topojson.feature(countries, countries.objects.polygons).features)
