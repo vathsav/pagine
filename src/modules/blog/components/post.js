@@ -3,6 +3,9 @@ import { Col, Row } from 'react-bootstrap';
 import { DiscussionEmbed, CommentCount } from 'disqus-react';
 import PropTypes from 'prop-types';
 
+// Components
+import AudioFrequencies from './charts/audio-frequencies';
+
 // Images
 import iconTag from '../../../assets/images/icon-tag.png';
 
