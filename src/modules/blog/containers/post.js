@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 
 // Components
-import BlogPost from '../components/post';
+import BlogPost from '../components/post/post';
 import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { DiscussionEmbed, CommentCount } from 'disqus-react';
+import { CommentCount, DiscussionEmbed } from 'disqus-react';
+import JsxParser from 'react-jsx-parser';
 import PropTypes from 'prop-types';
 
 // Components
-import AudioFrequencies from './charts/audio-frequencies';
+import AudioFrequencies from '../charts/audio-frequencies';
+import CodeBlock from './code-block';
 
 // Images
-import iconTag from '../../../assets/images/icon-tag.png';
+import iconTag from '../../../../assets/images/icon-tag.png';
 
 // Utils
-import { DISQUS_URL_PREFIX } from '../../../utils/constants';
-import { beautifyDateTime } from '../../../utils/helper';
+import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
+import { beautifyDateTime } from '../../../../utils/helper';
 
 
 class BlogPost extends Component {
@@ -53,7 +55,12 @@ class BlogPost extends Component {
           </Col>
         </Row>
 
-        <div className="paragraph px-3 pt-3" dangerouslySetInnerHTML={{ __html: content.content }} />
+        <div className="paragraph px-3 pt-3">
+          <JsxParser
+            components={{ CodeBlock, AudioFrequencies }}
+            jsx={content.content}
+          />
+        </div>
 
         <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
       </div>
