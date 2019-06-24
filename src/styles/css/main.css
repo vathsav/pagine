@@ -53,6 +53,57 @@
   background: #FEFFF8;
 }
 
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 .border-top-black {
   border-top: 2px solid #212121;
 }
@@ -116,6 +167,57 @@
   background: #FEFFF8;
 }
 
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 /***********
   Classes
 ************/
@@ -169,6 +271,57 @@
 
 .bg-yellow-light {
   background: #FEFFF8;
+}
+
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
 }
 
 /*************
@@ -358,25 +511,6 @@
     font-size: 16px;
   }
 }
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  background: #FFF;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 .card {
   background: #FFF;
   border: none;
@@ -453,6 +587,184 @@
   background: #FEFFF8;
 }
 
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
+#globe .country {
+  fill: #FFF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+#globe .country-hovered {
+  fill: #212121;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+#globe .country-visited {
+  fill: #00FFBF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+#globe .water {
+  fill: #016EFF;
+  stroke: #212121;
+  stroke-width: 0.2px;
+}
+
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-yellow-dark {
+  background: #F1FF38;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+.bg-yellow-light {
+  background: #FEFFF8;
+}
+
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 /*************
   Font Faces
 **************/
@@ -522,6 +834,57 @@
 
 .bg-yellow-light {
   background: #FEFFF8;
+}
+
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
 }
 
 .popup-overlay {
@@ -631,6 +994,57 @@
   background: #FEFFF8;
 }
 
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 /*************
   Font Faces
 **************/
@@ -700,6 +1114,57 @@
 
 .bg-yellow-light {
   background: #FEFFF8;
+}
+
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
 }
 
 /*************
@@ -889,25 +1354,6 @@
     font-size: 16px;
   }
 }
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  background: #FFF;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 .field-input {
   background: #FFF;
   border-color: #212121;
@@ -1191,6 +1637,57 @@
   background: #FEFFF8;
 }
 
+.hover-red {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red:hover {
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-red-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-red-white:hover {
+  background: #FFF;
+  color: #FF0A43;
+  text-decoration: none;
+}
+.hover-blue {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-blue:hover {
+  color: #016EFF;
+  text-decoration: none;
+}
+.hover-cyan {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-cyan:hover {
+  color: #00FFBF;
+  text-decoration: none;
+}
+.hover-yellow {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-yellow:hover {
+  color: #F1FF38;
+  text-decoration: none;
+}
+.hover-white {
+  padding: 0 3px;
+  transition-duration: 150ms;
+}
+.hover-white:hover {
+  color: #FFF;
+  background: #FF0A43;
+  text-decoration: none;
+}
+
 /*************
   Font Faces
 **************/
@@ -1378,25 +1875,6 @@
     font-size: 16px;
   }
 }
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  background: #FFF;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 @media (max-width: 576px) {
   .skew-up-top-right {
     margin: 0 -10px -20px;
@@ -1469,57 +1947,6 @@ body, #root {
 
 body {
   margin: 0;
-}
-
-.point-mouse {
-  fill: #016EFF;
-}
-
-#rotation {
-  position: absolute;
-  font-family: monospace;
-  padding: 10px;
-  background: #00FFBF;
-}
-
-#rotation input {
-  width: 300px;
-}
-
-.country {
-  fill: #FFF;
-  stroke: #212121;
-  stroke-width: 0.2px;
-}
-
-.country-hovered {
-  fill: #F1FF38;
-  stroke: #212121;
-  stroke-width: 0.2px;
-}
-
-.country-visited {
-  fill: #00FFBF;
-  stroke: #212121;
-  stroke-width: 0.2px;
-}
-
-.been {
-  fill: #00FFBF;
-  stroke: #212121;
-  stroke-width: 0.2px;
-}
-
-.water {
-  fill: #016EFF;
-  stroke: #212121;
-  stroke-width: 0.2px;
-}
-
-.graticule {
-  fill: #FFF;
-  stroke: #212121;
-  stroke-width: 0.25px;
 }
 
 @media (max-width: 576px) {

@@ -180,28 +180,3 @@ $font-monospace: CutiveMono, sans-serif;
     font-size: 16px;
   }
 }
-
-// Text hovers
-.hover {
-  &-red {
-    padding: 0 3px;
-    transition-duration: 150ms;
-
-    &:hover {
-      color: $red-dark;
-      background: $white;
-      text-decoration: none;
-    }
-  }
-
-  &-white {
-    padding: 0 3px;
-    transition-duration: 150ms;
-
-    &:hover {
-      color: $white;
-      background: $red-dark;
-      text-decoration: none;
-    }
-  }
-}

@@ -28,10 +28,10 @@ class Header extends Component {
             </Col>
 
             <Col xs={9} sm={8} className="text-right align-self-center">
-              <Link to={URL_HOME} className="nav-item content-large color-black">Home</Link>
-              <Link to={URL_BLOG_LIST} className="nav-item content-large color-black pl-3 pl-lg-5">Blog</Link>
-              <Link to={URL_PORTFOLIO} className="nav-item content-large color-black pl-3 pl-lg-5">Portfolio</Link>
-              <Link to={URL_TRAVEL} className="nav-item content-large color-black pl-3 pl-lg-5">Travel</Link>
+              <Link to={URL_HOME} className={`nav-item content-large color-black hover-${color}`}>Home</Link>
+              <Link to={URL_BLOG_LIST} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Blog</Link>
+              <Link to={URL_PORTFOLIO} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Portfolio</Link>
+              <Link to={URL_TRAVEL} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Travel</Link>
             </Col>
           </Row>
         </Container>
