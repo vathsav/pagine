@@ -42,7 +42,7 @@ class BlogPostContainer extends Component {
               <Container className="position-relative">
                 <Row>
                   <Col md={9}>
-                    <BlogPost content={posts[match.params[0]]} slug={match.params[0]} />
+                    <BlogPost content={posts[match.params[0]]} slug={match.params[0]} tags={tags} />
                   </Col>
 
                   <Col md={3}>

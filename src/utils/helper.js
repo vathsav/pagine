@@ -21,6 +21,7 @@ import {
   WEATHER_STATUS_TORNADO,
 } from './constants';
 
+
 export function getTimeInMilan() {
   const date = new Date();
   return date.getHours();

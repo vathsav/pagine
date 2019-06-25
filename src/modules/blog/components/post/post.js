@@ -14,11 +14,12 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 // Utils
 import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
 import { beautifyDateTime } from '../../../../utils/helper';
+import PostCard from "../list/card";
 
 
 class BlogPost extends Component {
   render() {
-    const { content, slug } = this.props;
+    const { content, slug, tags } = this.props;
 
     const disqusShortName = process.env.REACT_APP_DISQUS_SHORT_NAME;
     const disqusConfig = {
@@ -26,6 +27,15 @@ class BlogPost extends Component {
       identifier: slug,
       title: content.title,
     };
+
+    // Get the tags used in this post
+    let tagsAsString = '';
+
+    if (tags && content.tags) {
+      (content.tags).forEach((tag) => {
+        if (tags[tag]) tagsAsString += `${tags[tag].name} `;
+      });
+    }
 
     return (
       <div className="card w-100 mb-4">
@@ -50,7 +60,7 @@ class BlogPost extends Component {
           <Col xs={4}>
             <div className="content-small float-right">
               <img src={iconTag} alt="" className="tag mr-2" />
-              {content.tags}
+              {tagsAsString}
             </div>
           </Col>
         </Row>
@@ -71,6 +81,11 @@ class BlogPost extends Component {
 BlogPost.propTypes = {
   content: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
+  tags: PropTypes.object,
+};
+
+PostCard.defaultProps = {
+  tags: {},
 };
 
 export default BlogPost;
