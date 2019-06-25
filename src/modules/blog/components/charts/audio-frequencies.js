@@ -177,7 +177,7 @@ class AudioFrequencies extends Component {
           .attr('d', lineFunctionCurvy(pathFour))
           .attr('stroke', '#FF0A43');
 
-        d3.selectAll('path')
+        svgVisualisation.selectAll('path')
           .attr('class', 'happy_path')
           .attr('stroke-width', 2)
           .attr('fill', 'none');
