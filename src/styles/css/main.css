@@ -372,6 +372,7 @@
 @media (max-width: 576px) {
   .title-small {
     font-size: 14px;
+    line-height: 1.25;
   }
 
   .title-medium {
@@ -393,7 +394,7 @@
   }
 
   .content-large {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .monospace {
@@ -1235,6 +1236,7 @@
 @media (max-width: 576px) {
   .title-small {
     font-size: 14px;
+    line-height: 1.25;
   }
 
   .title-medium {
@@ -1256,7 +1258,7 @@
   }
 
   .content-large {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .monospace {
@@ -1610,7 +1612,7 @@
   }
 
   .myself {
-    height: 300px;
+    height: 250px;
     margin-bottom: 20px;
   }
 }
@@ -1760,6 +1762,7 @@
 @media (max-width: 576px) {
   .title-small {
     font-size: 14px;
+    line-height: 1.25;
   }
 
   .title-medium {
@@ -1781,7 +1784,7 @@
   }
 
   .content-large {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .monospace {

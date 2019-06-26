@@ -75,7 +75,7 @@ class Contact extends Component {
           <Col sm={12}>
             <input
               type="button"
-              className="button-submit bg-red-dark mt-2 mt-lg-3 mb-5"
+              className="button-submit bg-red-dark mt-2 mt-lg-3 mb-4 mb-lg-5 mb-xl-4"
               value="submit"
               onClick={this.submitContactForm}
             />

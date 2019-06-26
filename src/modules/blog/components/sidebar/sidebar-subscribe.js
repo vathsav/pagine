@@ -11,7 +11,7 @@ class SidebarSubscribe extends Component {
       <div className="card my-4">
         <div className="title-small text-uppercase font-weight-bold pb-2">Subscribe</div>
 
-        <div>
+        <div className="content-small">
           Receive newsletters for new posts!
         </div>
 

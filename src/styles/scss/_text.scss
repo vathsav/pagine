@@ -25,6 +25,7 @@ $font-monospace: CutiveMono, sans-serif;
 @media (max-width: $breakpoint-small) {
   .title-small {
     font-size: 14px;
+    line-height: 1.25;
   }
 
   .title-medium {
@@ -46,7 +47,7 @@ $font-monospace: CutiveMono, sans-serif;
   }
 
   .content-large {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .monospace {

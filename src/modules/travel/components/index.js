@@ -16,19 +16,30 @@ class TravelComponent extends Component {
 
         <Globe />
 
-        <Row className="text-center py-3">
-          <Col xs={4}>
-            <div className="title-small text-uppercase">Travel Days</div>
-            <div className="title-large">50</div>
+        <Row className="text-center pb-0 pb-md-1 pb-lg-2 h-100">
+          <Col xs={4} className="h-100">
+            <div className="title-small text-uppercase mb-2 mb-lg-0 my-0">Travel Days</div>
           </Col>
 
           <Col xs={4}>
-            <div className="title-small text-uppercase">Countries visited</div>
+            <div className="title-small text-uppercase mb-2 mb-lg-0">Countries Visited</div>
+          </Col>
+
+          <Col xs={4}>
+            <div className="title-small text-uppercase mb-2 mb-lg-0">Languages Spoken</div>
+          </Col>
+        </Row>
+
+        <Row className="text-center">
+          <Col xs={4}>
+            <div className="title-large">75+</div>
+          </Col>
+
+          <Col xs={4}>
             <div className="title-large">15</div>
           </Col>
 
           <Col xs={4}>
-            <div className="title-small text-uppercase">Languages Spoken</div>
             <div className="title-large">06</div>
           </Col>
         </Row>

@@ -23,7 +23,7 @@ class SidebarCategories extends Component {
       <div className="card mb-4">
         <div className="title-small text-uppercase font-weight-bold pb-2">Categories</div>
 
-        <ul>
+        <ul className="content-small">
           {tagsList}
         </ul>
       </div>

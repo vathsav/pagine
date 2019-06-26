@@ -22,16 +22,16 @@ class Header extends Component {
     return (
       <div className={`sticky-top bg-${color}-light mb-xs-1 mb-md-4`}>
         <Container>
-          <Row>
+          <Row className="no-gutters">
             <Col xs={3} sm={4}>
               <img src={logo} alt="Vathsav" className="logo my-3 mx-0" />
             </Col>
 
             <Col xs={9} sm={8} className="text-right align-self-center">
               <Link to={URL_HOME} className={`nav-item content-large color-black hover-${color}`}>Home</Link>
-              <Link to={URL_BLOG_LIST} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Blog</Link>
-              <Link to={URL_PORTFOLIO} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Portfolio</Link>
-              <Link to={URL_TRAVEL} className={`nav-item content-large color-black pl-3 pl-lg-5 hover-${color}`}>Travel</Link>
+              <Link to={URL_BLOG_LIST} className={`nav-item content-large color-black pl-3 pl-sm-3 pl-lg-5 hover-${color}`}>Blog</Link>
+              <Link to={URL_PORTFOLIO} className={`nav-item content-large color-black pl-3 pl-sm-3 pl-lg-5 hover-${color}`}>Portfolio</Link>
+              <Link to={URL_TRAVEL} className={`nav-item content-large color-black pl-3 pl-sm-3 pl-lg-5 hover-${color}`}>Travel</Link>
             </Col>
           </Row>
         </Container>
