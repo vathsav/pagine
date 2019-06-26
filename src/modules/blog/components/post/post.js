@@ -14,7 +14,6 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 // Utils
 import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
 import { beautifyDateTime } from '../../../../utils/helper';
-import PostCard from "../list/card";
 
 
 class BlogPost extends Component {
@@ -84,7 +83,7 @@ BlogPost.propTypes = {
   tags: PropTypes.object,
 };
 
-PostCard.defaultProps = {
+BlogPost.defaultProps = {
   tags: {},
 };
 
