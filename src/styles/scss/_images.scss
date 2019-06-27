@@ -6,6 +6,11 @@
   width: auto;
 }
 
+.post-image {
+  margin: 25px auto;
+  max-width: 60%;
+}
+
 // TODO: Maybe I should try and generalise these classes. Like absolute fit or something.
 .portfolio-item {
   height: auto;

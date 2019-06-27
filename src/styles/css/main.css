@@ -1536,6 +1536,11 @@
   width: auto;
 }
 
+.post-image {
+  margin: 25px auto;
+  max-width: 60%;
+}
+
 .portfolio-item {
   height: auto;
   width: 100%;
