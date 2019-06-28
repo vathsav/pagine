@@ -25,6 +25,7 @@ export const FIRESTORE_COLLECTION_CONTENT = 'content';
 export const FIRESTORE_COLLECTION_PORTFOLIO = 'portfolio';
 export const FIRESTORE_COLLECTION_POSTS = 'posts';
 export const FIRESTORE_COLLECTION_TAGS = 'tags';
+export const FIRESTORE_COLLECTION_TRAVEL = 'travel';
 
 // Miscellaneous
 export const READ_TIME_WORDS_PER_MINUTE = 265;

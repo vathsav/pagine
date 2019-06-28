@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
+import PropTypes from 'prop-types';
 
 
 class Globe extends Component {
   componentDidMount() {
+    const { countriesVisited } = this.props;
+
     const globeConfig = {
       speed: 0.0025,
       verticalTilt: -20,
       horizontalTilt: 0,
     };
 
-    const width = 350;
     const height = 350;
+    const width = 350;
 
     const svg = d3.select('#globe').append('svg')
-      .attr('width', width)
-      .attr('height', height);
+      .attr('height', height)
+      .attr('width', width);
 
     const projection = d3.geoOrthographic()
       .scale(d3.min([width / 2, height / 2]))
@@ -38,24 +41,6 @@ class Globe extends Component {
 
     d3.json('https://barbarous-falcon.s3.eu-west-2.amazonaws.com/resources/countries.json')
       .then((countries) => {
-        const countriesVisited = [
-          'India',
-          'Italy',
-          'Switzerland',
-          'Romania',
-          'Denmark',
-          'Sweden',
-          'France',
-          'Poland',
-          'Finland',
-          'Netherlands',
-          'United States of America',
-          'Germany',
-          'Croatia',
-          'Slovenia',
-          'Holy See (Vatican City)',
-        ];
-
         svg.selectAll('.country')
           .data(topojson.feature(countries, countries.objects.polygons).features)
           .enter().append('path')
@@ -88,5 +73,13 @@ class Globe extends Component {
     );
   }
 }
+
+Globe.propTypes = {
+  countriesVisited: PropTypes.array,
+};
+
+Globe.defaultProps = {
+  countriesVisited: [],
+};
 
 export default Globe;
