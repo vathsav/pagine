@@ -48,7 +48,7 @@ class SkylineAnimation extends Component {
     return (
       <div id="skyline-chart" className="pt-0">
         {/* Time of the day */}
-        <SkylineSpace chartWidth={chartWidth} />
+        <SkylineSpace chartWidth={chartWidth} weather={weather} />
 
         {/* Weather Condition */}
         <SkylineCondition weather={weather} chartWidth={chartWidth} />

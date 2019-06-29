@@ -15,9 +15,12 @@ import { getRandomInt, getTimeInMilan } from '../../../../../utils/helper';
 
 class SkylineSpace extends Component {
   componentDidUpdate() {
-    const { chartWidth } = this.props;
+    const { chartWidth, weather } = this.props;
     const originalWidth = 540;
     const scale = (chartWidth / originalWidth);
+
+    const sunriseTime = new Date(weather.sys.sunrise * 1000 + weather.timezone);
+    const sunsetTime = new Date(weather.sys.sunset * 1000 + weather.timezone);
 
     function drawSun(group) {
       // Draw the sun
@@ -83,10 +86,10 @@ class SkylineSpace extends Component {
         .style('position', 'absolute')
         .append('g');
 
-      if (getTimeInMilan() > 21 || getTimeInMilan() < 5) {
-        animateStars(spaceGroup);
-      } else {
+      if (getTimeInMilan() < sunsetTime || getTimeInMilan() > sunriseTime) {
         drawSun(spaceGroup);
+      } else {
+        animateStars(spaceGroup);
       }
     }
   }
@@ -100,6 +103,11 @@ class SkylineSpace extends Component {
 
 SkylineSpace.propTypes = {
   chartWidth: PropTypes.number.isRequired,
+  weather: PropTypes.object,
+};
+
+SkylineSpace.defaultProps = {
+  weather: {},
 };
 
 export default SkylineSpace;
