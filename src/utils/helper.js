@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-
 // Constants
 import {
   WEATHER_INTENSITY_HIGH,
@@ -14,7 +13,8 @@ import {
   WEATHER_STATUS_HAZE,
   WEATHER_STATUS_MIST,
   WEATHER_STATUS_RAIN,
-  WEATHER_STATUS_SAND, WEATHER_STATUS_SMOKE,
+  WEATHER_STATUS_SAND,
+  WEATHER_STATUS_SMOKE,
   WEATHER_STATUS_SNOW,
   WEATHER_STATUS_SQUALL,
   WEATHER_STATUS_THUNDERSTORM,
@@ -22,9 +22,8 @@ import {
 } from './constants';
 
 
-export function getTimeInMilan() {
-  const date = new Date();
-  return date.getHours();
+export function getTimeInMilan(offset) {
+  return new Date((new Date().getTime()));
 }
 
 export function getWordCount(string) {

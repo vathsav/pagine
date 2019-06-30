@@ -3,7 +3,9 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 
 // Utils
-import { getRandomInt, getTransformTranslation, scaleVectorGroup } from '../../../../../utils/helper';
+import {
+  getRandomInt, getTimeInMilan, getTransformTranslation, scaleVectorGroup,
+} from '../../../../../utils/helper';
 
 
 class SkylineLandscape extends Component {
@@ -39,7 +41,7 @@ class SkylineLandscape extends Component {
     function animateCar() {
       const stopAtGelateria = getRandomInt(0, 2);
       const initialPosition = `translate(${-50}, ${carPosition[1]})`;
-      const finalPosistion = `translate(${originalWidth}, ${carPosition[1]})`;
+      const finalPosition = `translate(${originalWidth}, ${carPosition[1]})`;
       const stopAtPosition = `translate(${stopAtGelateria ? gelateriaPosition[0] + 8 : originalWidth}, ${carPosition[1]})`;
 
       car
@@ -52,11 +54,30 @@ class SkylineLandscape extends Component {
         .transition()
         .ease(d3.easeLinear)
         .delay(stopAtGelateria ? getRandomInt(8000, 10000) : 0)
-        .attr('transform', stopAtGelateria ? `translate(${originalWidth}, ${carPosition[1]})` : finalPosistion)
+        .attr('transform', stopAtGelateria ? `translate(${originalWidth}, ${carPosition[1]})` : finalPosition)
         .on('end', animateCar);
     }
 
+    function applySeason() {
+      const currentMonth = getTimeInMilan().getMonth() + 1;
+
+      if (currentMonth >= 3 && currentMonth <= 5) {
+        // Spring
+        d3.select('#treeline').selectAll('path').attr('fill', '#00FFBF');
+      } else if (currentMonth >= 6 && currentMonth <= 8) {
+        // Summer
+        d3.select('#treeline').selectAll('path').attr('fill', '#8BFF00');
+      } else if (currentMonth >= 9 && currentMonth <= 11) {
+        // Autumn
+        d3.select('#treeline').selectAll('path').attr('fill', '#FFDC00');
+      } else {
+        // Winter
+        d3.select('#treeline').selectAll('path').attr('fill', '#E0E0E0');
+      }
+    }
+
     animateCar();
+    applySeason();
   }
 
   render() {
@@ -473,15 +494,15 @@ class SkylineLandscape extends Component {
                       <path d="M7,31.245283 C10.8659932,31.245283 14,28.2041983 14,24.4528302 C14,20.7014621 10.8659932,-2.48689958e-14 7,-2.48689958e-14 C3.13400675,-2.48689958e-14 -1.42108547e-14,20.7014621 -1.42108547e-14,24.4528302 C-1.42108547e-14,28.2041983 3.13400675,31.245283 7,31.245283 Z" id="leaves" stroke="#000000" strokeWidth="1.5" fill="#03EBB0" />
                     </g>
                   </g>
-                  <g id="car" transform="translate(0, 43)">
-                    <g id="body" fill="#FC0B42">
-                      <path d="M3.805846,4 C5.77651122,2.02015434 8.17456255,0.850097369 11,0.489829076 C13.8254374,0.129560783 16.3462708,1.29961776 18.5625,4 L20.625,7.77554336 L2.92669368,7.77554336 L3.805846,4 Z" />
-                      <polygon points="16.84375 3.48982908 21.8947704 4.56794299 21.8947704 7.77554336 20.4740567 7.77554336" />
-                      <path d="M0.458333333,4.56794299 L3.805846,4 L3.20833333,7.77554336 L0.458333333,7.77554336 C0.458333333,6.77554336 0.458333333,5.98982908 0.458333333,5.4184005 C0.458333333,4.84697193 0.458333333,4.56348609 0.458333333,4.56794299 Z" />
-                    </g>
-                    <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="5.5" cy="7.5" r="1.5" />
-                    <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="16.5" cy="7.5" r="1.5" />
+                </g>
+                <g id="car" transform="translate(0, 146)">
+                  <g id="body" fill="#FC0B42">
+                    <path d="M3.805846,4 C5.77651122,2.02015434 8.17456255,0.850097369 11,0.489829076 C13.8254374,0.129560783 16.3462708,1.29961776 18.5625,4 L20.625,7.77554336 L2.92669368,7.77554336 L3.805846,4 Z" />
+                    <polygon points="16.84375 3.48982908 21.8947704 4.56794299 21.8947704 7.77554336 20.4740567 7.77554336" />
+                    <path d="M0.458333333,4.56794299 L3.805846,4 L3.20833333,7.77554336 L0.458333333,7.77554336 C0.458333333,6.77554336 0.458333333,5.98982908 0.458333333,5.4184005 C0.458333333,4.84697193 0.458333333,4.56348609 0.458333333,4.56794299 Z" />
                   </g>
+                  <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="5.5" cy="7.5" r="1.5" />
+                  <circle id="wheel" stroke="#000000" strokeWidth="0.5" fill="#FFFFFF" cx="16.5" cy="7.5" r="1.5" />
                 </g>
               </g>
             </g>
