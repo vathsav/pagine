@@ -1,0 +1,65 @@
+@import "colors";
+
+.hover {
+  &-red {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $red-dark;
+      text-decoration: none;
+    }
+  }
+
+  &-red-white {
+    padding: 0 3px;
+    transition-duration: 250ms;
+
+    &:hover {
+      background: $white;
+      color: $red-dark;
+      text-decoration: none;
+    }
+  }
+
+  &-blue {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $blue-dark;
+      text-decoration: none;
+    }
+  }
+
+  &-cyan {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $cyan-dark;
+      text-decoration: none;
+    }
+  }
+
+  &-yellow {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $yellow-dark;
+      text-decoration: none;
+    }
+  }
+
+  &-white {
+    padding: 0 3px;
+    transition-duration: 150ms;
+
+    &:hover {
+      color: $white;
+      background: $red-dark;
+      text-decoration: none;
+    }
+  }
+}

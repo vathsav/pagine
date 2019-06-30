@@ -57,57 +57,6 @@
   background: #FEFFF8;
 }
 
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 .border-top-black {
   border-top: 2px solid #212121;
 }
@@ -173,167 +122,6 @@
 
 .bg-yellow-light {
   background: #FEFFF8;
-}
-
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
-/***********
-  Classes
-************/
-.color-white {
-  color: #FFF;
-}
-
-.color-black {
-  color: #212121;
-}
-
-.color-blue-dark {
-  color: #016EFF;
-}
-
-.color-cyan-dark {
-  color: #00FFBF;
-}
-
-.color-red-dark {
-  color: #FF0A43;
-}
-
-.color-yellow-dark {
-  color: #FFDC00;
-}
-
-.bg-blue-dark {
-  background: #016EFF;
-}
-
-.bg-cyan-dark {
-  background: #00FFBF;
-}
-
-.bg-red-dark {
-  background: #FF0A43;
-}
-
-.bg-yellow-dark {
-  background: #FFDC00;
-}
-
-.bg-blue-light {
-  background: #FAFCFF;
-}
-
-.bg-cyan-light {
-  background: #FAFFFE;
-}
-
-.bg-red-light {
-  background: #FFFAFB;
-}
-
-.bg-yellow-light {
-  background: #FEFFF8;
-}
-
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
 }
 
 /*************
@@ -604,57 +392,6 @@
   background: #FEFFF8;
 }
 
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 #globe .country {
   fill: #FFF;
   stroke: #212121;
@@ -733,57 +470,6 @@
 
 .bg-yellow-light {
   background: #FEFFF8;
-}
-
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
 }
 
 /*************
@@ -871,7 +557,7 @@
 }
 .hover-red-white {
   padding: 0 3px;
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 .hover-red-white:hover {
   background: #FFF;
@@ -910,6 +596,65 @@
   color: #FFF;
   background: #FF0A43;
   text-decoration: none;
+}
+
+/***********
+  Classes
+************/
+.color-white {
+  color: #FFF;
+}
+
+.color-black {
+  color: #212121;
+}
+
+.color-blue-dark {
+  color: #016EFF;
+}
+
+.color-cyan-dark {
+  color: #00FFBF;
+}
+
+.color-red-dark {
+  color: #FF0A43;
+}
+
+.color-yellow-dark {
+  color: #FFDC00;
+}
+
+.bg-blue-dark {
+  background: #016EFF;
+}
+
+.bg-cyan-dark {
+  background: #00FFBF;
+}
+
+.bg-red-dark {
+  background: #FF0A43;
+}
+
+.bg-yellow-dark {
+  background: #FFDC00;
+}
+
+.bg-blue-light {
+  background: #FAFCFF;
+}
+
+.bg-cyan-light {
+  background: #FAFFFE;
+}
+
+.bg-red-light {
+  background: #FFFAFB;
+}
+
+.bg-yellow-light {
+  background: #FEFFF8;
 }
 
 .popup-overlay {
@@ -1023,57 +768,6 @@
   background: #FEFFF8;
 }
 
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 /*************
   Font Faces
 **************/
@@ -1090,116 +784,6 @@
   src: url("../../assets/fonts/OpenSans-Bold.ttf");
   font-weight: bold;
 }
-/***********
-  Classes
-************/
-.color-white {
-  color: #FFF;
-}
-
-.color-black {
-  color: #212121;
-}
-
-.color-blue-dark {
-  color: #016EFF;
-}
-
-.color-cyan-dark {
-  color: #00FFBF;
-}
-
-.color-red-dark {
-  color: #FF0A43;
-}
-
-.color-yellow-dark {
-  color: #FFDC00;
-}
-
-.bg-blue-dark {
-  background: #016EFF;
-}
-
-.bg-cyan-dark {
-  background: #00FFBF;
-}
-
-.bg-red-dark {
-  background: #FF0A43;
-}
-
-.bg-yellow-dark {
-  background: #FFDC00;
-}
-
-.bg-blue-light {
-  background: #FAFCFF;
-}
-
-.bg-cyan-light {
-  background: #FAFFFE;
-}
-
-.bg-red-light {
-  background: #FFFAFB;
-}
-
-.bg-yellow-light {
-  background: #FEFFF8;
-}
-
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 /*************
   Font Faces
 **************/
@@ -1621,116 +1205,6 @@
     margin-bottom: 20px;
   }
 }
-/***********
-  Classes
-************/
-.color-white {
-  color: #FFF;
-}
-
-.color-black {
-  color: #212121;
-}
-
-.color-blue-dark {
-  color: #016EFF;
-}
-
-.color-cyan-dark {
-  color: #00FFBF;
-}
-
-.color-red-dark {
-  color: #FF0A43;
-}
-
-.color-yellow-dark {
-  color: #FFDC00;
-}
-
-.bg-blue-dark {
-  background: #016EFF;
-}
-
-.bg-cyan-dark {
-  background: #00FFBF;
-}
-
-.bg-red-dark {
-  background: #FF0A43;
-}
-
-.bg-yellow-dark {
-  background: #FFDC00;
-}
-
-.bg-blue-light {
-  background: #FAFCFF;
-}
-
-.bg-cyan-light {
-  background: #FAFFFE;
-}
-
-.bg-red-light {
-  background: #FFFAFB;
-}
-
-.bg-yellow-light {
-  background: #FEFFF8;
-}
-
-.hover-red {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red:hover {
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-red-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-red-white:hover {
-  background: #FFF;
-  color: #FF0A43;
-  text-decoration: none;
-}
-.hover-blue {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-blue:hover {
-  color: #016EFF;
-  text-decoration: none;
-}
-.hover-cyan {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-cyan:hover {
-  color: #00FFBF;
-  text-decoration: none;
-}
-.hover-yellow {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-yellow:hover {
-  color: #FFDC00;
-  text-decoration: none;
-}
-.hover-white {
-  padding: 0 3px;
-  transition-duration: 150ms;
-}
-.hover-white:hover {
-  color: #FFF;
-  background: #FF0A43;
-  text-decoration: none;
-}
-
 /*************
   Font Faces
 **************/
