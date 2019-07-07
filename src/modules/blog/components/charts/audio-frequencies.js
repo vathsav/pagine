@@ -204,6 +204,10 @@ class AudioFrequencies extends Component {
     renderChart();
   }
 
+  componentWillUnmount() {
+    d3.select('#visualisation svg').remove();
+  }
+
   render() {
     return (
       <div>

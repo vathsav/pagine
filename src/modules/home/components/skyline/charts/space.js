@@ -94,6 +94,10 @@ class SkylineSpace extends Component {
     }
   }
 
+  componentWillUnmount() {
+    d3.select('#chart-space svg').remove();
+  }
+
   render() {
     return (
       <div id="chart-space" />

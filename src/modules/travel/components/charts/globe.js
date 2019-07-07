@@ -67,6 +67,10 @@ class Globe extends Component {
       });
   }
 
+  componentWillUnmount() {
+    d3.selectAll('#globe svg').remove();
+  }
+
   render() {
     return (
       <div id="globe" className="text-center py-5" />

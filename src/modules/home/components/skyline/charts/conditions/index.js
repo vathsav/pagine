@@ -107,6 +107,10 @@ class SkylineCondition extends Component {
     }
   }
 
+  componentWillUnmount() {
+    d3.select('#chart-condition svg').remove();
+  }
+
   animationRain(svgCondition, intensity, scale) {
     const { chartWidth } = this.props;
     const rainGroup = svgCondition.append('svg');
