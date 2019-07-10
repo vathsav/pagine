@@ -86,7 +86,7 @@ class SkylineSpace extends Component {
         .style('position', 'absolute')
         .append('g');
 
-      if (getTimeInMilan() < sunsetTime || getTimeInMilan() > sunriseTime) {
+      if (getTimeInMilan() > sunriseTime && getTimeInMilan() < sunsetTime) {
         drawSun(spaceGroup);
       } else {
         animateStars(spaceGroup);
@@ -107,11 +107,7 @@ class SkylineSpace extends Component {
 
 SkylineSpace.propTypes = {
   chartWidth: PropTypes.number.isRequired,
-  weather: PropTypes.object,
-};
-
-SkylineSpace.defaultProps = {
-  weather: {},
+  weather: PropTypes.object.isRequired,
 };
 
 export default SkylineSpace;
