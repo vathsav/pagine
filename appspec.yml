@@ -1,7 +1,7 @@
 --- 
 files: 
   - 
-    destination: /var/www/beta
+    destination: /var/www/pagine
     overwrite: true
     source: /build/
 
