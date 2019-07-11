@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 // Components
 import AudioFrequencies from '../charts/audio-frequencies';
 import CodeBlock from './code-block';
+import SketchDisco from '../sketches/disco';
+import SketchShapes from '../sketches/shapes';
+import SketchSolitaire from '../sketches/solitaire';
 
 // Images
 import iconTag from '../../../../assets/images/icon-tag.png';
@@ -66,7 +69,9 @@ class BlogPost extends Component {
 
         <div className="paragraph px-3 pt-3">
           <JsxParser
-            components={{ CodeBlock, AudioFrequencies }}
+            components={{
+              AudioFrequencies, CodeBlock, SketchDisco, SketchShapes, SketchSolitaire,
+            }}
             jsx={content.content}
           />
         </div>
