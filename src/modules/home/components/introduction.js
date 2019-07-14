@@ -12,7 +12,7 @@ class Introduction extends Component {
     return (
       <Row>
         <Col sm={12} lg={6}>
-          <div className="title-large text-uppercase font-weight-bold">
+          <div className="title-large text-uppercase font-weight-bold pb-2">
             Hello, you.
           </div>
 
@@ -29,11 +29,7 @@ class Introduction extends Component {
 
 Introduction.propTypes = {
   content: PropTypes.string.isRequired,
-  weather: PropTypes.object,
-};
-
-Introduction.defaultProps = {
-  weather: {},
+  weather: PropTypes.object.isRequired,
 };
 
 export default Introduction;

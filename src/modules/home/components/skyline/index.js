@@ -61,11 +61,7 @@ class SkylineAnimation extends Component {
 }
 
 SkylineAnimation.propTypes = {
-  weather: PropTypes.object,
-};
-
-SkylineAnimation.defaultProps = {
-  weather: {},
+  weather: PropTypes.object.isRequired,
 };
 
 export default SkylineAnimation;

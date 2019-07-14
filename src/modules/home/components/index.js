@@ -32,11 +32,7 @@ class Home extends Component {
 Home.propTypes = {
   contactFormSubmitted: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,
-  weather: PropTypes.object,
-};
-
-Home.defaultProps = {
-  weather: {},
+  weather: PropTypes.object.isRequired,
 };
 
 export default Home;

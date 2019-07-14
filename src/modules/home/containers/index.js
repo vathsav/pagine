@@ -52,11 +52,11 @@ class HomeContainer extends Component {
 
     return (
       <div>
-        {!content
+        {(!content || !weatherReducer.weather)
           && <Loader color="red" />
         }
 
-        {content
+        {(content && weatherReducer.weather)
           && (
             <div>
               {isContactFormSubmitted && (
@@ -90,11 +90,7 @@ class HomeContainer extends Component {
 HomeContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
   getWeatherReport: PropTypes.func.isRequired,
-  weatherReducer: PropTypes.object,
-};
-
-HomeContainer.defaultProps = {
-  weatherReducer: {},
+  weatherReducer: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => state;
