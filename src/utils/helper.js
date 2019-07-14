@@ -22,8 +22,10 @@ import {
 } from './constants';
 
 
-export function getTimeInMilan(offset) {
-  return new Date((new Date().getTime()));
+export function getTimeInMilan() {
+  const currentTime = new Date();
+  const UTCTime = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);
+  return new Date(UTCTime + (3600000 * 2));
 }
 
 export function getWordCount(string) {
