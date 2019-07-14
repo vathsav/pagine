@@ -66,13 +66,13 @@ class SkylineLandscape extends Component {
         d3.select('#treeline').selectAll('path').attr('fill', '#00FFBF');
       } else if (currentMonth >= 6 && currentMonth <= 8) {
         // Summer
-        d3.select('#treeline').selectAll('path').attr('fill', '#8BFF00');
+        d3.select('#treeline').selectAll('path').attr('fill', '#03EB7D');
       } else if (currentMonth >= 9 && currentMonth <= 11) {
         // Autumn
-        d3.select('#treeline').selectAll('path').attr('fill', '#FFDC00');
+        d3.select('#treeline').selectAll('path').attr('fill', '#F1D659');
       } else {
         // Winter
-        d3.select('#treeline').selectAll('path').attr('fill', '#E0E0E0');
+        d3.select('#treeline').selectAll('path').attr('fill', '#CCCCCC');
       }
     }
 
