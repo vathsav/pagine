@@ -76,7 +76,7 @@ class BlogPost extends Component {
           />
         </div>
 
-        <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
+        <DiscussionEmbed config={disqusConfig} shortname={disqusShortName} />
       </div>
     );
   }
