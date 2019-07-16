@@ -24,25 +24,32 @@ class PostCard extends Component {
     };
 
     // Get the tags used in this post
-    let tagsAsString = '';
+    const postTags = [];
 
     if (tags && content.tags) {
       (content.tags).forEach((tag) => {
-        if (tags[tag]) tagsAsString += tagsAsString === '' ? `${tags[tag].name}` : `, ${tags[tag].name}`;
+        if (tags[tag]) {
+          postTags.push(
+            <Link to={`/category/${tags[tag].slug}`}>
+              {tags[tag].name}
+            </Link>,
+          );
+        }
       });
     }
 
     return (
       <div className="card mb-4 pb-0">
-        <Link to={`post/${slug}`}>
-          { content
+        { content
           && (
             <div>
               <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center no-gutters">
                 <Col xs={12}>
-                  <div className="title-medium font-weight-bold pb-1">
-                    {content.title}
-                  </div>
+                  <Link to={`post/${slug}`}>
+                    <div className="title-medium font-weight-bold pb-1">
+                      {content.title}
+                    </div>
+                  </Link>
                 </Col>
 
                 <Col xs={12}>
@@ -55,14 +62,18 @@ class PostCard extends Component {
                   {tagsAsString && (
                     <div className="content-small mt-1">
                       <img src={iconTag} alt="" className="tag mr-2" />
-                      {tagsAsString}
+                      {postTags}
                     </div>
                   )}
                 </Col>
               </Row>
 
               {content.image
-                && <img src={content.image} alt="" className="post-banner" />
+                && (
+                  <Link to={`post/${slug}`}>
+                    <img src={content.image} alt="" className="post-banner" />
+                  </Link>
+                )
               }
 
               <Row className="py-3 align-items-center">
@@ -91,7 +102,6 @@ class PostCard extends Component {
             </div>
           )
         }
-        </Link>
       </div>
     );
   }
