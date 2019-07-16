@@ -48,7 +48,7 @@ class BlogPost extends Component {
             </div>
           </Col>
 
-          <Col xs={8}>
+          <Col sm={12} md={8}>
             <div className="title-small">
               {beautifyDateTime(new Date(content.timestamp))}
               {' '}
@@ -59,8 +59,8 @@ class BlogPost extends Component {
             </div>
           </Col>
 
-          <Col xs={4}>
-            <div className="content-small float-right">
+          <Col sm={12} md={4}>
+            <div className="content-small float-md-right mt-1">
               <img src={iconTag} alt="" className="tag mr-2" />
               {tagsAsString}
             </div>
