@@ -14,7 +14,8 @@ import AddPortfolioItem from './containers/add-portfolio-item';
 import {
   ADMIN_VIEW_BLOG_POSTS,
   ADMIN_VIEW_CREATE_BLOG_POST,
-  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM, ADMIN_VIEW_CREATE_TAG,
+  ADMIN_VIEW_CREATE_PORTFOLIO_ITEM,
+  ADMIN_VIEW_CREATE_TAG,
   ADMIN_VIEW_PORTFOLIO,
 } from '../../utils/constants';
 

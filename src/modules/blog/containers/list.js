@@ -26,7 +26,7 @@ class BlogListContainer extends Component {
   render() {
     const { firestoreReducer, match } = this.props;
     const { content, posts, tags } = firestoreReducer.data;
-    let selectedPosts = posts;
+    let selectedPosts = JSON.parse(JSON.stringify(posts || {}));
 
     if (tags && match.path === URL_BLOG_CATEGORY) {
       const categoryTag = match.params[0];
@@ -45,7 +45,7 @@ class BlogListContainer extends Component {
         Object.keys(selectedPosts).forEach((slug) => {
           const postTags = selectedPosts[slug].tags;
 
-          if (!postTags && !postTags.includes(categoryTagKey)) {
+          if (postTags && !postTags.includes(categoryTagKey)) {
             delete selectedPosts[slug];
           }
         });
