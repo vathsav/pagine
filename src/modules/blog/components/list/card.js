@@ -28,7 +28,7 @@ class PostCard extends Component {
 
     if (tags && content.tags) {
       (content.tags).forEach((tag) => {
-        if (tags[tag]) tagsAsString += `${tags[tag].name} `;
+        if (tags[tag]) tagsAsString += tagsAsString === '' ? `${tags[tag].name}` : `, ${tags[tag].name}`;
       });
     }
 
@@ -45,15 +45,15 @@ class PostCard extends Component {
                   </div>
                 </Col>
 
-                <Col xs={12} sm={8}>
+                <Col xs={12}>
                   <div className="content-medium">
                     {content.caption}
                   </div>
                 </Col>
 
-                <Col xs={12} sm={4}>
+                <Col xs={12}>
                   {tagsAsString && (
-                    <div className="content-small float-right">
+                    <div className="content-small mt-1">
                       <img src={iconTag} alt="" className="tag mr-2" />
                       {tagsAsString}
                     </div>
@@ -76,13 +76,13 @@ class PostCard extends Component {
                 </Col>
 
                 <Col xs={12} sm={8}>
-                  <div className="float-right">
-                    <span className="content-medium px-1">
+                  <div className="float-sm-right">
+                    <span className="content-small px-1">
                       {beautifyDateTime(new Date(content.timestamp))}
                       {' '}
                       |
                     </span>
-                    <span className="content-medium font-weight-bold">
+                    <span className="content-small font-weight-bold">
                       <CommentCount shortname={disqusShortName} config={disqusConfig} />
                     </span>
                   </div>
