@@ -27,11 +27,12 @@ class PostCard extends Component {
     const postTags = [];
 
     if (tags && content.tags) {
-      (content.tags).forEach((tag) => {
+      (content.tags).forEach((tag, index) => {
         if (tags[tag]) {
           postTags.push(
             <Link to={`/category/${tags[tag].slug}`}>
               {tags[tag].name}
+              {((content.tags).length > 1 && index < (content.tags).length - 1) ? ', ' : ''}
             </Link>,
           );
         }
@@ -59,7 +60,7 @@ class PostCard extends Component {
                 </Col>
 
                 <Col xs={12}>
-                  {tagsAsString && (
+                  {postTags && (
                     <div className="content-small mt-1">
                       <img src={iconTag} alt="" className="tag mr-2" />
                       {postTags}

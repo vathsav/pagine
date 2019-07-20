@@ -17,6 +17,7 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 // Utils
 import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
 import { beautifyDateTime } from '../../../../utils/helper';
+import {Link} from "react-router-dom";
 
 
 class BlogPost extends Component {
@@ -30,12 +31,22 @@ class BlogPost extends Component {
       title: content.title,
     };
 
+
     // Get the tags used in this post
-    let tagsAsString = '';
+    const postTags = [];
+
+    console.log();
 
     if (tags && content.tags) {
-      (content.tags).forEach((tag) => {
-        if (tags[tag]) tagsAsString += `${tags[tag].name} `;
+      (content.tags).forEach((tag, index) => {
+        if (tags[tag]) {
+          postTags.push(
+            <Link to={`/category/${tags[tag].slug}`}>
+              {tags[tag].name}
+              {((content.tags).length > 1 && index < (content.tags).length - 1) ? ', ' : ''}
+            </Link>,
+          );
+        }
       });
     }
 
@@ -60,10 +71,12 @@ class BlogPost extends Component {
           </Col>
 
           <Col sm={12} md={4}>
-            <div className="content-small float-md-right mt-1">
-              <img src={iconTag} alt="" className="tag mr-2" />
-              {tagsAsString}
-            </div>
+            {postTags && (
+              <div className="content-small float-md-right mt-1">
+                <img src={iconTag} alt="" className="tag mr-2" />
+                {postTags}
+              </div>
+            )}
           </Col>
         </Row>
 
