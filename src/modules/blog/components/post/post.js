@@ -31,11 +31,8 @@ class BlogPost extends Component {
       title: content.title,
     };
 
-
     // Get the tags used in this post
     const postTags = [];
-
-    console.log();
 
     if (tags && content.tags) {
       (content.tags).forEach((tag, index) => {
