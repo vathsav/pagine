@@ -38,7 +38,7 @@ class BlogPost extends Component {
       (content.tags).forEach((tag, index) => {
         if (tags[tag]) {
           postTags.push(
-            <Link to={`/category/${tags[tag].slug}`}>
+            <Link key={tag} to={`/category/${tags[tag].slug}`}>
               {tags[tag].name}
               {((content.tags).length > 1 && index < (content.tags).length - 1) ? ', ' : ''}
             </Link>,
