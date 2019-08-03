@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import { CommentCount, DiscussionEmbed } from 'disqus-react';
 import JsxParser from 'react-jsx-parser';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Components
 import AudioFrequencies from '../charts/audio-frequencies';
@@ -17,7 +18,6 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 // Utils
 import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
 import { beautifyDateTime } from '../../../../utils/helper';
-import {Link} from "react-router-dom";
 
 
 class BlogPost extends Component {

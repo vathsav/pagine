@@ -35,6 +35,7 @@ class AudioFrequencies extends Component {
 
     const postContainerWidth = document.getElementById('visualisation').clientWidth;
     const dimension = postContainerWidth * 0.65;
+    const frequencyData = new Uint8Array(200);
 
     svgVisualisation = d3.select('#visualisation')
       .attr('class', 'text-center py-3')
@@ -54,43 +55,6 @@ class AudioFrequencies extends Component {
       .attr('width', 30)
       .attr('height', 30)
       .style('cursor', 'pointer');
-  }
-
-  componentDidUpdate() {
-    const { isPlaying } = this.state;
-    const frequencyData = new Uint8Array(200);
-    const postContainerWidth = document.getElementById('visualisation').clientWidth;
-    const dimension = postContainerWidth * 0.65;
-
-    d3.select('#play-audio').on('click', () => {
-      if (!isPlaying) {
-        playPauseButton
-          .attr('xlink:href', iconPause);
-        audioFile.play();
-
-        this.setState({
-          isPlaying: !isPlaying,
-        });
-      }
-    });
-
-    buttonGroup.on('click', () => {
-      playPauseButton.attr('xlink:href', null);
-
-      if (isPlaying) {
-        playPauseButton
-          .attr('xlink:href', iconPlay);
-        audioFile.pause();
-      } else {
-        playPauseButton
-          .attr('xlink:href', iconPause);
-        audioFile.play();
-      }
-
-      this.setState({
-        isPlaying: !isPlaying,
-      });
-    });
 
     function drawPaths(audioFrequencies) {
       // Number of frequencies
@@ -202,6 +166,40 @@ class AudioFrequencies extends Component {
     }
 
     renderChart();
+  }
+
+  componentDidUpdate() {
+    const { isPlaying } = this.state;
+
+    d3.select('#play-audio').on('click', () => {
+      if (!isPlaying) {
+        playPauseButton
+          .attr('xlink:href', iconPause);
+        audioFile.play();
+
+        this.setState({
+          isPlaying: !isPlaying,
+        });
+      }
+    });
+
+    buttonGroup.on('click', () => {
+      playPauseButton.attr('xlink:href', null);
+
+      if (isPlaying) {
+        playPauseButton
+          .attr('xlink:href', iconPlay);
+        audioFile.pause();
+      } else {
+        playPauseButton
+          .attr('xlink:href', iconPause);
+        audioFile.play();
+      }
+
+      this.setState({
+        isPlaying: !isPlaying,
+      });
+    });
   }
 
   componentWillUnmount() {
