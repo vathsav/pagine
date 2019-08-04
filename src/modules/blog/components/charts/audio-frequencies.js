@@ -8,6 +8,7 @@ import iconPlay from '../../../../assets/images/icon-play.png';
 
 let analyser = null;
 let audioFile = null;
+let source = null;
 let svgVisualisation = null;
 let buttonGroup = null;
 let playPauseButton = null;
@@ -22,20 +23,21 @@ class AudioFrequencies extends Component {
   }
 
   componentDidMount() {
+    const { isPlaying } = this.state;
+    const postContainerWidth = document.getElementById('visualisation').clientWidth;
+    const dimension = postContainerWidth * 0.65;
+
     const context = new (window.AudioContext || window.webkitAudioContext)();
-    audioFile = document.getElementById('audio-file');
-    const source = context.createMediaElementSource(audioFile);
+
     analyser = context.createAnalyser();
 
-    source.connect(analyser);
-    source.connect(context.destination);
-
+    audioFile = document.getElementById('audio-file');
     audioFile.src = 'https://barbarous-falcon.s3.eu-west-2.amazonaws.com/resources/music/i_wont_lock_it_down.mp3';
     audioFile.crossOrigin = 'anonymous';
 
-    const postContainerWidth = document.getElementById('visualisation').clientWidth;
-    const dimension = postContainerWidth * 0.65;
-    const frequencyData = new Uint8Array(200);
+    source = context.createMediaElementSource(audioFile);
+    source.connect(analyser);
+    source.connect(context.destination);
 
     svgVisualisation = d3.select('#visualisation')
       .attr('class', 'text-center py-3')
@@ -55,6 +57,46 @@ class AudioFrequencies extends Component {
       .attr('width', 30)
       .attr('height', 30)
       .style('cursor', 'pointer');
+
+    d3.select('#play-audio').on('click', () => {
+      if (!isPlaying) {
+        playPauseButton
+          .attr('xlink:href', iconPause);
+        audioFile.play();
+
+        this.setState({
+          isPlaying: !isPlaying,
+        });
+      }
+    });
+
+    buttonGroup.on('click', () => {
+      playPauseButton.attr('xlink:href', null);
+
+      if (isPlaying) {
+        playPauseButton
+          .attr('xlink:href', iconPlay);
+        audioFile.pause();
+      } else {
+        playPauseButton
+          .attr('xlink:href', iconPause);
+        audioFile.play();
+      }
+
+      this.setState({
+        isPlaying,
+      });
+    });
+
+    this.setState({
+      isPlaying: false,
+    });
+  }
+
+  componentDidUpdate() {
+    const frequencyData = new Uint8Array(200);
+    const postContainerWidth = document.getElementById('visualisation').clientWidth;
+    const dimension = postContainerWidth * 0.65;
 
     function drawPaths(audioFrequencies) {
       // Number of frequencies
@@ -166,40 +208,6 @@ class AudioFrequencies extends Component {
     }
 
     renderChart();
-  }
-
-  componentDidUpdate() {
-    const { isPlaying } = this.state;
-
-    d3.select('#play-audio').on('click', () => {
-      if (!isPlaying) {
-        playPauseButton
-          .attr('xlink:href', iconPause);
-        audioFile.play();
-
-        this.setState({
-          isPlaying: !isPlaying,
-        });
-      }
-    });
-
-    buttonGroup.on('click', () => {
-      playPauseButton.attr('xlink:href', null);
-
-      if (isPlaying) {
-        playPauseButton
-          .attr('xlink:href', iconPlay);
-        audioFile.pause();
-      } else {
-        playPauseButton
-          .attr('xlink:href', iconPause);
-        audioFile.play();
-      }
-
-      this.setState({
-        isPlaying: !isPlaying,
-      });
-    });
   }
 
   componentWillUnmount() {
