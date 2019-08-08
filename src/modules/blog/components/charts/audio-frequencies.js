@@ -23,7 +23,6 @@ class AudioFrequencies extends Component {
   }
 
   componentDidMount() {
-    const { isPlaying } = this.state;
     const postContainerWidth = document.getElementById('visualisation').clientWidth;
     const dimension = postContainerWidth * 0.65;
 
@@ -59,16 +58,25 @@ class AudioFrequencies extends Component {
       .style('cursor', 'pointer');
 
     d3.select('#play-audio').on('click', () => {
-      if (!isPlaying) {
-        playPauseButton
-          .attr('xlink:href', iconPause);
-        audioFile.play();
+      playPauseButton.attr('xlink:href', iconPause);
+      audioFile.play();
 
-        this.setState({
-          isPlaying: !isPlaying,
-        });
-      }
+      this.setState({
+        isPlaying: true,
+      });
     });
+
+    this.setState({
+      isPlaying: false,
+    });
+  }
+
+  componentDidUpdate() {
+    const frequencyData = new Uint8Array(200);
+    const postContainerWidth = document.getElementById('visualisation').clientWidth;
+    const dimension = postContainerWidth * 0.65;
+
+    const { isPlaying } = this.state;
 
     buttonGroup.on('click', () => {
       playPauseButton.attr('xlink:href', null);
@@ -84,19 +92,9 @@ class AudioFrequencies extends Component {
       }
 
       this.setState({
-        isPlaying,
+        isPlaying: !isPlaying,
       });
     });
-
-    this.setState({
-      isPlaying: false,
-    });
-  }
-
-  componentDidUpdate() {
-    const frequencyData = new Uint8Array(200);
-    const postContainerWidth = document.getElementById('visualisation').clientWidth;
-    const dimension = postContainerWidth * 0.65;
 
     function drawPaths(audioFrequencies) {
       // Number of frequencies
