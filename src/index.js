@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Route from 'react-router-dom/es/Route';
+import Switch from 'react-router-dom/es/Switch';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
@@ -18,7 +20,7 @@ import BlogPostContainer from './modules/blog/containers/post';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio/containers';
-import { initGA } from "./modules/tracking";
+import { initGA } from './modules/tracking';
 import Travel from './modules/travel/containers';
 
 // Constants
