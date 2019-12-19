@@ -9,6 +9,7 @@ import { Container } from 'react-bootstrap';
 import TravelComponent from '../components';
 import Header from '../../header/component';
 import Footer from '../../footer/component';
+import { PageView } from '../../tracking';
 
 // Utils
 import {
@@ -19,6 +20,10 @@ import Loader from '../../loader';
 
 
 class TravelContainer extends Component {
+  componentDidMount() {
+    PageView();
+  }
+
   render() {
     const { firestoreReducer } = this.props;
     const travelObject = firestoreReducer.data.travel;

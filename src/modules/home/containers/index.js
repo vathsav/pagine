@@ -13,6 +13,7 @@ import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Home from '../components';
 import Loader from '../../loader';
+import { PageView } from '../../tracking';
 
 // Utils
 import { FIRESTORE_COLLECTION_CONTENT } from '../../../utils/constants';
@@ -35,6 +36,8 @@ class HomeContainer extends Component {
   componentDidMount() {
     const { getWeatherReport } = this.props;
     getWeatherReport();
+
+    PageView();
   }
 
   contactFormSubmitted(success, open) {

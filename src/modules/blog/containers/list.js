@@ -12,6 +12,7 @@ import Loader from '../../loader';
 import PostList from '../components/list';
 // import PostTimeline from '../components/post-timeline';
 import Sidebar from '../components/sidebar';
+import { PageView } from '../../tracking';
 
 // Utils
 import {
@@ -23,6 +24,10 @@ import {
 
 
 class BlogListContainer extends Component {
+  componentDidMount() {
+    PageView();
+  }
+
   render() {
     const { firestoreReducer, match } = this.props;
     const { content, posts, tags } = firestoreReducer.data;

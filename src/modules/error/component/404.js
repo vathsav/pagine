@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Row } from 'react-bootstrap';
 
+// Components
+import { PageView } from '../../tracking';
+
 
 class Error404 extends Component {
+  componentDidMount() {
+    PageView();
+  }
+
   render() {
     return (
       <Container>

@@ -11,6 +11,7 @@ import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
 import Sidebar from '../components/sidebar';
+import { PageView } from '../../tracking';
 
 // Utils
 import {
@@ -21,6 +22,10 @@ import {
 
 
 class BlogPostContainer extends Component {
+  componentDidMount() {
+    PageView();
+  }
+
   render() {
     const { firestoreReducer, match } = this.props;
     const { content, posts, tags } = firestoreReducer.data;

@@ -8,7 +8,6 @@ import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import * as ReactGA from 'react-ga';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -19,6 +18,7 @@ import BlogPostContainer from './modules/blog/containers/post';
 import Error404 from './modules/error/component/404';
 import HomeContainer from './modules/home/containers';
 import Portfolio from './modules/portfolio/containers';
+import { initGA } from "./modules/tracking";
 import Travel from './modules/travel/containers';
 
 // Constants
@@ -64,7 +64,7 @@ const rrfProps = {
 firebase.initializeApp(firebaseConfig);
 
 // Google Analytics
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
+initGA(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
 
 // URLs
 ReactDOM.render(

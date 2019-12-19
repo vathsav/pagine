@@ -10,12 +10,17 @@ import Footer from '../../footer/component';
 import Header from '../../header/component';
 import Loader from '../../loader';
 import Portfolio from '../components';
+import { PageView } from '../../tracking';
 
 // Utils
 import { FIRESTORE_COLLECTION_PORTFOLIO } from '../../../utils/constants';
 
 
 class PortfolioContainer extends Component {
+  componentDidMount() {
+    PageView();
+  }
+
   render() {
     const { firestoreReducer } = this.props;
     const { portfolio } = firestoreReducer.data;
