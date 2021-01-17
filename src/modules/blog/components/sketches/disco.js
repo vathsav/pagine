@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
-
 class SketchDisco extends Component {
   render() {
     function sketchSolitaire(processing) {
@@ -9,11 +8,13 @@ class SketchDisco extends Component {
       let g;
       let b;
 
+      // eslint-disable-next-line no-param-reassign
       processing.setup = function () {
         processing.createCanvas(225, 225, processing.WEBGL);
         processing.frameRate(30);
       };
 
+      // eslint-disable-next-line no-param-reassign
       processing.draw = function () {
         r = processing.random(255);
         g = processing.random(255);

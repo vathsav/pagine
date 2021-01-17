@@ -15,7 +15,6 @@ import { PageView } from '../../tracking';
 // Utils
 import { FIRESTORE_COLLECTION_PORTFOLIO } from '../../../utils/constants';
 
-
 class PortfolioContainer extends Component {
   componentDidMount() {
     PageView();
@@ -28,8 +27,7 @@ class PortfolioContainer extends Component {
     return (
       <div>
         {!portfolio
-          && <Loader color="yellow" />
-        }
+          && <Loader color="yellow" />}
 
         {portfolio
           && (
@@ -40,8 +38,7 @@ class PortfolioContainer extends Component {
 
               <Footer />
             </Container>
-          )
-        }
+          )}
       </div>
     );
   }
@@ -51,7 +48,7 @@ PortfolioContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),

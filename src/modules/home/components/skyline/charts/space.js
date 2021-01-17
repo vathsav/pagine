@@ -12,7 +12,6 @@ import {
 // Utils
 import { getRandomInt, getTimeInMilan } from '../../../../../utils/helper';
 
-
 class SkylineSpace extends Component {
   componentDidUpdate() {
     const { chartWidth, weather } = this.props;

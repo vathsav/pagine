@@ -12,7 +12,6 @@ import iconTag from '../../../assets/images/icon-tag.png';
 import { DISQUS_URL_PREFIX } from '../../../utils/constants';
 import { beautifyDateTime } from '../../../utils/helper';
 
-
 class PostCard extends Component {
   render() {
     const { content, slug } = this.props;
@@ -52,8 +51,7 @@ class PostCard extends Component {
                 </Row>
 
                 {content.image
-                  && <img src={content.image} alt="" className="post-banner" />
-                }
+                  && <img src={content.image} alt="" className="post-banner" />}
 
                 <Row className="py-2 align-items-center">
                   <Col xs={4}>
@@ -79,8 +77,7 @@ class PostCard extends Component {
                   </Col>
                 </Row>
               </div>
-            )
-          }
+            )}
         </Link>
       </Row>
     );

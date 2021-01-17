@@ -7,7 +7,6 @@ import {
   COLOR_BLACK, COLOR_BLUE_DARK, COLOR_CYAN_DARK, COLOR_RED_DARK,
 } from '../../../utils/constants';
 
-
 class PostTimeline extends Component {
   componentDidMount() {
     const { numberOfPosts } = this.props;

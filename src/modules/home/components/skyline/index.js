@@ -6,7 +6,6 @@ import SkylineLandscape from './charts/landscape';
 import SkylineCondition from './charts/conditions/index';
 import SkylineSpace from './charts/space';
 
-
 class SkylineAnimation extends Component {
   constructor(props) {
     super(props);

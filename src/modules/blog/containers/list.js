@@ -22,7 +22,6 @@ import {
   URL_BLOG_CATEGORY,
 } from '../../../utils/constants';
 
-
 class BlogListContainer extends Component {
   componentDidMount() {
     PageView();
@@ -62,8 +61,7 @@ class BlogListContainer extends Component {
     return (
       <div>
         {(!selectedPosts || !content) // && !categories
-          && <Loader color="blue" />
-        }
+          && <Loader color="blue" />}
 
         {selectedPosts && content // && categories
           && (
@@ -72,9 +70,9 @@ class BlogListContainer extends Component {
 
               <Container>
                 <Row>
-                  <Col xs={0} md={0} id="timeline-wrapper" className="d-none d-md-block">
-                    {/* <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} /> */}
-                  </Col>
+                  {/* <Col xs={0} md={0} id="timeline-wrapper" className="d-none d-md-block"> */}
+                  {/* <PostTimeline numberOfPosts={Object.keys(selectedPosts).length} /> */}
+                  {/* </Col> */}
 
                   <Col xs={12} md={9}>
                     <PostList posts={selectedPosts} tags={tags} />
@@ -88,8 +86,7 @@ class BlogListContainer extends Component {
 
               <Footer />
             </Container>
-          )
-        }
+          )}
       </div>
     );
   }
@@ -100,7 +97,7 @@ BlogListContainer.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),

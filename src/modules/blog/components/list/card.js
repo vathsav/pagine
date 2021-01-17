@@ -11,7 +11,6 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 // Utils
 import { beautifyDateTime } from '../../../../utils/helper';
 
-
 class PostCard extends Component {
   render() {
     const { content, slug, tags } = this.props;
@@ -74,8 +73,7 @@ class PostCard extends Component {
                   <Link to={`post/${slug}`}>
                     <img src={content.image} alt="" className="post-banner" />
                   </Link>
-                )
-              }
+                )}
 
               <Row className="py-3 align-items-center">
                 <Col xs={12} sm={4}>
@@ -101,8 +99,7 @@ class PostCard extends Component {
                 </Col>
               </Row>
             </div>
-          )
-        }
+          )}
       </div>
     );
   }

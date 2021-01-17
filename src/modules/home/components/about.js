@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import imageVathsav from '../../../assets/images/vathsav.png';
 
-
 class About extends Component {
   render() {
     const { content } = this.props;

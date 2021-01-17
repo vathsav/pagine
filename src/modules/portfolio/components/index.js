@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Components
 import PortfolioItem from './portfolio-item';
 
-
 class Portfolio extends Component {
   render() {
     const { items } = this.props;

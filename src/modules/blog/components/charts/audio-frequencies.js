@@ -1,10 +1,10 @@
+/* eslint-disable no-mixed-operators */
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 
 // Images
 import iconPause from '../../../../assets/images/icon-pause.png';
 import iconPlay from '../../../../assets/images/icon-play.png';
-
 
 let analyser = null;
 let audioFile = null;
@@ -157,8 +157,8 @@ class AudioFrequencies extends Component {
         pathFive.push(pathFive[0]);
 
         const lineFunctionCurvy = d3.line()
-          .x(d => d[0])
-          .y(d => d[1])
+          .x((d) => d[0])
+          .y((d) => d[1])
           .curve(d3.curveBasis);
 
         svgVisualisation.append('path')

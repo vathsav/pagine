@@ -1,12 +1,12 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
+  env: {
+    browser: true,
+    es6: true,
   },
-  "extends": [
+  extends: [
     'airbnb',
   ],
-  "rules": {
+  rules: {
     'react/prefer-stateless-function': 'off',
     'react/jsx-filename-extension': 'off',
     'max-len': ['error', 120, 2, {
@@ -16,7 +16,7 @@ module.exports = {
       ignoreStrings: true,
       ignoreTemplateLiterals: true,
     }],
-    "react/forbid-prop-types": 'off',
+    'react/forbid-prop-types': 'off',
     'no-unused-expressions': [
       'error',
       {

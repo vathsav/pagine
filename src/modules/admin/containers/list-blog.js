@@ -11,7 +11,6 @@ import ListBlog from '../components/list-blog';
 // Utils
 import { FIRESTORE_COLLECTION_CONTENT, FIRESTORE_COLLECTION_POSTS } from '../../../utils/constants';
 
-
 class BlogListContainer extends Component {
   render() {
     const { firestoreReducer } = this.props;
@@ -30,12 +29,10 @@ class BlogListContainer extends Component {
               </Col>
             </Row>
           </Container>
-        )
-        }
+        )}
 
         {!posts && !content // && !categories
-        && <div>LOADING</div>
-        }
+        && <div>LOADING</div>}
       </Container>
     );
   }
@@ -45,7 +42,7 @@ BlogListContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),

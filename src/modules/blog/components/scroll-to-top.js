@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // Images
 import iconScrollToTop from '../../../assets/images/icon-scroll-to-top.png';
 
-
 class ScrollToTop extends Component {
   render() {
     return (

@@ -19,7 +19,6 @@ import iconTag from '../../../../assets/images/icon-tag.png';
 import { DISQUS_URL_PREFIX } from '../../../../utils/constants';
 import { beautifyDateTime } from '../../../../utils/helper';
 
-
 class BlogPost extends Component {
   render() {
     const { content, slug, tags } = this.props;

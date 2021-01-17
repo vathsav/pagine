@@ -15,7 +15,6 @@ import {
   URL_CONNECT_LINKEDIN,
 } from '../../../utils/constants';
 
-
 class Footer extends Component {
   render() {
     return (
@@ -27,7 +26,7 @@ class Footer extends Component {
                 mail@vathsav.com
               </div>
               <div className="title-small">
-                © 2014-2019 Vathsav Harikrishnan
+                © 2014 - 2021 Vathsav Harikrishnan
               </div>
             </Col>
 

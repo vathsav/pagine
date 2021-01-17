@@ -34,7 +34,6 @@ import {
   resolveWeatherCode,
 } from '../../../../../../utils/helper';
 
-
 class SkylineCondition extends Component {
   constructor(props) {
     super(props);

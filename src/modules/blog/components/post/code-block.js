@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 
-
 class CodeBlock extends Component {
   constructor(props) {
     super(props);

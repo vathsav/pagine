@@ -14,7 +14,6 @@ import {
   ADMIN_VIEW_PORTFOLIO,
 } from '../../../../utils/constants';
 
-
 class NavigationMenu extends Component {
   render() {
     const { updateView } = this.props;

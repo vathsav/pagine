@@ -20,7 +20,6 @@ import {
   FIRESTORE_COLLECTION_TAGS,
 } from '../../../utils/constants';
 
-
 class BlogPostContainer extends Component {
   componentDidMount() {
     PageView();
@@ -35,8 +34,7 @@ class BlogPostContainer extends Component {
         {/* TODO show 404 if post doesn't exist */}
 
         {(!posts || !content) // && !categories
-          && <Loader color="blue" />
-        }
+          && <Loader color="blue" />}
 
         {/* TODO if posts is undefined, redirect to 404. */}
         {posts && content // && categories
@@ -57,8 +55,7 @@ class BlogPostContainer extends Component {
               </Container>
               <Footer />
             </Container>
-          )
-        }
+          )}
       </div>
     );
   }
@@ -69,11 +66,11 @@ BlogPostContainer.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(props => [
+  firestoreConnect((props) => [
     { collection: FIRESTORE_COLLECTION_POSTS, doc: props.match.params[0] },
     FIRESTORE_COLLECTION_CONTENT,
     FIRESTORE_COLLECTION_TAGS,

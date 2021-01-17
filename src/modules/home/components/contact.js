@@ -3,7 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import * as emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
 
-
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +15,15 @@ class Contact extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitContactForm = this.submitContactForm.bind(this);
+  }
+
+  handleInputChange(event) {
+    const { target } = event;
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   submitContactForm() {
@@ -39,15 +47,6 @@ class Contact extends Component {
       }, () => {
         contactFormSubmitted(false, true);
       });
-  }
-
-  handleInputChange(event) {
-    const { target } = event;
-    const { name, value } = target;
-
-    this.setState({
-      [name]: value,
-    });
   }
 
   render() {

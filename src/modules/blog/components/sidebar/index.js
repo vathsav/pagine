@@ -7,7 +7,6 @@ import SidebarAbout from './sidebar-about';
 import SidebarSubscribe from './sidebar-subscribe';
 import SidebarCategories from './sidebar-categories';
 
-
 class Sidebar extends Component {
   render() {
     const { content, tags } = this.props;

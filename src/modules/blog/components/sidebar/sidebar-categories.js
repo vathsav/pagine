@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
 class SidebarCategories extends Component {
   render() {
     const { tags } = this.props;

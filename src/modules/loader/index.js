@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Spinner } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
 class Loader extends Component {
   render() {
     const { color } = this.props;

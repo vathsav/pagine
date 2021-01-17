@@ -7,7 +7,6 @@ import {
   getRandomInt, getTimeInMilan, getTransformTranslation, scaleVectorGroup,
 } from '../../../../../utils/helper';
 
-
 class SkylineLandscape extends Component {
   componentDidUpdate() {
     const { chartWidth } = this.props;

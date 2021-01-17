@@ -4,7 +4,6 @@ import { Col, Row } from 'react-bootstrap';
 // Images
 import iconCheck from '../../../../assets/images/icon-check.png';
 
-
 class SidebarSubscribe extends Component {
   render() {
     return (

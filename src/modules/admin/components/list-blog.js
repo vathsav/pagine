@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 // Components
 import PostCard from './card';
 
-
 class ListBlog extends Component {
   render() {
     const { posts } = this.props;

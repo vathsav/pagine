@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import PostCard from './card';
 
-
 class PostList extends Component {
   render() {
     const { posts, tags } = this.props;

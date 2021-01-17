@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 // Utils
 import { FIRESTORE_COLLECTION_PORTFOLIO } from '../../../utils/constants';
 
-
 class AddPortfolioItem extends Component {
   constructor(props) {
     super(props);

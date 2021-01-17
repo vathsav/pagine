@@ -18,7 +18,6 @@ import {
 } from '../../../utils/constants';
 import Loader from '../../loader';
 
-
 class TravelContainer extends Component {
   componentDidMount() {
     PageView();
@@ -32,8 +31,7 @@ class TravelContainer extends Component {
     return (
       <div>
         {(!travelObject || !travelContent)
-          && <Loader color="cyan" />
-        }
+          && <Loader color="cyan" />}
 
         {travelObject && travelContent
           && (
@@ -44,8 +42,7 @@ class TravelContainer extends Component {
 
               <Footer />
             </Container>
-          )
-        }
+          )}
       </div>
     );
   }
@@ -55,7 +52,7 @@ TravelContainer.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),

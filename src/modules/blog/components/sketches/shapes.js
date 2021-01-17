@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
-
 class SketchShapes extends Component {
   render() {
     function sketchShapes(processing) {
@@ -10,6 +9,7 @@ class SketchShapes extends Component {
       let cuboid;
       let star;
 
+      // eslint-disable-next-line no-param-reassign
       processing.setup = function () {
         processing.createCanvas(500, 600, processing.WEBGL);
         cube = false;
@@ -87,25 +87,29 @@ class SketchShapes extends Component {
       }
 
       function shapeSelected() {
-        if (processing.mouseX >= 0 && processing.mouseX <= processing.width / 8 && processing.mouseY >= 0
+        if (processing.mouseX >= 0
+            && processing.mouseX <= processing.width / 8 && processing.mouseY >= 0
           && processing.mouseY <= processing.height / 4) {
           cube = true;
           pyramid = false;
           cuboid = false;
           star = false;
-        } else if (processing.mouseX >= 0 && processing.mouseX <= processing.width / 8 && processing.mouseY >= processing.height / 4
+        } else if (processing.mouseX >= 0
+            && processing.mouseX <= processing.width / 8 && processing.mouseY >= processing.height / 4
           && processing.mouseY <= 2 * (processing.height / 4)) {
           cube = false;
           pyramid = true;
           cuboid = false;
           star = false;
-        } else if (processing.mouseX >= 0 && processing.mouseX <= processing.width / 8 && processing.mouseY >= 2 * (processing.height / 4)
+        } else if (processing.mouseX >= 0
+            && processing.mouseX <= processing.width / 8 && processing.mouseY >= 2 * (processing.height / 4)
           && processing.mouseY <= 3 * (processing.height / 4)) {
           cube = false;
           pyramid = false;
           cuboid = true;
           star = false;
-        } else if (processing.mouseX >= 0 && processing.mouseX <= processing.width / 8 && processing.mouseY >= 3 * (processing.height / 4)
+        } else if (processing.mouseX >= 0
+            && processing.mouseX <= processing.width / 8 && processing.mouseY >= 3 * (processing.height / 4)
           && processing.mouseY <= 4 * (processing.height / 4)) {
           cube = false;
           pyramid = false;
@@ -181,6 +185,7 @@ class SketchShapes extends Component {
         }
       }
 
+      // eslint-disable-next-line no-param-reassign
       processing.draw = function () {
         displayInterface();
         displayShapes();

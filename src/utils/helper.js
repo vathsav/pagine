@@ -21,7 +21,6 @@ import {
   WEATHER_STATUS_TORNADO,
 } from './constants';
 
-
 export function getTimeInMilan() {
   const currentTime = new Date();
   const UTCTime = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);

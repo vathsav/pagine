@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 // Utils
 import { FIRESTORE_COLLECTION_TAGS } from '../../../utils/constants';
 
-
 class AddTag extends Component {
   constructor(props) {
     super(props);

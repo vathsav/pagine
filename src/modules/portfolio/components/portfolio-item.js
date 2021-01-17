@@ -6,7 +6,6 @@ import iconArticle from '../../../assets/images/icon-article.png';
 import iconCode from '../../../assets/images/icon-code.png';
 import iconExternalLink from '../../../assets/images/icon-external-link.png';
 
-
 class PortfolioItem extends Component {
   render() {
     const { content } = this.props;

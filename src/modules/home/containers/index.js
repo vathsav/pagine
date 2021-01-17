@@ -19,7 +19,6 @@ import { PageView } from '../../tracking';
 import { FIRESTORE_COLLECTION_CONTENT } from '../../../utils/constants';
 import PopupSubmit from '../../popups/contact-submit';
 
-
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
@@ -56,8 +55,7 @@ class HomeContainer extends Component {
     return (
       <div>
         {(!content || !weatherReducer.weather)
-          && <Loader color="red" />
-        }
+          && <Loader color="red" />}
 
         {(content && weatherReducer.weather)
           && (
@@ -83,8 +81,7 @@ class HomeContainer extends Component {
                 <Footer />
               </Container>
             </div>
-          )
-        }
+          )}
       </div>
     );
   }
@@ -96,7 +93,7 @@ HomeContainer.propTypes = {
   weatherReducer: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = {
   getWeatherReport: fetchWeatherReport,

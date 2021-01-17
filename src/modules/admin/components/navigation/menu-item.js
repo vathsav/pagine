@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
 class MenuItem extends Component {
   render() {
     const { name, view, updateView } = this.props;

@@ -3,7 +3,6 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import PropTypes from 'prop-types';
 
-
 class Globe extends Component {
   componentDidMount() {
     const { countriesVisited } = this.props;

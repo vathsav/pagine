@@ -19,7 +19,6 @@ import {
   ADMIN_VIEW_PORTFOLIO,
 } from '../../utils/constants';
 
-
 class AdminPanel extends Component {
   constructor(props) {
     super(props);

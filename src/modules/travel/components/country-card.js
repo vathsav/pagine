@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class CountryCard extends Component {
   render() {
     const { country } = this.props;

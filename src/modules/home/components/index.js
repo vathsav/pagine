@@ -7,7 +7,6 @@ import About from './about';
 import Contact from './contact';
 import Introduction from './introduction';
 
-
 class Home extends Component {
   render() {
     const { content, weather } = this.props;

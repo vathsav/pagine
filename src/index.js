@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import * as serviceWorker from './serviceWorker';
@@ -38,7 +38,6 @@ import reducers from './rootReducer';
 // Styles
 import './styles/css/main.css';
 
-
 const storeEnhancers = compose(
   applyMiddleware(thunk),
 );
@@ -69,6 +68,7 @@ initGA(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
 // URLs
 ReactDOM.render(
   <Provider store={store}>
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <ReactReduxFirebaseProvider {...rrfProps}>
       <BrowserRouter>
         <Switch>

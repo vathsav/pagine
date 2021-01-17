@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Assets
 import gelato from '../../assets/images/gelato.png';
 
-
 class PopupSubmit extends Component {
   render() {
     const { contactFormSubmitted, success } = this.props;
@@ -13,6 +12,7 @@ class PopupSubmit extends Component {
     return (
       <Row className="popup-overlay h-100 no-gutters">
         <div className="popup text-center mx-auto my-auto p-4 p-lg-5">
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <div
             className="popup-close"
             onClick={() => {

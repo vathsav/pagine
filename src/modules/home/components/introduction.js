@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import SkylineAnimation from './skyline/index';
 
-
 class Introduction extends Component {
   render() {
     const { content, weather } = this.props;

@@ -3,9 +3,8 @@ import fetch from 'cross-fetch';
 // Utils
 import { ACTION_FETCH_WEATHER, API_URL_OWM } from '../../../utils/constants';
 
-
 export default function fetchWeatherReport() {
-  return dispatch => fetch(`${API_URL_OWM}id=${process.env.REACT_APP_OPEN_WEATHER_MAP_CITY_ID}&appId=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`)
+  return (dispatch) => fetch(`${API_URL_OWM}id=${process.env.REACT_APP_OPEN_WEATHER_MAP_CITY_ID}&appId=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`)
     .then((response) => {
       // TODO: Move 400 to consts
       if (response.status >= 400) {

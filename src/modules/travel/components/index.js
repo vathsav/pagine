@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import CountryCard from './country-card';
 import Globe from './charts/globe';
 
-
 class TravelComponent extends Component {
   render() {
     const { content, travel } = this.props;

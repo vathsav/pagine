@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { firestoreConnect } from 'react-redux-firebase';
 
-
 class ListPortfolio extends Component {
   render() {
     return (

@@ -14,7 +14,6 @@ import {
   URL_BLOG_LIST, URL_HOME, URL_PORTFOLIO, URL_TRAVEL,
 } from '../../../utils/constants';
 
-
 class Header extends Component {
   render() {
     const { color, progress } = this.props;
@@ -41,8 +40,7 @@ class Header extends Component {
             <Col sm={12} className="text-center align-self-center px-0">
               <ScrollIndicator color={color} />
             </Col>
-          )
-        }
+          )}
       </div>
     );
   }

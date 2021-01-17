@@ -13,7 +13,6 @@ import {
 } from '../../../utils/constants';
 import { getWordCount } from '../../../utils/helper';
 
-
 class AddPost extends Component {
   constructor(props) {
     super(props);
@@ -222,7 +221,7 @@ AddPost.propTypes = {
   firestoreReducer: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 export default compose(
   connect(mapStateToProps),
