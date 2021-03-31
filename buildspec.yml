@@ -1,12 +1,14 @@
---- 
-artifacts: 
-  files:
-    - build/**/*
-    - 'appspec.yml'
-  type: zip
-phases: 
-  install: 
-    commands: 
+version: 0.2
+
+# This spec prepares a production-ready bundle to distribute through Cloudfront.
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14.x
+
+  build:
+    commands:
       - "echo start"
       - pwd
       - "echo setting up front-end variables"
@@ -17,4 +19,8 @@ phases:
       - "npm install"
       - pwd
       - "npm run build"
-version: 0.2
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "build"
