@@ -36,7 +36,7 @@ import {
 import reducers from './rootReducer';
 
 // Styles
-import './styles/css/main.css';
+import './styles/main.scss';
 
 const storeEnhancers = compose(
   applyMiddleware(thunk),
