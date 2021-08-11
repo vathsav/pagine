@@ -31,7 +31,7 @@ class AudioFrequencies extends Component {
     analyser = context.createAnalyser();
 
     audioFile = document.getElementById('audio-file');
-    audioFile.src = 'https://barbarous-falcon.s3.eu-west-2.amazonaws.com/resources/music/i_wont_lock_it_down.mp3';
+    audioFile.src = 'https://media.vathsav.com/resources/music/i_wont_lock_it_down.mp3';
     audioFile.crossOrigin = 'anonymous';
 
     source = context.createMediaElementSource(audioFile);

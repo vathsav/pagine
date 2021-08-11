@@ -45,7 +45,7 @@ class PostCard extends Component {
             <div>
               <Row className="border-bottom-black mx-0 mb-2 pb-2 align-items-center no-gutters">
                 <Col xs={12}>
-                  <Link to={`post/${slug}`}>
+                  <Link to={`/post/${slug}`}>
                     <div className="title-medium font-weight-bold pb-1">
                       {content.title}
                     </div>
@@ -70,7 +70,7 @@ class PostCard extends Component {
 
               {content.image
                 && (
-                  <Link to={`post/${slug}`}>
+                  <Link to={`/post/${slug}`}>
                     <img src={content.image} alt="" className="post-banner" />
                   </Link>
                 )}
