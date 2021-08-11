@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import thunk from 'redux-thunk';
@@ -38,6 +43,16 @@ import reducers from './rootReducer';
 // Styles
 import './styles/main.scss';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const storeEnhancers = compose(
   applyMiddleware(thunk),
 );
@@ -71,6 +86,7 @@ ReactDOM.render(
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <ReactReduxFirebaseProvider {...rrfProps}>
       <BrowserRouter>
+        <ScrollToTop />
         <Switch>
           <Route exact path={URL_ADMIN} component={AdminPanel} />
           <Route exact path={URL_BLOG_LIST} component={BlogListContainer} />
