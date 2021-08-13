@@ -3,21 +3,10 @@ version: 0.2
 # This spec prepares a production-ready bundle to distribute through Cloudfront.
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 16.x
-
   build:
     commands:
-      - "echo start"
-      - pwd
-      - "echo setting up front-end variables"
-      - echo REACT_APP_FIREBASE_API_KEY=\"$REACT_APP_FIREBASE_API_KEY\" >>.env
-      - echo REACT_APP_FIREBASE_AUTH_DOMAIN=\"$REACT_APP_FIREBASE_AUTH_DOMAIN\" >>.env
-      - echo REACT_APP_FIREBASE_PROJECT_ID=\"$REACT_APP_FIREBASE_PROJECT_ID\" >>.env
       - pwd
       - "yarn install"
-      - pwd
       - "yarn build"
 
 artifacts:
