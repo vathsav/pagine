@@ -3,6 +3,10 @@ import { Container, Row } from 'react-bootstrap';
 
 // Components
 import { PageView } from '../../tracking';
+import Header from '../../header/component';
+
+// Images
+import gelato from '../../../assets/images/gelato.png';
 
 class Error404 extends Component {
   componentDidMount() {
@@ -11,18 +15,34 @@ class Error404 extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          404 error!
-        </Row>
+      <Container fluid className="main bg-red-light px-0 full-height">
+        <Header color="red" />
 
-        <Row>
-          Oops! The page you requested doesn&apos;t exist!
+        <Container>
+          <Row>
+            <div className="text-center title-large w-100 mt-5 pt-5">
+              Error 404
+            </div>
 
-          If you think it should be here, let me know.
+            <div className="text-center title-medium w-100 mt-3">
+              Oops! The page you requested doesn&apos;t exist!
+            </div>
 
-          Would you like to go to my homepage instead?
-        </Row>
+            <div className="text-center w-100 my-4 inverted-gelato">
+              <img src={gelato} alt="" />
+            </div>
+          </Row>
+
+          <Row>
+            <div className="content-medium text-center w-100">
+              Would you like to go to the
+              {' '}
+              <a href="/" className="font-weight-bold color-black hover-white">homepage</a>
+              {' '}
+              instead?
+            </div>
+          </Row>
+        </Container>
       </Container>
     );
   }

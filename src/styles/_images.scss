@@ -33,6 +33,13 @@
   width: auto;
 }
 
+.inverted-gelato {
+  img {
+    transform: rotate(180deg);
+    height: 150px;
+  }
+}
+
 // TODO: rename this
 .tag-2 {
   height: 18px;
