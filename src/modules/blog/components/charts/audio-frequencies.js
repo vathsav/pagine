@@ -227,7 +227,7 @@ class AudioFrequencies extends Component {
         </p>
 
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <audio id="audio-file" src="https://www.vathsav.com/download/i_wont_lock_it_down.mp3" />
+        <audio id="audio-file" src="https://media.vathsav.com/resources/music/i_wont_lock_it_down.mp3" />
         <div id="visualisation" />
       </div>
     );

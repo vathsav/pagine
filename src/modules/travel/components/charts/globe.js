@@ -38,10 +38,10 @@ class Globe extends Component {
       svg.selectAll('path').attr('d', path);
     });
 
-    d3.json('https://media.vathsav.com/resources/countries.json')
+    d3.json('https://media.vathsav.com/resources/countries-v2.json')
       .then((countries) => {
         svg.selectAll('.country')
-          .data(topojson.feature(countries, countries.objects.polygons).features)
+          .data(topojson.feature(countries, countries.objects.countries).features)
           .enter().append('path')
           .attr('class', (d) => {
             if (countriesVisited.includes(d.properties.name)) {
@@ -51,16 +51,16 @@ class Globe extends Component {
             return 'country';
           })
           .attr('d', path)
-          .on('mouseover', (d) => {
+          .on('mouseover', (event, d) => {
             if (!countriesVisited.includes(d.properties.name)) {
-              d3.select(d3.event.target).attr('class', 'country-hovered');
+              d3.select(event.target).attr('class', 'country-hovered');
             }
           })
-          .on('mouseout', (d) => {
+          .on('mouseout', (event, d) => {
             if (countriesVisited.includes(d.properties.name)) {
-              d3.select(d3.event.target).attr('class', 'country-visited');
+              d3.select(event.target).attr('class', 'country-visited');
             } else {
-              d3.select(d3.event.target).attr('class', 'country');
+              d3.select(event.target).attr('class', 'country');
             }
           });
       });
