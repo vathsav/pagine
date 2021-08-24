@@ -49,10 +49,12 @@ class AddPost extends Component {
     })
       .then(() => {
         // TODO: Create popups
+        // eslint-disable-next-line no-console
         console.log('Post created successfully!');
       })
       .catch((error) => {
         // TODO: Create popups
+        // eslint-disable-next-line no-console
         console.error('Error creating post: ', error);
       });
   }
@@ -208,6 +210,7 @@ class AddPost extends Component {
           </Col>
 
           <Col sm={12} md={6} className="card">
+            {/* eslint-disable-next-line react/no-danger */}
             <div id="preview" dangerouslySetInnerHTML={{ __html: content }} />
           </Col>
         </Row>

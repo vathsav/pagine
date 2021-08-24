@@ -16,6 +16,7 @@ class About extends Component {
           <Container className="color-white content-medium py-4">
             <Row>
               <Col md={12} lg={6} className="order-lg-first order-last zindex-tooltip">
+                {/* eslint-disable-next-line react/no-danger */}
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               </Col>
 

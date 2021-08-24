@@ -26,10 +26,12 @@ class AddTag extends Component {
     firestore.collection(FIRESTORE_COLLECTION_TAGS).add(this.state)
       .then(() => {
         // TODO: Create popups
+        // eslint-disable-next-line no-console
         console.log('Tag created successfully!');
       })
       .catch((error) => {
         // TODO: Create popups
+        // eslint-disable-next-line no-console
         console.error('Error creating tag: ', error);
       });
   }

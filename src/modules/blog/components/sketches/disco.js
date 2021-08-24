@@ -9,13 +9,13 @@ class SketchDisco extends Component {
       let b;
 
       // eslint-disable-next-line no-param-reassign
-      processing.setup = function () {
+      processing.setup = () => {
         processing.createCanvas(225, 225, processing.WEBGL);
         processing.frameRate(30);
       };
 
       // eslint-disable-next-line no-param-reassign
-      processing.draw = function () {
+      processing.draw = () => {
         r = processing.random(255);
         g = processing.random(255);
         b = processing.random(255);

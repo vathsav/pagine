@@ -10,7 +10,7 @@ class SketchShapes extends Component {
       let star;
 
       // eslint-disable-next-line no-param-reassign
-      processing.setup = function () {
+      processing.setup = () => {
         processing.createCanvas(500, 600, processing.WEBGL);
         cube = false;
         pyramid = false;
@@ -186,7 +186,7 @@ class SketchShapes extends Component {
       }
 
       // eslint-disable-next-line no-param-reassign
-      processing.draw = function () {
+      processing.draw = () => {
         displayInterface();
         displayShapes();
         shapeSelected();

@@ -28,10 +28,12 @@ class AddPortfolioItem extends Component {
     firestore.collection(FIRESTORE_COLLECTION_PORTFOLIO).add(this.state)
       .then(() => {
         // TODO Create popup
+        // eslint-disable-next-line no-console
         console.log('Post created successfully!');
       })
       .catch((error) => {
         // TODO Create popup
+        // eslint-disable-next-line no-console
         console.error('Error creating post: ', error);
       });
   }

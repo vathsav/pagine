@@ -19,6 +19,7 @@ class Introduction extends Component {
         </Col>
 
         <Col sm={12} lg={6} className="content-medium py-4 py-lg-0">
+          {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </Col>
       </Row>
