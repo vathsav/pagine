@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 // Components
 import ScrollToTop from '../scroll-to-top';
-import SidebarAbout from './sidebar-about';
+// import SidebarAbout from './sidebar-about';
 import SidebarSubscribe from './sidebar-subscribe';
 import SidebarCategories from './sidebar-categories';
 
 class Sidebar extends Component {
   render() {
+    // eslint-disable-next-line no-unused-vars
     const { content, tags } = this.props;
 
     return (
       <div className="paragraph h-100">
-        <SidebarAbout content={content.about} />
-
+        {/* <SidebarAbout content={content.about} /> */}
         <div className="position-sticky sidebar-sticky-offset">
           <SidebarSubscribe />
           <SidebarCategories tags={tags} />
